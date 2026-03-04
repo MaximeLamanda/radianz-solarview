@@ -37,10 +37,10 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
                     <th className="px-2 py-2 font-medium text-zinc-500">kWp</th>
                     <th className="w-16 px-2 py-2 font-medium text-zinc-500">Statut</th>
                     <th className="w-12 px-2 py-2 text-center font-medium text-zinc-500">
-                      <Zap className="mx-auto size-3.5" title="Onduleur" />
+                      <span title="Onduleur"><Zap className="mx-auto size-3.5" /></span>
                     </th>
                     <th className="w-12 px-2 py-2 text-center font-medium text-zinc-500">
-                      <Sun className="mx-auto size-3.5" title="Panel" />
+                      <span title="Panel"><Sun className="mx-auto size-3.5" /></span>
                     </th>
                     <th className="px-2 py-2 font-medium text-zinc-500">Est. prod</th>
                     <th className="w-12 px-2 py-2"></th>
