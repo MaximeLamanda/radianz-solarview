@@ -35,9 +35,16 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
             </div>
 
             {/* Page content - max height + overflow for cut-off effect */}
-            <div className="max-h-[420px] space-y-6 overflow-hidden p-6">
+            <div className="relative max-h-[420px] space-y-6 overflow-hidden p-6">
+              {/* Zone personnalisable : votre logo */}
+              <div
+                className="absolute right-6 top-6 flex size-12 items-center justify-center rounded-lg border-2 border-dashed border-zinc-300 bg-zinc-50 text-[10px] font-medium text-zinc-500 dark:border-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-400"
+                title="Your logo"
+              >
+                Your logo
+              </div>
               {/* Prospect header */}
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-1 pr-24">
                 <h3 className="text-xl font-semibold">Plateforme Amazon Lyon</h3>
                 <p className="text-sm text-zinc-500">Saint-Priest • 69</p>
               </div>

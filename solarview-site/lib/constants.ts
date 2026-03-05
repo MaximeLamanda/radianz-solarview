@@ -26,17 +26,16 @@ export const SITE = {
 } as const;
 
 export const STAT_BADGES = [
-  { label: "Solar", value: "92%" },
-  { label: "Building", value: "85%" },
-  { label: "Contact", value: "78%" },
-  { label: "Credit", value: "95%" },
-] as const;
+  { label: "Solar", value: "92%", data: ["Irr. 4.2", "1200 kWh/kWp"] },
+  { label: "Building", value: "85%", data: ["2015", "2356 m²"] },
+  { label: "Contact", value: "78%", data: ["SIRET", "NAF 4110"] },
+  { label: "Credit", value: "95%", data: ["Rating A", "CIR 2024"] },
+];
 
 export const NAV_LINKS = [
-  { title: "Home", url: "#hero" },
-  { title: "Benefits", url: "#benefices" },
-  { title: "Features", url: "#avantages" },
-  { title: "Contact", url: "#contact" },
+  { title: "Benefit", url: "/#avantages" },
+  { title: "Feature", url: "/#features" },
+  { title: "Contact", url: "/contact" },
 ] as const;
 
 export const HERO_FEATURES = [
@@ -100,6 +99,7 @@ export const FEATURES_166 = [
       { value: "55", x: 35, y: 30 },
       { value: "23", x: 55, y: 50 },
       { value: "10", x: 75, y: 25 },
+      { value: "18", x: 45, y: 65 },
     ],
   },
 ] as const;
@@ -112,15 +112,15 @@ export const FOOTER = {
       title: "Product",
       links: [
         { text: "Features", url: "#avantages" },
-        { text: "Pricing", url: "#contact" },
-        { text: "Request a demo", url: "#contact" },
+        { text: "Pricing", url: "/contact" },
+        { text: "Request a demo", url: "/contact" },
       ],
     },
     {
       title: "Company",
       links: [
         { text: "About", url: "#hero" },
-        { text: "Contact", url: "#contact" },
+        { text: "Contact", url: "/contact" },
       ],
     },
     {

@@ -70,10 +70,10 @@ const Feature166 = ({
           </p>
         </div>
         <div className="relative flex justify-center">
-          <div className="relative flex w-full flex-col gap-4 md:w-1/2 lg:w-full">
-            <div className="relative flex flex-col gap-4 lg:flex-row lg:gap-4">
+          <div className="relative flex w-full max-w-5xl flex-col gap-4 md:w-full">
+            <div className="relative flex flex-col gap-4 md:flex-row md:gap-4">
               <div
-                className="relative flex min-h-[394px] flex-col justify-between overflow-hidden rounded-xl bg-cover bg-center p-5 md:p-6 lg:w-3/5 lg:p-10"
+                className="relative flex min-h-[394px] flex-col justify-between overflow-hidden rounded-xl bg-cover bg-center p-5 md:w-3/5 md:p-6 lg:p-10"
                 style={{ backgroundImage: `url(${feature1.image})` }}
               >
                 <div className="absolute inset-0 bg-black/40" />
@@ -82,27 +82,59 @@ const Feature166 = ({
                   <p className="max-w-md text-white/90">{feature1.description}</p>
                 </div>
                 {/* Box histogramme + consommation annuelle */}
-                <div className="relative z-10 flex w-full max-w-[280px] flex-col gap-2 self-start rounded-lg border border-white/15 bg-white/5 px-4 py-3 backdrop-blur-md">
-                  <span className="font-mono text-sm font-semibold tabular-nums text-white">
-                    1.24 MWh/year
-                  </span>
-                  <svg viewBox="0 0 200 40" className="h-24 w-full" preserveAspectRatio="none" aria-hidden>
-                      {[22, 18, 24, 20, 28, 32, 30, 34, 26, 22, 20, 24].map((h, i) => (
-                        <rect
-                          key={i}
-                          x={4 + i * 16}
-                          y={38 - h}
-                          width={12}
-                          height={h}
-                          rx={2}
-                          fill="rgba(255, 255, 255, 0.5)"
-                        />
-                      ))}
+                <div className="relative z-10 flex w-full h-[160px] w-full max-w-[280px] flex-col gap-2 self-start rounded-lg border border-white/15 bg-white/5 px-4 py-3 backdrop-blur-md">
+                  <div className="flex shrink-0 items-center justify-between gap-2">
+                    <span className="font-mono text-xs font-medium tabular-nums text-white">
+                      1.24 MWh/year
+                    </span>
+                    <span className="font-mono text-xs font-semibold tabular-nums text-white">
+                      78% auto
+                    </span>
+                  </div>
+                  <svg viewBox="0 12 200 28" className="min-h-[80px] flex-1 w-full" preserveAspectRatio="none" aria-hidden>
+                      {[
+                        { prod: 6, conso: 14 },
+                        { prod: 7, conso: 14 },
+                        { prod: 11, conso: 11 },
+                        { prod: 14, conso: 8 },
+                        { prod: 18, conso: 6 },
+                        { prod: 20, conso: 5 },
+                        { prod: 21, conso: 4 },
+                        { prod: 19, conso: 5 },
+                        { prod: 15, conso: 7 },
+                        { prod: 13, conso: 10 },
+                        { prod: 8, conso: 13 },
+                        { prod: 6, conso: 15 },
+                      ].map((v, i) => {
+                        const x = 4 + i * 16;
+                        const w = 12;
+                        const yBottom = 38;
+                        const yProdTop = 38 - v.prod;
+                        const yConsoTop = 38 - v.prod - v.conso;
+                        return (
+                          <g key={i}>
+                            <rect
+                              x={x}
+                              y={yProdTop}
+                              width={w}
+                              height={v.prod}
+                              fill="#E4FE55"
+                            />
+                            <rect
+                              x={x}
+                              y={yConsoTop}
+                              width={w}
+                              height={v.conso}
+                              fill="rgba(255, 255, 255, 0.6)"
+                            />
+                          </g>
+                        );
+                      })}
                     </svg>
                 </div>
               </div>
               <div
-                className="flex min-h-[300px] flex-col justify-between rounded-xl p-5 md:min-h-0 md:p-6 lg:w-2/5 lg:p-10"
+                className="flex min-h-[300px] flex-col justify-between rounded-xl p-5 md:min-h-0 md:w-2/5 md:p-6 lg:p-10"
                 style={{ backgroundColor: "#E4FE55" }}
               >
                 <div>
@@ -163,8 +195,8 @@ const Feature166 = ({
                 )}
               </div>
             </div>
-            <div className="relative flex flex-col gap-4 lg:flex-row lg:gap-4">
-              <div className="flex flex-col justify-between rounded-xl border border-zinc-200 p-5 dark:border-zinc-700 md:p-6 lg:w-2/5 lg:p-10">
+            <div className="relative flex flex-col gap-4 md:flex-row md:gap-4">
+              <div className="flex min-h-[320px] flex-col justify-between rounded-xl border border-zinc-200 p-5 dark:border-zinc-700 md:min-h-[360px] md:w-2/5 md:p-6 lg:p-10">
                 <div>
                   <h2 className="text-2xl font-semibold lg:text-3xl">{feature3.title}</h2>
                   <p className="text-muted-foreground">{feature3.description}</p>
@@ -174,7 +206,7 @@ const Feature166 = ({
                     <img
                       src="/graphdata.svg"
                       alt="Data sources to Unified Prospect Profile"
-                      className="h-full w-full max-h-[180px] max-w-[520px] object-contain"
+                      className="h-full w-full max-h-[180px] max-w-[300px] object-contain"
                     />
                   </div>
                 ) : (
@@ -185,7 +217,7 @@ const Feature166 = ({
                   />
                 )}
               </div>
-              <div className="flex flex-col justify-between rounded-xl border border-zinc-200 p-5 dark:border-zinc-700 md:p-6 lg:w-3/5 lg:p-10">
+              <div className="flex flex-col justify-between rounded-xl border border-zinc-200 p-5 dark:border-zinc-700 md:w-3/5 md:p-6 lg:p-10">
                 <div>
                   <h2 className="text-2xl font-semibold lg:text-3xl">{feature4.title}</h2>
                   <p className="text-muted-foreground">{feature4.description}</p>

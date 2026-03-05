@@ -22,7 +22,7 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
   }));
 
   return (
-    <section className={cn("pt-8 pb-24 md:pt-24", className)}>
+    <section id="features" className={cn("pt-8 pb-24 md:pt-24", className)}>
       <div className="container">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: Minimalist leads table mockup */}

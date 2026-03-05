@@ -39,8 +39,8 @@ export default function Home() {
           url: item.url,
         }))}
         auth={{
-          login: { title: "Log in", url: "#contact" },
-          signup: { title: "Request a demo", url: "#contact" },
+          login: { title: "Log in", url: "/contact" },
+          signup: { title: "Request a demo", url: "/contact" },
         }}
       />
       <main id="hero">

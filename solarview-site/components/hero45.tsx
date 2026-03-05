@@ -61,26 +61,54 @@ const Hero45 = ({
           {statBadges && statBadges.length > 0 && (
             <div className="pointer-events-none absolute inset-0">
               {statBadges.map((stat, i) => {
-                const positions = [
+                const positionsMobile = [
+                  { left: "28%", top: "36%" },
+                  { left: "72%", top: "28%" },
+                  { left: "28%", top: "66%" },
+                  { left: "72%", top: "58%" },
+                ];
+                const positionsDesktop = [
                   { left: "32%", top: "36%" },
                   { left: "68%", top: "28%" },
                   { left: "32%", top: "64%" },
                   { left: "68%", top: "56%" },
                 ];
-                const pos = positions[i % positions.length];
-                return (
-                  <span
-                    key={stat.label}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 rounded-md px-3 py-1.5 font-mono text-xs font-medium"
-                    style={{
-                      backgroundColor: "#E4FE55",
-                      color: "#171717",
-                      left: pos.left,
-                      top: pos.top,
-                    }}
+                const posM = positionsMobile[i % positionsMobile.length];
+                const posD = positionsDesktop[i % positionsDesktop.length];
+                const TagBlock = ({ left, top, className }: { left: string; top: string; className?: string }) => (
+                  <div
+                    className={cn(
+                      "absolute flex min-w-0 -translate-x-1/2 -translate-y-1/2 flex-col gap-1 md:gap-2",
+                      className
+                    )}
+                    style={{ left, top }}
                   >
-                    {stat.label} {stat.value}
-                  </span>
+                    <span
+                      className="inline-flex w-fit rounded-sm bg-[#E4FE55] px-2 py-0.5 font-mono text-[10px] font-medium text-black md:text-xs"
+                    >
+                      {stat.label} {stat.value}
+                    </span>
+                    {stat.data && stat.data.length > 0 && (
+                      <div
+                        className="rounded-sm border border-white/10 px-2.5 py-1.5 backdrop-blur-sm"
+                        style={{ backgroundColor: "rgba(0,0,0,0.15)" }}
+                      >
+                        <div className="flex flex-col gap-1 font-mono text-[9px] leading-relaxed text-white/80 md:gap-2 md:text-[10px]">
+                          {stat.data.slice(0, 3).map((d, j) => (
+                            <span key={j} className="block">
+                              {d}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+                return (
+                  <React.Fragment key={stat.label}>
+                    <TagBlock left={posM.left} top={posM.top} className="md:hidden" />
+                    <TagBlock left={posD.left} top={posD.top} className="hidden md:block" />
+                  </React.Fragment>
                 );
               })}
             </div>

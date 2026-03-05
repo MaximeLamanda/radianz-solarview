@@ -190,8 +190,8 @@ const Navbar1 = ({
             </a>
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <Menu className="size-4" />
+                <Button variant="outline" size="icon" className="size-11 min-w-11 shrink-0">
+                  <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
               <SheetContent className="overflow-y-auto">

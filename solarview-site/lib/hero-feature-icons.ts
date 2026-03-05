@@ -18,6 +18,8 @@ export interface Image {
 export interface StatBadge {
   label: string;
   value: string;
+  /** 2–3 data items sous le tag (ex: année construction, etc.) */
+  data?: string[];
 }
 
 export interface HeroFeatureIconsProps {
