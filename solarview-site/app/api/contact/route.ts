@@ -1,10 +1,18 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      console.error("RESEND_API_KEY is not set");
+      return NextResponse.redirect(
+        new URL("/contact?error=config", request.url),
+        307
+      );
+    }
+
+    const resend = new Resend(apiKey);
     const formData = await request.formData();
     const name = (formData.get("name") as string) || "";
     const email = (formData.get("email") as string) || "";
@@ -14,14 +22,6 @@ export async function POST(request: Request) {
     const contactEmail = process.env.CONTACT_EMAIL;
     if (!contactEmail) {
       console.error("CONTACT_EMAIL is not set");
-      return NextResponse.redirect(
-        new URL("/contact?error=config", request.url),
-        307
-      );
-    }
-
-    if (!process.env.RESEND_API_KEY) {
-      console.error("RESEND_API_KEY is not set");
       return NextResponse.redirect(
         new URL("/contact?error=config", request.url),
         307
