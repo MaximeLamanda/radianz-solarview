@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ArrowUpRight, MapPin, Sun, Zap } from "lucide-react";
+import { Link2, Sun, Table2, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 interface PipelineSectionProps {
@@ -22,7 +22,7 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
   }));
 
   return (
-    <section className={cn("py-24", className)}>
+    <section className={cn("pt-8 pb-24 md:pt-24", className)}>
       <div className="container">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: Minimalist leads table mockup */}
@@ -90,13 +90,12 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
                       </td>
                       <td className="px-2 py-2 font-mono text-zinc-500">{lead.estProd}</td>
                       <td className="w-12 px-2 py-2 text-right">
-                        <a
-                          href="#"
-                          className="inline-flex size-7 items-center justify-center rounded-md transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800"
-                          aria-label="Voir"
+                        <span
+                          className="inline-flex size-7 items-center justify-center rounded-md"
+                          aria-hidden="true"
                         >
-                          <ArrowUpRight className="size-3.5 text-zinc-500" />
-                        </a>
+                          <Link2 className="size-3.5 text-zinc-500" />
+                        </span>
                       </td>
                     </tr>
                   ))}
@@ -105,8 +104,8 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
             </div>
           </div>
 
-          {/* Right: Text content */}
-          <div className="order-1 flex flex-col gap-8 lg:order-2">
+          {/* Right: Fenêtre d'illustration (infos de la ligne sélectionnée) */}
+          <div className="order-1 flex flex-col gap-6 lg:order-2">
             <div>
               <h2 className="text-3xl font-semibold tracking-tight lg:text-4xl">
                 From lead to pipeline in one view
@@ -121,11 +120,11 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
                   className="flex size-8 shrink-0 items-center justify-center rounded-md"
                   style={{ backgroundColor: "#E4FE55" }}
                 >
-                  <MapPin className="size-4" style={{ color: "#171717" }} />
+                  <Link2 className="size-4" style={{ color: "#171717" }} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium">Location-first</h3>
-                  <p className="text-xs text-muted-foreground">Address and region at a glance</p>
+                  <h3 className="text-sm font-medium">Instant Share Link</h3>
+                  <p className="text-xs text-muted-foreground">No downloads required</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 dark:border-zinc-700 dark:bg-zinc-900/50">
@@ -133,11 +132,11 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
                   className="flex size-8 shrink-0 items-center justify-center rounded-md"
                   style={{ backgroundColor: "#E4FE55" }}
                 >
-                  <Zap className="size-4" style={{ color: "#171717" }} />
+                  <Table2 className="size-4" style={{ color: "#171717" }} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium">Tech specs</h3>
-                  <p className="text-xs text-muted-foreground">kWp, inverter & panel details</p>
+                  <h3 className="text-sm font-medium">Table view</h3>
+                  <p className="text-xs text-muted-foreground">Photo, kWp, status & output at a glance</p>
                 </div>
               </div>
             </div>

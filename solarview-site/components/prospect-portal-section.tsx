@@ -37,23 +37,16 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
             {/* Page content - max height + overflow for cut-off effect */}
             <div className="max-h-[420px] space-y-6 overflow-hidden p-6">
               {/* Prospect header */}
-              <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
-                <div>
-                  <h3 className="text-xl font-semibold">Amazon Distribution Center #4</h3>
-                  <p className="text-sm text-zinc-500">Inland Empire Region • CA</p>
-                </div>
-                <div className="shrink-0 text-right">
-                  <span className="text-2xl font-semibold" style={{ color: "#171717" }}>
-                    $2.4M
-                  </span>
-                </div>
+              <div className="flex flex-col gap-1">
+                <h3 className="text-xl font-semibold">Plateforme Amazon Lyon</h3>
+                <p className="text-sm text-zinc-500">Saint-Priest • 69</p>
               </div>
 
               {/* Bento grid + fake content below */}
               <div className="space-y-2">
-              <div className="grid min-h-[280px] grid-cols-3 grid-rows-2 gap-2">
-                {/* Photo - spans 2 rows */}
-                <div className="relative row-span-2 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800/50">
+              <div className="grid min-h-[280px] grid-cols-2 gap-2 md:grid-cols-3 md:grid-rows-2">
+                {/* Photo - mobile: full width 1 row, desktop: spans 2 rows */}
+                <div className="relative order-1 col-span-2 row-span-1 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none md:col-span-1 md:row-span-2">
                   <img
                     src="/top-photo.png"
                     alt="Solar installation"
@@ -63,29 +56,29 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                     className="absolute left-2 top-2 rounded-full px-2 py-0.5 font-mono text-[10px] font-medium"
                     style={{ backgroundColor: "#E4FE55", color: "#171717" }}
                   >
-                    LIDAR
+                    2356 m²
                   </span>
                 </div>
-                {/* Metrics */}
-                <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50">
+                {/* Metrics - mobile: Saving + Contact référent sous l'image (2 cols) */}
+                <div className="order-4 rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
                   <p className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                    Est. energy bill
+                    Facture énergie estimée
                   </p>
-                  <p className="text-lg font-semibold">$8.2K/yr</p>
+                  <p className="text-lg font-semibold">135 k€/an</p>
                 </div>
-                <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50">
+                <div className="order-5 rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
                   <p className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                    Solar potential
+                    Potentiel solaire
                   </p>
                   <p className="text-lg font-semibold">847 kWp</p>
                 </div>
-                <div className="rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50">
+                <div className="order-2 rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
                   <p className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                    Saving
+                    Économies annuelles
                   </p>
-                  <p className="text-lg font-semibold">$120K</p>
+                  <p className="text-lg font-semibold">108 k€</p>
                 </div>
-                <div className="flex min-h-[120px] flex-col justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50">
+                <div className="order-3 flex min-h-[120px] flex-col justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
                   <p className="shrink-0 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
                     Contact référent
                   </p>

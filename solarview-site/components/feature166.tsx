@@ -54,7 +54,7 @@ const Feature166 = ({
   className,
 }: Feature166Props) => {
   return (
-    <section className={cn("pb-32 pt-0", className)}>
+    <section className={cn("pb-16 pt-0 md:pb-24 lg:pb-32", className)}>
       <div className="container">
         <div className="mb-24 flex flex-col items-start justify-between gap-8 md:flex-row md:items-start md:gap-12">
           {badge && (
@@ -73,7 +73,7 @@ const Feature166 = ({
           <div className="relative flex w-full flex-col gap-4 md:w-1/2 lg:w-full">
             <div className="relative flex flex-col gap-4 lg:flex-row lg:gap-4">
               <div
-                className="relative flex min-h-[394px] flex-col justify-between overflow-hidden rounded-xl bg-cover bg-center p-10 lg:w-3/5"
+                className="relative flex min-h-[394px] flex-col justify-between overflow-hidden rounded-xl bg-cover bg-center p-5 md:p-6 lg:w-3/5 lg:p-10"
                 style={{ backgroundImage: `url(${feature1.image})` }}
               >
                 <div className="absolute inset-0 bg-black/40" />
@@ -81,9 +81,28 @@ const Feature166 = ({
                   <h2 className="text-2xl font-semibold text-white lg:text-3xl">{feature1.title}</h2>
                   <p className="max-w-md text-white/90">{feature1.description}</p>
                 </div>
+                {/* Box histogramme + consommation annuelle */}
+                <div className="relative z-10 flex w-full max-w-[280px] flex-col gap-2 self-start rounded-lg border border-white/15 bg-white/5 px-4 py-3 backdrop-blur-md">
+                  <span className="font-mono text-sm font-semibold tabular-nums text-white">
+                    1.24 MWh/year
+                  </span>
+                  <svg viewBox="0 0 200 40" className="h-24 w-full" preserveAspectRatio="none" aria-hidden>
+                      {[22, 18, 24, 20, 28, 32, 30, 34, 26, 22, 20, 24].map((h, i) => (
+                        <rect
+                          key={i}
+                          x={4 + i * 16}
+                          y={38 - h}
+                          width={12}
+                          height={h}
+                          rx={2}
+                          fill="rgba(255, 255, 255, 0.5)"
+                        />
+                      ))}
+                    </svg>
+                </div>
               </div>
               <div
-                className="flex flex-col justify-between rounded-xl p-10 lg:w-2/5"
+                className="flex min-h-[300px] flex-col justify-between rounded-xl p-5 md:min-h-0 md:p-6 lg:w-2/5 lg:p-10"
                 style={{ backgroundColor: "#E4FE55" }}
               >
                 <div>
@@ -145,61 +164,18 @@ const Feature166 = ({
               </div>
             </div>
             <div className="relative flex flex-col gap-4 lg:flex-row lg:gap-4">
-              <div className="flex flex-col justify-between rounded-xl border border-zinc-200 p-10 dark:border-zinc-700 lg:w-2/5">
+              <div className="flex flex-col justify-between rounded-xl border border-zinc-200 p-5 dark:border-zinc-700 md:p-6 lg:w-2/5 lg:p-10">
                 <div>
                   <h2 className="text-2xl font-semibold lg:text-3xl">{feature3.title}</h2>
                   <p className="text-muted-foreground">{feature3.description}</p>
                 </div>
                 {feature3.illustration === "data-sources" ? (
-                  <div className="mt-8 flex min-h-0 flex-1 flex-col items-center justify-center rounded-lg bg-zinc-50 dark:bg-zinc-900/50">
-                    <div className="relative flex h-full w-full max-h-[160px] max-w-[320px] items-center justify-center py-8">
-                      {/* Lignes de la croix */}
-                      <svg
-                        className="absolute inset-0 h-full w-full text-zinc-200 dark:text-zinc-700"
-                        aria-hidden
-                      >
-                        <line x1="50%" y1="50%" x2="50%" y2="8%" stroke="currentColor" strokeWidth="1" />
-                        <line x1="50%" y1="50%" x2="50%" y2="92%" stroke="currentColor" strokeWidth="1" />
-                        <line x1="50%" y1="50%" x2="12%" y2="50%" stroke="currentColor" strokeWidth="1" />
-                        <line x1="50%" y1="50%" x2="88%" y2="50%" stroke="currentColor" strokeWidth="1" />
-                      </svg>
-                      {/* Badge Top - Building */}
-                      <span
-                        className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 shrink-0 rounded-md px-3 py-1.5 font-mono text-xs font-medium"
-                        style={{ backgroundColor: "#E4FE55", color: "#171717" }}
-                      >
-                        Building
-                      </span>
-                      {/* Badge Left - Satellite */}
-                      <span
-                        className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 shrink-0 rounded-md px-3 py-1.5 font-mono text-xs font-medium"
-                        style={{ backgroundColor: "#E4FE55", color: "#171717" }}
-                      >
-                        Satellite
-                      </span>
-                      {/* Badge Right - Company data */}
-                      <span
-                        className="absolute right-0 top-1/2 translate-x-1/2 -translate-y-1/2 shrink-0 rounded-md px-3 py-1.5 font-mono text-xs font-medium"
-                        style={{ backgroundColor: "#E4FE55", color: "#171717" }}
-                      >
-                        Company data
-                      </span>
-                      {/* Badge Bottom - Your data (gris, bordure pointillée) - style différent */}
-                      <span
-                        className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 shrink-0 rounded-md border-2 border-dashed border-zinc-300 bg-zinc-100 px-3 py-1.5 font-mono text-xs font-medium text-zinc-600 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
-                      >
-                        Your data
-                      </span>
-                      {/* Centre - Unified Prospect Profile */}
-                      <div
-                        className="relative flex max-w-[130px] flex-col items-center justify-center rounded-lg px-3 py-2 text-center"
-                        style={{ backgroundColor: "#171717" }}
-                      >
-                        <span className="font-mono text-[10px] font-medium leading-tight uppercase tracking-wider text-white">
-                          Unified Prospect Profile
-                        </span>
-                      </div>
-                    </div>
+                  <div className="mt-6 flex min-h-0 flex-1 flex-col items-center justify-center rounded-lg bg-zinc-50 dark:bg-zinc-900/50">
+                    <img
+                      src="/graphdata.svg"
+                      alt="Data sources to Unified Prospect Profile"
+                      className="h-full w-full max-h-[180px] max-w-[520px] object-contain"
+                    />
                   </div>
                 ) : (
                   <img
@@ -209,7 +185,7 @@ const Feature166 = ({
                   />
                 )}
               </div>
-              <div className="flex flex-col justify-between rounded-xl border border-zinc-200 p-10 dark:border-zinc-700 lg:w-3/5">
+              <div className="flex flex-col justify-between rounded-xl border border-zinc-200 p-5 dark:border-zinc-700 md:p-6 lg:w-3/5 lg:p-10">
                 <div>
                   <h2 className="text-2xl font-semibold lg:text-3xl">{feature4.title}</h2>
                   <p className="text-muted-foreground">{feature4.description}</p>
@@ -233,7 +209,7 @@ const Feature166 = ({
                         >
                           {/* Cercle extérieur avec opacité réduite */}
                           <div
-                            className="absolute size-10 rounded-full"
+                            className="absolute size-12 rounded-full"
                             style={{
                               backgroundColor: "#E4FE55",
                               opacity: 0.35,
@@ -241,7 +217,7 @@ const Feature166 = ({
                           />
                           {/* Cercle principal */}
                           <div
-                            className="relative flex size-8 items-center justify-center rounded-full font-mono text-xs font-semibold"
+                            className="relative flex size-9 items-center justify-center rounded-full font-mono text-xs font-semibold"
                             style={{
                               backgroundColor: "#E4FE55",
                               color: "#171717",

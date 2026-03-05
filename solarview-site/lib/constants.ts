@@ -97,7 +97,7 @@ export const FEATURES_166 = [
       "Highlight the most qualified leads ranked by your criteria — existing rooftops or future sites.",
     imageKey: "feature4" as const,
     clusters: [
-      { value: "55", x: 25, y: 30 },
+      { value: "55", x: 35, y: 30 },
       { value: "23", x: 55, y: 50 },
       { value: "10", x: 75, y: 25 },
     ],

@@ -41,7 +41,7 @@ const Hero45 = ({
   className,
 }: HeroFeatureIconsProps) => {
   return (
-    <section className={cn("pt-16 pb-16", className)}>
+    <section className={cn("pt-8 pb-16 md:pt-16", className)}>
       <div className="container overflow-hidden">
         <div className="mb-10 flex flex-col items-center gap-4 text-center">
           <Badge variant="outline" className="font-mono text-xs uppercase tracking-wider">
@@ -56,16 +56,16 @@ const Hero45 = ({
           <img
             src={images[0].src}
             alt={images[0].alt}
-            className="aspect-video max-h-[650px] w-full rounded-xl object-cover"
+            className="aspect-video min-h-[400px] max-h-[650px] w-full rounded-xl object-cover md:min-h-0"
           />
           {statBadges && statBadges.length > 0 && (
             <div className="pointer-events-none absolute inset-0">
               {statBadges.map((stat, i) => {
                 const positions = [
-                  { left: "40%", top: "40%" },
-                  { left: "62%", top: "32%" },
-                  { left: "40%", top: "62%" },
-                  { left: "64%", top: "52%" },
+                  { left: "32%", top: "36%" },
+                  { left: "68%", top: "28%" },
+                  { left: "32%", top: "64%" },
+                  { left: "68%", top: "56%" },
                 ];
                 const pos = positions[i % positions.length];
                 return (
