@@ -5,6 +5,7 @@ import { Hero45 } from "@/components/hero45";
 import { Feature166 } from "@/components/feature166";
 import { PipelineSection } from "@/components/pipeline-section";
 import { ProspectPortalSection } from "@/components/prospect-portal-section";
+import { LetsTalkSection } from "@/components/lets-talk-section";
 import { Footer2 } from "@/components/footer2";
 
 import {
@@ -100,6 +101,9 @@ export default function Home() {
       </section>
       <PipelineSection />
       <ProspectPortalSection />
+      <section id="contact-form">
+        <LetsTalkSection />
+      </section>
       <footer id="contact">
         <Footer2
           logo={{

@@ -17,6 +17,7 @@ export async function POST(request: Request) {
     const name = (formData.get("name") as string) || "";
     const email = (formData.get("email") as string) || "";
     const company = (formData.get("company") as string) || "";
+    const leadsPerMonth = (formData.get("leadsPerMonth") as string) || "";
     const message = (formData.get("message") as string) || "";
 
     const contactEmail = process.env.CONTACT_EMAIL;
@@ -31,7 +32,7 @@ export async function POST(request: Request) {
     const fromEmail =
       process.env.EMAIL_FROM || "Radianz Contact <onboarding@resend.dev>";
 
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: fromEmail,
       to: [contactEmail],
       replyTo: [email],
@@ -41,6 +42,7 @@ export async function POST(request: Request) {
         <p><strong>Nom:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Société:</strong> ${company || "—"}</p>
+        <p><strong>Leads souhaités / mois:</strong> ${leadsPerMonth || "—"}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br>") || "—"}</p>
       `,

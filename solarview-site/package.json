@@ -11,6 +11,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.35.0",
     "geist": "^1.7.0",
     "lucide-react": "^0.577.0",
     "next": "15.1.9",
@@ -25,6 +26,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
     "eslint": "^9",
     "eslint-config-next": "15.1.9",
     "shadcn": "^3.8.5",

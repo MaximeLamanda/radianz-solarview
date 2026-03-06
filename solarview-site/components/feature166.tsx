@@ -24,7 +24,6 @@ interface Feature166Props {
 }
 
 const Feature166 = ({
-  title,
   description = "Finely crafted components built with React, Tailwind and Shadcn UI. Developers can copy and paste these blocks directly into their project.",
   badge,
   feature1 = {
@@ -69,8 +68,8 @@ const Feature166 = ({
             {description}
           </p>
         </div>
-        <div className="relative flex justify-center">
-          <div className="relative flex w-full max-w-5xl flex-col gap-4 md:w-full">
+        <div className="relative flex w-full justify-center">
+          <div className="relative flex w-full flex-col gap-4">
             <div className="relative flex flex-col gap-4 md:flex-row md:gap-4">
               <div
                 className="relative flex min-h-[394px] flex-col justify-between overflow-hidden rounded-xl bg-cover bg-center p-5 md:w-3/5 md:p-6 lg:p-10"
@@ -108,7 +107,6 @@ const Feature166 = ({
                       ].map((v, i) => {
                         const x = 4 + i * 16;
                         const w = 12;
-                        const yBottom = 38;
                         const yProdTop = 38 - v.prod;
                         const yConsoTop = 38 - v.prod - v.conso;
                         return (
