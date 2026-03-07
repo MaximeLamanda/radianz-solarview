@@ -68,7 +68,7 @@ const SearchSection = ({ className }: SearchSectionProps) => {
               className="size-full rounded-xl object-cover"
             />
             {/* Bloc 1 - UI Recherche (absolute left) */}
-            <div className="absolute -left-2 -bottom-12 w-[175px] min-w-[175px] rounded-lg border border-zinc-200 bg-white p-2 dark:border-zinc-700 dark:bg-white lg:bottom-auto lg:top-4 lg:w-[220px] lg:min-w-[220px] lg:rounded-xl lg:p-3">
+            <div className="absolute -left-2 -bottom-12 w-[175px] min-w-[175px] rounded-lg border border-zinc-200 bg-white p-2 dark:border-zinc-700 dark:bg-white lg:bottom-auto lg:-left-5 lg:top-4 lg:w-[220px] lg:min-w-[220px] lg:rounded-xl lg:p-3">
               <div className="mb-1.5 flex items-center gap-1.5 rounded-md border border-zinc-200 bg-zinc-50 px-1.5 py-1 dark:border-zinc-700 dark:bg-zinc-800/50 lg:mb-3 lg:gap-2 lg:px-2 lg:py-1.5">
                 <Search className="size-3 shrink-0 text-zinc-500 lg:size-3.5" />
                 <span className="text-[9px] text-zinc-400 lg:text-[10px]">{t("searchPlaceholder")}</span>

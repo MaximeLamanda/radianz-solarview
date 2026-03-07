@@ -83,19 +83,9 @@ export default async function ContactPage({
                 { text: tFooter("contact"), url: "/contact" },
               ],
             },
-            {
-              title: tFooter("resources"),
-              links: [
-                { text: tFooter("legalNotice"), url: "#" },
-                { text: tFooter("privacy"), url: "#" },
-              ],
-            },
           ]}
           copyright={tSite("copyright")}
-          bottomLinks={[
-            { text: tFooter("legalNotice"), url: "#" },
-            { text: tFooter("privacyPolicy"), url: "#" },
-          ]}
+          bottomLinks={[]}
         />
       </footer>
     </>

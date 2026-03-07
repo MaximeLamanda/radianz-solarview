@@ -62,7 +62,7 @@ export const HERO_FEATURES = [
 export const FEATURE_SECTION = {
   badge: "About",
   description:
-    "At Radianz, we don't just provide maps — we provide vision. Since 2025, our platform has empowered commercial solar teams to identify hidden value in rooftops, transforming cold prospecting into warm, data-backed conversations instantly.",
+    "At Radianz, we don't just provide maps — we provide vision. Our platform has empowered commercial solar teams to identify hidden value in rooftops, transforming cold prospecting into warm, data-backed conversations instantly.",
 } as const;
 
 export const FEATURES_166 = [

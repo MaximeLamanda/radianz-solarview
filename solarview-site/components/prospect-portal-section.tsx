@@ -58,7 +58,7 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                 {/* Photo - mobile: full width 1 row, desktop: spans 2 rows */}
                 <div className="relative order-1 col-span-2 row-span-1 overflow-hidden rounded-xl border border-zinc-200 bg-zinc-100 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none md:col-span-1 md:row-span-2">
                   <img
-                    src="/top-photo.png"
+                    src="/amazon-plateform-lyon.png"
                     alt="Solar installation"
                     className="size-full object-cover"
                   />
@@ -82,11 +82,45 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                   </p>
                   <p className="text-lg font-semibold">847 kWp</p>
                 </div>
-                <div className="order-2 rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
-                  <p className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                    {t("annualSavings")}
-                  </p>
-                  <p className="text-lg font-semibold">108 k€</p>
+                <div className="order-2 flex min-h-[120px] flex-col justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
+                  <div>
+                    <p className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
+                      {t("annualSavings")}
+                    </p>
+                    <p className="text-lg font-semibold">108 k€</p>
+                  </div>
+                  <div className="mt-2">
+                    <svg viewBox="0 0 180 48" className="h-14 w-full" preserveAspectRatio="none" aria-hidden>
+                      {[
+                        { prod: 5, conso: 12 },
+                        { prod: 7, conso: 11 },
+                        { prod: 12, conso: 10 },
+                        { prod: 18, conso: 0 },
+                        { prod: 24, conso: 0 },
+                        { prod: 28, conso: 0 },
+                        { prod: 26, conso: 0 },
+                        { prod: 22, conso: 0 },
+                        { prod: 14, conso: 9 },
+                        { prod: 8, conso: 11 },
+                      ].map((v, i) => {
+                        const x = 2 + i * 18;
+                        const w = 14;
+                        const maxH = 42;
+                        const hProd = (v.prod / 28) * maxH;
+                        const hConso = v.conso > 0 ? (v.conso / 12) * (maxH / 4) : 0;
+                        const yProdTop = 48 - hProd;
+                        const yConsoTop = 48 - hProd - hConso;
+                        return (
+                          <g key={i}>
+                            <rect x={x} y={yProdTop} width={w} height={hProd} fill="#E4FE55" rx={1} />
+                            {hConso > 0 && (
+                              <rect x={x} y={yConsoTop} width={w} height={hConso} fill="rgba(0,0,0,0.08)" rx={1} />
+                            )}
+                          </g>
+                        );
+                      })}
+                    </svg>
+                  </div>
                 </div>
                 <div className="order-3 flex min-h-[120px] flex-col justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
                   <p className="shrink-0 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
