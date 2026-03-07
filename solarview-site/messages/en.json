@@ -31,9 +31,12 @@
     "placeholderLastName": "Doe",
     "placeholderEmail": "john@company.com",
     "placeholderCompany": "Company name",
-    "placeholderMessage": "Tell us about your pipeline and target rooftops..."
+    "placeholderMessage": "Tell us about your pipeline and target rooftops...",
+    "contactRep": "Radianz Sales Contact",
+    "contactRepName": "Alexis"
   },
   "pipeline": {
+    "badge": "Features",
     "photo": "Photo",
     "name": "Name",
     "address": "Address",
@@ -56,7 +59,24 @@
     "addr2": "Saint-Priest • 69",
     "addr3": "Nantes • Pays de la Loire",
     "addr4": "Lille • Hauts-de-France",
-    "addr5": "Toulouse • Occitanie"
+    "addr5": "Toulouse • Occitanie",
+    "searchTitle": "Find buildings that match your criteria",
+    "searchDescription": "Filter by business type, usable area and location. Identify the most promising commercial rooftops in a few clicks.",
+    "searchPlaceholder": "Search...",
+    "searchResultsCount": "20 buildings found",
+    "searchAddToPipeline": "Add to pipeline",
+    "searchFilterType": "Type",
+    "searchFilterSurface": "Surface (m²)",
+    "searchType1": "Supermarket",
+    "searchType2": "Logistics",
+    "searchBuilding1": "Carrefour Toulouse",
+    "searchAddr1": "Toulouse • Occitanie",
+    "searchBuilding2": "Amazon Platform",
+    "searchAddr2": "Saint-Priest • 69",
+    "searchCard1": "Smart filters",
+    "searchCard1Desc": "Type, surface, region",
+    "searchCard2": "Enriched results",
+    "searchCard2Desc": "kWp, score, production"
   },
   "prospect": {
     "estimatedEnergyBill": "Estimated energy bill",

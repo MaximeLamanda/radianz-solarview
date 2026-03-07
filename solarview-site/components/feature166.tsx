@@ -53,7 +53,7 @@ const Feature166 = ({
   className,
 }: Feature166Props) => {
   return (
-    <section className={cn("pb-16 pt-0 md:pb-24 lg:pb-32", className)}>
+    <section className={cn("pt-12 pb-16 md:pt-16 md:pb-24 lg:pb-32", className)}>
       <div className="container">
         <div className="mb-24 flex flex-col items-start justify-between gap-8 md:flex-row md:items-start md:gap-12">
           {badge && (

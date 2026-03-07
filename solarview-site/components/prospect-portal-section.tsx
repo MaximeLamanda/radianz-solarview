@@ -41,7 +41,7 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
             <div className="relative max-h-[420px] space-y-6 overflow-hidden p-6">
               {/* Zone personnalisable : votre logo */}
               <div
-                className="absolute right-6 top-6 flex size-12 items-center justify-center rounded-lg border-2 border-dashed border-zinc-300 bg-zinc-50 text-[10px] font-medium text-zinc-500 dark:border-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-400"
+                className="absolute right-6 top-6 flex size-12 items-center justify-center rounded-lg border-2 border-dashed border-zinc-300 bg-zinc-50 text-center text-[10px] font-medium text-zinc-500 dark:border-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-400"
                 title={t("yourLogo")}
               >
                 {t("yourLogo")}

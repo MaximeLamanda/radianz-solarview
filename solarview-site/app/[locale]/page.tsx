@@ -6,6 +6,7 @@ import { Hero45 } from "@/components/hero45";
 import { Feature166 } from "@/components/feature166";
 import { PipelineSection } from "@/components/pipeline-section";
 import { ProspectPortalSection } from "@/components/prospect-portal-section";
+import { SearchSection } from "@/components/search-section";
 import { LetsTalkSection } from "@/components/lets-talk-section";
 import { Footer2 } from "@/components/footer2";
 
@@ -15,6 +16,8 @@ export default async function Home() {
   const tSite = await getTranslations("site");
   const tNav = await getTranslations("nav");
   const tFeature = await getTranslations("feature");
+  const tPipeline = await getTranslations("pipeline");
+  const tContact = await getTranslations("contact");
   const tFooter = await getTranslations("footer");
   const tHero = await getTranslations("hero");
 
@@ -34,9 +37,9 @@ export default async function Home() {
           title: tSite("name"),
         }}
         menu={[
-          { title: tNav("benefit"), url: "/#avantages" },
-          { title: tNav("feature"), url: "/#features" },
-          { title: tNav("contact"), url: "/contact" },
+          { title: tFeature("about"), url: "/#avantages" },
+          { title: tPipeline("badge"), url: "/#features" },
+          { title: tContact("badge"), url: "/contact" },
         ]}
         auth={{
           login: { title: tNav("logIn"), url: "/contact" },
@@ -98,8 +101,11 @@ export default async function Home() {
           }}
         />
       </section>
-      <PipelineSection />
-      <ProspectPortalSection />
+      <section id="features">
+        <SearchSection />
+        <PipelineSection />
+        <ProspectPortalSection />
+      </section>
       <section id="contact-form">
         <LetsTalkSection />
       </section>

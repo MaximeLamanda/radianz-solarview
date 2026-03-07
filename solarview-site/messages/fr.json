@@ -31,9 +31,12 @@
     "placeholderLastName": "Dupont",
     "placeholderEmail": "jean@entreprise.com",
     "placeholderCompany": "Nom de l'entreprise",
-    "placeholderMessage": "Parlez-nous de votre pipeline et de vos toitures cibles..."
+    "placeholderMessage": "Parlez-nous de votre pipeline et de vos toitures cibles...",
+    "contactRep": "Contact commercial Radianz",
+    "contactRepName": "Alexis"
   },
   "pipeline": {
+    "badge": "Fonctionnalités",
     "photo": "Photo",
     "name": "Nom",
     "address": "Adresse",
@@ -56,7 +59,24 @@
     "addr2": "Saint-Priest • 69",
     "addr3": "Nantes • Pays de la Loire",
     "addr4": "Lille • Hauts-de-France",
-    "addr5": "Toulouse • Occitanie"
+    "addr5": "Toulouse • Occitanie",
+    "searchTitle": "Recherchez les bâtiments qui vous intéressent",
+    "searchDescription": "Filtrez par type d'activité, surface exploitable et localisation. Identifiez les toitures commerciales les plus prometteuses en quelques clics.",
+    "searchPlaceholder": "Recherche...",
+    "searchResultsCount": "20 bâtiments trouvés",
+    "searchAddToPipeline": "Ajouter au pipeline",
+    "searchFilterType": "Type",
+    "searchFilterSurface": "Surface (m²)",
+    "searchType1": "Supermarché",
+    "searchType2": "Logistics",
+    "searchBuilding1": "Carrefour Toulouse",
+    "searchAddr1": "Toulouse • Occitanie",
+    "searchBuilding2": "Plateforme Amazon",
+    "searchAddr2": "Saint-Priest • 69",
+    "searchCard1": "Filtres intelligents",
+    "searchCard1Desc": "Type, surface, région",
+    "searchCard2": "Résultats enrichis",
+    "searchCard2Desc": "kWp, score, production"
   },
   "prospect": {
     "estimatedEnergyBill": "Facture énergie estimée",

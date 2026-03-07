@@ -16,6 +16,9 @@ export default async function ContactPage({
   const t = await getTranslations();
   const tSite = await getTranslations("site");
   const tNav = await getTranslations("nav");
+  const tFeature = await getTranslations("feature");
+  const tPipeline = await getTranslations("pipeline");
+  const tContact = await getTranslations("contact");
   const tFooter = await getTranslations("footer");
 
   return (
@@ -28,9 +31,9 @@ export default async function ContactPage({
           title: tSite("name"),
         }}
         menu={[
-          { title: tNav("benefit"), url: "/#avantages" },
-          { title: tNav("feature"), url: "/#features" },
-          { title: tNav("contact"), url: "/contact" },
+          { title: tFeature("about"), url: "/#avantages" },
+          { title: tPipeline("badge"), url: "/#features" },
+          { title: tContact("badge"), url: "/contact" },
         ]}
         auth={{
           login: { title: tNav("logIn"), url: "#contact-form" },

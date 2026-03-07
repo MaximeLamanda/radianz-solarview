@@ -86,12 +86,23 @@ export function LetsTalkSection({
           >
             <div className="absolute inset-0 bg-zinc-950/80" />
             {/* Left: copy - hidden on mobile */}
-            <div className="relative z-10 hidden min-h-[320px] flex-col justify-start p-8 md:p-10 lg:flex lg:min-h-[560px]">
+            <div className="relative z-10 hidden min-h-[320px] flex-col justify-between p-8 md:p-10 lg:flex lg:min-h-[560px]">
               <p className="font-sans text-2xl font-normal leading-[1.2] tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
                 {t("headline1")}
                 <br />
                 {t("headline2")}
               </p>
+              <div className="mt-8 flex w-fit items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm lg:mt-0">
+                <img
+                  src="/alexislej.jpeg"
+                  alt={t("contactRepName")}
+                  className="size-14 rounded-full object-cover lg:size-16"
+                />
+                <div>
+                  <p className="font-medium text-white">{t("contactRepName")}</p>
+                  <p className="text-sm text-zinc-400">{t("contactRep")}</p>
+                </div>
+              </div>
             </div>
 
             {/* Right: form - full width on mobile */}

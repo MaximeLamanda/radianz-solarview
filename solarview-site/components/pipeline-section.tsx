@@ -14,7 +14,7 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
 
   const mockLeads = [
     { name: t("lead1"), addr: t("addr1"), kwp: "420", status: "new" as const, photo: "/lead-photo-1.png" },
-    { name: t("lead2"), addr: t("addr2"), kwp: "847", status: "add" as const, photo: "/lead-photo-2.png" },
+    { name: t("lead2"), addr: t("addr2"), kwp: "847", status: "add" as const, photo: "/plateform-lyon-natural.png" },
     { name: t("lead3"), addr: t("addr3"), kwp: "312", status: "new" as const, photo: "/lead-photo-3.png" },
     { name: t("lead4"), addr: t("addr4"), kwp: "568", status: "add" as const, photo: "/lead-photo-4.png" },
     { name: t("lead5"), addr: t("addr5"), kwp: "720", status: "new" as const, photo: "/lead-photo-5.png" },
@@ -24,7 +24,7 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
   }));
 
   return (
-    <section id="features" className={cn("pt-8 pb-24 md:pt-24", className)}>
+    <section className={cn("pt-8 pb-24 md:pt-24", className)}>
       <div className="container">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left: Minimalist leads table mockup */}

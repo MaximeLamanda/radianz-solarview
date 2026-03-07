@@ -41,7 +41,7 @@ const Hero45 = ({
   className,
 }: HeroFeatureIconsProps) => {
   return (
-    <section className={cn("pt-8 pb-16 md:pt-16", className)}>
+    <section className={cn("pt-8 pb-0 md:pt-16", className)}>
       <div className="container overflow-hidden">
         <div className="mb-10 flex flex-col items-center gap-4 text-center">
           <Badge variant="outline" className="font-mono text-xs uppercase tracking-wider">
