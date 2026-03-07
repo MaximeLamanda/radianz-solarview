@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image";
 import type { ElementType } from "react";
 
 export interface Feature {
@@ -11,7 +12,7 @@ export interface Feature {
 }
 
 export interface Image {
-  src: string;
+  src: string | StaticImageData;
   alt: string;
 }
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HandHelping, Users, Zap } from "lucide-react";
 import React from "react";
 
@@ -53,9 +54,14 @@ const Hero45 = ({
           )}
         </div>
         <div className="relative w-full">
-          <img
+          <Image
             src={images[0].src}
             alt={images[0].alt}
+            width={1920}
+            height={1080}
+            priority
+            placeholder="blur"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 1200px"
             className="aspect-video min-h-[400px] max-h-[650px] w-full rounded-xl object-cover md:min-h-0"
           />
           {statBadges && statBadges.length > 0 && (

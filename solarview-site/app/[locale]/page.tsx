@@ -1,6 +1,7 @@
 import { Clock, MapPin, Target } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import heroTopImg from "@/public/hero-top.webp";
 import { Navbar1 } from "@/components/navbar1";
 import { Hero45 } from "@/components/hero45";
 import { Feature166 } from "@/components/feature166";
@@ -55,7 +56,7 @@ export default async function Home() {
             statBadges={[...STAT_BADGES]}
             images={[
               {
-                src: "/hero-top.png",
+                src: heroTopImg,
                 alt: "Solar prospecting and roof mapping",
               },
             ]}
