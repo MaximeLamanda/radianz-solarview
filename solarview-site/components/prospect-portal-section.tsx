@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { Link2, Eye, Mail, Phone, Share2 } from "lucide-react";
 
@@ -9,6 +10,8 @@ interface ProspectPortalSectionProps {
 }
 
 const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
+  const t = useTranslations("prospect");
+
   return (
     <section className={cn("py-24", className)}>
       <div className="container">
@@ -28,7 +31,7 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
               <button
                 type="button"
                 className="ml-2 flex size-8 shrink-0 items-center justify-center rounded-md transition-colors hover:bg-zinc-200 dark:hover:bg-zinc-700"
-                aria-label="Partager"
+                aria-label={t("share")}
               >
                 <Share2 className="size-4 text-zinc-600 dark:text-zinc-400" />
               </button>
@@ -39,14 +42,14 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
               {/* Zone personnalisable : votre logo */}
               <div
                 className="absolute right-6 top-6 flex size-12 items-center justify-center rounded-lg border-2 border-dashed border-zinc-300 bg-zinc-50 text-[10px] font-medium text-zinc-500 dark:border-zinc-600 dark:bg-zinc-800/50 dark:text-zinc-400"
-                title="Your logo"
+                title={t("yourLogo")}
               >
-                Your logo
+                {t("yourLogo")}
               </div>
               {/* Prospect header */}
               <div className="flex flex-col gap-1 pr-24">
-                <h3 className="text-xl font-semibold">Plateforme Amazon Lyon</h3>
-                <p className="text-sm text-zinc-500">Saint-Priest • 69</p>
+                <h3 className="text-xl font-semibold">{t("prospectHeader")}</h3>
+                <p className="text-sm text-zinc-500">{t("prospectAddr")}</p>
               </div>
 
               {/* Bento grid + fake content below */}
@@ -69,31 +72,31 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                 {/* Metrics - mobile: Saving + Contact référent sous l'image (2 cols) */}
                 <div className="order-4 rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
                   <p className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                    Facture énergie estimée
+                    {t("estimatedEnergyBill")}
                   </p>
                   <p className="text-lg font-semibold">135 k€/an</p>
                 </div>
                 <div className="order-5 rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
                   <p className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                    Potentiel solaire
+                    {t("solarPotential")}
                   </p>
                   <p className="text-lg font-semibold">847 kWp</p>
                 </div>
                 <div className="order-2 rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
                   <p className="text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                    Économies annuelles
+                    {t("annualSavings")}
                   </p>
                   <p className="text-lg font-semibold">108 k€</p>
                 </div>
                 <div className="order-3 flex min-h-[120px] flex-col justify-between rounded-xl border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-800/50 md:order-none">
                   <p className="shrink-0 text-[10px] font-medium uppercase tracking-wider text-zinc-500">
-                    Contact référent
+                    {t("contactReferent")}
                   </p>
                   <div className="mt-auto flex flex-col gap-2">
                     <div className="flex items-center gap-2">
                       <Image
                         src="/contact-referent.png"
-                        alt="Référent"
+                        alt={t("referent")}
                         width={36}
                         height={36}
                         className="size-9 shrink-0 rounded-full object-cover object-center"
@@ -107,7 +110,7 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                       <a
                         href="tel:+33123456789"
                         className="flex flex-1 items-center justify-center gap-1 rounded bg-zinc-200 py-1 text-[10px] font-medium hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600"
-                        aria-label="Appeler"
+                        aria-label={t("call")}
                       >
                         <Phone className="size-3" />
                         Call
@@ -115,7 +118,7 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                       <a
                         href="mailto:m.dubois@radianz.io"
                         className="flex flex-1 items-center justify-center gap-1 rounded bg-zinc-200 py-1 text-[10px] font-medium hover:bg-zinc-300 dark:bg-zinc-700 dark:hover:bg-zinc-600"
-                        aria-label="Contacter"
+                        aria-label={t("contact")}
                       >
                         <Mail className="size-3" />
                         Mail
@@ -149,12 +152,10 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
           <div className="order-1 flex flex-col gap-8 lg:order-1">
             <div>
               <h2 className="text-3xl font-semibold tracking-tight lg:text-4xl">
-                The Ultimate Shareable Prospect Portal
+                {t("title")}
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                Instantly transform raw technical data into a stunning, interactive proposal page.
-                Your prospects don&apos;t just see numbers; they see their future energy savings in high
-                definition.
+                {t("description")}
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -166,8 +167,8 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                   <Link2 className="size-4" style={{ color: "#171717" }} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium">Instant Share Link</h3>
-                  <p className="text-xs text-muted-foreground">No downloads required</p>
+                  <h3 className="text-sm font-medium">{t("instantShare")}</h3>
+                  <p className="text-xs text-muted-foreground">{t("instantShareDesc")}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 dark:border-zinc-700 dark:bg-zinc-900/50">
@@ -178,8 +179,8 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                   <Eye className="size-4" style={{ color: "#171717" }} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium">Live View Tracking</h3>
-                  <p className="text-xs text-muted-foreground">Know exactly when they open it</p>
+                  <h3 className="text-sm font-medium">{t("liveView")}</h3>
+                  <p className="text-xs text-muted-foreground">{t("liveViewDesc")}</p>
                 </div>
               </div>
             </div>

@@ -3,6 +3,7 @@
 import { Download } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
 
 import {
   ContextMenu,
@@ -84,14 +85,18 @@ const LogoBrandDownload = ({
 };
 
 const Logo = ({ url, className, children, ...props }: LogoProps) => {
+  const classNames = cn("flex max-h-8 items-center gap-2", className);
+  if (url.startsWith("http")) {
+    return (
+      <a href={url} className={classNames} {...props}>
+        {children}
+      </a>
+    );
+  }
   return (
-    <a
-      href={url}
-      className={cn("flex max-h-8 items-center gap-2", className)}
-      {...props}
-    >
+    <Link href={url === "#hero" ? "/" : url} className={classNames} {...props}>
       {children}
-    </a>
+    </Link>
   );
 };
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { Link2, Sun, Table2, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -9,13 +10,14 @@ interface PipelineSectionProps {
 }
 
 const PipelineSection = ({ className }: PipelineSectionProps) => {
-  // Est. prod ≈ 1200-1300 kWh/kWp/an en France (en MWh)
+  const t = useTranslations("pipeline");
+
   const mockLeads = [
-    { name: "Entrepôt Logistique Lyon", addr: "Lyon • Auvergne-Rhône-Alpes", kwp: "420", status: "new" as const, photo: "/lead-photo-1.png" },
-    { name: "Plateforme Amazon Lyon", addr: "Saint-Priest • 69", kwp: "847", status: "add" as const, photo: "/lead-photo-2.png" },
-    { name: "Zone Industrielle Nantes", addr: "Nantes • Pays de la Loire", kwp: "312", status: "new" as const, photo: "/lead-photo-3.png" },
-    { name: "Agroalimentaire Lille", addr: "Lille • Hauts-de-France", kwp: "568", status: "add" as const, photo: "/lead-photo-4.png" },
-    { name: "Entrepôt Carrefour Toulouse", addr: "Toulouse • Occitanie", kwp: "720", status: "new" as const, photo: "/lead-photo-5.png" },
+    { name: t("lead1"), addr: t("addr1"), kwp: "420", status: "new" as const, photo: "/lead-photo-1.png" },
+    { name: t("lead2"), addr: t("addr2"), kwp: "847", status: "add" as const, photo: "/lead-photo-2.png" },
+    { name: t("lead3"), addr: t("addr3"), kwp: "312", status: "new" as const, photo: "/lead-photo-3.png" },
+    { name: t("lead4"), addr: t("addr4"), kwp: "568", status: "add" as const, photo: "/lead-photo-4.png" },
+    { name: t("lead5"), addr: t("addr5"), kwp: "720", status: "new" as const, photo: "/lead-photo-5.png" },
   ].map((lead) => ({
     ...lead,
     estProd: `${Math.round((Number(lead.kwp) * 1250) / 1000)} MWh`,
@@ -31,18 +33,18 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
               <table className="w-full min-w-[400px] text-left text-xs">
                 <thead>
                   <tr className="border-b border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-800">
-                    <th className="w-12 px-2 py-2 font-medium text-zinc-500">Photo</th>
-                    <th className="max-w-[100px] px-2 py-2 font-medium text-zinc-500">Nom</th>
-                    <th className="max-w-[80px] px-2 py-2 font-medium text-zinc-500">Adresse</th>
+                    <th className="w-12 px-2 py-2 font-medium text-zinc-500">{t("photo")}</th>
+                    <th className="max-w-[100px] px-2 py-2 font-medium text-zinc-500">{t("name")}</th>
+                    <th className="max-w-[80px] px-2 py-2 font-medium text-zinc-500">{t("address")}</th>
                     <th className="px-2 py-2 font-medium text-zinc-500">kWp</th>
-                    <th className="w-16 px-2 py-2 font-medium text-zinc-500">Statut</th>
+                    <th className="w-16 px-2 py-2 font-medium text-zinc-500">{t("status")}</th>
                     <th className="w-12 px-2 py-2 text-center font-medium text-zinc-500">
-                      <span title="Onduleur"><Zap className="mx-auto size-3.5" /></span>
+                      <span title={t("inverter")}><Zap className="mx-auto size-3.5" /></span>
                     </th>
                     <th className="w-12 px-2 py-2 text-center font-medium text-zinc-500">
-                      <span title="Panel"><Sun className="mx-auto size-3.5" /></span>
+                      <span title={t("panel")}><Sun className="mx-auto size-3.5" /></span>
                     </th>
-                    <th className="px-2 py-2 font-medium text-zinc-500">Est. prod</th>
+                    <th className="px-2 py-2 font-medium text-zinc-500">{t("estProd")}</th>
                     <th className="w-12 px-2 py-2"></th>
                   </tr>
                 </thead>
@@ -77,14 +79,14 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
                       <td className="w-12 px-2 py-2 text-center">
                         <img
                           src="/inverter.webp"
-                          alt="Onduleur"
+                          alt={t("inverter")}
                           className="mx-auto size-6 rounded object-cover"
                         />
                       </td>
                       <td className="w-12 px-2 py-2 text-center">
                         <img
                           src="/panel.jpeg"
-                          alt="Panel"
+                          alt={t("panel")}
                           className="mx-auto size-6 rounded object-cover"
                         />
                       </td>
@@ -108,10 +110,10 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
           <div className="order-1 flex flex-col gap-6 lg:order-2">
             <div>
               <h2 className="text-3xl font-semibold tracking-tight lg:text-4xl">
-                From lead to pipeline in one view
+                {t("title")}
               </h2>
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-                Track your solar prospects with a unified pipeline. Building data, kWp, inverter and panel specs, and estimated production — all in one place.
+                {t("description")}
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -123,8 +125,8 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
                   <Link2 className="size-4" style={{ color: "#171717" }} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium">Instant Share Link</h3>
-                  <p className="text-xs text-muted-foreground">No downloads required</p>
+                  <h3 className="text-sm font-medium">{t("instantShare")}</h3>
+                  <p className="text-xs text-muted-foreground">{t("instantShareDesc")}</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 rounded-lg border border-zinc-200 bg-zinc-50 px-4 py-3 dark:border-zinc-700 dark:bg-zinc-900/50">
@@ -135,8 +137,8 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
                   <Table2 className="size-4" style={{ color: "#171717" }} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium">Table view</h3>
-                  <p className="text-xs text-muted-foreground">Photo, kWp, status & output at a glance</p>
+                  <h3 className="text-sm font-medium">{t("tableView")}</h3>
+                  <p className="text-xs text-muted-foreground">{t("tableViewDesc")}</p>
                 </div>
               </div>
             </div>

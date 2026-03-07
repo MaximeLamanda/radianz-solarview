@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 
@@ -11,6 +12,7 @@ interface LetsTalkSectionProps {
   success?: boolean;
   error?: LetsTalkError;
   imageSrc?: string;
+  locale?: string;
 }
 
 function isValidEmail(value: string) {
@@ -26,7 +28,12 @@ export function LetsTalkSection({
   success,
   error,
   imageSrc = DEFAULT_IMAGE,
+  locale: localeProp,
 }: LetsTalkSectionProps) {
+  const t = useTranslations("contact");
+  const locale = useLocale();
+  const currentLocale = localeProp ?? locale;
+
   const [step, setStep] = React.useState<1 | 2>(1);
 
   const [firstName, setFirstName] = React.useState("");
@@ -69,7 +76,7 @@ export function LetsTalkSection({
       <div className="container">
         <div className="mb-8 flex justify-center">
           <Badge variant="outline" className="shrink-0 font-mono text-xs uppercase tracking-wider">
-            Contact
+            {t("badge")}
           </Badge>
         </div>
         <div className="mx-auto w-full overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
@@ -81,9 +88,9 @@ export function LetsTalkSection({
             {/* Left: copy - hidden on mobile */}
             <div className="relative z-10 hidden min-h-[320px] flex-col justify-start p-8 md:p-10 lg:flex lg:min-h-[560px]">
               <p className="font-sans text-2xl font-normal leading-[1.2] tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
-                Your next deal is already on the map.
+                {t("headline1")}
                 <br />
-                You just haven&apos;t found it yet.
+                {t("headline2")}
               </p>
             </div>
 
@@ -99,7 +106,7 @@ export function LetsTalkSection({
                       step === 1 ? "text-[#E4FE55]" : "text-zinc-500 hover:text-zinc-300"
                     )}
                   >
-                    STEP 1
+                    {t("step1")}
                   </button>
                   <div className="h-px flex-1 bg-zinc-800" />
                   <button
@@ -112,39 +119,38 @@ export function LetsTalkSection({
                     )}
                     aria-disabled={!step1Valid}
                   >
-                    STEP 2
+                    {t("step2")}
                   </button>
                 </div>
 
                 {success && (
                   <div className="mb-6 rounded-xl border border-emerald-900/40 bg-emerald-950/30 px-4 py-3 text-sm font-medium text-emerald-200">
-                    Votre demande a bien été envoyée. Un commercial Radianz vous recontactera sous 24h.
+                    {t("successMessage")}
                   </div>
                 )}
 
                 {error && (
                   <div className="mb-6 rounded-xl border border-red-900/40 bg-red-950/30 px-4 py-3 text-sm font-medium text-red-200">
-                    {error === "config"
-                      ? "Configuration email manquante. Veuillez réessayer plus tard."
-                      : "Une erreur est survenue. Veuillez réessayer ou nous contacter directement par email."}
+                    {error === "config" ? t("configError") : t("sendError")}
                   </div>
                 )}
 
                 <form action="/api/contact" method="POST" className="flex flex-1 flex-col" onSubmit={onSubmit}>
                   <input type="hidden" name="name" value={fullName} />
+                  <input type="hidden" name="locale" value={currentLocale} />
 
                   {/* Step 1 */}
                   <div className={cn("flex flex-1 flex-col", step !== 1 && "hidden")}>
                     <div className="space-y-5">
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">First name</label>
+                          <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">{t("firstName")}</label>
                           <input
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                             type="text"
                             autoComplete="given-name"
-                            placeholder="John"
+                            placeholder={t("placeholderFirstName")}
                             className={cn(
                               fieldBase,
                               attemptedNext && firstName.trim().length === 0 && "border-red-900/60 focus:border-red-800"
@@ -152,13 +158,13 @@ export function LetsTalkSection({
                           />
                         </div>
                         <div>
-                          <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">Last name</label>
+                          <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">{t("lastName")}</label>
                           <input
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                             type="text"
                             autoComplete="family-name"
-                            placeholder="Doe"
+                            placeholder={t("placeholderLastName")}
                             className={cn(
                               fieldBase,
                               attemptedNext && lastName.trim().length === 0 && "border-red-900/60 focus:border-red-800"
@@ -167,14 +173,14 @@ export function LetsTalkSection({
                         </div>
                       </div>
                       <div>
-                        <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">Email</label>
+                        <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">{t("email")}</label>
                         <input
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           type="email"
                           name="email"
                           autoComplete="email"
-                          placeholder="john@company.com"
+                          placeholder={t("placeholderEmail")}
                           className={cn(
                             fieldBase,
                             attemptedNext && !isValidEmail(email) && "border-red-900/60 focus:border-red-800"
@@ -183,7 +189,7 @@ export function LetsTalkSection({
                       </div>
                       <div>
                         <label className="mb-3 block text-sm font-medium tracking-wide text-zinc-300">
-                          Leads à scanner / mois
+                          {t("leadsPerMonth")}
                         </label>
                         <div className="flex flex-wrap gap-2">
                           {LEADS_OPTIONS.map((value) => (
@@ -217,7 +223,7 @@ export function LetsTalkSection({
                         )}
                         aria-disabled={!step1Valid}
                       >
-                        Next
+                        {t("next")}
                         <span aria-hidden="true">›</span>
                       </button>
                     </div>
@@ -227,25 +233,25 @@ export function LetsTalkSection({
                   <div className={cn("flex flex-1 flex-col", step !== 2 && "hidden")}>
                     <div className="space-y-5">
                       <div>
-                        <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">Company</label>
+                        <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">{t("company")}</label>
                         <input
                           value={company}
                           onChange={(e) => setCompany(e.target.value)}
                           type="text"
                           name="company"
                           autoComplete="organization"
-                          placeholder="Company name"
+                          placeholder={t("placeholderCompany")}
                           className={fieldBase}
                         />
                       </div>
                       <div>
-                        <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">Message</label>
+                        <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">{t("message")}</label>
                         <textarea
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
                           name="message"
                           rows={4}
-                          placeholder="Tell us about your pipeline and target rooftops..."
+                          placeholder={t("placeholderMessage")}
                           className={cn(fieldBase, "resize-y")}
                         />
                       </div>
@@ -256,13 +262,13 @@ export function LetsTalkSection({
                         onClick={goBack}
                         className="inline-flex w-full items-center justify-center rounded-xl border border-zinc-800 bg-transparent px-5 py-3 text-sm font-semibold tracking-wide text-zinc-200 transition hover:border-zinc-700 hover:bg-zinc-900 sm:w-auto"
                       >
-                        Back
+                        {t("back")}
                       </button>
                       <button
                         type="submit"
                         className="inline-flex w-full flex-1 items-center justify-center rounded-xl bg-[#E4FE55] px-5 py-3 text-sm font-semibold tracking-wide text-[#171717] transition hover:bg-[#d7f24f]"
                       >
-                        Send
+                        {t("send")}
                       </button>
                     </div>
                   </div>

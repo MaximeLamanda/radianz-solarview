@@ -3,6 +3,8 @@
 import { ArrowUpRight, Book, Menu, Sunset, Trees, Zap } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { Link } from "@/i18n/navigation";
 
 import {
   Accordion,
@@ -148,16 +150,17 @@ const Navbar1 = ({
         {/* Desktop Menu */}
         <nav className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-4">
           {/* Logo - left */}
-          <a href={logo.url} className="flex items-center gap-2 justify-self-start">
-            <img
-              src={logo.src}
-              className="max-h-8 dark:invert"
-              alt={logo.alt}
-            />
-            <span className="text-lg font-semibold tracking-tighter">
-              {logo.title}
-            </span>
-          </a>
+          {logo.url.startsWith("http") ? (
+            <a href={logo.url} className="flex items-center gap-2 justify-self-start">
+              <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+              <span className="text-lg font-semibold tracking-tighter">{logo.title}</span>
+            </a>
+          ) : (
+            <Link href={logo.url === "#hero" || logo.url === "/" ? "/" : logo.url} className="flex items-center gap-2 justify-self-start">
+              <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+              <span className="text-lg font-semibold tracking-tighter">{logo.title}</span>
+            </Link>
+          )}
           {/* Nav links - center */}
           <div className="flex justify-center">
             <NavigationMenu>
@@ -167,12 +170,20 @@ const Navbar1 = ({
             </NavigationMenu>
           </div>
           {/* CTA - right */}
-          <div className="flex justify-end">
+          <div className="flex items-center justify-end gap-3">
+            <LanguageSwitcher />
             <Button asChild size="sm" className="gap-1.5">
-              <a href={auth.signup.url} className="inline-flex items-center gap-1.5">
-                {auth.signup.title}
-                <ArrowUpRight className="size-4" />
-              </a>
+              {auth.signup.url.startsWith("http") ? (
+                <a href={auth.signup.url} className="inline-flex items-center gap-1.5">
+                  {auth.signup.title}
+                  <ArrowUpRight className="size-4" />
+                </a>
+              ) : (
+                <Link href={auth.signup.url.startsWith("#") ? `/contact${auth.signup.url}` : auth.signup.url} className="inline-flex items-center gap-1.5">
+                  {auth.signup.title}
+                  <ArrowUpRight className="size-4" />
+                </Link>
+              )}
             </Button>
           </div>
         </nav>
@@ -181,13 +192,15 @@ const Navbar1 = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
-              <img
-                src={logo.src}
-                className="max-h-8 dark:invert"
-                alt={logo.alt}
-              />
-            </a>
+            {logo.url.startsWith("http") ? (
+              <a href={logo.url} className="flex items-center gap-2">
+                <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+              </a>
+            ) : (
+              <Link href={logo.url === "#hero" || logo.url === "/" ? "/" : logo.url} className="flex items-center gap-2">
+                <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+              </Link>
+            )}
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon" className="size-11 min-w-11 shrink-0">
@@ -197,13 +210,15 @@ const Navbar1 = ({
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
                   <SheetTitle>
-                    <a href={logo.url} className="flex items-center gap-2">
-                      <img
-                        src={logo.src}
-                        className="max-h-8 dark:invert"
-                        alt={logo.alt}
-                      />
-                    </a>
+                    {logo.url.startsWith("http") ? (
+                      <a href={logo.url} className="flex items-center gap-2">
+                        <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+                      </a>
+                    ) : (
+                      <Link href={logo.url === "#hero" || logo.url === "/" ? "/" : logo.url} className="flex items-center gap-2">
+                        <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
+                      </Link>
+                    )}
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-6 p-4">
@@ -216,11 +231,19 @@ const Navbar1 = ({
                   </Accordion>
 
                   <div className="flex flex-col gap-3">
+                    <LanguageSwitcher />
                     <Button asChild className="gap-1.5">
-                      <a href={auth.signup.url} className="inline-flex items-center gap-1.5">
-                        {auth.signup.title}
-                        <ArrowUpRight className="size-4" />
-                      </a>
+                      {auth.signup.url.startsWith("http") ? (
+                        <a href={auth.signup.url} className="inline-flex items-center gap-1.5">
+                          {auth.signup.title}
+                          <ArrowUpRight className="size-4" />
+                        </a>
+                      ) : (
+                        <Link href={auth.signup.url.startsWith("#") ? `/contact${auth.signup.url}` : auth.signup.url} className="inline-flex items-center gap-1.5">
+                          {auth.signup.title}
+                          <ArrowUpRight className="size-4" />
+                        </Link>
+                      )}
                     </Button>
                   </div>
                 </div>
@@ -249,14 +272,21 @@ const renderMenuItem = (item: MenuItem) => {
     );
   }
 
+  const isExternal = item.url.startsWith("http");
+  const linkClass = "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground";
   return (
     <NavigationMenuItem key={item.title}>
-      <NavigationMenuLink
-        href={item.url}
-        className="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground"
-      >
-        {item.title}
-      </NavigationMenuLink>
+      {isExternal ? (
+        <NavigationMenuLink href={item.url} className={linkClass}>
+          {item.title}
+        </NavigationMenuLink>
+      ) : (
+        <NavigationMenuLink asChild>
+          <Link href={item.url} className={linkClass}>
+            {item.title}
+          </Link>
+        </NavigationMenuLink>
+      )}
     </NavigationMenuItem>
   );
 };
@@ -277,17 +307,41 @@ const renderMobileMenuItem = (item: MenuItem) => {
     );
   }
 
+  const isExternal = item.url.startsWith("http");
+  if (isExternal) {
+    return (
+      <a key={item.title} href={item.url} className="text-md font-semibold">
+        {item.title}
+      </a>
+    );
+  }
   return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
+    <Link key={item.title} href={item.url} className="text-md font-semibold">
       {item.title}
-    </a>
+    </Link>
   );
 };
 
 const SubMenuLink = ({ item }: { item: MenuItem }) => {
+  const className = "flex min-w-80 flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground";
+  if (item.url.startsWith("http")) {
+    return (
+      <a className={className} href={item.url}>
+      <div className="text-foreground">{item.icon}</div>
+      <div>
+        <div className="text-sm font-semibold">{item.title}</div>
+        {item.description && (
+          <p className="text-sm leading-snug text-muted-foreground">
+            {item.description}
+          </p>
+        )}
+      </div>
+    </a>
+    );
+  }
   return (
-    <a
-      className="flex min-w-80 flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground"
+    <Link
+      className={className}
       href={item.url}
     >
       <div className="text-foreground">{item.icon}</div>
@@ -299,7 +353,7 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
           </p>
         )}
       </div>
-    </a>
+    </Link>
   );
 };
 

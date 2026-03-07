@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     if (!apiKey) {
       console.error("RESEND_API_KEY is not set");
       return NextResponse.redirect(
-        new URL("/contact?error=config", request.url),
+        new URL("/en/contact?error=config", new URL(request.url).origin),
         307
       );
     }
@@ -19,12 +19,15 @@ export async function POST(request: Request) {
     const company = (formData.get("company") as string) || "";
     const leadsPerMonth = (formData.get("leadsPerMonth") as string) || "";
     const message = (formData.get("message") as string) || "";
+    const rawLocale = (formData.get("locale") as string) || "en";
+    const locale = /^(en|fr)$/.test(rawLocale) ? rawLocale : "en";
 
     const contactEmail = process.env.CONTACT_EMAIL;
     if (!contactEmail) {
       console.error("CONTACT_EMAIL is not set");
+      const baseUrl = new URL(request.url);
       return NextResponse.redirect(
-        new URL("/contact?error=config", request.url),
+        new URL(`/${locale}/contact?error=config`, baseUrl.origin),
         307
       );
     }
@@ -36,13 +39,13 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: [contactEmail],
       replyTo: [email],
-      subject: `[Radianz] Nouvelle demande de démo — ${name}`,
+      subject: `[Radianz] New demo request — ${name}`,
       html: `
-        <h2>Nouvelle demande de contact Radianz</h2>
-        <p><strong>Nom:</strong> ${name}</p>
+        <h2>New Radianz contact request</h2>
+        <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Société:</strong> ${company || "—"}</p>
-        <p><strong>Leads souhaités / mois:</strong> ${leadsPerMonth || "—"}</p>
+        <p><strong>Company:</strong> ${company || "—"}</p>
+        <p><strong>Leads desired / month:</strong> ${leadsPerMonth || "—"}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br>") || "—"}</p>
       `,
@@ -50,17 +53,19 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error("Resend error:", error);
+      const baseUrl = new URL(request.url);
       return NextResponse.redirect(
-        new URL("/contact?error=send", request.url),
+        new URL(`/${locale}/contact?error=send`, baseUrl.origin),
         307
       );
     }
 
-    return NextResponse.redirect(new URL("/contact?success=1", request.url), 307);
+    const baseUrl = new URL(request.url);
+    return NextResponse.redirect(new URL(`/${locale}/contact?success=1`, baseUrl.origin), 307);
   } catch (err) {
     console.error("Contact form error:", err);
     return NextResponse.redirect(
-      new URL("/contact?error=send", request.url),
+      new URL("/en/contact?error=send", new URL(request.url).origin),
       307
     );
   }

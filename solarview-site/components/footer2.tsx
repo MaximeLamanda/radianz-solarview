@@ -1,5 +1,7 @@
-import { cn } from "@/lib/utils";
+"use client";
 
+import { cn } from "@/lib/utils";
+import { Link } from "@/i18n/navigation";
 import { Logo, LogoImage, LogoText } from "@/components/shadcnblocks/logo";
 
 interface MenuItem {
@@ -110,7 +112,11 @@ const Footer2 = ({
                       key={linkIdx}
                       className="font-medium hover:text-primary"
                     >
-                      <a href={link.url}>{link.text}</a>
+                      {link.url.startsWith("http") ? (
+                        <a href={link.url}>{link.text}</a>
+                      ) : (
+                        <Link href={link.url === "#" ? "/" : link.url}>{link.text}</Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -122,7 +128,11 @@ const Footer2 = ({
             <ul className="flex gap-4">
               {bottomLinks.map((link, linkIdx) => (
                 <li key={linkIdx} className="underline hover:text-primary">
-                  <a href={link.url}>{link.text}</a>
+                  {link.url.startsWith("http") ? (
+                    <a href={link.url}>{link.text}</a>
+                  ) : (
+                    <Link href={link.url === "#" ? "/" : link.url}>{link.text}</Link>
+                  )}
                 </li>
               ))}
             </ul>

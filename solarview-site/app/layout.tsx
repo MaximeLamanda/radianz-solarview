@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LocaleHtmlUpdater } from "@/components/locale-html";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,10 +28,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="min-h-full w-full">
+    <html lang="en" className="min-h-full w-full" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-full w-full font-sans antialiased`}
       >
+        <LocaleHtmlUpdater />
         <div className="min-h-full w-full">{children}</div>
       </body>
     </html>
