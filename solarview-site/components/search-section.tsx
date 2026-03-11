@@ -64,7 +64,7 @@ const SearchSection = ({ className }: SearchSectionProps) => {
             {/* Bloc 2 - Image (base) */}
             <img
               src="/amazon-plateform-lyon.png"
-              alt=""
+              alt={t("lead2")}
               className="size-full rounded-xl object-cover"
             />
             {/* Bloc 1 - UI Recherche (absolute left) */}
@@ -93,7 +93,7 @@ const SearchSection = ({ className }: SearchSectionProps) => {
               <p className="mb-1 text-[9px] font-medium text-zinc-600 dark:text-zinc-400 lg:mb-2 lg:text-[10px]">{t("searchResultsCount")}</p>
               <div className="space-y-1 lg:space-y-2">
                 <div className="flex items-center gap-1.5 rounded border border-zinc-200 bg-zinc-50 p-1 dark:border-zinc-700 dark:bg-zinc-800/50 lg:gap-2 lg:p-1.5">
-                  <img src="/lead-photo-1.png" alt="" className="size-6 shrink-0 rounded object-cover lg:size-8" />
+                  <img src="/lead-photo-1.png" alt={t("lead1")} className="size-6 shrink-0 rounded object-cover lg:size-8" />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-[10px] font-medium">{t("lead1")}</p>
                     <p className="truncate text-[9px] text-zinc-500">{t("addr1")}</p>
@@ -105,7 +105,7 @@ const SearchSection = ({ className }: SearchSectionProps) => {
                   </div>
                 </div>
                 <div className="flex items-center gap-1.5 rounded border border-zinc-300 bg-zinc-200 p-1 dark:border-zinc-600 dark:bg-zinc-700/80 lg:gap-2 lg:p-1.5">
-                  <img src="/plateform-lyon-natural.png" alt="" className="size-6 shrink-0 rounded object-cover lg:size-8" />
+                  <img src="/plateform-lyon-natural.png" alt={t("lead2")} className="size-6 shrink-0 rounded object-cover lg:size-8" />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-[10px] font-medium">{t("lead2")}</p>
                     <p className="truncate text-[9px] text-zinc-500">{t("addr2")}</p>
@@ -117,7 +117,7 @@ const SearchSection = ({ className }: SearchSectionProps) => {
                   </div>
                 </div>
                 <div className="hidden items-center gap-2 rounded border border-zinc-200 bg-zinc-50 p-1.5 dark:border-zinc-700 dark:bg-zinc-800/50 lg:flex">
-                  <img src="/lead-photo-3.png" alt="" className="size-8 shrink-0 rounded object-cover" />
+                  <img src="/lead-photo-3.png" alt={t("lead3")} className="size-8 shrink-0 rounded object-cover" />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-[10px] font-medium">{t("lead3")}</p>
                     <p className="truncate text-[9px] text-zinc-500">{t("addr3")}</p>

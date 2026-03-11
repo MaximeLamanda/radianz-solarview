@@ -33,7 +33,9 @@
     "placeholderCompany": "Nom de l'entreprise",
     "placeholderMessage": "Parlez-nous de votre pipeline et de vos toitures cibles...",
     "contactRep": "Contact commercial Radianz",
-    "contactRepName": "Alexis"
+    "contactRepName": "Alexis",
+    "metaTitle": "Contact — RADIANZ | Demander une démo",
+    "metaDescription": "Demandez une démo pour la plateforme de prospection solaire Radianz. Un commercial vous recontactera sous 24h."
   },
   "pipeline": {
     "badge": "Fonctionnalités",

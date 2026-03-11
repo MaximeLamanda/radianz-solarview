@@ -33,7 +33,9 @@
     "placeholderCompany": "Company name",
     "placeholderMessage": "Tell us about your pipeline and target rooftops...",
     "contactRep": "Radianz Sales Contact",
-    "contactRepName": "Alexis"
+    "contactRepName": "Alexis",
+    "metaTitle": "Contact — RADIANZ | Request a demo",
+    "metaDescription": "Request a demo for Radianz solar prospecting platform. A sales rep will contact you within 24h."
   },
   "pipeline": {
     "badge": "Features",
