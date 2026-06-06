@@ -3,7 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { LocaleHtmlUpdater } from "@/components/locale-html";
-import { siteIcons, socialShareImages, socialTwitterImages, SITE_URL } from "@/lib/seo";
+import { socialShareImages, socialTwitterImages, SITE_URL } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   },
   description:
     "Qualify commercial and industrial rooftops, score solar leads, and share data-backed proposals.",
-  icons: siteIcons(),
   openGraph: {
     type: "website",
     siteName: "RADIANZ",
