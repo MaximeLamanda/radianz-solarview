@@ -76,7 +76,11 @@ function DiscoverMapIllustration({
   return (
     <div className={cn("relative", className)}>
       <div className="relative overflow-hidden rounded-lg border border-border">
-        <img src={image} alt={alt} className="aspect-[2/1] size-full object-cover object-top" />
+        <img
+          src={image}
+          alt={alt}
+          className="aspect-[4/3] size-full object-cover object-top md:aspect-[2/1]"
+        />
         {sites && sites.length > 0 ? (
           <div className="absolute right-0 bottom-3 left-3 flex gap-2 overflow-hidden sm:bottom-4 sm:left-4">
             {sites.map((site) => (
@@ -301,7 +305,7 @@ const Feature166 = ({
     description:
       "Building websites that look and function perfectly across all devices and screen sizes.",
     kpi: "15",
-    kpiSuffix: "× faster",
+    kpiSuffix: "faster",
     kpiLabel: "than manual qualification",
   },
   feature3 = {
@@ -318,6 +322,11 @@ const Feature166 = ({
   },
   className,
 }: Feature166Props) => {
+  const bentoDescriptionClass =
+    "text-sm leading-snug text-muted-foreground md:text-base md:leading-normal";
+  const bentoDescriptionAccentClass =
+    "text-sm leading-snug text-foreground/70 md:text-base md:leading-normal";
+
   return (
     <section className={cn("pt-12 pb-16 md:pt-16 md:pb-24 lg:pb-32", className)}>
       <div className="container">
@@ -340,7 +349,7 @@ const Feature166 = ({
               <div className="flex flex-col rounded-xl border border-border bg-card p-5 md:w-3/5 md:p-6 lg:p-10">
                 <div className="space-y-1">
                   <h2 className="text-2xl font-normal lg:text-3xl">{feature1.title}</h2>
-                  <p className="max-w-md text-muted-foreground">{feature1.description}</p>
+                  <p className={cn("max-w-md", bentoDescriptionClass)}>{feature1.description}</p>
                 </div>
                 {feature1.illustration === "map" && feature1.image && (
                   <DiscoverMapIllustration
@@ -359,7 +368,7 @@ const Feature166 = ({
                   {feature2.kpi && (
                     <div className="mt-4">
                       <p className="font-mono tracking-tight">
-                        <span className="text-4xl font-normal lg:text-5xl">{feature2.kpi}</span>
+                        <span className="text-4xl font-normal lg:text-5xl">×{feature2.kpi}</span>
                       </p>
                       {(feature2.kpiSuffix || feature2.kpiLabel) && (
                         <span className="mt-1 block font-mono text-sm font-medium leading-snug text-foreground/70">
@@ -381,7 +390,7 @@ const Feature166 = ({
                     ))}
                   </div>
                 ) : (
-                  <p className="relative z-10 text-foreground/70">{feature2.description}</p>
+                  <p className={cn("relative z-10", bentoDescriptionAccentClass)}>{feature2.description}</p>
                 )}
               </div>
             </div>
@@ -389,7 +398,7 @@ const Feature166 = ({
               <div className="relative flex min-h-[380px] flex-col overflow-hidden rounded-xl border border-border bg-card md:min-h-[480px] md:w-2/5">
                 <div className="relative z-10 shrink-0 px-5 pt-5 md:px-6 md:pt-6 lg:px-10 lg:pt-10">
                   <h2 className="text-2xl font-normal lg:text-3xl">{feature3.title}</h2>
-                  <p className="text-muted-foreground">{feature3.description}</p>
+                  <p className={bentoDescriptionClass}>{feature3.description}</p>
                 </div>
                 {feature3.illustration === "production-chart" &&
                   feature3.simulationCards &&
@@ -408,11 +417,11 @@ const Feature166 = ({
                   <h2 className="text-2xl font-normal lg:text-3xl">{feature4.title}</h2>
                   {feature4.descriptionShort ? (
                     <>
-                      <p className="text-muted-foreground md:hidden">{feature4.descriptionShort}</p>
-                      <p className="hidden text-muted-foreground md:block">{feature4.description}</p>
+                      <p className={cn("md:hidden", bentoDescriptionClass)}>{feature4.descriptionShort}</p>
+                      <p className={cn("hidden md:block", bentoDescriptionClass)}>{feature4.description}</p>
                     </>
                   ) : (
-                    <p className="text-muted-foreground">{feature4.description}</p>
+                    <p className={bentoDescriptionClass}>{feature4.description}</p>
                   )}
                 </div>
                 {feature4.illustration === "follow-up-email" && feature4.convinceEmail && (

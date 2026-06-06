@@ -230,7 +230,7 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
                 {t("description")}
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="hidden flex-wrap gap-3 md:flex">
               <div className="radianz-info-card">
                 <div className="radianz-highlight">
                   <Link2 className="size-4" />

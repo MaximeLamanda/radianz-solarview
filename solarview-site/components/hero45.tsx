@@ -53,7 +53,9 @@ const Hero45 = ({
               {badge}
             </span>
           ) : null}
-          <h1 className="max-w-3xl text-5xl font-bold tracking-[-0.035em] md:text-6xl lg:text-7xl">{heading}</h1>
+          <h1 className="max-w-3xl text-4xl leading-[1.08] font-bold tracking-[-0.035em] md:text-6xl md:leading-tight lg:text-7xl">
+            {heading}
+          </h1>
           {description ? (
             <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">{description}</p>
           ) : null}

@@ -27,7 +27,7 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                 <span className="size-2.5 rounded-full bg-amber-400" />
                 <span className="size-2.5 rounded-full bg-emerald-400" />
               </div>
-              <div className="ml-4 flex-1 rounded-md bg-card px-3 py-1.5 font-mono text-xs text-muted-foreground">
+              <div className="ml-4 min-w-0 flex-1 truncate rounded-md bg-card px-3 py-1.5 font-mono text-xs text-muted-foreground">
                 app.radianz.io/p/prospect-001
               </div>
               <button
@@ -40,7 +40,7 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
             </div>
 
             <div className="flex max-h-[280px] overflow-hidden md:max-h-[420px]">
-              <aside className="flex w-[132px] shrink-0 flex-col border-r border-border bg-muted/40 p-3">
+              <aside className="hidden w-[132px] shrink-0 flex-col border-r border-border bg-muted/40 p-3 md:flex">
                 <p className="radianz-label text-[9px]">{t("summary")}</p>
                 <nav className="mt-3 space-y-2.5">
                   {NAV_ITEMS.map((key, i) => (
@@ -134,7 +134,7 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                 {t("description")}
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="hidden flex-wrap gap-3 md:flex">
               <div className="radianz-info-card">
                 <div className="radianz-highlight">
                   <Link2 className="size-4" />

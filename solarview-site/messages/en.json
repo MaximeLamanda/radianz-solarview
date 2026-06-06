@@ -163,7 +163,7 @@
     "fasterQualificationDesc": "Estimate usable roof area, consumption, and priority score. Identify the occupant when data allows, so you can plan your approach.",
     "fasterQualificationKpi": "than manual qualification",
     "fasterQualificationKpiValue": "15",
-    "fasterQualificationKpiSuffix": "× faster",
+    "fasterQualificationKpiSuffix": "faster",
     "qualifyTagNaf": "NAF",
     "qualifyTagSurface": "Roof area",
     "qualifyTagYear": "Build year",

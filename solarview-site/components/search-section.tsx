@@ -60,8 +60,8 @@ const SearchSection = ({ className }: SearchSectionProps) => {
   const t = useTranslations("pipeline");
 
   return (
-    <section className={cn("py-24", className)}>
-      <div className="mb-36 flex justify-center pt-4">
+    <section className={cn("py-12 md:py-24", className)}>
+      <div className="mb-12 flex justify-center pt-0 md:mb-36 md:pt-4">
         <Badge variant="outline" className="font-mono text-xs uppercase tracking-wider">
           {t("badge")}
         </Badge>
@@ -75,7 +75,7 @@ const SearchSection = ({ className }: SearchSectionProps) => {
                 {t("searchDescription")}
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
+            <div className="hidden flex-wrap gap-3 md:flex">
               <div className="radianz-info-card">
                 <div className="radianz-highlight">
                   <Search className="size-4" />
