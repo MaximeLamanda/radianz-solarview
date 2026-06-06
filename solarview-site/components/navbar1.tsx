@@ -1,10 +1,12 @@
 "use client";
 
-import { ArrowUpRight, Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import { ArrowUpRight, Menu } from "lucide-react";
+import React from "react";
 
-import { cn } from "@/lib/utils";
+import { BrandLogo } from "@/components/brand-logo";
 import { LanguageSwitcher } from "@/components/language-switcher";
 import { Link } from "@/i18n/navigation";
+import { cn } from "@/lib/utils";
 
 import {
   Accordion,
@@ -12,21 +14,12 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
+  SheetFooter,
   SheetTitle,
-  SheetTrigger,
 } from "@/components/ui/sheet";
 
 interface MenuItem {
@@ -59,6 +52,120 @@ interface Navbar1Props {
   };
 }
 
+function resolveLogoHref(url: string) {
+  if (url === "#hero" || url === "/") return "/";
+  return url;
+}
+
+function resolveAuthHref(url: string) {
+  if (url.startsWith("http")) return url;
+  if (url.startsWith("#")) return `/contact${url}`;
+  return url;
+}
+
+function LogoLink({
+  logo,
+  showWordmark = true,
+}: {
+  logo: NonNullable<Navbar1Props["logo"]>;
+  showWordmark?: boolean;
+}) {
+  const content = (
+    <BrandLogo
+      wordmark={logo.title}
+      showWordmark={showWordmark}
+      markClassName="h-[18px] brightness-0 invert"
+      className="rounded-sm px-1 py-1 font-mono text-xs text-white transition-colors hover:bg-white/10"
+    />
+  );
+
+  if (logo.url.startsWith("http")) {
+    return (
+      <a href={logo.url} className="shrink-0">
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={resolveLogoHref(logo.url)} className="shrink-0">
+      {content}
+    </Link>
+  );
+}
+
+function NavLink({
+  item,
+  className,
+  onNavigate,
+}: {
+  item: MenuItem;
+  className?: string;
+  onNavigate?: () => void;
+}) {
+  const linkClass = cn(
+    buttonVariants({ variant: "ghost", size: "fit" }),
+    "text-xs font-mono font-medium normal-case tracking-normal text-white hover:bg-white/10",
+    className,
+  );
+
+  if (item.url.startsWith("http")) {
+    return (
+      <a href={item.url} className={linkClass} onClick={onNavigate}>
+        {item.title}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={item.url} className={linkClass} onClick={onNavigate}>
+      {item.title}
+    </Link>
+  );
+}
+
+function AuthButton({
+  auth,
+  variant = "white",
+  className,
+  onNavigate,
+}: {
+  auth: NonNullable<Navbar1Props["auth"]>;
+  variant?: "white" | "lime" | "outline";
+  className?: string;
+  onNavigate?: () => void;
+}) {
+  const href = resolveAuthHref(auth.signup.url);
+  const content = (
+    <>
+      {auth.signup.title}
+      <ArrowUpRight className="size-3.5" />
+    </>
+  );
+
+  return (
+    <Button
+      asChild
+      variant={variant}
+      size="fit"
+      className={cn(
+        "gap-1 text-xs font-mono font-medium normal-case tracking-normal",
+        className,
+      )}
+    >
+      {href.startsWith("http") ? (
+        <a href={href} className="inline-flex items-center gap-1.5" onClick={onNavigate}>
+          {content}
+        </a>
+      ) : (
+        <Link href={href} className="inline-flex items-center gap-1.5" onClick={onNavigate}>
+          {content}
+        </Link>
+      )}
+    </Button>
+  );
+}
+
 const Navbar1 = ({
   logo = {
     url: "https://www.shadcnblocks.com",
@@ -66,294 +173,109 @@ const Navbar1 = ({
     alt: "logo",
     title: "Shadcnblocks.com",
   },
-  menu = [
-    { title: "Home", url: "#" },
-    {
-      title: "Products",
-      url: "#",
-      items: [
-        {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Support",
-          description:
-            "Get in touch with our support team or visit our community forums",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Resources",
-      url: "#",
-      items: [
-        {
-          title: "Help Center",
-          description: "Get all the answers you need right here",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Contact Us",
-          description: "We are here to help you with any questions you have",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Status",
-          description: "Check the current status of our services and APIs",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Terms of Service",
-          description: "Our terms and conditions for using our services",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Pricing",
-      url: "#",
-    },
-    {
-      title: "Blog",
-      url: "#",
-    },
-  ],
+  menu = [],
   auth = {
     login: { title: "Login", url: "#" },
     signup: { title: "Sign up", url: "#" },
   },
   className,
 }: Navbar1Props) => {
+  const [open, setOpen] = React.useState(false);
+
+  const closeMobileMenu = React.useCallback(() => setOpen(false), []);
+
   return (
-    <section className={cn("py-4", className)}>
-      <div className="container">
-        {/* Desktop Menu */}
-        <nav className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:gap-4">
-          {/* Logo - left */}
-          {logo.url.startsWith("http") ? (
-            <a href={logo.url} className="flex items-center gap-2 justify-self-start">
-              <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
-              <span className="text-lg font-semibold tracking-tighter">{logo.title}</span>
-            </a>
-          ) : (
-            <Link href={logo.url === "#hero" || logo.url === "/" ? "/" : logo.url} className="flex items-center gap-2 justify-self-start">
-              <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
-              <span className="text-lg font-semibold tracking-tighter">{logo.title}</span>
-            </Link>
-          )}
-          {/* Nav links - center */}
-          <div className="flex justify-center">
-            <NavigationMenu>
-              <NavigationMenuList>
-                {menu.map((item) => renderMenuItem(item))}
-              </NavigationMenuList>
-            </NavigationMenu>
+    <div className={cn("sticky top-2 z-50 px-4 pt-2 sm:px-6", className)}>
+      <header
+        className={cn(
+          "mx-auto w-full max-w-[var(--site-max-width)] rounded-md border-0 shadow-none",
+          "bg-black text-white",
+        )}
+      >
+        <nav className="flex items-center justify-between gap-3 p-2.5">
+          <LogoLink logo={logo} />
+
+          <div className="hidden items-center gap-0.5 lg:flex">
+            {menu.map((item) => (
+              <NavLink key={item.title} item={item} />
+            ))}
           </div>
-          {/* CTA - right */}
-          <div className="flex items-center justify-end gap-3">
-            <LanguageSwitcher />
-            <Button asChild size="sm" className="gap-1.5">
-              {auth.signup.url.startsWith("http") ? (
-                <a href={auth.signup.url} className="inline-flex items-center gap-1.5">
-                  {auth.signup.title}
-                  <ArrowUpRight className="size-4" />
-                </a>
-              ) : (
-                <Link href={auth.signup.url.startsWith("#") ? `/contact${auth.signup.url}` : auth.signup.url} className="inline-flex items-center gap-1.5">
-                  {auth.signup.title}
-                  <ArrowUpRight className="size-4" />
-                </Link>
-              )}
+
+          <div className="flex items-center gap-2">
+            <div className="hidden lg:block">
+              <LanguageSwitcher />
+            </div>
+            <div className="hidden lg:block">
+              <AuthButton auth={auth} />
+            </div>
+
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => setOpen(true)}
+              className="size-9 min-w-0 border-0 bg-white/10 text-white hover:bg-white/15 lg:hidden"
+              aria-label="Menu"
+            >
+              <Menu className="size-4" />
             </Button>
-          </div>
-        </nav>
 
-        {/* Mobile Menu */}
-        <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            {logo.url.startsWith("http") ? (
-              <a href={logo.url} className="flex items-center gap-2">
-                <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
-              </a>
-            ) : (
-              <Link href={logo.url === "#hero" || logo.url === "/" ? "/" : logo.url} className="flex items-center gap-2">
-                <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
-              </Link>
-            )}
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="size-11 min-w-11 shrink-0">
-                  <Menu className="size-5" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle>
-                    {logo.url.startsWith("http") ? (
-                      <a href={logo.url} className="flex items-center gap-2">
-                        <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
-                      </a>
-                    ) : (
-                      <Link href={logo.url === "#hero" || logo.url === "/" ? "/" : logo.url} className="flex items-center gap-2">
-                        <img src={logo.src} className="max-h-8 dark:invert" alt={logo.alt} />
-                      </Link>
-                    )}
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col gap-6 p-4">
-                  <Accordion
-                    type="single"
-                    collapsible
-                    className="flex w-full flex-col gap-4"
-                  >
-                    {menu.map((item) => renderMobileMenuItem(item))}
-                  </Accordion>
-
-                  <div className="flex flex-col gap-3">
-                    <LanguageSwitcher />
-                    <Button asChild className="gap-1.5">
-                      {auth.signup.url.startsWith("http") ? (
-                        <a href={auth.signup.url} className="inline-flex items-center gap-1.5">
-                          {auth.signup.title}
-                          <ArrowUpRight className="size-4" />
-                        </a>
-                      ) : (
-                        <Link href={auth.signup.url.startsWith("#") ? `/contact${auth.signup.url}` : auth.signup.url} className="inline-flex items-center gap-1.5">
-                          {auth.signup.title}
-                          <ArrowUpRight className="size-4" />
-                        </Link>
-                      )}
-                    </Button>
-                  </div>
+            <Sheet open={open} onOpenChange={setOpen}>
+              <SheetContent
+                side="left"
+                showCloseButton={false}
+                className="gap-0 border-0 bg-black text-white"
+              >
+                <SheetTitle className="sr-only">Navigation</SheetTitle>
+                <div className="flex items-center border-b border-white/10 px-4 py-4">
+                  <LogoLink logo={logo} showWordmark={false} />
                 </div>
+
+                <div className="flex flex-col gap-1 overflow-y-auto px-3 py-4">
+                  {menu.map((item) =>
+                    item.items ? (
+                      <Accordion
+                        key={item.title}
+                        type="single"
+                        collapsible
+                        className="w-full"
+                      >
+                        <AccordionItem value={item.title} className="border-none">
+                          <AccordionTrigger className="rounded-md px-3 py-2 font-mono text-sm font-medium text-white hover:bg-white/10 hover:no-underline">
+                            {item.title}
+                          </AccordionTrigger>
+                          <AccordionContent className="pb-1 pl-3">
+                            {item.items.map((subItem) => (
+                              <NavLink
+                                key={subItem.title}
+                                item={subItem}
+                                className="w-full justify-start"
+                                onNavigate={closeMobileMenu}
+                              />
+                            ))}
+                          </AccordionContent>
+                        </AccordionItem>
+                      </Accordion>
+                    ) : (
+                      <NavLink
+                        key={item.title}
+                        item={item}
+                        className="w-full justify-start"
+                        onNavigate={closeMobileMenu}
+                      />
+                    ),
+                  )}
+                </div>
+
+                <SheetFooter className="border-t border-white/10 bg-black">
+                  <LanguageSwitcher />
+                  <AuthButton auth={auth} className="w-full" onNavigate={closeMobileMenu} />
+                </SheetFooter>
               </SheetContent>
             </Sheet>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const renderMenuItem = (item: MenuItem) => {
-  if (item.items) {
-    return (
-      <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
-        <NavigationMenuContent className="bg-popover text-popover-foreground">
-          {item.items.map((subItem) => (
-            <NavigationMenuLink asChild key={subItem.title} className="w-80">
-              <SubMenuLink item={subItem} />
-            </NavigationMenuLink>
-          ))}
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-    );
-  }
-
-  const isExternal = item.url.startsWith("http");
-  const linkClass = "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-muted hover:text-accent-foreground";
-  return (
-    <NavigationMenuItem key={item.title}>
-      {isExternal ? (
-        <NavigationMenuLink href={item.url} className={linkClass}>
-          {item.title}
-        </NavigationMenuLink>
-      ) : (
-        <NavigationMenuLink asChild>
-          <Link href={item.url} className={linkClass}>
-            {item.title}
-          </Link>
-        </NavigationMenuLink>
-      )}
-    </NavigationMenuItem>
-  );
-};
-
-const renderMobileMenuItem = (item: MenuItem) => {
-  if (item.items) {
-    return (
-      <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
-          {item.title}
-        </AccordionTrigger>
-        <AccordionContent className="mt-2">
-          {item.items.map((subItem) => (
-            <SubMenuLink key={subItem.title} item={subItem} />
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-    );
-  }
-
-  const isExternal = item.url.startsWith("http");
-  if (isExternal) {
-    return (
-      <a key={item.title} href={item.url} className="text-md font-semibold">
-        {item.title}
-      </a>
-    );
-  }
-  return (
-    <Link key={item.title} href={item.url} className="text-md font-semibold">
-      {item.title}
-    </Link>
-  );
-};
-
-const SubMenuLink = ({ item }: { item: MenuItem }) => {
-  const className = "flex min-w-80 flex-row gap-4 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-muted hover:text-accent-foreground";
-  if (item.url.startsWith("http")) {
-    return (
-      <a className={className} href={item.url}>
-      <div className="text-foreground">{item.icon}</div>
-      <div>
-        <div className="text-sm font-semibold">{item.title}</div>
-        {item.description && (
-          <p className="text-sm leading-snug text-muted-foreground">
-            {item.description}
-          </p>
-        )}
-      </div>
-    </a>
-    );
-  }
-  return (
-    <Link
-      className={className}
-      href={item.url}
-    >
-      <div className="text-foreground">{item.icon}</div>
-      <div>
-        <div className="text-sm font-semibold">{item.title}</div>
-        {item.description && (
-          <p className="text-sm leading-snug text-muted-foreground">
-            {item.description}
-          </p>
-        )}
-      </div>
-    </Link>
+        </nav>
+      </header>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { BRAND } from "@/lib/constants";
 import { Link } from "@/i18n/navigation";
 import { Logo, LogoImage, LogoText } from "@/components/shadcnblocks/logo";
 
@@ -31,10 +32,10 @@ interface Footer2Props {
 
 const Footer2 = ({
   logo = {
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/block-1.svg",
-    alt: "blocks for shadcn/ui",
-    title: "Shadcnblocks.com",
-    url: "https://www.shadcnblocks.com",
+    src: BRAND.logoSrc,
+    alt: BRAND.logoAlt,
+    title: BRAND.logoAlt,
+    url: "/",
   },
   className,
   tagline = "Components made easy.",
@@ -96,16 +97,16 @@ const Footer2 = ({
                     src={logo.src}
                     alt={logo.alt}
                     title={logo.title}
-                    className="h-10 dark:invert"
+                    className="h-5 w-auto"
                   />
-                  <LogoText className="text-xl">{logo.title}</LogoText>
+                  <LogoText className="font-mono text-sm">{logo.title}</LogoText>
                 </Logo>
               </div>
-              <p className="mt-4 font-bold">{tagline}</p>
+              <p className="mt-4 text-lg font-light tracking-tight">{tagline}</p>
             </div>
             {menuItems.map((section, sectionIdx) => (
               <div key={sectionIdx}>
-                <h3 className="mb-4 font-bold">{section.title}</h3>
+                <h3 className="radianz-label mb-4">{section.title}</h3>
                 <ul className="space-y-4 text-muted-foreground">
                   {section.links.map((link, linkIdx) => (
                     <li

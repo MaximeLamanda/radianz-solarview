@@ -1,25 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { LocaleHtmlUpdater } from "@/components/locale-html";
+import { SITE_URL } from "@/lib/seo";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "RADIANZ — Solar potential at your fingertips",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "RADIANZ — C&I solar prospecting platform",
+    template: "%s",
+  },
   description:
-    "Solar prospecting platform to identify, evaluate and convert high-potential buildings into qualified leads.",
+    "Qualify commercial and industrial rooftops, score solar leads, and share data-backed proposals.",
   icons: {
-    icon: "/radianz-logo.png",
+    icon: "/radianz-logo.svg",
   },
 };
 
@@ -31,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="min-h-full w-full" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-full w-full font-sans antialiased`}
+        className={`${inter.variable} ${jetbrainsMono.variable} min-h-full w-full font-sans antialiased`}
       >
         <LocaleHtmlUpdater />
         <div className="min-h-full w-full">{children}</div>

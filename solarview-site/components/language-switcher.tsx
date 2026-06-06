@@ -8,11 +8,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { useTransition } from "react";
 import { locales } from "@/i18n/config";
 import Image from "next/image";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const FLAG_SRC: Record<string, string> = {
   en: "https://flagcdn.com/w40/gb.png",
@@ -27,13 +28,13 @@ const LABELS: Record<string, string> = {
 function FlagRect({ locale }: { locale: string }) {
   const src = FLAG_SRC[locale] ?? FLAG_SRC.en;
   return (
-    <span className="relative block w-6 h-4 rounded overflow-hidden shrink-0 border border-border/50">
+    <span className="relative block h-4 w-6 shrink-0 overflow-hidden rounded border border-border/50">
       <Image
         src={src}
         alt=""
         width={24}
         height={16}
-        className="object-cover w-full h-full"
+        className="h-full w-full object-cover"
         unoptimized
       />
     </span>
@@ -55,23 +56,35 @@ export function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="xs"
-          className="h-9 min-w-0 !px-2 gap-1.5 border-0 bg-zinc-200 text-black hover:bg-zinc-300 [&_svg]:text-black"
+        <button
+          type="button"
           disabled={isPending}
+          className={cn(
+            buttonVariants({ size: "fit" }),
+            "gap-1 bg-white/10 text-xs font-mono font-medium normal-case tracking-normal text-white",
+            "transition-colors hover:bg-white/15",
+            "disabled:pointer-events-none disabled:opacity-40",
+          )}
+          aria-label={LABELS[locale]}
         >
           <FlagRect locale={locale} />
-          <ChevronDown className="size-4 text-black" />
-        </Button>
+          <ChevronDown className="size-4 shrink-0 opacity-60" />
+        </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="border-0 bg-zinc-200 shadow-md p-1 min-w-0 w-[var(--radix-popper-anchor-width)]">
+      <DropdownMenuContent
+        align="end"
+        className="min-w-0 w-[var(--radix-popper-anchor-width)] border-border bg-line p-1 shadow-md"
+      >
         {locales.map((loc) => (
           <DropdownMenuItem
             key={loc}
             onClick={() => handleSelect(loc)}
             aria-label={LABELS[loc]}
-            className="gap-0 justify-center p-1.5 cursor-pointer hover:bg-zinc-300 focus:bg-zinc-300 rounded"
+            className={cn(
+              "cursor-pointer justify-center gap-0 rounded-md p-1.5",
+              "hover:bg-line-2 focus:bg-line-2",
+              loc === locale && "bg-line-2",
+            )}
           >
             <FlagRect locale={loc} />
           </DropdownMenuItem>

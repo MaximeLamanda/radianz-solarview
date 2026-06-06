@@ -18,15 +18,24 @@ export interface Image {
 
 export interface StatBadge {
   label: string;
-  value: string;
+  /** Score ou indicateur optionnel affiché à côté du label */
+  value?: string;
   /** 2–3 data items sous le tag (ex: année construction, etc.) */
   data?: string[];
+  /** Contact avec avatar initiales et nom à la place des lignes de données */
+  contact?: {
+    firstName: string;
+    lastName: string;
+  };
+  /** Affiche un point vert devant la ligne de statut */
+  live?: boolean;
 }
 
 export interface HeroFeatureIconsProps {
-  badge?: string;
   heading: string;
   description?: string;
+  badge?: string;
+  bullets?: string[];
   statBadges?: StatBadge[];
   buttonPrimary?: {
     text: string;

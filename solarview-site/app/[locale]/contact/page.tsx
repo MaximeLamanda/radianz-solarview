@@ -1,16 +1,32 @@
+import { BRAND } from "@/lib/constants";
 import { Navbar1 } from "@/components/navbar1";
 import { Footer2 } from "@/components/footer2";
 import { LetsTalkSection } from "@/components/lets-talk-section";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
+import { type Locale } from "@/i18n/config";
+import { hreflangAlternates, SITE_URL } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "contact" });
+  const typedLocale = locale as Locale;
+  const t = await getTranslations({ locale: typedLocale, namespace: "contact" });
+  const canonicalPath = `/${typedLocale}/contact`;
+
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: {
+      canonical: canonicalPath,
+      languages: hreflangAlternates("/contact"),
+    },
+    openGraph: {
+      title: t("metaTitle"),
+      description: t("metaDescription"),
+      url: `${SITE_URL}${canonicalPath}`,
+      type: "website",
+    },
   };
 }
 
@@ -28,6 +44,7 @@ export default async function ContactPage({
   const tNav = await getTranslations("nav");
   const tFeature = await getTranslations("feature");
   const tPipeline = await getTranslations("pipeline");
+  const tArticles = await getTranslations("articles");
   const tContact = await getTranslations("contact");
   const tFooter = await getTranslations("footer");
 
@@ -36,13 +53,14 @@ export default async function ContactPage({
       <Navbar1
         logo={{
           url: "/",
-          src: "/radianz-logo.png",
+          src: BRAND.logoSrc,
           alt: tSite("name"),
           title: tSite("name"),
         }}
         menu={[
           { title: tFeature("about"), url: "/#avantages" },
           { title: tPipeline("badge"), url: "/#features" },
+          { title: tArticles("nav"), url: "/articles" },
           { title: tContact("badge"), url: "/contact" },
         ]}
         auth={{
@@ -72,7 +90,7 @@ export default async function ContactPage({
         <Footer2
           logo={{
             url: "/",
-            src: "/radianz-logo.png",
+            src: BRAND.logoSrc,
             alt: tSite("name"),
             title: tSite("name"),
           }}

@@ -1,15 +1,280 @@
 import { cn } from "@/lib/utils";
 
 import { Badge } from "@/components/ui/badge";
+import { ProductionConsumptionChart } from "@/components/production-consumption-chart";
+import { Building2, Link2, Map, MousePointer2 } from "lucide-react";
+
+function DiscoverSiteCard({
+  logo,
+  name,
+  parcelSurface,
+  buildingSurface,
+  parcelLabel,
+  buildingLabel,
+  selected = false,
+}: {
+  logo: string;
+  name: string;
+  parcelSurface: string;
+  buildingSurface: string;
+  parcelLabel: string;
+  buildingLabel: string;
+  selected?: boolean;
+}) {
+  return (
+    <div
+      className={cn(
+        "relative flex min-w-[168px] shrink-0 items-center gap-2.5 rounded-md border border-border px-2.5 py-2 shadow-sm backdrop-blur-sm sm:min-w-[188px] sm:gap-3 sm:px-3 sm:py-2.5",
+        selected ? "cursor-default bg-muted/95 ring-1 ring-foreground/20" : "bg-card/95",
+      )}
+    >
+      <img src={logo} alt={name} className="size-8 shrink-0 rounded-sm object-cover sm:size-9" />
+      <div className="min-w-0 flex-1">
+        <p className="truncate text-xs font-semibold">{name}</p>
+        <div className="mt-1 flex items-center gap-2.5 sm:gap-3">
+          <div className="flex min-w-0 items-center gap-1">
+            <Map className="size-3 shrink-0 text-muted-foreground" aria-label={parcelLabel} />
+            <span className="truncate font-mono text-[10px] font-medium">{parcelSurface}</span>
+          </div>
+          <div className="flex min-w-0 items-center gap-1">
+            <Building2 className="size-3 shrink-0 text-muted-foreground" aria-label={buildingLabel} />
+            <span className="truncate font-mono text-[10px] font-medium">{buildingSurface}</span>
+          </div>
+        </div>
+      </div>
+      {selected ? (
+        <MousePointer2
+          className="pointer-events-none absolute top-1.5 right-2 size-4 fill-foreground text-foreground drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]"
+          aria-hidden
+        />
+      ) : null}
+    </div>
+  );
+}
+
+function DiscoverMapIllustration({
+  image,
+  alt,
+  sites,
+  parcelLabel,
+  buildingLabel,
+  className,
+}: {
+  image: string;
+  alt: string;
+  sites?: {
+    logo: string;
+    name: string;
+    parcelSurface: string;
+    buildingSurface: string;
+    selected?: boolean;
+  }[];
+  parcelLabel: string;
+  buildingLabel: string;
+  className?: string;
+}) {
+  return (
+    <div className={cn("relative", className)}>
+      <div className="relative overflow-hidden rounded-lg border border-border">
+        <img src={image} alt={alt} className="aspect-[2/1] size-full object-cover object-top" />
+        {sites && sites.length > 0 ? (
+          <div className="absolute right-0 bottom-3 left-3 flex gap-2 overflow-hidden sm:bottom-4 sm:left-4">
+            {sites.map((site) => (
+              <DiscoverSiteCard
+                key={site.name}
+                {...site}
+                parcelLabel={parcelLabel}
+                buildingLabel={buildingLabel}
+              />
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+function SimulationEquipmentCard({
+  label,
+  reference,
+  image,
+}: {
+  label: string;
+  reference: string;
+  image?: string;
+}) {
+  return (
+    <div className="flex min-w-0 items-center gap-2.5 rounded-md border border-border bg-card px-2.5 py-2">
+      {image ? (
+        <img src={image} alt="" className="size-8 shrink-0 rounded-sm object-cover" />
+      ) : (
+        <div className="size-8 shrink-0 rounded-sm bg-muted" aria-hidden />
+      )}
+      <div className="min-w-0">
+        <p className="font-mono text-[9px] font-medium tracking-[0.12em] text-muted-foreground">
+          {label}
+        </p>
+        <p className="truncate font-mono text-[10px] font-medium">{reference}</p>
+      </div>
+    </div>
+  );
+}
+
+function SimulationIllustration({
+  siteName,
+  siteAddress,
+  cards,
+  className,
+}: {
+  siteName: string;
+  siteAddress: string;
+  cards: { label: string; reference: string; image?: string }[];
+  className?: string;
+}) {
+  return (
+    <div className={cn("relative overflow-hidden", className)}>
+      <div className="absolute inset-x-5 bottom-0 translate-y-[42%] md:inset-x-6 md:translate-y-[32%] lg:inset-x-10">
+        <div className="rounded-lg border border-border/80 bg-card/95 px-3 py-2.5 shadow-lg backdrop-blur-sm sm:px-4 sm:py-3">
+          <div className="mb-2.5 min-w-0">
+            <p className="truncate text-xs font-semibold">{siteName}</p>
+            <p className="truncate text-[10px] text-muted-foreground">{siteAddress}</p>
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            {cards.map((card) => (
+              <SimulationEquipmentCard key={card.label} {...card} />
+            ))}
+          </div>
+          <ProductionConsumptionChart className="mt-2.5" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ConvinceEmailIllustration({
+  className,
+  ...emailProps
+}: {
+  className?: string;
+  windowLabel: string;
+  to: string;
+  subject: string;
+  greeting: string;
+  bodyBeforeLink: string;
+  link: string;
+  bodyAfterLink: string;
+  closing: string;
+  sender: string;
+}) {
+  return (
+    <div className={cn("relative overflow-hidden", className)}>
+      <div className="absolute right-4 bottom-0 w-[92%] max-w-md translate-x-[12%] translate-y-[38%] md:right-6 md:w-[88%] md:translate-x-[14%] md:translate-y-[26%] lg:right-10">
+        <FollowUpEmailIllustration {...emailProps} />
+      </div>
+    </div>
+  );
+}
+
+function FollowUpEmailIllustration({
+  windowLabel,
+  to,
+  subject,
+  greeting,
+  bodyBeforeLink,
+  link,
+  bodyAfterLink,
+  closing,
+  sender,
+  className,
+}: {
+  windowLabel: string;
+  to: string;
+  subject: string;
+  greeting: string;
+  bodyBeforeLink: string;
+  link: string;
+  bodyAfterLink: string;
+  closing: string;
+  sender: string;
+  className?: string;
+}) {
+  return (
+    <div className={cn("radianz-mockup w-full", className)}>
+      <div className="flex items-center gap-2 border-b border-border bg-muted px-4 py-3">
+        <div className="flex gap-1.5">
+          <span className="size-2.5 rounded-full bg-red-400" />
+          <span className="size-2.5 rounded-full bg-amber-400" />
+          <span className="size-2.5 rounded-full bg-emerald-400" />
+        </div>
+        <div className="ml-4 min-w-0 flex-1 truncate rounded-md bg-card px-3 py-1.5 font-mono text-xs text-muted-foreground">
+          {windowLabel}
+        </div>
+      </div>
+
+      <div className="bg-card p-4">
+        <div className="space-y-2.5 rounded-md border border-border bg-muted/30 p-3 text-xs leading-relaxed">
+          <div className="space-y-0.5 border-b border-border pb-2.5">
+            <p className="text-[10px] text-muted-foreground">{to}</p>
+            <p className="font-medium text-foreground">{subject}</p>
+          </div>
+          <p className="font-medium text-foreground">{greeting}</p>
+          <p className="text-muted-foreground">{bodyBeforeLink}</p>
+          <div className="relative w-fit max-w-full">
+            <p className="flex items-center gap-1.5 truncate rounded-md border border-accent/50 bg-accent/30 py-1.5 pr-2.5 pl-2 font-mono text-[11px] font-medium text-foreground">
+              <Link2 className="size-3 shrink-0 text-foreground/80" aria-hidden />
+              <span className="truncate">{link}</span>
+            </p>
+            <MousePointer2
+              className="pointer-events-none absolute top-[calc(100%-2px)] left-[62%] size-4 fill-foreground text-foreground drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]"
+              aria-hidden
+            />
+          </div>
+          <p className="text-muted-foreground">{bodyAfterLink}</p>
+          <p className="text-muted-foreground">
+            {closing}
+            <br />
+            {sender}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 interface Feature {
   title: string;
   description: string;
-  image: string;
+  descriptionShort?: string;
   kpi?: string;
-  progress?: { label: string; value: number; percentage?: number }[];
-  clusters?: { value: string; x?: number; y?: number }[];
-  illustration?: "data-sources";
+  kpiSuffix?: string;
+  kpiLabel?: string;
+  qualificationTags?: string[];
+  illustration?: "map" | "production-chart" | "follow-up-email" | "empty";
+  image?: string;
+  imageAlt?: string;
+  mapSites?: {
+    logo: string;
+    name: string;
+    parcelSurface: string;
+    buildingSurface: string;
+    selected?: boolean;
+  }[];
+  mapParcelLabel?: string;
+  mapBuildingLabel?: string;
+  simulationSiteName?: string;
+  simulationSiteAddress?: string;
+  simulationCards?: { label: string; reference: string; image?: string }[];
+  convinceEmail?: {
+    windowLabel: string;
+    to: string;
+    subject: string;
+    greeting: string;
+    bodyBeforeLink: string;
+    link: string;
+    bodyAfterLink: string;
+    closing: string;
+    sender: string;
+  };
 }
 
 interface Feature166Props {
@@ -30,25 +295,26 @@ const Feature166 = ({
     title: "UI/UX Design",
     description:
       "Creating intuitive user experiences with modern interface design principles and user-centered methodologies.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg",
   },
   feature2 = {
     title: "Responsive Development",
     description:
       "Building websites that look and function perfectly across all devices and screen sizes.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-2.svg",
+    kpi: "15",
+    kpiSuffix: "× faster",
+    kpiLabel: "than manual qualification",
   },
   feature3 = {
     title: "Brand Integration",
     description:
       "Seamlessly incorporating your brand identity into every aspect of your website's design.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-3.svg",
+    illustration: "production-chart",
   },
   feature4 = {
     title: "Performance Optimization",
     description:
       "Ensuring fast loading times and smooth performance through optimized code and assets.",
-    image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-4.svg",
+    illustration: "empty",
   },
   className,
 }: Feature166Props) => {
@@ -64,202 +330,100 @@ const Feature166 = ({
               {badge}
             </Badge>
           )}
-          <p className="min-w-0 max-w-4xl flex-1 text-2xl font-medium leading-snug lg:text-3xl">
+          <p className="min-w-0 max-w-4xl flex-1 text-2xl font-light leading-snug tracking-tight lg:text-3xl">
             {description}
           </p>
         </div>
         <div className="relative flex w-full justify-center">
           <div className="relative flex w-full flex-col gap-4">
             <div className="relative flex flex-col gap-4 md:flex-row md:gap-4">
-              <div
-                className="relative flex min-h-[394px] flex-col justify-between overflow-hidden rounded-xl bg-cover bg-center p-5 md:w-3/5 md:p-6 lg:p-10"
-                style={{ backgroundImage: `url(${feature1.image})` }}
-              >
-                <div className="absolute inset-0 bg-black/40" />
-                <div className="relative z-10">
-                  <h2 className="text-2xl font-semibold text-white lg:text-3xl">{feature1.title}</h2>
-                  <p className="max-w-md text-white/90">{feature1.description}</p>
+              <div className="flex flex-col rounded-xl border border-border bg-card p-5 md:w-3/5 md:p-6 lg:p-10">
+                <div className="space-y-1">
+                  <h2 className="text-2xl font-normal lg:text-3xl">{feature1.title}</h2>
+                  <p className="max-w-md text-muted-foreground">{feature1.description}</p>
                 </div>
-                {/* Box histogramme + consommation annuelle */}
-                <div className="relative z-10 flex w-full h-[160px] w-full max-w-[280px] flex-col gap-2 self-start rounded-lg border border-white/15 bg-white/5 px-4 py-3 backdrop-blur-md">
-                  <div className="flex shrink-0 items-center justify-between gap-2">
-                    <span className="font-mono text-xs font-medium tabular-nums text-white">
-                      1.24 MWh/year
-                    </span>
-                    <span className="font-mono text-xs font-semibold tabular-nums text-white">
-                      78% auto
-                    </span>
-                  </div>
-                  <svg viewBox="0 12 200 28" className="min-h-[80px] flex-1 w-full" preserveAspectRatio="none" aria-hidden>
-                      {[
-                        { prod: 6, conso: 14 },
-                        { prod: 7, conso: 14 },
-                        { prod: 11, conso: 11 },
-                        { prod: 14, conso: 8 },
-                        { prod: 18, conso: 6 },
-                        { prod: 20, conso: 5 },
-                        { prod: 21, conso: 4 },
-                        { prod: 19, conso: 5 },
-                        { prod: 15, conso: 7 },
-                        { prod: 13, conso: 10 },
-                        { prod: 8, conso: 13 },
-                        { prod: 6, conso: 15 },
-                      ].map((v, i) => {
-                        const x = 4 + i * 16;
-                        const w = 12;
-                        const yProdTop = 38 - v.prod;
-                        const yConsoTop = 38 - v.prod - v.conso;
-                        return (
-                          <g key={i}>
-                            <rect
-                              x={x}
-                              y={yProdTop}
-                              width={w}
-                              height={v.prod}
-                              fill="#E4FE55"
-                            />
-                            <rect
-                              x={x}
-                              y={yConsoTop}
-                              width={w}
-                              height={v.conso}
-                              fill="rgba(255, 255, 255, 0.6)"
-                            />
-                          </g>
-                        );
-                      })}
-                    </svg>
-                </div>
+                {feature1.illustration === "map" && feature1.image && (
+                  <DiscoverMapIllustration
+                    image={feature1.image}
+                    alt={feature1.imageAlt ?? feature1.title}
+                    sites={feature1.mapSites}
+                    parcelLabel={feature1.mapParcelLabel ?? "Parcelle"}
+                    buildingLabel={feature1.mapBuildingLabel ?? "Bâtiment"}
+                    className="mt-4 w-full"
+                  />
+                )}
               </div>
-              <div
-                className="flex min-h-[300px] flex-col justify-between rounded-xl p-5 md:min-h-0 md:w-2/5 md:p-6 lg:p-10"
-                style={{ backgroundColor: "#E4FE55" }}
-              >
-                <div>
+              <div className="radianz-accent-card flex min-h-[300px] flex-col justify-between rounded-xl p-5 md:min-h-0 md:w-2/5 md:p-6 lg:p-10">
+                <div className="relative z-10">
+                  <h2 className="text-2xl font-medium lg:text-3xl">{feature2.title}</h2>
                   {feature2.kpi && (
-                    <span
-                      className="mb-2 block font-mono text-4xl font-semibold lg:text-5xl"
-                      style={{ color: "#171717" }}
-                    >
-                      {feature2.kpi}
-                    </span>
-                  )}
-                  <h2
-                    className="text-2xl font-semibold lg:text-3xl"
-                    style={{ color: "#171717" }}
-                  >
-                    {feature2.title}
-                  </h2>
-                </div>
-                {feature2.progress ? (
-                  <div className="mt-6 flex flex-col gap-3">
-                    {feature2.progress.map((item) => (
-                      <div key={item.label} className="flex items-center justify-between gap-3">
-                        <span
-                          className="text-sm font-medium"
-                          style={{ color: "#171717" }}
-                        >
-                          {item.label}
+                    <div className="mt-4">
+                      <p className="font-mono tracking-tight">
+                        <span className="text-4xl font-normal lg:text-5xl">{feature2.kpi}</span>
+                      </p>
+                      {(feature2.kpiSuffix || feature2.kpiLabel) && (
+                        <span className="mt-1 block font-mono text-sm font-medium leading-snug text-foreground/70">
+                          {[feature2.kpiSuffix, feature2.kpiLabel].filter(Boolean).join(" ")}
                         </span>
-                        <div className="flex items-center gap-2">
-                          <div className="flex gap-1">
-                            {Array.from({ length: 10 }).map((_, i) => (
-                              <span
-                                key={i}
-                                className={cn(
-                                  "h-2 w-2 rounded-full",
-                                  i < item.value ? "" : "opacity-30"
-                                )}
-                                style={{
-                                  backgroundColor: i < item.value ? "#171717" : "#171717",
-                                }}
-                              />
-                            ))}
-                          </div>
-                          {item.percentage != null && (
-                            <span
-                              className="w-10 text-right font-mono text-sm tabular-nums"
-                              style={{ color: "#171717" }}
-                            >
-                              {item.percentage}%
-                            </span>
-                          )}
-                        </div>
-                      </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+                {feature2.qualificationTags && feature2.qualificationTags.length > 0 ? (
+                  <div className="relative z-10 flex flex-wrap gap-2">
+                    {feature2.qualificationTags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="inline-flex items-center rounded-full bg-foreground px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-wider text-background"
+                      >
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 ) : (
-                  <p className="text-muted-foreground">{feature2.description}</p>
+                  <p className="relative z-10 text-foreground/70">{feature2.description}</p>
                 )}
               </div>
             </div>
             <div className="relative flex flex-col gap-4 md:flex-row md:gap-4">
-              <div className="flex min-h-[320px] flex-col justify-between rounded-xl border border-zinc-200 p-5 dark:border-zinc-700 md:min-h-[360px] md:w-2/5 md:p-6 lg:p-10">
-                <div>
-                  <h2 className="text-2xl font-semibold lg:text-3xl">{feature3.title}</h2>
+              <div className="relative flex min-h-[380px] flex-col overflow-hidden rounded-xl border border-border bg-card md:min-h-[480px] md:w-2/5">
+                <div className="relative z-10 shrink-0 px-5 pt-5 md:px-6 md:pt-6 lg:px-10 lg:pt-10">
+                  <h2 className="text-2xl font-normal lg:text-3xl">{feature3.title}</h2>
                   <p className="text-muted-foreground">{feature3.description}</p>
                 </div>
-                {feature3.illustration === "data-sources" ? (
-                  <div className="mt-6 flex min-h-0 flex-1 flex-col items-center justify-center rounded-lg bg-zinc-50 dark:bg-zinc-900/50">
-                    <img
-                      src="/graphdata.svg"
-                      alt="Data sources to Unified Prospect Profile"
-                      className="h-full w-full max-h-[180px] max-w-[300px] object-contain"
-                    />
-                  </div>
-                ) : (
-                  <img
-                    src={feature3.image}
-                    alt={feature3.title}
-                    className="mt-8 aspect-[1.45] h-full w-full object-cover"
+                {feature3.illustration === "production-chart" &&
+                  feature3.simulationCards &&
+                  feature3.simulationSiteName &&
+                  feature3.simulationSiteAddress && (
+                  <SimulationIllustration
+                    siteName={feature3.simulationSiteName}
+                    siteAddress={feature3.simulationSiteAddress}
+                    cards={feature3.simulationCards}
+                    className="mt-4 min-h-0 flex-1"
                   />
                 )}
               </div>
-              <div className="flex flex-col justify-between rounded-xl border border-zinc-200 p-5 dark:border-zinc-700 md:w-3/5 md:p-6 lg:p-10">
-                <div>
-                  <h2 className="text-2xl font-semibold lg:text-3xl">{feature4.title}</h2>
-                  <p className="text-muted-foreground">{feature4.description}</p>
-                </div>
-                <div className="relative mt-8 overflow-hidden rounded-lg">
-                  <img
-                    src={feature4.image}
-                    alt={feature4.title}
-                    className="aspect-[1.5] w-full object-cover lg:aspect-[2.4]"
-                  />
-                  {feature4.clusters && feature4.clusters.length > 0 && (
+              <div className="relative flex min-h-[380px] flex-col overflow-hidden rounded-xl border border-border bg-card md:min-h-[480px] md:w-3/5">
+                <div className="relative z-10 shrink-0 px-5 pt-5 md:px-6 md:pt-6 lg:px-10 lg:pt-10">
+                  <h2 className="text-2xl font-normal lg:text-3xl">{feature4.title}</h2>
+                  {feature4.descriptionShort ? (
                     <>
-                      {feature4.clusters.map((cluster, i) => (
-                        <div
-                          key={i}
-                          className="absolute flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
-                          style={{
-                            left: `${cluster.x ?? 25}%`,
-                            top: `${cluster.y ?? 30}%`,
-                          }}
-                        >
-                          {/* Cercle extérieur avec opacité réduite */}
-                          <div
-                            className="absolute size-12 rounded-full"
-                            style={{
-                              backgroundColor: "#E4FE55",
-                              opacity: 0.35,
-                            }}
-                          />
-                          {/* Cercle principal */}
-                          <div
-                            className="relative flex size-9 items-center justify-center rounded-full font-mono text-xs font-semibold"
-                            style={{
-                              backgroundColor: "#E4FE55",
-                              color: "#171717",
-                            }}
-                          >
-                            {cluster.value}
-                          </div>
-                        </div>
-                      ))}
+                      <p className="text-muted-foreground md:hidden">{feature4.descriptionShort}</p>
+                      <p className="hidden text-muted-foreground md:block">{feature4.description}</p>
                     </>
+                  ) : (
+                    <p className="text-muted-foreground">{feature4.description}</p>
                   )}
                 </div>
+                {feature4.illustration === "follow-up-email" && feature4.convinceEmail && (
+                  <ConvinceEmailIllustration className="mt-4 min-h-0 flex-1" {...feature4.convinceEmail} />
+                )}
+                {feature4.illustration === "empty" && (
+                  <div
+                    className="mx-5 mt-8 aspect-[1.5] w-auto rounded-lg bg-muted md:mx-6 lg:mx-10 lg:aspect-[2.4]"
+                    aria-hidden
+                  />
+                )}
               </div>
             </div>
           </div>

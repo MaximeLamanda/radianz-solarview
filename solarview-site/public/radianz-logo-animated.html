@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RADIANZ — Logo animé</title>
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #000;
+        font-family: system-ui, -apple-system, sans-serif;
+        color: #a3a3a3;
+      }
+
+      .stage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .logo {
+        width: min(280px, 70vw);
+        height: auto;
+        overflow: visible;
+      }
+
+      .bar {
+        opacity: 0;
+        transform-box: fill-box;
+        transform-origin: center;
+        animation: assemble 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      .bar--horizontal {
+        --tx: -28px;
+        --ty: 0px;
+        animation-delay: 0.05s;
+      }
+
+      .bar--top {
+        --tx: 0px;
+        --ty: -24px;
+        animation-delay: 0.15s;
+      }
+
+      .bar--bottom {
+        --tx: 0px;
+        --ty: 24px;
+        animation-delay: 0.25s;
+      }
+
+      .bar--diag-top {
+        --tx: 22px;
+        --ty: -22px;
+        animation-delay: 0.35s;
+      }
+
+      .bar--diag-bottom {
+        --tx: 22px;
+        --ty: 22px;
+        animation-delay: 0.45s;
+      }
+
+      .logo.is-idle .bar {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+
+      .logo.is-breathing .bars {
+        animation: breathe 3s ease-in-out infinite;
+        transform-origin: 43.5px 32px;
+      }
+
+      @keyframes assemble {
+        from {
+          opacity: 0;
+          transform: translate(var(--tx), var(--ty)) scale(0.88);
+        }
+        to {
+          opacity: 1;
+          transform: translate(0, 0) scale(1);
+        }
+      }
+
+      @keyframes breathe {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.03);
+          opacity: 0.92;
+        }
+      }
+
+      .controls {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      button {
+        appearance: none;
+        border: 1px solid #333;
+        background: #111;
+        color: #d4d4d4;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.875rem;
+        cursor: pointer;
+        transition: background 0.15s, border-color 0.15s;
+      }
+
+      button:hover {
+        background: #1a1a1a;
+        border-color: #555;
+      }
+
+      button:focus-visible {
+        outline: 2px solid #737373;
+        outline-offset: 2px;
+      }
+
+      .hint {
+        font-size: 0.75rem;
+        color: #525252;
+        text-align: center;
+        max-width: 20rem;
+        line-height: 1.5;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .bar {
+          animation: none;
+          opacity: 1;
+          transform: none;
+        }
+
+        .logo.is-breathing .bars {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stage">
+      <svg
+        class="logo"
+        id="logo"
+        width="87"
+        height="64"
+        viewBox="0 0 87 64"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="Logo RADIANZ animé"
+        role="img"
+      >
+        <g class="bars">
+          <g class="bar bar--horizontal">
+            <path
+              d="M17 27C19.7614 27 22 29.2386 22 32L22 34C22 36.7614 19.7614 39 17 39L0 39L0 27L17 27Z"
+              fill="#A3A3A3"
+            />
+          </g>
+          <g class="bar bar--top">
+            <path
+              d="M38 17C38 19.7614 35.7614 22 33 22L31 22C28.2386 22 26 19.7614 26 17L26 0L38 0L38 17Z"
+              fill="#A3A3A3"
+            />
+          </g>
+          <g class="bar bar--bottom">
+            <path
+              d="M26 47C26 44.2386 28.2386 42 31 42H33C35.7614 42 38 44.2386 38 47V64H26V47Z"
+              fill="#A3A3A3"
+            />
+          </g>
+          <g class="bar bar--diag-top">
+            <path
+              d="M68 32H73.9731C77.074 32 78.9956 28.6242 77.4125 25.9578L62 0H50L68 32Z"
+              fill="#A3A3A3"
+            />
+          </g>
+          <g class="bar bar--diag-bottom">
+            <path
+              d="M74 64H87L68 32H64.5492C60.7251 32 58.3165 36.1183 60.1914 39.4513L74 64Z"
+              fill="#A3A3A3"
+            />
+          </g>
+        </g>
+      </svg>
+
+      <div class="controls">
+        <button type="button" id="replay">Rejouer</button>
+        <button type="button" id="breathe">Respiration</button>
+      </div>
+
+      <p class="hint">
+        Fichier autonome — ouvrez-le directement dans le navigateur ou intégrez le SVG dans vos projets.
+      </p>
+    </div>
+
+    <script>
+      const logo = document.getElementById("logo");
+      const replayBtn = document.getElementById("replay");
+      const breatheBtn = document.getElementById("breathe");
+
+      function replay() {
+        logo.classList.remove("is-breathing", "is-idle");
+        void logo.offsetWidth;
+        logo.querySelectorAll(".bar").forEach((bar) => {
+          bar.style.animation = "none";
+          void bar.offsetWidth;
+          bar.style.animation = "";
+        });
+      }
+
+      replayBtn.addEventListener("click", replay);
+
+      breatheBtn.addEventListener("click", () => {
+        logo.classList.add("is-idle");
+        logo.classList.toggle("is-breathing");
+        breatheBtn.textContent = logo.classList.contains("is-breathing")
+          ? "Arrêter"
+          : "Respiration";
+      });
+
+      logo.addEventListener("animationend", (event) => {
+        if (event.target.classList.contains("bar--diag-bottom")) {
+          logo.classList.add("is-idle");
+        }
+      });
+    </script>
+  </body>
+</html>

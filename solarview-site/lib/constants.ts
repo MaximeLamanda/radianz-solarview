@@ -17,6 +17,11 @@ export const IMAGES = {
   placeholder: PLACEHOLDER,
 } as const;
 
+export const BRAND = {
+  logoSrc: "/radianz-logo.svg",
+  logoAlt: "RADIANZ",
+} as const;
+
 export const SITE = {
   name: "RADIANZ",
   tagline: "Spot Potential from the Sky. Close Deals on the Ground.",
@@ -26,10 +31,10 @@ export const SITE = {
 } as const;
 
 export const STAT_BADGES = [
-  { label: "Solar", value: "92%", data: ["Irr. 4.2", "1200 kWh/kWp"] },
-  { label: "Building", value: "85%", data: ["2015", "2356 m²"] },
-  { label: "Contact", value: "78%", data: ["SIRET", "NAF 4110"] },
-  { label: "Credit", value: "95%", data: ["Rating A", "CIR 2024"] },
+  { label: "Solar", data: ["Irr. 4.2", "1200 kWh/kWp"] },
+  { label: "Bâtiment", data: ["Crédit Agricole", "2356 m²"] },
+  { label: "Contact", contact: { firstName: "Marie", lastName: "Lambert" } },
+  { label: "Cadastre", data: ["SCI Les Terrasses", "4532 m²"] },
 ];
 
 export const NAV_LINKS = [
@@ -77,7 +82,7 @@ export const FEATURES_166 = [
     description:
       "Rank prospects by potential and quality to prioritize your actions.",
     imageKey: "feature2" as const,
-    kpi: "10x",
+    kpi: "×15",
     progress: [
       { label: "Accuracy", value: 10, percentage: 98 },
       { label: "Speed", value: 10, percentage: 95 },

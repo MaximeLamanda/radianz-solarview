@@ -4,6 +4,7 @@ import * as React from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 type LetsTalkError = "config" | "send";
 
@@ -22,6 +23,22 @@ function isValidEmail(value: string) {
 const DEFAULT_IMAGE = "/88c623f1371fe04eb47b0e9ffbc98d60.jpg";
 
 const LEADS_OPTIONS = ["50", "100", "250", "500", "1000", "2000+"];
+
+function TeamContactCard({ className }: { className?: string }) {
+  const t = useTranslations("contact");
+
+  return (
+    <div
+      className={cn(
+        "flex w-fit flex-col gap-1 rounded-md bg-black/80 p-4 backdrop-blur-sm",
+        className,
+      )}
+    >
+      <p className="font-medium text-white">{t("contactRepName")}</p>
+      <p className="text-sm text-white/60">{t("contactRep")}</p>
+    </div>
+  );
+}
 
 export function LetsTalkSection({
   className,
@@ -69,7 +86,7 @@ export function LetsTalkSection({
   }
 
   const fieldBase =
-    "w-full rounded-lg border border-zinc-700 bg-zinc-900/50 px-4 py-3 text-base text-zinc-100 placeholder:text-zinc-500 outline-none transition focus:border-zinc-600 focus:ring-2 focus:ring-[#E4FE55]/20";
+    "w-full rounded-md border-0 bg-white/10 px-4 py-3 text-base text-white placeholder:text-white/40 outline-none transition focus:bg-white/[0.14] focus:ring-2 focus:ring-accent/30";
 
   return (
     <section className={cn("py-16 md:py-24", className)}>
@@ -79,54 +96,43 @@ export function LetsTalkSection({
             {t("badge")}
           </Badge>
         </div>
-        <div className="mx-auto w-full overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
+        <div className="mx-auto w-full overflow-hidden rounded-lg border-0 bg-transparent shadow-none">
           <div
-            className="relative grid min-h-[560px] bg-zinc-950 bg-cover bg-center lg:grid-cols-[1.4fr_1fr]"
+            className="relative grid min-h-[560px] bg-foreground bg-cover bg-center lg:grid-cols-[1.4fr_1fr]"
             style={{ backgroundImage: `url(${imageSrc})` }}
           >
-            <div className="absolute inset-0 bg-zinc-950/80" />
-            {/* Left: copy - hidden on mobile */}
+            <div className="absolute inset-0 bg-foreground/80" />
             <div className="relative z-10 hidden min-h-[320px] flex-col justify-between p-8 md:p-10 lg:flex lg:min-h-[560px]">
-              <p className="font-sans text-2xl font-normal leading-[1.2] tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
+              <p className="text-2xl font-light leading-[1.2] tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
                 {t("headline1")}
                 <br />
                 {t("headline2")}
               </p>
-              <div className="mt-8 flex w-fit items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm lg:mt-0">
-                <img
-                  src="/alexislej.jpeg"
-                  alt={t("contactRepName")}
-                  className="size-14 rounded-full object-cover lg:size-16"
-                />
-                <div>
-                  <p className="font-medium text-white">{t("contactRepName")}</p>
-                  <p className="text-sm text-zinc-400">{t("contactRep")}</p>
-                </div>
-              </div>
+              <TeamContactCard className="mt-8 lg:mt-0" />
             </div>
 
-            {/* Right: form - full width on mobile */}
             <div className="relative z-10 flex min-h-[320px] w-full flex-col p-0 lg:min-h-[560px] lg:w-auto lg:p-5">
-              <div className="flex min-h-full flex-1 flex-col rounded-none bg-black p-6 font-sans md:p-8 lg:rounded-2xl">
-                <div className="mb-8 flex items-center gap-4 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-zinc-400">
+              <div className="flex min-h-full flex-1 flex-col rounded-none bg-black p-6 font-sans md:p-8 lg:rounded-lg">
+                <TeamContactCard className="mb-6 lg:hidden" />
+                <div className="mb-8 flex items-center gap-4 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-white/50">
                   <button
                     type="button"
                     onClick={() => setStep(1)}
                     className={cn(
                       "pointer-events-auto transition-colors",
-                      step === 1 ? "text-[#E4FE55]" : "text-zinc-500 hover:text-zinc-300"
+                      step === 1 ? "text-accent" : "hover:text-white/80",
                     )}
                   >
                     {t("step1")}
                   </button>
-                  <div className="h-px flex-1 bg-zinc-800" />
+                  <div className="h-px flex-1 bg-white/15" />
                   <button
                     type="button"
                     onClick={() => step1Valid && setStep(2)}
                     className={cn(
                       "pointer-events-auto transition-colors",
-                      step === 2 ? "text-[#E4FE55]" : "text-zinc-500 hover:text-zinc-300",
-                      !step1Valid && "cursor-not-allowed opacity-60 hover:text-zinc-500"
+                      step === 2 ? "text-accent" : "hover:text-white/80",
+                      !step1Valid && "cursor-not-allowed opacity-60 hover:text-white/50",
                     )}
                     aria-disabled={!step1Valid}
                   >
@@ -150,12 +156,11 @@ export function LetsTalkSection({
                   <input type="hidden" name="name" value={fullName} />
                   <input type="hidden" name="locale" value={currentLocale} />
 
-                  {/* Step 1 */}
                   <div className={cn("flex flex-1 flex-col", step !== 1 && "hidden")}>
                     <div className="space-y-5">
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">{t("firstName")}</label>
+                          <label className="radianz-label mb-2 block text-white/70">{t("firstName")}</label>
                           <input
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
@@ -164,12 +169,12 @@ export function LetsTalkSection({
                             placeholder={t("placeholderFirstName")}
                             className={cn(
                               fieldBase,
-                              attemptedNext && firstName.trim().length === 0 && "border-red-900/60 focus:border-red-800"
+                              attemptedNext && firstName.trim().length === 0 && "ring-2 ring-red-900/60 focus:ring-red-800/50",
                             )}
                           />
                         </div>
                         <div>
-                          <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">{t("lastName")}</label>
+                          <label className="radianz-label mb-2 block text-white/70">{t("lastName")}</label>
                           <input
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
@@ -178,13 +183,13 @@ export function LetsTalkSection({
                             placeholder={t("placeholderLastName")}
                             className={cn(
                               fieldBase,
-                              attemptedNext && lastName.trim().length === 0 && "border-red-900/60 focus:border-red-800"
+                              attemptedNext && lastName.trim().length === 0 && "ring-2 ring-red-900/60 focus:ring-red-800/50",
                             )}
                           />
                         </div>
                       </div>
                       <div>
-                        <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">{t("email")}</label>
+                        <label className="radianz-label mb-2 block text-white/70">{t("email")}</label>
                         <input
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
@@ -194,12 +199,12 @@ export function LetsTalkSection({
                           placeholder={t("placeholderEmail")}
                           className={cn(
                             fieldBase,
-                            attemptedNext && !isValidEmail(email) && "border-red-900/60 focus:border-red-800"
+                            attemptedNext && !isValidEmail(email) && "ring-2 ring-red-900/60 focus:ring-red-800/50",
                           )}
                         />
                       </div>
                       <div>
-                        <label className="mb-3 block text-sm font-medium tracking-wide text-zinc-300">
+                        <label className="radianz-label mb-3 block text-white/70">
                           {t("leadsPerMonth")}
                         </label>
                         <div className="flex flex-wrap gap-2">
@@ -209,10 +214,10 @@ export function LetsTalkSection({
                               type="button"
                               onClick={() => setLeadsPerMonth(value)}
                               className={cn(
-                                "rounded-lg border-0 px-3 py-1.5 font-mono text-sm font-normal tracking-wide transition",
+                                "rounded-md border-0 px-3 py-1.5 font-mono text-sm font-normal tracking-wide transition",
                                 leadsPerMonth === value
-                                  ? "bg-[#E4FE55] text-[#171717]"
-                                  : "bg-zinc-700/80 text-zinc-300 hover:bg-zinc-600/80"
+                                  ? "bg-accent text-accent-foreground"
+                                  : "bg-white/10 text-white/70 hover:bg-white/15",
                               )}
                             >
                               {value}
@@ -223,28 +228,24 @@ export function LetsTalkSection({
                       </div>
                     </div>
                     <div className="mt-auto pt-6">
-                      <button
+                      <Button
                         type="button"
+                        variant="lime"
+                        size="lg"
                         onClick={goNext}
-                        className={cn(
-                          "inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold tracking-wide transition",
-                          step1Valid
-                            ? "bg-[#E4FE55] text-[#171717] hover:bg-[#d7f24f]"
-                            : "cursor-not-allowed bg-zinc-800 text-zinc-400"
-                        )}
-                        aria-disabled={!step1Valid}
+                        disabled={!step1Valid}
+                        className="w-full"
                       >
                         {t("next")}
                         <span aria-hidden="true">›</span>
-                      </button>
+                      </Button>
                     </div>
                   </div>
 
-                  {/* Step 2 */}
                   <div className={cn("flex flex-1 flex-col", step !== 2 && "hidden")}>
                     <div className="space-y-5">
                       <div>
-                        <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">{t("company")}</label>
+                        <label className="radianz-label mb-2 block text-white/70">{t("company")}</label>
                         <input
                           value={company}
                           onChange={(e) => setCompany(e.target.value)}
@@ -256,7 +257,7 @@ export function LetsTalkSection({
                         />
                       </div>
                       <div>
-                        <label className="mb-2 block text-sm font-medium tracking-wide text-zinc-300">{t("message")}</label>
+                        <label className="radianz-label mb-2 block text-white/70">{t("message")}</label>
                         <textarea
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
@@ -268,19 +269,18 @@ export function LetsTalkSection({
                       </div>
                     </div>
                     <div className="mt-auto flex flex-col gap-3 pt-6 sm:flex-row">
-                      <button
+                      <Button
                         type="button"
+                        variant="outline"
+                        size="lg"
                         onClick={goBack}
-                        className="inline-flex w-full items-center justify-center rounded-xl border border-zinc-800 bg-transparent px-5 py-3 text-sm font-semibold tracking-wide text-zinc-200 transition hover:border-zinc-700 hover:bg-zinc-900 sm:w-auto"
+                        className="w-full border-0 bg-transparent text-white hover:bg-white/10 sm:w-auto"
                       >
                         {t("back")}
-                      </button>
-                      <button
-                        type="submit"
-                        className="inline-flex w-full flex-1 items-center justify-center rounded-xl bg-[#E4FE55] px-5 py-3 text-sm font-semibold tracking-wide text-[#171717] transition hover:bg-[#d7f24f]"
-                      >
+                      </Button>
+                      <Button type="submit" variant="lime" size="lg" className="w-full flex-1">
                         {t("send")}
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </form>
@@ -292,4 +292,3 @@ export function LetsTalkSection({
     </section>
   );
 }
-
