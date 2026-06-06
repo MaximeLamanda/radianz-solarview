@@ -3,7 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { LocaleHtmlUpdater } from "@/components/locale-html";
-import { SEO_ASSETS, siteIcons, socialShareImages, socialTwitterImages, SITE_URL } from "@/lib/seo";
+import { siteIcons, socialShareImages, socialTwitterImages, SITE_URL } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",

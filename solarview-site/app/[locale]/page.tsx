@@ -12,7 +12,7 @@ import { SearchSection } from "@/components/search-section";
 import { LetsTalkSection } from "@/components/lets-talk-section";
 import { Footer2 } from "@/components/footer2";
 
-import { BRAND, STAT_BADGES, HERO_FEATURES, FEATURES_166 } from "@/lib/constants";
+import { BRAND, STAT_BADGES, HERO_FEATURES } from "@/lib/constants";
 import { hreflangAlternates, SITE_URL } from "@/lib/seo";
 import { type Locale } from "@/i18n/config";
 

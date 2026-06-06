@@ -65,7 +65,7 @@ function ContactAvatars({ contacts }: { contacts: string[] }) {
 const PipelineSection = ({ className }: PipelineSectionProps) => {
   const t = useTranslations("pipeline");
 
-  const mockLeads: MockLead[] = [
+  const mockLeads: MockLead[] = ([
     {
       name: t("lead1"),
       addr: t("addr1"),
@@ -116,7 +116,7 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
       contacts: ["FB", "LC"],
       hasBattery: true,
     },
-  ].map((lead) => ({
+  ] as Omit<MockLead, "estProd">[]).map((lead): MockLead => ({
     ...lead,
     estProd: `${Math.round((Number(lead.kwp) * 1250) / 1000)} MWh`,
   }));
