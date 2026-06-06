@@ -4,6 +4,7 @@ import { BRAND } from "@/lib/constants";
 interface BrandLogoProps {
   className?: string;
   markClassName?: string;
+  wordmarkClassName?: string;
   showWordmark?: boolean;
   wordmark?: string;
 }
@@ -11,6 +12,7 @@ interface BrandLogoProps {
 export function BrandLogo({
   className,
   markClassName,
+  wordmarkClassName,
   showWordmark = true,
   wordmark = BRAND.logoAlt,
 }: BrandLogoProps) {
@@ -24,7 +26,7 @@ export function BrandLogo({
         className={cn("h-5 w-auto shrink-0", markClassName)}
       />
       {showWordmark ? (
-        <span className="text-inherit font-medium tracking-tight">{wordmark}</span>
+        <span className={cn("font-semibold tracking-tight", wordmarkClassName)}>{wordmark}</span>
       ) : null}
     </span>
   );

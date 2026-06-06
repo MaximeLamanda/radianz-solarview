@@ -75,7 +75,8 @@ function LogoLink({
       wordmark={logo.title}
       showWordmark={showWordmark}
       markClassName="h-[18px] brightness-0 invert"
-      className="rounded-sm px-1 py-1 font-mono text-xs text-white transition-colors hover:bg-white/10"
+      wordmarkClassName="text-sm sm:text-base"
+      className="rounded-sm px-1 py-1 text-white transition-colors hover:bg-white/10"
     />
   );
 
@@ -192,28 +193,30 @@ const Navbar1 = ({
           "bg-black text-white",
         )}
       >
-        <nav className="flex items-center justify-between gap-3 p-2.5">
-          <LogoLink logo={logo} />
+        <nav className="relative flex items-center justify-between gap-3 p-2.5">
+          <div className="relative z-10 shrink-0">
+            <LogoLink logo={logo} />
+          </div>
 
-          <div className="hidden items-center gap-0.5 lg:flex">
+          <div className="absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-0.5 md:flex">
             {menu.map((item) => (
               <NavLink key={item.title} item={item} />
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
-            <div className="hidden lg:block">
+          <div className="relative z-10 flex items-center gap-2">
+            <div className="hidden md:block">
               <LanguageSwitcher />
             </div>
-            <div className="hidden lg:block">
+            <div className="hidden md:block">
               <AuthButton auth={auth} />
             </div>
 
             <Button
               size="icon"
-              variant="outline"
+              variant="ghost"
               onClick={() => setOpen(true)}
-              className="size-9 min-w-0 border-0 bg-white/10 text-white hover:bg-white/15 lg:hidden"
+              className="size-9 min-w-0 text-white hover:bg-white/15 hover:text-white md:hidden"
               aria-label="Menu"
             >
               <Menu className="size-4" />
