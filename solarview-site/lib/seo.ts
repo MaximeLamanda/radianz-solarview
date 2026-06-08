@@ -13,12 +13,13 @@ export const SITE_URL =
  * - appleTouchIcon : PNG généré par app/apple-icon.tsx
  */
 export const SEO_ASSETS = {
-  favicon: "/icon",
+  favicon: "/radianz-icon.svg",
+  faviconPng: "/favicon-32.png",
   ogImage: "/opengraph-image",
   ogImageWidth: 1200,
   ogImageHeight: 630,
   ogImageAlt: "RADIANZ",
-  appleTouchIcon: "/apple-icon",
+  appleTouchIcon: "/apple-touch-icon.png",
 } as const;
 
 export function localePath(locale: string, path = ""): string {
@@ -31,8 +32,11 @@ export function hreflangAlternates(path = ""): Record<string, string> {
 
 export function siteIcons(): NonNullable<Metadata["icons"]> {
   return {
-    icon: SEO_ASSETS.favicon,
-    shortcut: SEO_ASSETS.favicon,
+    icon: [
+      { url: SEO_ASSETS.favicon, type: "image/svg+xml" },
+      { url: SEO_ASSETS.faviconPng, type: "image/png", sizes: "32x32" },
+    ],
+    shortcut: SEO_ASSETS.faviconPng,
     apple: SEO_ASSETS.appleTouchIcon,
   };
 }

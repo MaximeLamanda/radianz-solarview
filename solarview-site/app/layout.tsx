@@ -3,7 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { LocaleHtmlUpdater } from "@/components/locale-html";
-import { socialShareImages, socialTwitterImages, SITE_URL } from "@/lib/seo";
+import { siteIcons, socialShareImages, socialTwitterImages, SITE_URL } from "@/lib/seo";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,6 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  icons: siteIcons(),
   title: {
     default: "RADIANZ — C&I solar prospecting platform",
     template: "%s",
