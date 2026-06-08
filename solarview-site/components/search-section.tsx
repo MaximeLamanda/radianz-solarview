@@ -60,13 +60,13 @@ const SearchSection = ({ className }: SearchSectionProps) => {
   const t = useTranslations("pipeline");
 
   return (
-    <section className={cn("py-12 md:py-24", className)}>
-      <div className="mb-12 flex justify-center pt-0 md:mb-36 md:pt-4">
-        <Badge variant="outline" className="font-mono text-xs uppercase tracking-wider">
-          {t("badge")}
-        </Badge>
-      </div>
+    <section className={cn("pt-8 pb-12 md:pt-16 md:pb-24", className)}>
       <div className="container">
+        <div className="mb-8 flex justify-center">
+          <Badge variant="outline" className="font-mono text-xs uppercase tracking-wider">
+            {t("badge")}
+          </Badge>
+        </div>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col gap-6">
             <div>
@@ -155,5 +155,6 @@ const SearchSection = ({ className }: SearchSectionProps) => {
     </section>
   );
 };
+
 
 export { SearchSection };

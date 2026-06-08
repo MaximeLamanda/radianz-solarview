@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import React from "react";
 
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 import type { HeroFeatureIconsProps, StatBadge } from "@/lib/hero-feature-icons";
@@ -39,6 +42,7 @@ const Hero45 = ({
   heading,
   description,
   badge,
+  buttonPrimary,
   statBadges,
   features = [],
   images,
@@ -58,6 +62,14 @@ const Hero45 = ({
           </h1>
           {description ? (
             <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">{description}</p>
+          ) : null}
+          {buttonPrimary ? (
+            <Button asChild variant="lime" size="lg" className="mt-1">
+              <Link href={buttonPrimary.href} className="inline-flex items-center gap-1.5">
+                {buttonPrimary.text}
+                <ArrowUpRight className="size-4" />
+              </Link>
+            </Button>
           ) : null}
         </div>
 

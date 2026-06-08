@@ -75,11 +75,11 @@ function DiscoverMapIllustration({
 }) {
   return (
     <div className={cn("relative", className)}>
-      <div className="relative overflow-hidden rounded-lg border border-border">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-border md:aspect-auto md:h-[220px]">
         <img
           src={image}
           alt={alt}
-          className="aspect-[4/3] size-full object-cover object-top md:aspect-[2/1]"
+          className="absolute inset-0 size-full min-w-full object-cover object-[center_80%]"
         />
         {sites && sites.length > 0 ? (
           <div className="absolute right-0 bottom-3 left-3 flex gap-2 overflow-hidden sm:bottom-4 sm:left-4">
@@ -137,9 +137,9 @@ function SimulationIllustration({
 }) {
   return (
     <div className={cn("relative overflow-hidden", className)}>
-      <div className="absolute inset-x-5 bottom-0 translate-y-[42%] md:inset-x-6 md:translate-y-[32%] lg:inset-x-10">
-        <div className="rounded-lg border border-border/80 bg-card/95 px-3 py-2.5 shadow-lg backdrop-blur-sm sm:px-4 sm:py-3">
-          <div className="mb-2.5 min-w-0">
+      <div className="absolute inset-x-4 bottom-0 translate-y-[30%] md:inset-x-4 md:translate-y-[20%] lg:inset-x-5 lg:translate-y-[16%]">
+        <div className="rounded-lg border border-border/80 bg-card/95 px-3 py-2 shadow-lg backdrop-blur-sm sm:px-3.5 sm:py-2.5">
+          <div className="mb-2 min-w-0">
             <p className="truncate text-xs font-semibold">{siteName}</p>
             <p className="truncate text-[10px] text-muted-foreground">{siteAddress}</p>
           </div>
@@ -148,7 +148,7 @@ function SimulationIllustration({
               <SimulationEquipmentCard key={card.label} {...card} />
             ))}
           </div>
-          <ProductionConsumptionChart className="mt-2.5" />
+          <ProductionConsumptionChart className="mt-2 min-h-[170px] md:min-h-[200px] [&_svg]:min-h-[120px] md:[&_svg]:min-h-[148px]" />
         </div>
       </div>
     </div>
@@ -172,7 +172,7 @@ function ConvinceEmailIllustration({
 }) {
   return (
     <div className={cn("relative overflow-hidden", className)}>
-      <div className="absolute right-4 bottom-0 w-[92%] max-w-md translate-x-[12%] translate-y-[38%] md:right-6 md:w-[88%] md:translate-x-[14%] md:translate-y-[26%] lg:right-10">
+      <div className="absolute right-4 bottom-0 w-[92%] max-w-md translate-x-[12%] translate-y-[38%] md:right-5 md:w-[88%] md:translate-x-[14%] md:translate-y-[26%] lg:right-2 lg:w-full lg:max-w-xl lg:translate-x-[14%] lg:translate-y-[28%]">
         <FollowUpEmailIllustration {...emailProps} />
       </div>
     </div>
@@ -346,10 +346,10 @@ const Feature166 = ({
         <div className="relative flex w-full justify-center">
           <div className="relative flex w-full flex-col gap-4">
             <div className="relative flex flex-col gap-4 md:flex-row md:gap-4">
-              <div className="flex flex-col rounded-xl border border-border bg-card p-5 md:w-3/5 md:p-6 lg:p-10">
+              <div className="flex flex-col rounded-xl border border-border bg-card p-4 md:w-3/5 md:p-4 lg:p-5">
                 <div className="space-y-1">
                   <h2 className="text-2xl font-normal lg:text-3xl">{feature1.title}</h2>
-                  <p className={cn("max-w-md", bentoDescriptionClass)}>{feature1.description}</p>
+                  <p className={bentoDescriptionClass}>{feature1.description}</p>
                 </div>
                 {feature1.illustration === "map" && feature1.image && (
                   <DiscoverMapIllustration
@@ -358,47 +358,56 @@ const Feature166 = ({
                     sites={feature1.mapSites}
                     parcelLabel={feature1.mapParcelLabel ?? "Parcelle"}
                     buildingLabel={feature1.mapBuildingLabel ?? "Bâtiment"}
-                    className="mt-4 w-full"
+                    className="mt-3 w-full"
                   />
                 )}
               </div>
-              <div className="radianz-accent-card flex min-h-[300px] flex-col justify-between rounded-xl p-5 md:min-h-0 md:w-2/5 md:p-6 lg:p-10">
+              <div className="radianz-accent-card flex min-h-[260px] flex-col rounded-xl p-4 md:min-h-0 md:w-2/5 md:p-4 lg:p-5">
                 <div className="relative z-10">
                   <h2 className="text-2xl font-medium lg:text-3xl">{feature2.title}</h2>
+                </div>
+                <div className="relative z-10 mt-auto space-y-3">
                   {feature2.kpi && (
-                    <div className="mt-4">
+                    <div>
                       <p className="font-mono tracking-tight">
-                        <span className="text-4xl font-normal lg:text-5xl">×{feature2.kpi}</span>
+                        <span className="text-6xl font-normal leading-none lg:text-7xl">×{feature2.kpi}</span>
                       </p>
                       {(feature2.kpiSuffix || feature2.kpiLabel) && (
-                        <span className="mt-1 block font-mono text-sm font-medium leading-snug text-foreground/70">
+                        <span className={cn("mt-1 block", bentoDescriptionAccentClass)}>
                           {[feature2.kpiSuffix, feature2.kpiLabel].filter(Boolean).join(" ")}
                         </span>
                       )}
                     </div>
                   )}
+                  {feature2.kpi &&
+                    feature2.qualificationTags &&
+                    feature2.qualificationTags.length > 0 && (
+                      <div className="border-t border-foreground/10" aria-hidden />
+                    )}
+                  {feature2.qualificationTags && feature2.qualificationTags.length > 0 ? (
+                    <div className="flex flex-wrap gap-2">
+                      {feature2.qualificationTags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-flex items-center rounded-full bg-foreground px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-wider text-background"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className={bentoDescriptionAccentClass}>{feature2.description}</p>
+                  )}
                 </div>
-                {feature2.qualificationTags && feature2.qualificationTags.length > 0 ? (
-                  <div className="relative z-10 flex flex-wrap gap-2">
-                    {feature2.qualificationTags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-flex items-center rounded-full bg-foreground px-2.5 py-1 font-mono text-[10px] font-medium uppercase tracking-wider text-background"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                ) : (
-                  <p className={cn("relative z-10", bentoDescriptionAccentClass)}>{feature2.description}</p>
-                )}
               </div>
             </div>
             <div className="relative flex flex-col gap-4 md:flex-row md:gap-4">
-              <div className="relative flex min-h-[380px] flex-col overflow-hidden rounded-xl border border-border bg-card md:min-h-[480px] md:w-2/5">
-                <div className="relative z-10 shrink-0 px-5 pt-5 md:px-6 md:pt-6 lg:px-10 lg:pt-10">
-                  <h2 className="text-2xl font-normal lg:text-3xl">{feature3.title}</h2>
-                  <p className={bentoDescriptionClass}>{feature3.description}</p>
+              <div className="relative flex min-h-[360px] flex-col overflow-hidden rounded-xl border border-border bg-card md:min-h-[440px] md:w-2/5">
+                <div className="relative z-10 shrink-0 px-4 pt-4 md:px-4 md:pt-4 lg:px-5 lg:pt-5">
+                  <div className="space-y-1">
+                    <h2 className="text-2xl font-normal lg:text-3xl">{feature3.title}</h2>
+                    <p className={bentoDescriptionClass}>{feature3.description}</p>
+                  </div>
                 </div>
                 {feature3.illustration === "production-chart" &&
                   feature3.simulationCards &&
@@ -408,28 +417,23 @@ const Feature166 = ({
                     siteName={feature3.simulationSiteName}
                     siteAddress={feature3.simulationSiteAddress}
                     cards={feature3.simulationCards}
-                    className="mt-4 min-h-0 flex-1"
+                    className="mt-3 min-h-0 flex-1"
                   />
                 )}
               </div>
-              <div className="relative flex min-h-[380px] flex-col overflow-hidden rounded-xl border border-border bg-card md:min-h-[480px] md:w-3/5">
-                <div className="relative z-10 shrink-0 px-5 pt-5 md:px-6 md:pt-6 lg:px-10 lg:pt-10">
-                  <h2 className="text-2xl font-normal lg:text-3xl">{feature4.title}</h2>
-                  {feature4.descriptionShort ? (
-                    <>
-                      <p className={cn("md:hidden", bentoDescriptionClass)}>{feature4.descriptionShort}</p>
-                      <p className={cn("hidden md:block", bentoDescriptionClass)}>{feature4.description}</p>
-                    </>
-                  ) : (
+              <div className="relative flex min-h-[360px] flex-col overflow-hidden rounded-xl border border-border bg-card md:min-h-[440px] md:w-3/5">
+                <div className="relative z-10 shrink-0 px-4 pt-4 md:px-4 md:pt-4 lg:px-5 lg:pt-5">
+                  <div className="space-y-1">
+                    <h2 className="text-2xl font-normal lg:text-3xl">{feature4.title}</h2>
                     <p className={bentoDescriptionClass}>{feature4.description}</p>
-                  )}
+                  </div>
                 </div>
                 {feature4.illustration === "follow-up-email" && feature4.convinceEmail && (
-                  <ConvinceEmailIllustration className="mt-4 min-h-0 flex-1" {...feature4.convinceEmail} />
+                  <ConvinceEmailIllustration className="mt-3 min-h-0 flex-1" {...feature4.convinceEmail} />
                 )}
                 {feature4.illustration === "empty" && (
                   <div
-                    className="mx-5 mt-8 aspect-[1.5] w-auto rounded-lg bg-muted md:mx-6 lg:mx-10 lg:aspect-[2.4]"
+                    className="mx-4 mt-8 aspect-[1.5] w-auto rounded-lg bg-muted md:mx-5 lg:mx-6 lg:aspect-[2.4]"
                     aria-hidden
                   />
                 )}

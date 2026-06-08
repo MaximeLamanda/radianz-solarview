@@ -136,6 +136,7 @@ export default async function Home({
           <Hero45
             heading={tHero("headline")}
             description={tHero("subheadline")}
+            buttonPrimary={{ text: tNav("requestDemo"), href: "/contact" }}
             statBadges={[
               ...STAT_BADGES,
               {
@@ -225,7 +226,6 @@ export default async function Home({
           feature4={{
             title: tFeature("smartMatching"),
             description: tFeature("smartMatchingDesc"),
-            descriptionShort: tFeature("smartMatchingDescShort"),
             illustration: "follow-up-email",
             convinceEmail: {
               windowLabel: tFeature("convinceEmailWindowLabel"),
