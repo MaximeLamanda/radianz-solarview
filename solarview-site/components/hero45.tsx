@@ -43,6 +43,7 @@ const Hero45 = ({
   description,
   badge,
   buttonPrimary,
+  buttonSecondary,
   statBadges,
   features = [],
   images,
@@ -63,13 +64,32 @@ const Hero45 = ({
           {description ? (
             <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground">{description}</p>
           ) : null}
-          {buttonPrimary ? (
-            <Button asChild variant="lime" size="lg" className="mt-1">
-              <Link href={buttonPrimary.href} className="inline-flex items-center gap-1.5">
-                {buttonPrimary.text}
-                <ArrowUpRight className="size-4" />
-              </Link>
-            </Button>
+          {buttonPrimary || buttonSecondary ? (
+            <div className="mt-1 flex flex-wrap items-center justify-center gap-3">
+              {buttonSecondary ? (
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="h-12 min-w-[160px] gap-1.5 rounded-md px-6 text-base font-mono font-medium normal-case tracking-normal"
+                >
+                  <Link href={buttonSecondary.href}>{buttonSecondary.text}</Link>
+                </Button>
+              ) : null}
+              {buttonPrimary ? (
+                <Button
+                  asChild
+                  variant="lime"
+                  size="lg"
+                  className="h-12 min-w-[160px] gap-1.5 rounded-md px-6 text-base font-mono font-medium normal-case tracking-normal"
+                >
+                  <Link href={buttonPrimary.href} className="inline-flex items-center gap-1.5">
+                    {buttonPrimary.text}
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                </Button>
+              ) : null}
+            </div>
           ) : null}
         </div>
 

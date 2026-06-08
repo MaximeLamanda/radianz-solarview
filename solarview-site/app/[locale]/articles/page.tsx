@@ -140,11 +140,8 @@ export default async function ArticlesPage({
               ],
             },
             {
-              title: tFooter("company"),
-              links: [
-                { text: tFooter("about"), url: "/#hero" },
-                { text: tFooter("contact"), url: "/contact" },
-              ],
+              title: tFooter("resources"),
+              links: [{ text: tFooter("contact"), url: "/contact" }],
             },
           ]}
           copyright={tSite("copyright")}

@@ -99,17 +99,13 @@ export default async function ContactPage({
             {
               title: tFooter("product"),
               links: [
-                { text: tFooter("features"), url: "#avantages" },
-                { text: tFooter("pricing"), url: "/contact" },
+                { text: tFooter("features"), url: "/#avantages" },
                 { text: tFooter("requestDemo"), url: "/contact" },
               ],
             },
             {
-              title: tFooter("company"),
-              links: [
-                { text: tFooter("about"), url: "#hero" },
-                { text: tFooter("contact"), url: "/contact" },
-              ],
+              title: tFooter("resources"),
+              links: [{ text: tFooter("contact"), url: "/contact" }],
             },
           ]}
           copyright={tSite("copyright")}

@@ -137,6 +137,7 @@ export default async function Home({
             heading={tHero("headline")}
             description={tHero("subheadline")}
             buttonPrimary={{ text: tNav("requestDemo"), href: "/contact" }}
+            buttonSecondary={{ text: tHero("contactUs"), href: "#contact-form" }}
             statBadges={[
               ...STAT_BADGES,
               {
@@ -263,16 +264,12 @@ export default async function Home({
               title: tFooter("product"),
               links: [
                 { text: tFooter("features"), url: "#avantages" },
-                { text: tFooter("pricing"), url: "/contact" },
                 { text: tFooter("requestDemo"), url: "/contact" },
               ],
             },
             {
-              title: tFooter("company"),
-              links: [
-                { text: tFooter("about"), url: "#hero" },
-                { text: tFooter("contact"), url: "/contact" },
-              ],
+              title: tFooter("resources"),
+              links: [{ text: tFooter("contact"), url: "/contact" }],
             },
           ]}
           copyright={tSite("copyright")}
