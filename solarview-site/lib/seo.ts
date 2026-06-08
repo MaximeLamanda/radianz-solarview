@@ -8,17 +8,17 @@ export const SITE_URL =
 /**
  * Assets SEO — remplacez les fichiers dans public/ pour changer l’icône ou l’image de partage.
  *
- * - favicon : SVG affiché dans l’onglet du navigateur (fond lime, logo noir)
+ * - favicon : PNG généré par app/icon.tsx (fond lime, logo noir)
  * - ogImage : image de partage — par défaut générée par app/opengraph-image.tsx
- * - appleTouchIcon : PNG 180×180 pour l’écran d’accueil iOS (optionnel)
+ * - appleTouchIcon : PNG généré par app/apple-icon.tsx
  */
 export const SEO_ASSETS = {
-  favicon: "/radianz-icon.svg",
+  favicon: "/icon",
   ogImage: "/opengraph-image",
   ogImageWidth: 1200,
   ogImageHeight: 630,
   ogImageAlt: "RADIANZ",
-  appleTouchIcon: "/apple-touch-icon.png",
+  appleTouchIcon: "/apple-icon",
 } as const;
 
 export function localePath(locale: string, path = ""): string {
