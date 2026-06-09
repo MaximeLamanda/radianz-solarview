@@ -2,7 +2,7 @@
 slug: prospection-solaire-b2b-2026
 title: "Prospection solaire B2B en 2026 : méthode terrain + data"
 excerpt: "Guide opérationnel pour structurer votre prospection solaire B2B : croiser données toiture et terrain, qualifier les leads C&I et activer plus vite les opportunités tertiaires."
-coverImage: /images/prospection-b2b-cover.jpg
+coverImage: /images/prospection-b2b-cover.png
 publishedAt: "2026-03-02"
 updatedAt: "2026-06-09"
 author: Equipe Radianz

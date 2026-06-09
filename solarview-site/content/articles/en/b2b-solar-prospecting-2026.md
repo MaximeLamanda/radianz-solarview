@@ -2,7 +2,7 @@
 slug: b2b-solar-prospecting-2026
 title: "B2B Solar Prospecting in 2026: Field Method + Data"
 excerpt: "An operational guide to B2B solar prospecting: combine rooftop data with field execution, qualify C&I leads faster, and activate tertiary opportunities sooner."
-coverImage: /images/prospection-b2b-cover.jpg
+coverImage: /images/prospection-b2b-cover.png
 publishedAt: "2026-03-02"
 updatedAt: "2026-06-09"
 author: Radianz Team
