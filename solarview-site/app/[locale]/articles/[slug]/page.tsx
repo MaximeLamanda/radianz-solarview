@@ -146,13 +146,12 @@ export default async function ArticlePage({
               <p className="mt-3 text-muted-foreground">{article.excerpt}</p>
             </header>
 
-            <div className="mt-8 max-w-3xl overflow-hidden rounded-xl border border-border">
+            <div className="relative mt-8 aspect-[3/2] max-w-3xl overflow-hidden rounded-xl border border-border">
               <Image
                 src={article.coverImage}
                 alt={article.title}
-                width={1024}
-                height={696}
-                className="h-auto w-full"
+                fill
+                className="object-cover"
                 sizes="(min-width: 1024px) 768px, 100vw"
                 priority
               />
