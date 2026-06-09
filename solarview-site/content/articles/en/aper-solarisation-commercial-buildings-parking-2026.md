@@ -2,7 +2,7 @@
 slug: aper-solarisation-commercial-buildings-parking-2026
 title: "APER 2026: how to prioritize French C&I buildings and parking lots for solar"
 excerpt: "A B2B solar prospecting playbook for turning France's APER obligations into a qualified pipeline across commercial buildings, industrial sites, logistics assets, and parking lots."
-coverImage: /images/loi-aper-cover.jpg
+coverImage: /images/loi-aper-cover.png
 publishedAt: "2026-06-09"
 updatedAt: "2026-06-09"
 author: Radianz Team
