@@ -92,12 +92,13 @@ export default async function ArticlesPage({
           <section className="mt-10 grid gap-6 md:grid-cols-2">
             {articles.map((article) => (
               <article key={article.slug} className="rounded-xl border border-border bg-card p-6">
-                <div className="relative mb-4 aspect-[16/9] overflow-hidden rounded-md">
+                <div className="mb-4 overflow-hidden rounded-md">
                   <Image
                     src={article.coverImage}
                     alt={article.title}
-                    fill
-                    className="object-cover"
+                    width={1024}
+                    height={696}
+                    className="h-auto w-full"
                     sizes="(min-width: 768px) 50vw, 100vw"
                   />
                 </div>
