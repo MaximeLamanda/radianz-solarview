@@ -45,7 +45,7 @@ Commencez par des critères simples, compris par toute l'équipe : surface minim
 
 Enrichissez ensuite avec des critères techniques : score d'ensoleillement, estimation de kWp, compatibilité avec votre offre (autoconsommation, revente, tiers-investissement). L'objectif n'est pas la précision au kWh près à ce stade, mais la cohérence : un lead solaire commercial noté « prioritaire » doit l'être pour les mêmes raisons, que ce soit Alexis ou Marie qui l'ouvre dans le CRM.
 
-Pour structurer ce scoring de façon reproductible, notre article sur le [scoring des toitures commerciales](/articles/how-commercial-roof-scoring-works) détaille les signaux à combiner et la façon de les pondérer.
+Pour structurer ce scoring de façon reproductible, notre article sur le [scoring des toitures commerciales](/articles/comment-scorer-toitures-commerciales) détaille les signaux à combiner et la façon de les pondérer.
 
 ## Prioriser les segments C&I à fort potentiel en France
 
