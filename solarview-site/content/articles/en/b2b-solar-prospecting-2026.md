@@ -2,7 +2,7 @@
 slug: b2b-solar-prospecting-2026
 title: "B2B Solar Prospecting in 2026: Field Method + Data"
 excerpt: "An operational guide to B2B solar prospecting: combine rooftop data with field execution, qualify C&I leads faster, and activate tertiary opportunities sooner."
-coverImage: /feature-map.png
+coverImage: /images/prospection-b2b-cover.jpg
 publishedAt: "2026-03-02"
 updatedAt: "2026-06-09"
 author: Radianz Team
@@ -45,8 +45,6 @@ Once the data foundation is in place, the team needs shared rules. Without a com
 Start with simple criteria everyone understands: minimum usable surface, acceptable coverage ratio, target sector, maximum distance from your service base. These filters eliminate 60–70% of weak opportunities before any human contact.
 
 Then enrich with technical criteria: irradiance score, estimated kWp, fit with your offer (self-consumption, export, third-party ownership). The goal is not kWh-level precision at this stage, but consistency: a commercial solar lead marked "priority" should be priority for the same reasons, whether Alexis or Marie opens it in the CRM.
-
-To structure this scoring in a repeatable way, our article on [commercial roof scoring](/articles/how-commercial-roof-scoring-works) details which signals to combine and how to weight them.
 
 ## Prioritize high-potential C&I segments
 

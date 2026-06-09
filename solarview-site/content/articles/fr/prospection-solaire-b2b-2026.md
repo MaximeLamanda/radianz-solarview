@@ -2,7 +2,7 @@
 slug: prospection-solaire-b2b-2026
 title: "Prospection solaire B2B en 2026 : méthode terrain + data"
 excerpt: "Guide opérationnel pour structurer votre prospection solaire B2B : croiser données toiture et terrain, qualifier les leads C&I et activer plus vite les opportunités tertiaires."
-coverImage: /feature-map.png
+coverImage: /images/prospection-b2b-cover.jpg
 publishedAt: "2026-03-02"
 updatedAt: "2026-06-09"
 author: Equipe Radianz
@@ -45,8 +45,6 @@ Une fois le socle data posé, l'équipe a besoin de règles communes. Sans grill
 Commencez par des critères simples, compris par toute l'équipe : surface minimum exploitable, ratio de couverture acceptable, secteur cible, distance maximale depuis votre base d'intervention. Ces filtres éliminent 60 à 70 % des opportunités faibles avant tout contact humain.
 
 Enrichissez ensuite avec des critères techniques : score d'ensoleillement, estimation de kWp, compatibilité avec votre offre (autoconsommation, revente, tiers-investissement). L'objectif n'est pas la précision au kWh près à ce stade, mais la cohérence : un lead solaire commercial noté « prioritaire » doit l'être pour les mêmes raisons, que ce soit Alexis ou Marie qui l'ouvre dans le CRM.
-
-Pour structurer ce scoring de façon reproductible, notre article sur le [scoring des toitures commerciales](/articles/comment-scorer-toitures-commerciales) détaille les signaux à combiner et la façon de les pondérer.
 
 ## Prioriser les segments C&I à fort potentiel en France
 

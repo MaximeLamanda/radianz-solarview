@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 
@@ -144,6 +145,17 @@ export default async function ArticlePage({
               <h1 className="mt-2 text-section">{article.title}</h1>
               <p className="mt-3 text-muted-foreground">{article.excerpt}</p>
             </header>
+
+            <div className="relative mt-8 aspect-[3/2] max-w-3xl overflow-hidden rounded-xl border border-border">
+              <Image
+                src={article.coverImage}
+                alt={article.title}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1024px) 768px, 100vw"
+                priority
+              />
+            </div>
 
             <div className="mt-10 space-y-10">
               {article.sections.map((section) => (

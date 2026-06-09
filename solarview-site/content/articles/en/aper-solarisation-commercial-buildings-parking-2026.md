@@ -2,7 +2,7 @@
 slug: aper-solarisation-commercial-buildings-parking-2026
 title: "APER 2026: how to prioritize French C&I buildings and parking lots for solar"
 excerpt: "A B2B solar prospecting playbook for turning France's APER obligations into a qualified pipeline across commercial buildings, industrial sites, logistics assets, and parking lots."
-coverImage: /graphdata.svg
+coverImage: /images/loi-aper-cover.jpg
 publishedAt: "2026-06-09"
 updatedAt: "2026-06-09"
 author: Radianz Team
@@ -18,7 +18,7 @@ France's APER framework has moved from legal watchlist to sales trigger. For B2B
 
 The core keyword is "APER solarization commercial buildings parking 2026". Behind that search intent, decision makers are usually asking five business questions. Is my asset covered by the law? Which deadline applies? How much roof or parking area must be equipped or shaded? Can a mixed solution combine photovoltaic canopies and vegetation? How do I move from compliance risk to a financially defensible project? This intent is valuable because it already contains urgency, budget relevance, and a need for expert guidance.
 
-The mistake is to treat every affected site as equally attractive. A 12,000 m2 retail parking lot, a high-consumption warehouse, an industrial plant with safety constraints, a multi-tenant office campus, and a cold-chain logistics hub all require different qualification paths. This is why APER should feed an account score instead of a flat outreach list. Our guide to [commercial roof scoring](/en/articles/how-commercial-roof-scoring-works) explains the same principle: market timing only creates revenue when field data and sales execution move together.
+The mistake is to treat every affected site as equally attractive. A 12,000 m2 retail parking lot, a high-consumption warehouse, an industrial plant with safety constraints, a multi-tenant office campus, and a cold-chain logistics hub all require different qualification paths. This is why APER should feed an account score instead of a flat outreach list. Our guide to [B2B solar prospecting in 2026](/en/articles/b2b-solar-prospecting-2026) explains the same principle: market timing only creates revenue when field data and sales execution move together.
 
 ## What large parking lots change in the prospecting pipeline
 
@@ -34,7 +34,7 @@ Commercial, industrial, craft, administrative, office, warehouse, commercially o
 
 For a solar B2B team, the right unit of analysis is not "a roof" but an entire asset. You need to qualify the roof, the parking area, onsite load, grid connection, planning constraints, ownership structure, tenant relationships, CAPEX calendar, ESG reporting pressure, and operational downtime tolerance. A warehouse may have a highly visible roof but an unfavorable structure. An industrial site may have attractive daytime consumption but excluded safety zones. A shopping center may combine self-consumption, solar canopies, EV charging, tenant communication, and heat-island reduction.
 
-That logic is close to the framework described in our article on [commercial roof scoring](/en/articles/how-commercial-roof-scoring-works). The French regulatory context is specific, but the scoring principle is universal: a useful score must be explainable by sales teams, credible for technical teams, and actionable for asset owners. APER adds an urgency variable to the score. It does not replace feasibility work.
+That logic aligns with the framework in our [B2B solar prospecting guide](/en/articles/b2b-solar-prospecting-2026). The French regulatory context is specific, but the scoring principle is universal: a useful score must be explainable by sales teams, credible for technical teams, and actionable for asset owners. APER adds an urgency variable to the score. It does not replace feasibility work.
 
 ## Turning APER into an account scoring model
 

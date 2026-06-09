@@ -2,7 +2,7 @@
 slug: loi-aper-solarisation-batiments-parkings-2026
 title: "Loi APER 2026 : prioriser les parkings et bâtiments C&I à solariser"
 excerpt: "Comment les équipes solaires B2B peuvent transformer les échéances APER 2026-2028 en pipeline qualifié pour parkings, entrepôts, sites industriels et actifs tertiaires."
-coverImage: /graphdata.svg
+coverImage: /images/loi-aper-cover.jpg
 publishedAt: "2026-06-09"
 updatedAt: "2026-06-09"
 author: Equipe Radianz
