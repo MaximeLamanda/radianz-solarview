@@ -1,6 +1,6 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <rect width="32" height="32" rx="7" fill="#EFF9BA"/>
-  <g transform="translate(3.5 7) scale(0.28)">
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect width="180" height="180" rx="40" fill="#EFF9BA"/>
+  <g transform="translate(19.5 39.5) scale(1.575)">
     <path d="M26 47C26 44.2386 28.2386 42 31 42H33C35.7614 42 38 44.2386 38 47V64H26V47Z" fill="#0A0A0A"/>
     <path d="M38 17C38 19.7614 35.7614 22 33 22L31 22C28.2386 22 26 19.7614 26 17L26 0L38 0L38 17Z" fill="#0A0A0A"/>
     <path d="M17 27C19.7614 27 22 29.2386 22 32L22 34C22 36.7614 19.7614 39 17 39L0 39L0 27L17 27Z" fill="#0A0A0A"/>

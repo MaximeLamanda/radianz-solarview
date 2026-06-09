@@ -8,9 +8,9 @@ export const SITE_URL =
 /**
  * Assets SEO — remplacez les fichiers dans public/ pour changer l’icône ou l’image de partage.
  *
- * - favicon : PNG généré par app/icon.tsx (fond lime, logo noir)
+ * - favicon : SVG/PNG statiques dans public/ + app/icon.svg
  * - ogImage : image de partage — par défaut générée par app/opengraph-image.tsx
- * - appleTouchIcon : PNG généré par app/apple-icon.tsx
+ * - appleTouchIcon : PNG dans public/ + app/apple-icon.png
  */
 export const SEO_ASSETS = {
   favicon: "/radianz-icon.svg",
