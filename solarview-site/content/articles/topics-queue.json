@@ -7,12 +7,12 @@
   ],
   "topics": [
     {
-      "id": "obligation-solarisation-tertiaire-2026",
+      "id": "aper-solarisation-ci-2026",
       "priority": 1,
       "status": "published",
-      "primaryKeyword": "obligation solarisation bâtiment tertiaire",
-      "titleFr": "Obligation de solarisation des bâtiments tertiaires : ce qui change en 2025-2028",
-      "titleEn": "Commercial Building Solarization Mandate: What Changes in 2025-2028",
+      "primaryKeyword": "loi APER solarisation parkings batiments 2026",
+      "titleFr": "Loi APER 2026 : prioriser les parkings et bâtiments C&I à solariser",
+      "titleEn": "APER 2026: how to prioritize French C&I buildings and parking lots for solar",
       "intent": "informational",
       "cluster": "réglementation"
     },
