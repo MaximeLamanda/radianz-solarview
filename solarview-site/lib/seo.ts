@@ -8,12 +8,12 @@ export const SITE_URL =
 /**
  * Assets SEO — remplacez les fichiers dans public/ pour changer l’icône ou l’image de partage.
  *
- * - favicon : SVG/PNG statiques dans public/ + app/icon.svg
+ * - favicon : PNG dans public/ + app/icon.png + app/favicon.ico
  * - ogImage : image de partage — par défaut générée par app/opengraph-image.tsx
  * - appleTouchIcon : PNG dans public/ + app/apple-icon.png
  */
 export const SEO_ASSETS = {
-  favicon: "/radianz-icon.svg",
+  favicon: "/favicon-32.png",
   faviconPng: "/favicon-32.png",
   ogImage: "/opengraph-image",
   ogImageWidth: 1200,
@@ -38,8 +38,8 @@ export function hreflangAlternates(path = ""): Record<string, string> {
 export function siteIcons(): NonNullable<Metadata["icons"]> {
   return {
     icon: [
-      { url: SEO_ASSETS.favicon, type: "image/svg+xml" },
       { url: SEO_ASSETS.faviconPng, type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16.png", type: "image/png", sizes: "16x16" },
     ],
     shortcut: SEO_ASSETS.faviconPng,
     apple: SEO_ASSETS.appleTouchIcon,
