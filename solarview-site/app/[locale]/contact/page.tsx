@@ -6,7 +6,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import type { Metadata } from "next";
 import { type Locale } from "@/i18n/config";
-import { hreflangAlternates, SITE_URL } from "@/lib/seo";
+import { hreflangAlternates, SITE_URL, withSocialMetadata } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = await getTranslations({ locale: typedLocale, namespace: "contact" });
   const canonicalPath = `/${typedLocale}/contact`;
 
-  return {
+  return withSocialMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       url: `${SITE_URL}${canonicalPath}`,
       type: "website",
     },
-  };
+  });
 }
 
 export default async function ContactPage({
@@ -70,6 +70,7 @@ export default async function ContactPage({
       />
       <main id="contact-form" className="min-h-[70vh]">
         <LetsTalkSection
+          asPageTitle
           success={searchParamsResolved.success === "1"}
           error={
             searchParamsResolved.error === "config" || searchParamsResolved.error === "send"

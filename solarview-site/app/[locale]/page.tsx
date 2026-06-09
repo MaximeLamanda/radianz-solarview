@@ -13,7 +13,7 @@ import { LetsTalkSection } from "@/components/lets-talk-section";
 import { Footer2 } from "@/components/footer2";
 
 import { BRAND, STAT_BADGES, HERO_FEATURES } from "@/lib/constants";
-import { hreflangAlternates, SITE_URL } from "@/lib/seo";
+import { hreflangAlternates, SITE_URL, withSocialMetadata } from "@/lib/seo";
 import { type Locale } from "@/i18n/config";
 
 export async function generateMetadata({
@@ -26,7 +26,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale: typedLocale, namespace: "site" });
   const canonicalPath = `/${typedLocale}`;
 
-  return {
+  return withSocialMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: {
@@ -41,12 +41,7 @@ export async function generateMetadata({
       locale: typedLocale === "fr" ? "fr_FR" : "en_US",
       siteName: t("name"),
     },
-    twitter: {
-      card: "summary_large_image",
-      title: t("metaTitle"),
-      description: t("metaDescription"),
-    },
-  };
+  });
 }
 
 export default async function Home({

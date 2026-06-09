@@ -14,6 +14,7 @@ interface LetsTalkSectionProps {
   error?: LetsTalkError;
   imageSrc?: string;
   locale?: string;
+  asPageTitle?: boolean;
 }
 
 function isValidEmail(value: string) {
@@ -46,6 +47,7 @@ export function LetsTalkSection({
   error,
   imageSrc = DEFAULT_IMAGE,
   locale: localeProp,
+  asPageTitle = false,
 }: LetsTalkSectionProps) {
   const t = useTranslations("contact");
   const locale = useLocale();
@@ -88,6 +90,8 @@ export function LetsTalkSection({
   const fieldBase =
     "w-full rounded-md border-0 bg-white/10 px-4 py-3 text-base text-white placeholder:text-white/40 outline-none transition focus:bg-white/[0.14] focus:ring-2 focus:ring-accent/30";
 
+  const HeadlineTag = asPageTitle ? "h1" : "p";
+
   return (
     <section className={cn("py-16 md:py-24", className)}>
       <div className="container">
@@ -103,11 +107,11 @@ export function LetsTalkSection({
           >
             <div className="absolute inset-0 bg-foreground/80" />
             <div className="relative z-10 hidden min-h-[320px] flex-col justify-between p-8 md:p-10 lg:flex lg:min-h-[560px]">
-              <p className="text-2xl font-light leading-[1.2] tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
+              <HeadlineTag className="text-2xl font-light leading-[1.2] tracking-tight text-white md:text-4xl lg:text-[2.75rem]">
                 {t("headline1")}
                 <br />
                 {t("headline2")}
-              </p>
+              </HeadlineTag>
               <TeamContactCard className="mt-8 lg:mt-0" />
             </div>
 
@@ -160,11 +164,13 @@ export function LetsTalkSection({
                     <div className="space-y-5">
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="radianz-label mb-2 block text-white/70">{t("firstName")}</label>
+                          <label htmlFor="contact-firstName" className="radianz-label mb-2 block text-white/70">{t("firstName")}</label>
                           <input
+                            id="contact-firstName"
                             value={firstName}
                             onChange={(e) => setFirstName(e.target.value)}
                             type="text"
+                            name="firstName"
                             autoComplete="given-name"
                             placeholder={t("placeholderFirstName")}
                             className={cn(
@@ -174,11 +180,13 @@ export function LetsTalkSection({
                           />
                         </div>
                         <div>
-                          <label className="radianz-label mb-2 block text-white/70">{t("lastName")}</label>
+                          <label htmlFor="contact-lastName" className="radianz-label mb-2 block text-white/70">{t("lastName")}</label>
                           <input
+                            id="contact-lastName"
                             value={lastName}
                             onChange={(e) => setLastName(e.target.value)}
                             type="text"
+                            name="lastName"
                             autoComplete="family-name"
                             placeholder={t("placeholderLastName")}
                             className={cn(
@@ -189,8 +197,9 @@ export function LetsTalkSection({
                         </div>
                       </div>
                       <div>
-                        <label className="radianz-label mb-2 block text-white/70">{t("email")}</label>
+                        <label htmlFor="contact-email" className="radianz-label mb-2 block text-white/70">{t("email")}</label>
                         <input
+                          id="contact-email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           type="email"
@@ -204,14 +213,15 @@ export function LetsTalkSection({
                         />
                       </div>
                       <div>
-                        <label className="radianz-label mb-3 block text-white/70">
+                        <span id="contact-leads-label" className="radianz-label mb-3 block text-white/70">
                           {t("leadsPerMonth")}
-                        </label>
-                        <div className="flex flex-wrap gap-2">
+                        </span>
+                        <div className="flex flex-wrap gap-2" role="group" aria-labelledby="contact-leads-label">
                           {LEADS_OPTIONS.map((value) => (
                             <button
                               key={value}
                               type="button"
+                              aria-pressed={leadsPerMonth === value}
                               onClick={() => setLeadsPerMonth(value)}
                               className={cn(
                                 "rounded-md border-0 px-3 py-1.5 font-mono text-sm font-normal tracking-wide transition",
@@ -245,8 +255,9 @@ export function LetsTalkSection({
                   <div className={cn("flex flex-1 flex-col", step !== 2 && "hidden")}>
                     <div className="space-y-5">
                       <div>
-                        <label className="radianz-label mb-2 block text-white/70">{t("company")}</label>
+                        <label htmlFor="contact-company" className="radianz-label mb-2 block text-white/70">{t("company")}</label>
                         <input
+                          id="contact-company"
                           value={company}
                           onChange={(e) => setCompany(e.target.value)}
                           type="text"
@@ -257,8 +268,9 @@ export function LetsTalkSection({
                         />
                       </div>
                       <div>
-                        <label className="radianz-label mb-2 block text-white/70">{t("message")}</label>
+                        <label htmlFor="contact-message" className="radianz-label mb-2 block text-white/70">{t("message")}</label>
                         <textarea
+                          id="contact-message"
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
                           name="message"

@@ -8,7 +8,7 @@ import { Link } from "@/i18n/navigation";
 import { type Locale } from "@/i18n/config";
 import { getArticlesByLocale } from "@/lib/articles";
 import { BRAND } from "@/lib/constants";
-import { hreflangAlternates, SITE_URL } from "@/lib/seo";
+import { hreflangAlternates, SITE_URL, withSocialMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -20,7 +20,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale: typedLocale, namespace: "articles" });
   const canonicalPath = `/${typedLocale}/articles`;
 
-  return {
+  return withSocialMetadata({
     title: t("metaTitle"),
     description: t("metaDescription"),
     alternates: {
@@ -33,12 +33,7 @@ export async function generateMetadata({
       url: `${SITE_URL}${canonicalPath}`,
       type: "website",
     },
-    twitter: {
-      card: "summary_large_image",
-      title: t("metaTitle"),
-      description: t("metaDescription"),
-    },
-  };
+  });
 }
 
 export default async function ArticlesPage({

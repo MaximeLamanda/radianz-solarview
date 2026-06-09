@@ -110,7 +110,7 @@ function SimulationEquipmentCard({
   return (
     <div className="flex min-w-0 items-center gap-2.5 rounded-md border border-border bg-card px-2.5 py-2">
       {image ? (
-        <img src={image} alt="" className="size-8 shrink-0 rounded-sm object-cover" />
+        <img src={image} alt={reference} className="size-8 shrink-0 rounded-sm object-cover" />
       ) : (
         <div className="size-8 shrink-0 rounded-sm bg-muted" aria-hidden />
       )}

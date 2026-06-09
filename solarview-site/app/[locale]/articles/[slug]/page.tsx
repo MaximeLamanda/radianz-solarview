@@ -15,7 +15,7 @@ import {
   getArticleBySlug,
 } from "@/lib/articles";
 import { BRAND } from "@/lib/constants";
-import { SITE_URL } from "@/lib/seo";
+import { SITE_URL, withSocialMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return getAllArticlePaths();
@@ -36,7 +36,7 @@ export async function generateMetadata({
 
   const canonicalPath = `/${typedLocale}/articles/${article.slug}`;
 
-  return {
+  return withSocialMetadata({
     title: article.title,
     description: article.excerpt,
     alternates: {
@@ -53,13 +53,7 @@ export async function generateMetadata({
       modifiedTime: article.updatedAt ?? article.publishedAt,
       authors: [article.author],
     },
-    twitter: {
-      card: "summary_large_image",
-      title: article.title,
-      description: article.excerpt,
-      images: [article.coverImage],
-    },
-  };
+  });
 }
 
 export default async function ArticlePage({
@@ -89,6 +83,14 @@ export default async function ArticlePage({
     headline: article.title,
     description: article.excerpt,
     author: { "@type": "Person", name: article.author },
+    publisher: {
+      "@type": "Organization",
+      name: "RADIANZ",
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/radianz-logo.svg`,
+      },
+    },
     datePublished: article.publishedAt,
     dateModified: article.updatedAt ?? article.publishedAt,
     image: [`${SITE_URL}${article.coverImage}`],

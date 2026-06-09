@@ -23,7 +23,8 @@ export const SEO_ASSETS = {
 } as const;
 
 export function localePath(locale: string, path = ""): string {
-  return path ? `/${locale}${path}` : `/${locale}`;
+  const suffix = path.replace(/^\/+/, "");
+  return suffix ? `/${locale}/${suffix}` : `/${locale}`;
 }
 
 export function hreflangAlternates(path = ""): Record<string, string> {

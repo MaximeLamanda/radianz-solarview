@@ -27,11 +27,12 @@ const LABELS: Record<string, string> = {
 
 function FlagRect({ locale }: { locale: string }) {
   const src = FLAG_SRC[locale] ?? FLAG_SRC.en;
+  const label = LABELS[locale] ?? LABELS.en;
   return (
     <span className="relative block h-4 w-6 shrink-0 overflow-hidden rounded border border-border/50">
       <Image
         src={src}
-        alt=""
+        alt={label}
         width={24}
         height={16}
         className="h-full w-full object-cover"
