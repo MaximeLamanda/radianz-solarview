@@ -7,8 +7,12 @@ import { Navbar1 } from "@/components/navbar1";
 import { ArticleParagraph } from "@/components/article-paragraph";
 import { ArticleSectionIndicator } from "@/components/article-section-indicator";
 import { Link } from "@/i18n/navigation";
-import { locales, type Locale } from "@/i18n/config";
-import { getAllArticlePaths, getArticleBySlug } from "@/lib/articles";
+import { type Locale } from "@/i18n/config";
+import {
+  articleHreflangAlternates,
+  getAllArticlePaths,
+  getArticleBySlug,
+} from "@/lib/articles";
 import { BRAND } from "@/lib/constants";
 import { SITE_URL } from "@/lib/seo";
 
@@ -30,19 +34,13 @@ export async function generateMetadata({
   }
 
   const canonicalPath = `/${typedLocale}/articles/${article.slug}`;
-  const languages = Object.fromEntries(
-    locales.map((loc) => {
-      const localized = getArticleBySlug(loc, article.slug);
-      return [loc, localized ? `/${loc}/articles/${localized.slug}` : `/${loc}/articles`];
-    }),
-  );
 
   return {
     title: article.title,
     description: article.excerpt,
     alternates: {
       canonical: canonicalPath,
-      languages,
+      languages: articleHreflangAlternates(article),
     },
     openGraph: {
       title: article.title,

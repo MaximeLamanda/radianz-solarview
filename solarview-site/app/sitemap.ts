@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
 import { getAllArticlePaths } from "@/lib/articles";
-import { SITE_URL } from "@/lib/seo";
+import { localePath, SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = ["", "/contact", "/articles"];
@@ -10,10 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const locale of locales) {
     for (const route of routes) {
-      const segments = route ? [locale, route] : [locale];
-      const path = segments.join("/");
       entries.push({
-        url: `${SITE_URL}/${path}`,
+        url: `${SITE_URL}${localePath(locale, route)}`,
         lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: route ? 0.8 : 1,

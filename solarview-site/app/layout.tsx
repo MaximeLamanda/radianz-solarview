@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import { headers } from "next/headers";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { LocaleHtmlUpdater } from "@/components/locale-html";
+import { defaultLocale, locales, type Locale } from "@/i18n/config";
 import { siteIcons, socialShareImages, socialTwitterImages, SITE_URL } from "@/lib/seo";
 
 const inter = Inter({
@@ -37,13 +39,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const localeHeader = headersList.get("x-site-locale");
+  const locale =
+    localeHeader && locales.includes(localeHeader as Locale)
+      ? localeHeader
+      : defaultLocale;
+
   return (
-    <html lang="en" className="min-h-full w-full" suppressHydrationWarning>
+    <html lang={locale} className="min-h-full w-full" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} min-h-full w-full font-sans antialiased`}
       >

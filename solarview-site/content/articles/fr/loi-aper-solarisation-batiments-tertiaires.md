@@ -8,6 +8,7 @@ updatedAt: "2026-06-09"
 author: Equipe Radianz
 readingTimeMinutes: 9
 primaryKeyword: loi APER solarisation tertiaire
+translationKey: loi-aper-solarisation
 status: published
 ---
 

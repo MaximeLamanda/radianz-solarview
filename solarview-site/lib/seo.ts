@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { locales } from "@/i18n/config";
+import { defaultLocale, locales } from "@/i18n/config";
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://radianz.tech";
@@ -27,7 +27,11 @@ export function localePath(locale: string, path = ""): string {
 }
 
 export function hreflangAlternates(path = ""): Record<string, string> {
-  return Object.fromEntries(locales.map((loc) => [loc, localePath(loc, path)]));
+  const languages = Object.fromEntries(
+    locales.map((loc) => [loc, localePath(loc, path)]),
+  );
+  languages["x-default"] = localePath(defaultLocale, path);
+  return languages;
 }
 
 export function siteIcons(): NonNullable<Metadata["icons"]> {

@@ -8,6 +8,7 @@ updatedAt: "2026-06-09"
 author: Equipe Radianz
 readingTimeMinutes: 9
 primaryKeyword: prospection solaire B2B
+translationKey: b2b-prospecting-2026
 status: published
 ---
 

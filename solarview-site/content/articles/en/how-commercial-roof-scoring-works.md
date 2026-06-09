@@ -8,6 +8,7 @@ updatedAt: "2026-06-09"
 author: Radianz Team
 readingTimeMinutes: 7
 primaryKeyword: commercial roof scoring solar
+translationKey: commercial-roof-scoring
 status: published
 ---
 

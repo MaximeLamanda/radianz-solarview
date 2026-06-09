@@ -22,6 +22,7 @@ export type Article = {
   author: string;
   readingTimeMinutes: number;
   primaryKeyword?: string;
+  translationKey?: string;
   sections: ArticleSection[];
 };
 
@@ -35,6 +36,7 @@ type ArticleFrontmatter = {
   author: string;
   readingTimeMinutes: number;
   primaryKeyword?: string;
+  translationKey?: string;
   status?: "draft" | "published";
 };
 
@@ -106,6 +108,7 @@ function readArticlesFromLocale(locale: Locale): Article[] {
       author: frontmatter.author,
       readingTimeMinutes: frontmatter.readingTimeMinutes,
       primaryKeyword: frontmatter.primaryKeyword,
+      translationKey: frontmatter.translationKey,
       sections: parseSections(content),
     });
   }

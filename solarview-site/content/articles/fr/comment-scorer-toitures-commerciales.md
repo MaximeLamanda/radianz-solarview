@@ -8,6 +8,7 @@ updatedAt: "2026-06-09"
 author: Equipe Radianz
 readingTimeMinutes: 7
 primaryKeyword: scoring toiture commerciale solaire
+translationKey: commercial-roof-scoring
 status: published
 ---
 
