@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { Footer2 } from "@/components/footer2";
 import { Navbar1 } from "@/components/navbar1";
+import { ArticleParagraph } from "@/components/article-paragraph";
 import { ArticleSectionIndicator } from "@/components/article-section-indicator";
 import { Link } from "@/i18n/navigation";
 import { locales, type Locale } from "@/i18n/config";
@@ -152,7 +153,7 @@ export default async function ArticlePage({
                   <h2 className="text-2xl font-normal tracking-tight">{section.heading}</h2>
                   <div className="mt-3 space-y-4 text-sm leading-7 text-muted-foreground">
                     {section.content.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
+                      <ArticleParagraph key={paragraph} text={paragraph} />
                     ))}
                   </div>
                 </section>

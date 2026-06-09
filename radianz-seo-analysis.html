@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radianz — Analyse SEO & Positionnement Mots-Clés</title>
+<style>
+  :root {
+    --bg: #050D1F;
+    --surface: #0B1830;
+    --surface2: #112040;
+    --surface3: #182D52;
+    --solar: #F5A623;
+    --solar-dim: rgba(245,166,35,0.15);
+    --green: #7EE8A2;
+    --green-dim: rgba(126,232,162,0.12);
+    --blue: #4DA6FF;
+    --blue-dim: rgba(77,166,255,0.12);
+    --red: #FF5C73;
+    --red-dim: rgba(255,92,115,0.12);
+    --purple: #B57FFF;
+    --purple-dim: rgba(181,127,255,0.12);
+    --text: #E8F0FF;
+    --text-dim: #7A90B8;
+    --text-faint: #3D5178;
+    --border: rgba(77,106,165,0.2);
+    --border-bright: rgba(77,106,165,0.45);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: linear-gradient(135deg, #061428 0%, #0A1F3C 60%, #071122 100%);
+    border-bottom: 1px solid var(--border-bright);
+    padding: 48px 64px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(245,166,35,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .brand-dot {
+    width: 10px; height: 10px;
+    background: var(--solar);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--solar);
+  }
+  .brand-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--solar);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .report-meta {
+    text-align: right;
+    color: var(--text-dim);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+  .report-meta strong {
+    color: var(--text);
+  }
+
+  .header-title {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    max-width: 640px;
+  }
+  .header-title span { color: var(--solar); }
+
+  .header-sub {
+    margin-top: 12px;
+    color: var(--text-dim);
+    font-size: 16px;
+    max-width: 560px;
+  }
+
+  .header-kpis {
+    display: flex; gap: 24px; margin-top: 40px;
+    flex-wrap: wrap;
+  }
+  .kpi {
+    background: var(--surface2);
+    border: 1px solid var(--border-bright);
+    border-radius: 12px;
+    padding: 18px 24px;
+    min-width: 160px;
+  }
+  .kpi-val {
+    font-size: 30px; font-weight: 700;
+    line-height: 1;
+  }
+  .kpi-val.solar { color: var(--solar); }
+  .kpi-val.green { color: var(--green); }
+  .kpi-val.blue { color: var(--blue); }
+  .kpi-val.red { color: var(--red); }
+  .kpi-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 6px;
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px 80px;
+  }
+
+  .section {
+    margin-top: 56px;
+  }
+  .section-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 24px;
+  }
+  .section-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--solar);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--solar-dim);
+    border: 1px solid rgba(245,166,35,0.3);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  /* ── INSIGHT BOX ── */
+  .insight {
+    background: linear-gradient(135deg, rgba(245,166,35,0.08), rgba(245,166,35,0.03));
+    border: 1px solid rgba(245,166,35,0.3);
+    border-left: 3px solid var(--solar);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+  .insight strong { color: var(--solar); }
+
+  /* ── COMPETITOR MAP ── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .comp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 24px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+  .comp-card:hover { border-color: var(--border-bright); }
+  .comp-card.highlight {
+    border-color: rgba(126,232,162,0.4);
+    background: linear-gradient(135deg, rgba(126,232,162,0.06), rgba(11,24,48,1));
+  }
+  .comp-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .badge-threat { background: var(--red-dim); color: var(--red); border: 1px solid rgba(255,92,115,0.3); }
+  .badge-adjacent { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(77,166,255,0.3); }
+  .badge-indirect { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(181,127,255,0.3); }
+  .badge-opportunity { background: var(--green-dim); color: var(--green); border: 1px solid rgba(126,232,162,0.4); }
+
+  .comp-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .comp-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .comp-tags {
+    display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .comp-tag {
+    font-size: 11px;
+    color: var(--text-dim);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 3px 10px;
+    border-radius: 6px;
+  }
+  .comp-tag.none { color: var(--green); border-color: rgba(126,232,162,0.3); background: var(--green-dim); }
+  .comp-tag.weak { color: var(--solar); border-color: rgba(245,166,35,0.3); background: var(--solar-dim); }
+  .comp-tag.strong { color: var(--red); border-color: rgba(255,92,115,0.3); background: var(--red-dim); }
+
+  /* ── KEYWORD CLUSTERS ── */
+  .clusters-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .cluster-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+    transition: border-color 0.2s;
+  }
+  .cluster-card:hover { border-color: var(--border-bright); }
+  .cluster-header {
+    display: flex; align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 8px;
+  }
+  .cluster-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .priority-pill {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 9px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .p1 { background: var(--green-dim); color: var(--green); border: 1px solid rgba(126,232,162,0.4); }
+  .p2 { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(77,166,255,0.35); }
+  .p3 { background: var(--solar-dim); color: var(--solar); border: 1px solid rgba(245,166,35,0.3); }
+  .p4 { background: var(--red-dim); color: var(--red); border: 1px solid rgba(255,92,115,0.3); }
+
+  .kw-list { list-style: none; }
+  .kw-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    gap: 8px;
+  }
+  .kw-item:last-child { border-bottom: none; }
+  .kw-term {
+    font-size: 12px;
+    color: var(--text);
+    font-family: 'Menlo', 'Courier New', monospace;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .kw-meta {
+    display: flex; align-items: center; gap: 6px;
+    flex-shrink: 0;
+  }
+  .vol-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 5px;
+    background: var(--surface2);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
+  .diff-bar {
+    width: 48px; height: 5px;
+    background: var(--surface3);
+    border-radius: 3px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .diff-fill {
+    height: 100%;
+    border-radius: 3px;
+  }
+  .diff-vlow { background: var(--green); }
+  .diff-low { background: #A8E86B; }
+  .diff-med { background: var(--solar); }
+  .diff-high { background: var(--red); }
+
+  .cluster-footer {
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+  .cluster-footer strong { color: var(--solar); }
+
+  /* ── POSITIONING MAP SVG ZONE ── */
+  .map-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+  }
+  .map-title {
+    font-size: 13px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+  }
+
+  /* ── CONTENT STRATEGY TABLE ── */
+  .strategy-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .strategy-table th {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 10px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-bright);
+    background: var(--surface);
+  }
+  .strategy-table td {
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .strategy-table tr:hover td {
+    background: var(--surface2);
+    color: var(--text);
+  }
+  .strategy-table tr:last-child td { border-bottom: none; }
+  .td-type {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .td-kw { font-family: 'Menlo', monospace; color: var(--text); font-size: 12px; }
+  .td-intent { white-space: nowrap; }
+  .intent-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  .horizon-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .h-now { background: var(--green-dim); color: var(--green); }
+  .h-m3 { background: var(--blue-dim); color: var(--blue); }
+  .h-m6 { background: var(--solar-dim); color: var(--solar); }
+
+  /* ── ROADMAP ── */
+  .roadmap {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .roadmap-col {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .roadmap-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .roadmap-label::before {
+    content: '';
+    display: block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+  .phase-1 .roadmap-label { color: var(--green); }
+  .phase-1 .roadmap-label::before { background: var(--green); box-shadow: 0 0 6px var(--green); }
+  .phase-2 .roadmap-label { color: var(--blue); }
+  .phase-2 .roadmap-label::before { background: var(--blue); box-shadow: 0 0 6px var(--blue); }
+  .phase-3 .roadmap-label { color: var(--solar); }
+  .phase-3 .roadmap-label::before { background: var(--solar); box-shadow: 0 0 6px var(--solar); }
+
+  .roadmap-items { list-style: none; }
+  .roadmap-item {
+    display: flex; gap: 10px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+  .roadmap-item::before {
+    content: '→';
+    color: var(--text-faint);
+    flex-shrink: 0;
+  }
+  .roadmap-item strong { color: var(--text); }
+
+  /* ── SCATTER PLOT ── */
+  #scatter { width: 100%; height: 320px; }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 64px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 12px;
+    color: var(--text-faint);
+  }
+  .footer span { color: var(--solar); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div class="brand">
+      <div class="brand-dot"></div>
+      <span class="brand-name">Radianz</span>
+    </div>
+    <div class="report-meta">
+      <strong>Analyse SEO & Mots-Clés</strong><br>
+      Segment : Solaire C&amp;I · France<br>
+      Juin 2026
+    </div>
+  </div>
+  <h1 class="header-title">
+    Un <span>océan bleu SEO</span><br>existe sur le solaire C&amp;I
+  </h1>
+  <p class="header-sub">
+    Le marché des leads résidentiels est saturé. Celui du solaire commercial & industriel en France n'a pas de joueur SEO dominant. Voici comment Radianz peut prendre cette position.
+  </p>
+  <div class="header-kpis">
+    <div class="kpi">
+      <div class="kpi-val green">0</div>
+      <div class="kpi-label">Concurrent direct<br>sur C&amp;I en français</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val solar">6+</div>
+      <div class="kpi-label">Clusters de mots-clés<br>à exploiter</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val blue">~8 k</div>
+      <div class="kpi-label">Vol. mensuel cumulé<br>mots-clés cibles</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-val red">Très fort</div>
+      <div class="kpi-label">Concurrence sur le<br>résidentiel (à éviter)</div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SECTION 1 : CONCURRENCE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Paysage concurrentiel SEO</h2>
+    </div>
+
+    <div class="insight">
+      <strong>Observation clé :</strong> Le marché des leads solaires français est saturé côté résidentiel (Hellio, Webofly, AGL, Sodigix, Leadial…) mais <strong>quasi vierge côté B2B C&amp;I</strong>. Le seul concurrent direct identifié, <strong>Planno.io</strong> (UAE, 2026), n'a aucune présence SEO francophone. Radianz a une fenêtre de 6 à 18 mois pour s'installer en leader de niche.
+    </div>
+
+    <div class="comp-grid">
+      <div class="comp-card">
+        <span class="comp-badge badge-threat">⚠ Concurrent direct</span>
+        <div class="comp-name">Planno.io</div>
+        <div class="comp-desc">Plateforme AI de prospection C&amp;I solaire. Lancée en France début 2026 (clients early adopters). English-first, aucune page SEO en français. Concurrent le plus proche techniquement.</div>
+        <div class="comp-tags">
+          <span class="comp-tag none">0 page FR</span>
+          <span class="comp-tag none">0 backlink FR</span>
+          <span class="comp-tag weak">Présence LI faible</span>
+          <span class="comp-tag">Basé UAE</span>
+        </div>
+      </div>
+
+      <div class="comp-card highlight">
+        <span class="comp-badge badge-opportunity">🟢 Opportunité</span>
+        <div class="comp-name">Espace vide — Radianz</div>
+        <div class="comp-desc">Aucune plateforme SaaS francophone ne revendique actuellement "prospection solaire C&amp;I", "lead solaire professionnel" ou "logiciel prospection photovoltaïque tertiaire". Position à prendre immédiatement.</div>
+        <div class="comp-tags">
+          <span class="comp-tag none">Blue ocean SEO</span>
+          <span class="comp-tag none">0 compétiteur actif</span>
+          <span class="comp-tag none">Contenu manquant</span>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <span class="comp-badge badge-adjacent">→ Adjacent</span>
+        <div class="comp-name">Solteo.fr / iColl</div>
+        <div class="comp-desc">CRM et workflow pour installateurs solaires. Bonne présence SEO sur "logiciel installateur", "CRM photovoltaïque" mais ne couvrent pas la prospection B2B C&amp;I ni la génération de leads qualifiés.</div>
+        <div class="comp-tags">
+          <span class="comp-tag weak">CRM seulement</span>
+          <span class="comp-tag">Pas de prospecting</span>
+          <span class="comp-tag">Résidentiel & PME mix</span>
+        </div>
+      </div>
+
+      <div class="comp-card">
+        <span class="comp-badge badge-indirect">◦ Indirect</span>
+        <div class="comp-name">Hellio / AGL / Webofly</div>
+        <div class="comp-desc">Agences de leads solaires résidentiels (particuliers). Dominent "lead panneaux solaires", "achat lead photovoltaïque". Proposent ponctuellement des leads "entreprise" mais sans ciblage C&amp;I structuré ni données bâtimentaires.</div>
+        <div class="comp-tags">
+          <span class="comp-tag strong">Fort sur résidentiel</span>
+          <span class="comp-tag">B2C only</span>
+          <span class="comp-tag none">Absent sur C&amp;I</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 : CLUSTERS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Clusters de mots-clés cibles</h2>
+    </div>
+
+    <div class="insight">
+      Les volumes sont modestes (c'est un marché B2B de niche) mais la <strong>valeur par visiteur est élevée</strong> — un installateur qui signe = des dizaines de milliers d'euros de MRR. Mieux vaut 200 visites qualifiées que 20 000 résidentielles. Les barres indiquent la <strong>difficulté SEO</strong> (vert = faible, rouge = fort).
+    </div>
+
+    <div class="clusters-layout">
+
+      <!-- CLUSTER 1 -->
+      <div class="cluster-card">
+        <div class="cluster-header">
+          <div class="cluster-title">🎯 Lead &amp; Prospection Solaire B2B</div>
+          <span class="priority-pill p1">Priorité 1</span>
+        </div>
+        <ul class="kw-list">
+          <li class="kw-item">
+            <span class="kw-term">lead solaire commercial</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~150/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:8%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">lead solaire industriel</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~80/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:5%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">lead photovoltaïque entreprise</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~120/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-low" style="width:15%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">prospection solaire professionnel</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~90/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:6%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">prospect solaire tertiaire</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~50/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:4%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">agence lead solaire B2B</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~60/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:5%"></div></div>
+            </div>
+          </li>
+        </ul>
+        <div class="cluster-footer"><strong>Stratégie :</strong> Landing page dédiée + articles de blog ciblant chaque terme. Zéro concurrent en position 1 sur ces requêtes.</div>
+      </div>
+
+      <!-- CLUSTER 2 -->
+      <div class="cluster-card">
+        <div class="cluster-header">
+          <div class="cluster-title">🏭 Solaire C&amp;I France</div>
+          <span class="priority-pill p1">Priorité 1</span>
+        </div>
+        <ul class="kw-list">
+          <li class="kw-item">
+            <span class="kw-term">solaire C&I France</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~300/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-low" style="width:18%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">photovoltaïque commercial industriel</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~400/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-low" style="width:20%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">solaire tertiaire France 2026</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~250/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-med" style="width:35%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">installation solaire entrepôt</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~500/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-low" style="width:22%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">panneaux solaires commerce France</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~350/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-low" style="width:25%"></div></div>
+            </div>
+          </li>
+        </ul>
+        <div class="cluster-footer"><strong>Stratégie :</strong> Pages de contenu expert ("Guide du solaire C&amp;I en France") + études de cas sectorielles.</div>
+      </div>
+
+      <!-- CLUSTER 3 -->
+      <div class="cluster-card">
+        <div class="cluster-header">
+          <div class="cluster-title">🛠️ Outils &amp; Logiciels Prospection</div>
+          <span class="priority-pill p1">Priorité 1</span>
+        </div>
+        <ul class="kw-list">
+          <li class="kw-item">
+            <span class="kw-term">logiciel prospection solaire</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~100/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:4%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">outil prospection photovoltaïque</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~60/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:3%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">plateforme lead solaire</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~80/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:5%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">SaaS solaire installateur France</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~70/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:8%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">développement commercial solaire PME</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~90/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:6%"></div></div>
+            </div>
+          </li>
+        </ul>
+        <div class="cluster-footer"><strong>Stratégie :</strong> Page produit + comparatif "Planno vs Radianz". Ces requêtes sont vides — une page bien structurée se positionnera rapidement.</div>
+      </div>
+
+      <!-- CLUSTER 4 -->
+      <div class="cluster-card">
+        <div class="cluster-header">
+          <div class="cluster-title">🏪 Retail &amp; Segments spécifiques</div>
+          <span class="priority-pill p2">Priorité 2</span>
+        </div>
+        <ul class="kw-list">
+          <li class="kw-item">
+            <span class="kw-term">solaire supermarché grande surface</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~150/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:7%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">solaire entrepôt logistique France</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~250/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-low" style="width:16%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">photovoltaïque zone commerciale</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~180/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-low" style="width:12%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">solaire toiture PME artisan</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~120/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:8%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">solaire hôtel restaurant commerce</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~90/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-vlow" style="width:6%"></div></div>
+            </div>
+          </li>
+        </ul>
+        <div class="cluster-footer"><strong>Stratégie :</strong> Pages de niche sectorielles ("Solaire pour supermarchés", "Solaire entrepôts"). Excellent pour le maillage interne et la longue traîne.</div>
+      </div>
+
+      <!-- CLUSTER 5 -->
+      <div class="cluster-card">
+        <div class="cluster-header">
+          <div class="cluster-title">⚖️ Réglementaire &amp; Obligation</div>
+          <span class="priority-pill p2">Priorité 2</span>
+        </div>
+        <ul class="kw-list">
+          <li class="kw-item">
+            <span class="kw-term">obligation solarisation tertiaire</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~1 500/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-med" style="width:42%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">loi climat résilience solaire bâtiment</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~900/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-med" style="width:38%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">décret tertiaire solaire 2025</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~700/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-med" style="width:35%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">obligation solaire entrepôt 500m2</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~400/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-low" style="width:28%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">solarisation bâtiment existant 2028</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~300/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-low" style="width:20%"></div></div>
+            </div>
+          </li>
+        </ul>
+        <div class="cluster-footer"><strong>Stratégie :</strong> Articles d'information réglementaire + CTA vers Radianz ("trouvez vos bâtiments éligibles"). Volume élevé, mais concurrence modérée.</div>
+      </div>
+
+      <!-- CLUSTER 6 -->
+      <div class="cluster-card">
+        <div class="cluster-header">
+          <div class="cluster-title">🚫 Mots-clés à éviter (résidentiel)</div>
+          <span class="priority-pill p4">Éviter</span>
+        </div>
+        <ul class="kw-list">
+          <li class="kw-item">
+            <span class="kw-term">lead panneaux solaires</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~3 000/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-high" style="width:88%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">achat lead photovoltaïque</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~2 000/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-high" style="width:82%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">lead solaire qualifié</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~1 500/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-high" style="width:78%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">leads panneaux solaires particuliers</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~1 200/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-high" style="width:85%"></div></div>
+            </div>
+          </li>
+          <li class="kw-item">
+            <span class="kw-term">installateur panneaux solaires devis</span>
+            <div class="kw-meta">
+              <span class="vol-badge">~5 000/mo</span>
+              <div class="diff-bar"><div class="diff-fill diff-high" style="width:95%"></div></div>
+            </div>
+          </li>
+        </ul>
+        <div class="cluster-footer"><strong>Pourquoi éviter :</strong> Budget SEO absorbé par Hellio, AGL, Webofly (DA &gt; 60). Mauvaise audience pour Radianz (particuliers). Zéro ROI à espérer.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3 : STRATÉGIE CONTENU -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Stratégie de contenu recommandée</h2>
+    </div>
+
+    <div class="insight">
+      L'architecture idéale est un <strong>hub &amp; spoke</strong> : des pages piliers (haute autorité, mots-clés larges) reliées à des articles satellites (mots-clés de longue traîne). Chaque contenu cible une intention précise — <span style="color:var(--green)">●</span> informationnelle, <span style="color:var(--solar)">●</span> commerciale, <span style="color:var(--blue)">●</span> transactionnelle.
+    </div>
+
+    <table class="strategy-table">
+      <thead>
+        <tr>
+          <th>Type de page</th>
+          <th>Titre suggéré</th>
+          <th>Mot-clé principal</th>
+          <th>Intention</th>
+          <th>Horizon</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="td-type" style="color:var(--green)">Page Pilier</span></td>
+          <td>Guide complet : Prospection solaire C&amp;I en France 2026</td>
+          <td class="td-kw">prospection solaire commercial industriel</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--green)"></span>Info</td>
+          <td><span class="horizon-tag h-now">Maintenant</span></td>
+        </tr>
+        <tr>
+          <td><span class="td-type" style="color:var(--solar)">Landing Produit</span></td>
+          <td>Radianz — Plateforme de génération de leads solaires B2B</td>
+          <td class="td-kw">plateforme lead solaire B2B</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--solar)"></span>Commercial</td>
+          <td><span class="horizon-tag h-now">Maintenant</span></td>
+        </tr>
+        <tr>
+          <td><span class="td-type" style="color:var(--solar)">Landing Produit</span></td>
+          <td>Logiciel de prospection solaire pour installateurs</td>
+          <td class="td-kw">logiciel prospection solaire installateur</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--solar)"></span>Commercial</td>
+          <td><span class="horizon-tag h-now">Maintenant</span></td>
+        </tr>
+        <tr>
+          <td><span class="td-type" style="color:var(--green)">Article Blog</span></td>
+          <td>Obligation de solarisation des bâtiments tertiaires : ce qui change en 2025-2028</td>
+          <td class="td-kw">obligation solarisation tertiaire 2026</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--green)"></span>Info</td>
+          <td><span class="horizon-tag h-now">Maintenant</span></td>
+        </tr>
+        <tr>
+          <td><span class="td-type" style="color:var(--green)">Article Blog</span></td>
+          <td>Comment identifier les meilleurs bâtiments commerciaux pour le solaire ?</td>
+          <td class="td-kw">identifier bâtiment solaire commercial</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--green)"></span>Info</td>
+          <td><span class="horizon-tag h-now">Maintenant</span></td>
+        </tr>
+        <tr>
+          <td><span class="td-type" style="color:var(--blue)">Comparatif</span></td>
+          <td>Planno vs Radianz : quel outil pour la prospection solaire C&amp;I en France ?</td>
+          <td class="td-kw">Planno alternative France</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--blue)"></span>Transaction</td>
+          <td><span class="horizon-tag h-m3">M+3</span></td>
+        </tr>
+        <tr>
+          <td><span class="td-type" style="color:var(--green)">Page Niche</span></td>
+          <td>Solaire pour supermarchés et grandes surfaces : guide installateur</td>
+          <td class="td-kw">solaire supermarché grande surface France</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--green)"></span>Info</td>
+          <td><span class="horizon-tag h-m3">M+3</span></td>
+        </tr>
+        <tr>
+          <td><span class="td-type" style="color:var(--green)">Page Niche</span></td>
+          <td>Solaire pour entrepôts et zones logistiques : potentiel &amp; rentabilité</td>
+          <td class="td-kw">solaire entrepôt logistique France</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--green)"></span>Info</td>
+          <td><span class="horizon-tag h-m3">M+3</span></td>
+        </tr>
+        <tr>
+          <td><span class="td-type" style="color:var(--green)">Page Niche</span></td>
+          <td>Photovoltaïque C&amp;I : qui sont les propriétaires de bâtiments à cibler ?</td>
+          <td class="td-kw">propriétaire bâtiment solaire C&amp;I</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--green)"></span>Info</td>
+          <td><span class="horizon-tag h-m3">M+3</span></td>
+        </tr>
+        <tr>
+          <td><span class="td-type" style="color:var(--blue)">Cas client</span></td>
+          <td>Étude de cas : +200 prospects C&amp;I générés en Gironde avec Radianz</td>
+          <td class="td-kw">résultats prospection solaire C&amp;I</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--blue)"></span>Transaction</td>
+          <td><span class="horizon-tag h-m6">M+6</span></td>
+        </tr>
+        <tr>
+          <td><span class="td-type" style="color:var(--solar)">Landing Geo</span></td>
+          <td>Prospection solaire C&amp;I — Gironde (33)</td>
+          <td class="td-kw">lead solaire commercial Gironde Bordeaux</td>
+          <td class="td-intent"><span class="intent-dot" style="background:var(--solar)"></span>Commercial</td>
+          <td><span class="horizon-tag h-m6">M+6</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- SECTION 4 : FEUILLE DE ROUTE -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Feuille de route SEO — 9 mois</h2>
+    </div>
+
+    <div class="roadmap">
+      <div class="roadmap-col phase-1">
+        <div class="roadmap-label">Phase 1 — Fondations (M0–M3)</div>
+        <ul class="roadmap-items">
+          <li class="roadmap-item"><strong>Structurer le site</strong> avec une architecture hub &amp; spoke claire</li>
+          <li class="roadmap-item"><strong>2 landing pages produit</strong> : "Prospection C&amp;I" + "Logiciel installateur solaire"</li>
+          <li class="roadmap-item"><strong>1 page pilier longue</strong> : "Guide prospection solaire C&amp;I France"</li>
+          <li class="roadmap-item"><strong>2 articles réglementaires</strong> sur l'obligation de solarisation (fort volume, moyen compétition)</li>
+          <li class="roadmap-item"><strong>Profil LinkedIn Radianz</strong> : 2 posts/semaine avec les même mots-clés (signal de marque)</li>
+          <li class="roadmap-item"><strong>Google Search Console</strong> configuré + suivi des 30 mots-clés cibles</li>
+        </ul>
+      </div>
+
+      <div class="roadmap-col phase-2">
+        <div class="roadmap-label">Phase 2 — Expansion (M3–M6)</div>
+        <ul class="roadmap-items">
+          <li class="roadmap-item"><strong>Pages sectorielles</strong> : supermarchés, entrepôts, zones commerciales, hôtels/restaurants</li>
+          <li class="roadmap-item"><strong>Comparatif concurrents</strong> : "Radianz vs Planno", "Radianz vs prospection manuelle"</li>
+          <li class="roadmap-item"><strong>Pages géo</strong> : Gironde, Nouvelle-Aquitaine (en anticipation de l'expansion nationale)</li>
+          <li class="roadmap-item"><strong>4 articles de fond</strong> sur la prospection solaire B2B (techniques, données, ROI)</li>
+          <li class="roadmap-item"><strong>Stratégie backlinks</strong> : guest posts pv-magazine.fr, lechodusolaire.fr, Enerplan</li>
+        </ul>
+      </div>
+
+      <div class="roadmap-col phase-3">
+        <div class="roadmap-label">Phase 3 — Autorité (M6–M9)</div>
+        <ul class="roadmap-items">
+          <li class="roadmap-item"><strong>Études de cas clients</strong> avec données chiffrées (premiers utilisateurs Radianz)</li>
+          <li class="roadmap-item"><strong>Rapport sectoriel</strong> annuel : "État du marché solaire C&amp;I en France" — génère des backlinks naturels</li>
+          <li class="roadmap-item"><strong>Pages nationales</strong> pour chaque département/région ciblé</li>
+          <li class="roadmap-item"><strong>Glossaire SEO</strong> : termes techniques (BDNB, BESS, autoconsommation, C&amp;I…)</li>
+          <li class="roadmap-item"><strong>Viser DA 30+</strong> et position 1–3 sur les 10 mots-clés prioritaires</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 : QUICK WINS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">3 Quick Wins à lancer cette semaine</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+
+      <div class="comp-card" style="border-color:rgba(126,232,162,0.35);background:linear-gradient(135deg,rgba(126,232,162,0.05),var(--surface));">
+        <div style="font-size:28px;margin-bottom:12px;">⚡</div>
+        <div style="font-size:15px;font-weight:700;color:var(--green);margin-bottom:8px;">Page "Prospection Solaire C&amp;I"</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.6;">
+          Créer une page optimisée pour <code style="color:var(--green);background:var(--green-dim);padding:1px 5px;border-radius:3px;">prospection solaire commercial industriel</code>. Aucun concurrent. Une page correcte peut se positionner en &lt;4 semaines.
+        </div>
+      </div>
+
+      <div class="comp-card" style="border-color:rgba(245,166,35,0.35);background:linear-gradient(135deg,rgba(245,166,35,0.05),var(--surface));">
+        <div style="font-size:28px;margin-bottom:12px;">📖</div>
+        <div style="font-size:15px;font-weight:700;color:var(--solar);margin-bottom:8px;">Article obligation solarisation</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.6;">
+          Rédiger un article complet sur <code style="color:var(--solar);background:var(--solar-dim);padding:1px 5px;border-radius:3px;">obligation solarisation bâtiment tertiaire</code> (1 500 vol/mo, difficulté modérée). Audience = décideurs d'entreprise = prospect idéal.
+        </div>
+      </div>
+
+      <div class="comp-card" style="border-color:rgba(77,166,255,0.35);background:linear-gradient(135deg,rgba(77,166,255,0.05),var(--surface));">
+        <div style="font-size:28px;margin-bottom:12px;">🔗</div>
+        <div style="font-size:15px;font-weight:700;color:var(--blue);margin-bottom:8px;">Page "Planno alternative FR"</div>
+        <div style="font-size:13px;color:var(--text-dim);line-height:1.6;">
+          Créer une page de comparaison <code style="color:var(--blue);background:var(--blue-dim);padding:1px 5px;border-radius:3px;">Planno alternative France</code>. Planno n'a pas de SEO FR — tu récupères tout le trafic de ceux qui cherchent déjà une solution C&amp;I.
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="container" style="padding-top:0;padding-bottom:32px;">
+  <div class="footer">
+    <div>Radianz — Analyse SEO interne · Confidentiel</div>
+    <div>Généré par <span>Claude</span> pour Radianz · Juin 2026</div>
+  </div>
+</div>
+
+</body>
+</html>

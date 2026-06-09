@@ -1,0 +1,90 @@
+{
+  "description": "File d'attente SEO pour l'automation article Radianz. L'agent prend le premier sujet pending, le marque in_progress puis published après merge.",
+  "avoidKeywords": [
+    "lead panneaux solaires particulier",
+    "devis panneau solaire maison",
+    "installation solaire résidentiel"
+  ],
+  "topics": [
+    {
+      "id": "obligation-solarisation-tertiaire-2026",
+      "priority": 1,
+      "status": "pending",
+      "primaryKeyword": "obligation solarisation bâtiment tertiaire",
+      "titleFr": "Obligation de solarisation des bâtiments tertiaires : ce qui change en 2025-2028",
+      "titleEn": "Commercial Building Solarization Mandate: What Changes in 2025-2028",
+      "intent": "informational",
+      "cluster": "réglementation"
+    },
+    {
+      "id": "identifier-batiments-commerciaux-solaire",
+      "priority": 1,
+      "status": "pending",
+      "primaryKeyword": "identifier bâtiment solaire commercial",
+      "titleFr": "Comment identifier les meilleurs bâtiments commerciaux pour le solaire ?",
+      "titleEn": "How to Identify the Best Commercial Buildings for Solar",
+      "intent": "informational",
+      "cluster": "prospection"
+    },
+    {
+      "id": "lead-solaire-commercial",
+      "priority": 1,
+      "status": "pending",
+      "primaryKeyword": "lead solaire commercial",
+      "titleFr": "Lead solaire commercial : comment générer des opportunités C&I qualifiées",
+      "titleEn": "Commercial Solar Leads: How to Generate Qualified C&I Opportunities",
+      "intent": "commercial",
+      "cluster": "lead-prospection"
+    },
+    {
+      "id": "logiciel-prospection-solaire",
+      "priority": 1,
+      "status": "pending",
+      "primaryKeyword": "logiciel prospection solaire",
+      "titleFr": "Logiciel de prospection solaire : critères pour choisir la bonne plateforme",
+      "titleEn": "Solar Prospecting Software: How to Choose the Right Platform",
+      "intent": "commercial",
+      "cluster": "outils"
+    },
+    {
+      "id": "solaire-entrepot-logistique",
+      "priority": 2,
+      "status": "pending",
+      "primaryKeyword": "solaire entrepôt logistique France",
+      "titleFr": "Solaire pour entrepôts et zones logistiques : potentiel et rentabilité",
+      "titleEn": "Solar for Warehouses and Logistics Sites: Potential and ROI",
+      "intent": "informational",
+      "cluster": "secteurs"
+    },
+    {
+      "id": "solaire-supermarche-grande-surface",
+      "priority": 2,
+      "status": "pending",
+      "primaryKeyword": "solaire supermarché grande surface",
+      "titleFr": "Solaire pour supermarchés et grandes surfaces : guide installateur",
+      "titleEn": "Solar for Supermarkets and Retail: An Installer's Guide",
+      "intent": "informational",
+      "cluster": "secteurs"
+    },
+    {
+      "id": "planno-alternative-france",
+      "priority": 2,
+      "status": "pending",
+      "primaryKeyword": "Planno alternative France",
+      "titleFr": "Planno vs Radianz : quel outil pour la prospection solaire C&I en France ?",
+      "titleEn": "Planno vs Radianz: Best C&I Solar Prospecting Tool in France",
+      "intent": "transactional",
+      "cluster": "comparatif"
+    },
+    {
+      "id": "solaire-ci-france-2026",
+      "priority": 1,
+      "status": "pending",
+      "primaryKeyword": "solaire C&I France",
+      "titleFr": "Solaire C&I en France en 2026 : marché, opportunités et méthodes",
+      "titleEn": "C&I Solar in France in 2026: Market, Opportunities, and Methods",
+      "intent": "informational",
+      "cluster": "marché"
+    }
+  ]
+}

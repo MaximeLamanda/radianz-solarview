@@ -1,0 +1,40 @@
+# Brouillon Cursor Automation — à importer via l'éditeur Automations (fenêtre Agents)
+# Déclencheur : tous les 3 jours à 9h (jours 1, 4, 7, 10… du mois)
+
+name: "Radianz — Article SEO (tous les 3 jours)"
+description: "Recherche un sujet chaud C&I, rédige un article FR+EN avec maillage interne, ouvre une PR."
+
+workflow:
+  triggers:
+    - cron:
+        cron: "0 9 */3 * *"
+  actions:
+    - gitPr: {}
+  prompts:
+    - prompt: |
+        Tu es l'agent contenu SEO de Radianz (prospection solaire C&I B2B, France).
+
+        Lis et suis strictement `.cursor/rules/article-pipeline.md`.
+
+        Étapes :
+        1. Lire `solarview-site/content/articles/topics-queue.json` et choisir le premier topic `pending` (priorité la plus basse = P1 d'abord).
+        2. Lire tous les articles existants dans `solarview-site/content/articles/fr/` et `en/`.
+        3. Rechercher des sources récentes sur le mot-clé principal du topic (tendances, réglementation, marché C&I France).
+        4. Rédiger l'article FR et EN dans `solarview-site/content/articles/{locale}/{slug}.md` selon le format frontmatter + sections ## du pipeline.
+        5. Inclure 2-3 liens internes markdown vers des articles existants. Si pertinent, ajouter un lien rétroactif dans un article existant vers le nouveau.
+        6. Mettre à jour `topics-queue.json` : topic → `published`.
+        7. Vérifier que `npm run build` passe dans `solarview-site/`.
+        8. Ouvrir une PR vers main avec titre `article: {slug-fr}` et description : sujet, mot-clé, sources, liens internes ajoutés.
+
+        Contraintes :
+        - Ne jamais merger la PR.
+        - Éviter le contenu résidentiel (particuliers).
+        - Cibler installateurs et équipes commerciales C&I.
+        - ~800 mots minimum par langue.
+  model: ""
+  gitConfig:
+    repo: "MaximeLamanda/radianz-solarview"
+    branch: "main"
+  agentOptions:
+    skipInstall: false
+  memoryEnabled: true
