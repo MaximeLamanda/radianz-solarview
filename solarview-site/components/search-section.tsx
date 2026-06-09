@@ -99,8 +99,11 @@ const SearchSection = ({ className }: SearchSectionProps) => {
 
           <div className="relative overflow-hidden rounded-xl border border-border">
             <img
-              src="/search-map-view.png"
+              src="/search-map-view.webp"
               alt={t("searchTitle")}
+              width={1400}
+              height={865}
+              loading="lazy"
               className="aspect-[4/3] size-full object-cover"
             />
 

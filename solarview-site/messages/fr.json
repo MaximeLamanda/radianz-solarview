@@ -214,5 +214,38 @@
     "legalNotice": "Mentions légales",
     "privacy": "Confidentialité",
     "privacyPolicy": "Politique de confidentialité"
+  },
+  "privacy": {
+    "metaTitle": "Politique de confidentialité — RADIANZ",
+    "metaDescription": "Politique de confidentialité RADIANZ : données collectées via le site et le formulaire de contact, finalités, durée de conservation et droits RGPD.",
+    "title": "Politique de confidentialité",
+    "lastUpdated": "Dernière mise à jour : juin 2026",
+    "intro": "RADIANZ s'engage à protéger les données personnelles des visiteurs du site radianz.tech et des personnes qui nous contactent via le formulaire de démo.",
+    "sections": {
+      "dataController": {
+        "title": "Responsable du traitement",
+        "body": "Le responsable du traitement est RADIANZ. Pour toute question relative à vos données, vous pouvez nous contacter via le formulaire disponible sur la page Contact."
+      },
+      "dataCollected": {
+        "title": "Données collectées",
+        "body": "Nous collectons les informations que vous saisissez dans le formulaire de contact : prénom, nom, adresse e-mail, société, volume de sites à qualifier et message. Des données techniques (adresse IP, navigateur, pages consultées) peuvent être enregistrées à des fins de sécurité et de mesure d'audience."
+      },
+      "purposes": {
+        "title": "Finalités",
+        "body": "Vos données sont utilisées pour répondre à vos demandes de démo, assurer le suivi commercial, améliorer le site et garantir sa sécurité. Nous ne vendons pas vos données à des tiers."
+      },
+      "retention": {
+        "title": "Durée de conservation",
+        "body": "Les demandes de contact sont conservées pendant la durée du suivi commercial, puis archivées ou supprimées au plus tard trois ans après le dernier échange, sauf obligation légale contraire."
+      },
+      "rights": {
+        "title": "Vos droits",
+        "body": "Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité. Vous pouvez également introduire une réclamation auprès de la CNIL."
+      },
+      "contact": {
+        "title": "Nous contacter",
+        "body": "Pour exercer vos droits ou poser une question sur cette politique, utilisez le formulaire de la page Contact en précisant l'objet de votre demande."
+      }
+    }
   }
 }

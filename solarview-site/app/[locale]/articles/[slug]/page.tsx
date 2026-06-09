@@ -15,6 +15,7 @@ import {
   getArticleBySlug,
 } from "@/lib/articles";
 import { BRAND } from "@/lib/constants";
+import { buildFooterBottomLinks, buildFooterMenuItems } from "@/lib/footer-menu";
 import { SITE_URL, withSocialMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -183,21 +184,9 @@ export default async function ArticlePage({
             title: tSite("name"),
           }}
           tagline={tSite("footerTagline")}
-          menuItems={[
-            {
-              title: tFooter("product"),
-              links: [
-                { text: tFooter("features"), url: "/#avantages" },
-                { text: tFooter("requestDemo"), url: "/contact" },
-              ],
-            },
-            {
-              title: tFooter("resources"),
-              links: [{ text: tFooter("contact"), url: "/contact" }],
-            },
-          ]}
+          menuItems={buildFooterMenuItems(tFooter)}
           copyright={tSite("copyright")}
-          bottomLinks={[]}
+          bottomLinks={buildFooterBottomLinks(tFooter)}
         />
       </footer>
     </>

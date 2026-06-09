@@ -13,6 +13,7 @@ import { LetsTalkSection } from "@/components/lets-talk-section";
 import { Footer2 } from "@/components/footer2";
 
 import { BRAND, STAT_BADGES, HERO_FEATURES } from "@/lib/constants";
+import { buildFooterBottomLinks, buildFooterMenuItems } from "@/lib/footer-menu";
 import { hreflangAlternates, SITE_URL, withSocialMetadata } from "@/lib/seo";
 import { type Locale } from "@/i18n/config";
 
@@ -159,7 +160,7 @@ export default async function Home({
             title: tFeature("commercialRoof"),
             description: tFeature("commercialRoofDesc"),
             illustration: "map",
-            image: "/discover-map-view.png",
+            image: "/discover-map-view.webp",
             imageAlt: tPipeline("searchTitle"),
             mapParcelLabel: tFeature("mapParcelSurface"),
             mapBuildingLabel: tFeature("mapBuildingSurface"),
@@ -254,21 +255,9 @@ export default async function Home({
             title: tSite("name"),
           }}
           tagline={tSite("footerTagline")}
-          menuItems={[
-            {
-              title: tFooter("product"),
-              links: [
-                { text: tFooter("features"), url: "#avantages" },
-                { text: tFooter("requestDemo"), url: "/contact" },
-              ],
-            },
-            {
-              title: tFooter("resources"),
-              links: [{ text: tFooter("contact"), url: "/contact" }],
-            },
-          ]}
+          menuItems={buildFooterMenuItems(tFooter)}
           copyright={tSite("copyright")}
-          bottomLinks={[]}
+          bottomLinks={buildFooterBottomLinks(tFooter)}
         />
       </footer>
     </>

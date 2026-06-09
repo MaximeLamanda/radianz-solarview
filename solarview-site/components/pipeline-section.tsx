@@ -71,7 +71,7 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
       addr: t("addr1"),
       kwp: "420",
       status: "ouvert",
-      photo: "/lead-photo-1.png",
+      photo: "/lead-photo-1.webp",
       views: 2,
       contacts: ["ML", "JD"],
       hasBattery: true,
@@ -91,7 +91,7 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
       addr: t("addr3"),
       kwp: "312",
       status: "ouvert",
-      photo: "/lead-photo-3.png",
+      photo: "/lead-photo-3.webp",
       views: 3,
       contacts: ["PL", "SM", "TK"],
       hasBattery: true,
@@ -162,6 +162,9 @@ const PipelineSection = ({ className }: PipelineSectionProps) => {
                         <img
                           src={lead.photo}
                           alt={lead.name}
+                          width={32}
+                          height={32}
+                          loading="lazy"
                           className="size-8 rounded object-cover"
                         />
                       </td>

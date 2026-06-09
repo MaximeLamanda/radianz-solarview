@@ -214,5 +214,38 @@
     "legalNotice": "Legal notice",
     "privacy": "Privacy",
     "privacyPolicy": "Privacy policy"
+  },
+  "privacy": {
+    "metaTitle": "Privacy policy — RADIANZ",
+    "metaDescription": "RADIANZ privacy policy: data collected through the website and contact form, purposes, retention periods, and GDPR rights.",
+    "title": "Privacy policy",
+    "lastUpdated": "Last updated: June 2026",
+    "intro": "RADIANZ is committed to protecting the personal data of visitors to radianz.tech and people who contact us through the demo request form.",
+    "sections": {
+      "dataController": {
+        "title": "Data controller",
+        "body": "The data controller is RADIANZ. For any question about your data, contact us through the form on the Contact page."
+      },
+      "dataCollected": {
+        "title": "Data collected",
+        "body": "We collect the information you submit in the contact form: first name, last name, email address, company, sites to qualify per month, and message. Technical data (IP address, browser, pages viewed) may also be recorded for security and analytics."
+      },
+      "purposes": {
+        "title": "Purposes",
+        "body": "Your data is used to respond to demo requests, support commercial follow-up, improve the website, and keep it secure. We do not sell your data to third parties."
+      },
+      "retention": {
+        "title": "Retention",
+        "body": "Contact requests are kept for the duration of the commercial relationship, then archived or deleted within three years of the last interaction, unless a longer period is required by law."
+      },
+      "rights": {
+        "title": "Your rights",
+        "body": "Under the GDPR, you have the right to access, rectify, erase, restrict, object to, and port your data. You may also lodge a complaint with your local data protection authority."
+      },
+      "contact": {
+        "title": "Contact us",
+        "body": "To exercise your rights or ask a question about this policy, use the form on the Contact page and specify the subject of your request."
+      }
+    }
   }
 }

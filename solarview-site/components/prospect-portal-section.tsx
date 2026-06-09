@@ -92,8 +92,11 @@ const ProspectPortalSection = ({ className }: ProspectPortalSectionProps) => {
                 <div className="flex gap-2">
                   <div className="relative size-14 shrink-0 overflow-hidden rounded-md bg-muted sm:size-16">
                     <img
-                      src="/amazon-plateform-lyon.png"
+                      src="/amazon-plateform-lyon.webp"
                       alt={t("prospectHeader")}
+                      width={64}
+                      height={64}
+                      loading="lazy"
                       className="size-full object-cover"
                     />
                   </div>

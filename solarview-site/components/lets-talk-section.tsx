@@ -117,6 +117,13 @@ export function LetsTalkSection({
 
             <div className="relative z-10 flex min-h-[320px] w-full flex-col p-0 lg:min-h-[560px] lg:w-auto lg:p-5">
               <div className="flex min-h-full flex-1 flex-col rounded-none bg-black p-6 font-sans md:p-8 lg:rounded-lg">
+                {asPageTitle ? (
+                  <HeadlineTag className="mb-6 text-2xl font-light leading-[1.2] tracking-tight text-white md:text-3xl lg:hidden">
+                    {t("headline1")}
+                    <br />
+                    {t("headline2")}
+                  </HeadlineTag>
+                ) : null}
                 <TeamContactCard className="mb-6 lg:hidden" />
                 <div className="mb-8 flex items-center gap-4 font-mono text-[11px] font-medium uppercase tracking-[0.2em] text-white/50">
                   <button

@@ -1,4 +1,5 @@
 import { BRAND } from "@/lib/constants";
+import { buildFooterBottomLinks, buildFooterMenuItems } from "@/lib/footer-menu";
 import { Navbar1 } from "@/components/navbar1";
 import { Footer2 } from "@/components/footer2";
 import { LetsTalkSection } from "@/components/lets-talk-section";
@@ -96,21 +97,9 @@ export default async function ContactPage({
             title: tSite("name"),
           }}
           tagline={tSite("footerTagline")}
-          menuItems={[
-            {
-              title: tFooter("product"),
-              links: [
-                { text: tFooter("features"), url: "/#avantages" },
-                { text: tFooter("requestDemo"), url: "/contact" },
-              ],
-            },
-            {
-              title: tFooter("resources"),
-              links: [{ text: tFooter("contact"), url: "/contact" }],
-            },
-          ]}
+          menuItems={buildFooterMenuItems(tFooter)}
           copyright={tSite("copyright")}
-          bottomLinks={[]}
+          bottomLinks={buildFooterBottomLinks(tFooter)}
         />
       </footer>
     </>

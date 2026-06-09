@@ -28,7 +28,14 @@ function DiscoverSiteCard({
         selected ? "cursor-default bg-muted/95 ring-1 ring-foreground/20" : "bg-card/95",
       )}
     >
-      <img src={logo} alt={name} className="size-8 shrink-0 rounded-sm object-cover sm:size-9" />
+      <img
+        src={logo}
+        alt={name}
+        width={36}
+        height={36}
+        loading="lazy"
+        className="size-8 shrink-0 rounded-sm object-cover sm:size-9"
+      />
       <div className="min-w-0 flex-1">
         <p className="truncate text-xs font-semibold">{name}</p>
         <div className="mt-1 flex items-center gap-2.5 sm:gap-3">
@@ -79,6 +86,9 @@ function DiscoverMapIllustration({
         <img
           src={image}
           alt={alt}
+          width={1200}
+          height={700}
+          loading="lazy"
           className="absolute inset-0 size-full min-w-full object-cover object-[center_80%]"
         />
         {sites && sites.length > 0 ? (
