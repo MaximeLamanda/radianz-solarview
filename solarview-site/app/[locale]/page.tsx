@@ -5,6 +5,7 @@ import { Navbar1 } from "@/components/navbar1";
 import { AgencyHero } from "@/components/agency-hero";
 import { Logos18 } from "@/components/logos18";
 import { ProcessSection } from "@/components/process-section";
+import { MagicTextSection } from "@/components/magic-text-section";
 import { UseCasesCarousel } from "@/components/use-cases-carousel";
 
 import { BRAND } from "@/lib/constants";
@@ -189,6 +190,7 @@ export default async function Home({
             },
           ]}
         />
+        <MagicTextSection text={tAgency("statement.text")} />
       </main>
     </>
   );
