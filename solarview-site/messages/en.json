@@ -67,6 +67,18 @@
     "trust": {
       "title": "They trust us"
     },
+    "useCases": {
+      "heading": "What AI changes in your business",
+      "description": "Concrete automations fitted to your processes — not demos that ignore your stack.",
+      "item1": "Search information across large document volumes",
+      "item2": "Reconcile payments and invoices precisely to avoid discrepancies",
+      "item3": "Identify prospects and reach out automatically",
+      "item4": "Automate responses to tenders and RFPs",
+      "item5": "Review contracts and legal documents",
+      "item6": "Automate customer support with a chatbot",
+      "previous": "Previous",
+      "next": "Next"
+    },
     "pain": {
       "heading": "You're optimizing processes. Others are rewriting the rules.",
       "subheading": "Too many tools, too little useful AI. We scan opportunities, build what matters, and ignore the rest.",

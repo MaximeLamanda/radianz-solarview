@@ -67,6 +67,18 @@
     "trust": {
       "title": "Ils nous font confiance"
     },
+    "useCases": {
+      "heading": "Ce que l'IA change dans vos métiers",
+      "description": "Des automatisations concrètes, adaptées à vos process — pas des démos hors sol.",
+      "item1": "Rechercher des informations dans un grand volume de documents",
+      "item2": "Réconcilier paiements et factures avec précision pour éviter les écarts",
+      "item3": "Identifier des prospects et les contacter automatiquement",
+      "item4": "Automatiser la réponse aux appels d'offres",
+      "item5": "Vérifier les contrats et documents juridiques",
+      "item6": "Automatiser le support client avec un chatbot",
+      "previous": "Précédent",
+      "next": "Suivant"
+    },
     "pain": {
       "heading": "Vous optimisez des process. D'autres réécrivent les règles du jeu.",
       "subheading": "Trop d'outils, trop peu d'IA utile. On scanne vos opportunités, on construit ce qui compte, on ignore le reste.",
