@@ -343,7 +343,7 @@ export function UseCasesCarousel({
   return (
     <section
       id="use-cases"
-      className={cn("relative bg-background py-16 md:py-24", className)}
+      className={cn("relative bg-white py-16 md:py-24", className)}
       aria-labelledby="use-cases-heading"
     >
       <div className="container">
