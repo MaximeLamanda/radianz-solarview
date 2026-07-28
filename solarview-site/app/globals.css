@@ -165,6 +165,20 @@
     @apply font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground;
   }
 
+  /**
+   * Fond hero type Invisible Tech (HP-BG.svg) :
+   * damier carré/cercle #EFEFEF sur blanc + voile radial (centre transparent → blanc aux bords).
+   */
+  .hero-dot-grid {
+    background-color: #ffffff;
+    background-image:
+      radial-gradient(circle, transparent 0%, #ffffff 81%),
+      url("/hero-dot-grid.svg");
+    background-position: center, 0 0;
+    background-size: 140% 140%, 60px 60px;
+    background-repeat: no-repeat, repeat;
+  }
+
   .text-display {
     @apply text-4xl font-bold tracking-[-0.035em] lg:text-5xl;
   }

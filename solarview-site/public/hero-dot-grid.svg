@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
+  <!-- Recréation compacte de HP-BG.svg (Invisible Tech): damier carré/cercle #EFEFEF, pas 30px -->
+  <rect width="60" height="60" fill="#ffffff"/>
+  <rect x="-2.9665" y="-2.9665" width="5.933" height="5.933" fill="#EFEFEF"/>
+  <circle cx="30" cy="0" r="2.79" fill="#EFEFEF"/>
+  <circle cx="0" cy="30" r="2.79" fill="#EFEFEF"/>
+  <rect x="27.0335" y="27.0335" width="5.933" height="5.933" fill="#EFEFEF"/>
+  <rect x="57.0335" y="-2.9665" width="5.933" height="5.933" fill="#EFEFEF"/>
+  <rect x="-2.9665" y="57.0335" width="5.933" height="5.933" fill="#EFEFEF"/>
+  <circle cx="60" cy="30" r="2.79" fill="#EFEFEF"/>
+  <circle cx="30" cy="60" r="2.79" fill="#EFEFEF"/>
+  <rect x="57.0335" y="57.0335" width="5.933" height="5.933" fill="#EFEFEF"/>
+</svg>
