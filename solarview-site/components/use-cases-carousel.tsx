@@ -1,6 +1,7 @@
 "use client";
 
 import { useId } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 import {
   Carousel,
@@ -9,6 +10,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 export type UseCaseShape =
@@ -223,13 +226,17 @@ function GeometricShape({ shape }: { shape: UseCaseShape }) {
 }
 
 function TexturedGradientCard({
+  title,
   variant,
   shape,
   imageSrc,
+  href = "/contact",
 }: {
+  title: string;
   variant: TexturedGradientVariant;
   shape: UseCaseShape;
   imageSrc?: string;
+  href?: string;
 }) {
   const config = VARIANTS[variant];
 
@@ -265,6 +272,27 @@ function TexturedGradientCard({
         </>
       )}
       <GeometricShape shape={shape} />
+
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/55 via-black/20 to-transparent"
+        aria-hidden
+      />
+
+      <div className="absolute inset-x-0 bottom-0 z-10 flex items-end justify-between gap-3 p-4 md:p-5">
+        <p className="min-w-0 flex-1 text-sm leading-snug text-white text-balance md:text-base">
+          {title}
+        </p>
+        <Button
+          asChild
+          size="icon"
+          variant="ghost"
+          className="group/cta size-10 shrink-0 rounded-full border-0 bg-white/10 text-white shadow-none hover:bg-white/20 hover:text-white"
+        >
+          <Link href={href} aria-label={title}>
+            <ArrowUpRight className="size-4 transition-transform duration-200 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5" />
+          </Link>
+        </Button>
+      </div>
     </div>
   );
 }
@@ -306,15 +334,13 @@ export function UseCasesCarousel({
                 key={`${item.variant}-${index}`}
                 className="basis-full pl-4 md:basis-1/2 lg:basis-1/3"
               >
-                <article className="flex h-full flex-col gap-4">
+                <article className="h-full">
                   <TexturedGradientCard
+                    title={item.title}
                     variant={item.variant}
                     shape={item.shape}
                     imageSrc={item.imageSrc}
                   />
-                  <p className="text-sm leading-snug text-foreground md:text-base">
-                    {item.title}
-                  </p>
                 </article>
               </CarouselItem>
             ))}
