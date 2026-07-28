@@ -135,21 +135,25 @@ export default async function Home({
               title: tAgency("useCases.item3"),
               shape: "gallery",
               variant: "warm-sand",
+              imageSrc: "/use-cases/mesh-ember.png",
             },
             {
               title: tAgency("useCases.item4"),
               shape: "gallery",
               variant: "teal-fog",
+              imageSrc: "/use-cases/mesh-teal.png",
             },
             {
               title: tAgency("useCases.item5"),
               shape: "gallery",
               variant: "lime-mist",
+              imageSrc: "/use-cases/mesh-lime.png",
             },
             {
               title: tAgency("useCases.item6"),
               shape: "gallery",
               variant: "periwinkle",
+              imageSrc: "/use-cases/mesh-indigo.png",
             },
           ]}
         />
