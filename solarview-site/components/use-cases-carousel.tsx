@@ -10,7 +10,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Button } from "@/components/ui/button";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
@@ -275,13 +274,17 @@ function TexturedGradientCard({
   const config = VARIANTS[variant];
 
   return (
-    <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
+    <Link
+      href={href}
+      aria-label={title}
+      className="group relative block aspect-[4/5] w-full overflow-hidden rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2"
+    >
       {imageSrc ? (
         // eslint-disable-next-line @next/next/no-img-element -- asset décoratif plein cadre
         <img
           src={imageSrc}
           alt=""
-          className="absolute inset-0 size-full object-cover"
+          className="absolute inset-0 size-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           aria-hidden
         />
       ) : (
@@ -312,23 +315,19 @@ function TexturedGradientCard({
         aria-hidden
       />
 
-      <Button
-        asChild
-        size="icon"
-        variant="ghost"
-        className="group/cta absolute top-4 right-4 z-10 size-10 shrink-0 rounded-full border-0 bg-white/10 text-white shadow-none hover:bg-white/20 hover:text-white md:top-5 md:right-5"
+      <span
+        className="absolute top-4 right-4 z-10 inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-white transition-colors duration-200 group-hover:bg-white/20 md:top-5 md:right-5"
+        aria-hidden
       >
-        <Link href={href} aria-label={title}>
-          <ArrowUpRight className="size-4 transition-transform duration-200 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5" />
-        </Link>
-      </Button>
+        <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </span>
 
       <div className="absolute inset-x-0 bottom-0 z-10 p-4 md:p-5">
         <p className="w-full text-sm leading-snug text-white text-balance md:text-base">
           {title}
         </p>
       </div>
-    </div>
+    </Link>
   );
 }
 
