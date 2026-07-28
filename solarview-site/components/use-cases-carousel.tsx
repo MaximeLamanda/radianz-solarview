@@ -362,8 +362,8 @@ function TexturedGradientCard({
         <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </span>
 
-      <div className="absolute inset-x-0 bottom-0 z-10 p-4 md:p-5">
-        <p className="w-full text-sm leading-snug text-white text-balance md:text-base">
+      <div className="absolute inset-x-0 bottom-0 z-10 w-full p-4 md:p-5">
+        <p className="w-full max-w-none text-base leading-tight text-white md:text-lg">
           {title}
         </p>
       </div>
