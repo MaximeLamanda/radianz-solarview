@@ -133,22 +133,22 @@ export default async function Home({
             },
             {
               title: tAgency("useCases.item3"),
-              shape: "diamond",
+              shape: "gallery",
               variant: "warm-sand",
             },
             {
               title: tAgency("useCases.item4"),
-              shape: "rounded-square",
+              shape: "gallery",
               variant: "teal-fog",
             },
             {
               title: tAgency("useCases.item5"),
-              shape: "triangle",
+              shape: "gallery",
               variant: "lime-mist",
             },
             {
               title: tAgency("useCases.item6"),
-              shape: "ring",
+              shape: "gallery",
               variant: "periwinkle",
             },
           ]}

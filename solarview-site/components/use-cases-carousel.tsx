@@ -1,6 +1,6 @@
 "use client";
 
-import { useId } from "react";
+import { useEffect, useId, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import {
@@ -11,11 +11,16 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Link } from "@/i18n/navigation";
+import {
+  GALLERY_SHAPE_PATHS,
+  pickRandomGalleryShapes,
+} from "@/lib/gallery-shapes";
 import { cn } from "@/lib/utils";
 
 export type UseCaseShape =
   | "ribbon"
   | "halves"
+  | "gallery"
   | "circle"
   | "hexagon"
   | "diamond"
@@ -173,9 +178,29 @@ function GrainOverlay({ opacity }: { opacity: number }) {
   );
 }
 
-function GeometricShape({ shape }: { shape: UseCaseShape }) {
+function GeometricShape({
+  shape,
+  pathD,
+}: {
+  shape: UseCaseShape;
+  pathD?: string;
+}) {
   const base = "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2";
   const svgClass = cn(base, "size-28 text-white/45 md:size-32");
+
+  if (shape === "gallery" && pathD) {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 256 256"
+        fill="none"
+        className={svgClass}
+        aria-hidden
+      >
+        <path d={pathD} fill="currentColor" />
+      </svg>
+    );
+  }
 
   switch (shape) {
     case "ribbon":
@@ -206,6 +231,19 @@ function GeometricShape({ shape }: { shape: UseCaseShape }) {
             d="M 0 0 C 70.692 0 128 57.308 128 128 C 128 198.692 70.692 256 0 256 Z M 256 256 C 185.308 256 128 198.692 128 128 C 128 57.308 185.308 0 256 0 Z"
             fill="currentColor"
           />
+        </svg>
+      );
+    case "gallery":
+      // Fallback avant hydratation random
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 256 256"
+          fill="none"
+          className={svgClass}
+          aria-hidden
+        >
+          <path d={GALLERY_SHAPE_PATHS[0].d} fill="currentColor" />
         </svg>
       );
     case "circle":
@@ -262,12 +300,14 @@ function TexturedGradientCard({
   title,
   variant,
   shape,
+  pathD,
   imageSrc,
   href = "/contact",
 }: {
   title: string;
   variant: TexturedGradientVariant;
   shape: UseCaseShape;
+  pathD?: string;
   imageSrc?: string;
   href?: string;
 }) {
@@ -308,7 +348,7 @@ function TexturedGradientCard({
           <GrainOverlay opacity={config.grainOpacity} />
         </>
       )}
-      <GeometricShape shape={shape} />
+      <GeometricShape shape={shape} pathD={pathD} />
 
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/55 via-black/20 to-transparent"
@@ -339,6 +379,22 @@ export function UseCasesCarousel({
   nextLabel,
   className,
 }: UseCasesCarouselProps) {
+  const galleryIndexes = items
+    .map((item, index) => (item.shape === "gallery" ? index : -1))
+    .filter((index) => index >= 0);
+
+  const [galleryPaths, setGalleryPaths] = useState<string[]>(() =>
+    galleryIndexes.map((_, i) => GALLERY_SHAPE_PATHS[i % GALLERY_SHAPE_PATHS.length].d),
+  );
+
+  useEffect(() => {
+    if (galleryIndexes.length === 0) return;
+    const picked = pickRandomGalleryShapes(galleryIndexes.length);
+    setGalleryPaths(picked.map((shape) => shape.d));
+  }, [galleryIndexes.length]);
+
+  let galleryCursor = 0;
+
   return (
     <section
       id="use-cases"
@@ -373,21 +429,29 @@ export function UseCasesCarousel({
         {/* Aligne à gauche avec le container, déborde jusqu’au bord droit de l’écran */}
         <div className="pl-4 sm:pl-6 lg:pl-[max(2rem,calc((100vw-72rem)/2+2rem))]">
           <CarouselContent className="-ml-4">
-            {items.map((item, index) => (
-              <CarouselItem
-                key={`${item.variant}-${index}`}
-                className="basis-[70%] pl-4 sm:basis-[42%] md:basis-[34%] lg:basis-[26%]"
-              >
-                <article className="h-full">
-                  <TexturedGradientCard
-                    title={item.title}
-                    variant={item.variant}
-                    shape={item.shape}
-                    imageSrc={item.imageSrc}
-                  />
-                </article>
-              </CarouselItem>
-            ))}
+            {items.map((item, index) => {
+              const pathD =
+                item.shape === "gallery"
+                  ? galleryPaths[galleryCursor++]
+                  : undefined;
+
+              return (
+                <CarouselItem
+                  key={`${item.variant}-${index}`}
+                  className="basis-[70%] pl-4 sm:basis-[42%] md:basis-[34%] lg:basis-[26%]"
+                >
+                  <article className="h-full">
+                    <TexturedGradientCard
+                      title={item.title}
+                      variant={item.variant}
+                      shape={item.shape}
+                      pathD={pathD}
+                      imageSrc={item.imageSrc}
+                    />
+                  </article>
+                </CarouselItem>
+              );
+            })}
           </CarouselContent>
         </div>
       </Carousel>
