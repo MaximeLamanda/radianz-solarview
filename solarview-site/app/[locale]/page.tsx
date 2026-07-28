@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { Navbar1 } from "@/components/navbar1";
 import { AgencyHero } from "@/components/agency-hero";
 import { Logos18 } from "@/components/logos18";
+import { ProcessSection } from "@/components/process-section";
 import { UseCasesCarousel } from "@/components/use-cases-carousel";
 
 import { BRAND } from "@/lib/constants";
@@ -113,45 +114,76 @@ export default async function Home({
           buttonSecondary={{ text: tAgency("hero.ctaSecondary"), href: "/contact" }}
           logos={<Logos18 />}
         />
+        <ProcessSection
+          heading={tAgency("process.heading")}
+          steps={[
+            {
+              step: tAgency("process.step1"),
+              title: tAgency("process.step1Title"),
+              description: tAgency("process.step1Desc"),
+            },
+            {
+              step: tAgency("process.step2"),
+              title: tAgency("process.step2Title"),
+              description: tAgency("process.step2Desc"),
+            },
+            {
+              step: tAgency("process.step3"),
+              title: tAgency("process.step3Title"),
+              description: tAgency("process.step3Desc"),
+            },
+          ]}
+        />
         <UseCasesCarousel
           heading={tAgency("useCases.heading")}
           description={tAgency("useCases.description")}
           previousLabel={tAgency("useCases.previous")}
           nextLabel={tAgency("useCases.next")}
+          addCard={{
+            title: tAgency("useCases.addTitle"),
+            cta: tAgency("useCases.addCta"),
+            href: "/contact",
+          }}
           items={[
             {
               title: tAgency("useCases.item1"),
-              shape: "ribbon",
+              shape: "gallery",
+              galleryShapeId: 8,
               variant: "warm-sand",
               imageSrc: "/use-cases/mesh-peach.png",
             },
             {
               title: tAgency("useCases.item2"),
-              shape: "halves",
+              shape: "gallery",
+              galleryShapeId: 22,
               variant: "periwinkle",
               imageSrc: "/use-cases/mesh-cyan.png",
             },
             {
               title: tAgency("useCases.item3"),
               shape: "gallery",
+              galleryShapeId: 1,
               variant: "warm-sand",
               imageSrc: "/use-cases/mesh-ember.png",
             },
             {
               title: tAgency("useCases.item4"),
               shape: "gallery",
+              galleryShapeId: 14,
               variant: "teal-fog",
               imageSrc: "/use-cases/mesh-teal.png",
             },
             {
               title: tAgency("useCases.item5"),
               shape: "gallery",
+              galleryShapeId: 35,
               variant: "lime-mist",
               imageSrc: "/use-cases/mesh-lime.png",
             },
             {
               title: tAgency("useCases.item6"),
               shape: "gallery",
+              galleryShapeId: 70,
               variant: "periwinkle",
               imageSrc: "/use-cases/mesh-indigo.png",
             },
