@@ -324,7 +324,7 @@ function TexturedGradientCard({
       </Button>
 
       <div className="absolute inset-x-0 bottom-0 z-10 p-4 md:p-5">
-        <p className="text-sm leading-snug text-white text-balance md:text-base md:pr-12">
+        <p className="w-full text-sm leading-snug text-white text-balance md:text-base">
           {title}
         </p>
       </div>
