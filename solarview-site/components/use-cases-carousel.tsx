@@ -32,6 +32,8 @@ export interface UseCaseItem {
   title: string;
   variant: TexturedGradientVariant;
   shape: UseCaseShape;
+  /** Fond image (mesh / texture) — remplace le rendu CSS de la variante */
+  imageSrc?: string;
 }
 
 interface UseCasesCarouselProps {
@@ -223,32 +225,45 @@ function GeometricShape({ shape }: { shape: UseCaseShape }) {
 function TexturedGradientCard({
   variant,
   shape,
+  imageSrc,
 }: {
   variant: TexturedGradientVariant;
   shape: UseCaseShape;
+  imageSrc?: string;
 }) {
   const config = VARIANTS[variant];
 
   return (
     <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
-      <div className="absolute inset-0" style={{ backgroundColor: config.base }} />
-      {config.blocks.map((block, i) => (
-        <div
-          key={i}
-          className={cn("absolute", block.className)}
-          style={{ backgroundColor: block.background }}
+      {imageSrc ? (
+        // eslint-disable-next-line @next/next/no-img-element -- asset décoratif plein cadre
+        <img
+          src={imageSrc}
+          alt=""
+          className="absolute inset-0 size-full object-cover"
           aria-hidden
         />
-      ))}
-      {/* Soft vertical wash to bind blocks like a print gradient */}
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          background: `linear-gradient(180deg, transparent 0%, ${config.base}55 48%, #ffffff88 100%)`,
-        }}
-        aria-hidden
-      />
-      <GrainOverlay opacity={config.grainOpacity} />
+      ) : (
+        <>
+          <div className="absolute inset-0" style={{ backgroundColor: config.base }} />
+          {config.blocks.map((block, i) => (
+            <div
+              key={i}
+              className={cn("absolute", block.className)}
+              style={{ backgroundColor: block.background }}
+              aria-hidden
+            />
+          ))}
+          <div
+            className="absolute inset-0 opacity-40"
+            style={{
+              background: `linear-gradient(180deg, transparent 0%, ${config.base}55 48%, #ffffff88 100%)`,
+            }}
+            aria-hidden
+          />
+          <GrainOverlay opacity={config.grainOpacity} />
+        </>
+      )}
       <GeometricShape shape={shape} />
     </div>
   );
@@ -292,7 +307,11 @@ export function UseCasesCarousel({
                 className="basis-full pl-4 md:basis-1/2 lg:basis-1/3"
               >
                 <article className="flex h-full flex-col gap-4">
-                  <TexturedGradientCard variant={item.variant} shape={item.shape} />
+                  <TexturedGradientCard
+                    variant={item.variant}
+                    shape={item.shape}
+                    imageSrc={item.imageSrc}
+                  />
                   <p className="text-sm leading-snug text-foreground md:text-base">
                     {item.title}
                   </p>

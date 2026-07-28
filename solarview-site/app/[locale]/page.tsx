@@ -122,7 +122,8 @@ export default async function Home({
             {
               title: tAgency("useCases.item1"),
               shape: "circle",
-              variant: "electric-blue",
+              variant: "warm-sand",
+              imageSrc: "/use-cases/mesh-peach.png",
             },
             {
               title: tAgency("useCases.item2"),
