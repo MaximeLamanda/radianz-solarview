@@ -53,7 +53,7 @@
   "agency": {
     "hero": {
       "badge": "AI & Web Agency",
-      "heading": "Get ahead. Disrupt your market before it disrupts you.",
+      "heading": "AI solutions tailored to your needs.",
       "description": "Your web & AI partner, from audit to production, at startup speed. We decide, we build, we industrialize.",
       "ctaPrimary": "Book a call with an expert",
       "ctaSecondary": "Explore our offers",
@@ -69,7 +69,7 @@
     },
     "useCases": {
       "heading": "What AI changes in your business",
-      "description": "Concrete automations fitted to your processes — not demos that ignore your stack.",
+      "description": "Concrete automations fitted to your processes.",
       "item1": "Search information across large document volumes",
       "item2": "Reconcile payments and invoices precisely to avoid discrepancies",
       "item3": "Identify prospects and reach out automatically",

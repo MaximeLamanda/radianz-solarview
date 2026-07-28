@@ -53,7 +53,7 @@
   "agency": {
     "hero": {
       "badge": "Agence IA & Web",
-      "heading": "Prenez de l'avance. Disruptez votre marché avant d'être disrupté.",
+      "heading": "Des solutions IA adaptées à vos besoins.",
       "description": "Votre partenaire web & IA, de l'audit à la production, à la vitesse d'une startup. On décide, on construit, on industrialise.",
       "ctaPrimary": "Rendez-vous avec un expert",
       "ctaSecondary": "Découvrir nos offres",
@@ -69,7 +69,7 @@
     },
     "useCases": {
       "heading": "Ce que l'IA change dans vos métiers",
-      "description": "Des automatisations concrètes, adaptées à vos process — pas des démos hors sol.",
+      "description": "Des automatisations concrètes, adaptées à vos process.",
       "item1": "Rechercher des informations dans un grand volume de documents",
       "item2": "Réconcilier paiements et factures avec précision pour éviter les écarts",
       "item3": "Identifier des prospects et les contacter automatiquement",
