@@ -342,31 +342,41 @@ export function UseCasesCarousel({
   return (
     <section
       id="use-cases"
-      className={cn("relative bg-white py-16 md:py-24", className)}
+      className={cn("relative overflow-x-clip bg-white py-16 md:py-24", className)}
       aria-labelledby="use-cases-heading"
     >
-      <div className="container">
-        <div className="mx-auto mb-10 max-w-2xl text-center md:mb-14">
-          <h2
-            id="use-cases-heading"
-            className="text-2xl font-normal tracking-[-0.03em] text-balance md:text-4xl"
-          >
-            {heading}
-          </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground text-balance md:text-lg">
-            {description}
-          </p>
+      <Carousel opts={{ align: "start", loop: false }} className="w-full">
+        <div className="container mb-10 flex items-start justify-between gap-6 md:mb-14">
+          <div className="max-w-2xl text-left md:max-w-3xl">
+            <h2
+              id="use-cases-heading"
+              className="text-3xl font-normal tracking-[-0.03em] text-balance md:text-5xl lg:text-6xl"
+            >
+              {heading}
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-muted-foreground text-balance md:text-lg lg:text-xl">
+              {description}
+            </p>
+          </div>
+          <div className="hidden shrink-0 items-center gap-2 pt-1 sm:flex">
+            <CarouselPrevious
+              className="static top-auto left-auto size-10 translate-x-0 translate-y-0"
+              aria-label={previousLabel}
+            />
+            <CarouselNext
+              className="static top-auto right-auto size-10 translate-x-0 translate-y-0"
+              aria-label={nextLabel}
+            />
+          </div>
         </div>
 
-        <Carousel
-          opts={{ align: "start", loop: false }}
-          className="mx-auto w-full max-w-6xl"
-        >
+        {/* Aligne à gauche avec le container, déborde jusqu’au bord droit de l’écran */}
+        <div className="pl-4 sm:pl-6 lg:pl-8 xl:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
           <CarouselContent className="-ml-4">
             {items.map((item, index) => (
               <CarouselItem
                 key={`${item.variant}-${index}`}
-                className="basis-full pl-4 md:basis-1/2 lg:basis-1/3"
+                className="basis-[85%] pl-4 sm:basis-[55%] md:basis-[45%] lg:basis-[32%]"
               >
                 <article className="h-full">
                   <TexturedGradientCard
@@ -379,10 +389,8 @@ export function UseCasesCarousel({
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:inline-flex" aria-label={previousLabel} />
-          <CarouselNext className="hidden sm:inline-flex" aria-label={nextLabel} />
-        </Carousel>
-      </div>
+        </div>
+      </Carousel>
     </section>
   );
 }
