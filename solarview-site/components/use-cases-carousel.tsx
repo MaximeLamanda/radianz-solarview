@@ -371,7 +371,7 @@ export function UseCasesCarousel({
         </div>
 
         {/* Aligne à gauche avec le container, déborde jusqu’au bord droit de l’écran */}
-        <div className="pl-4 sm:pl-6 lg:pl-8 xl:pl-[max(2rem,calc((100vw-80rem)/2+2rem))]">
+        <div className="pl-4 sm:pl-6 lg:pl-[max(2rem,calc((100vw-72rem)/2+2rem))]">
           <CarouselContent className="-ml-4">
             {items.map((item, index) => (
               <CarouselItem
