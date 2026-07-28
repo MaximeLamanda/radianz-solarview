@@ -16,7 +16,6 @@ export function MagicTextSection({ text, className }: MagicTextSectionProps) {
   return (
     <section
       id="statement"
-      aria-label={text}
       className={cn("relative bg-canvas", className)}
     >
       <div ref={containerRef} className="h-[160vh] md:h-[180vh]">
