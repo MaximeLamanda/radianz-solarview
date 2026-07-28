@@ -277,7 +277,7 @@ function TexturedGradientCard({
     <Link
       href={href}
       aria-label={title}
-      className="group relative block aspect-[4/5] w-full overflow-hidden rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2"
+      className="group relative block aspect-[3/4] w-full overflow-hidden rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2"
     >
       {imageSrc ? (
         // eslint-disable-next-line @next/next/no-img-element -- asset décoratif plein cadre
@@ -350,7 +350,7 @@ export function UseCasesCarousel({
           <div className="max-w-2xl text-left md:max-w-3xl">
             <h2
               id="use-cases-heading"
-              className="text-3xl font-normal tracking-[-0.03em] text-balance md:text-5xl lg:text-6xl"
+              className="text-2xl font-normal tracking-[-0.03em] text-balance md:text-3xl lg:text-4xl"
             >
               {heading}
             </h2>
@@ -376,7 +376,7 @@ export function UseCasesCarousel({
             {items.map((item, index) => (
               <CarouselItem
                 key={`${item.variant}-${index}`}
-                className="basis-[85%] pl-4 sm:basis-[55%] md:basis-[45%] lg:basis-[32%]"
+                className="basis-[70%] pl-4 sm:basis-[42%] md:basis-[34%] lg:basis-[26%]"
               >
                 <article className="h-full">
                   <TexturedGradientCard
