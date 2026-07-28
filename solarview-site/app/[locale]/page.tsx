@@ -121,13 +121,13 @@ export default async function Home({
           items={[
             {
               title: tAgency("useCases.item1"),
-              shape: "circle",
+              shape: "ribbon",
               variant: "warm-sand",
               imageSrc: "/use-cases/mesh-peach.png",
             },
             {
               title: tAgency("useCases.item2"),
-              shape: "hexagon",
+              shape: "halves",
               variant: "periwinkle",
               imageSrc: "/use-cases/mesh-cyan.png",
             },
