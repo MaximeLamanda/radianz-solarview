@@ -122,32 +122,32 @@ export default async function Home({
             {
               title: tAgency("useCases.item1"),
               shape: "circle",
-              gradient: "from-lime/80 via-[#d4e8c2] to-[#a8c5b0]",
+              variant: "electric-blue",
             },
             {
               title: tAgency("useCases.item2"),
               shape: "hexagon",
-              gradient: "from-[#c5d4e8] via-[#e8eef5] to-[#9bb0c9]",
+              variant: "slate-ink",
             },
             {
               title: tAgency("useCases.item3"),
               shape: "diamond",
-              gradient: "from-[#e8d5c5] via-[#f5ebe3] to-[#c9a892]",
+              variant: "warm-sand",
             },
             {
               title: tAgency("useCases.item4"),
               shape: "rounded-square",
-              gradient: "from-[#d5e8e0] via-[#eef5f2] to-[#8fb5a5]",
+              variant: "teal-fog",
             },
             {
               title: tAgency("useCases.item5"),
               shape: "triangle",
-              gradient: "from-[#e8e0d5] via-[#f5f0e8] to-[#b5a48f]",
+              variant: "lime-mist",
             },
             {
               title: tAgency("useCases.item6"),
               shape: "ring",
-              gradient: "from-[#d5dde8] via-[#eef1f5] to-[#8f9bb5]",
+              variant: "periwinkle",
             },
           ]}
         />
