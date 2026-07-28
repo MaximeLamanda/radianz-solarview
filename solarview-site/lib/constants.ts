@@ -19,6 +19,6 @@ export const NAV_LINKS = [
 ] as const;
 
 export const FOOTER = {
-  tagline: "De l'audit à la livraison, en sprints courts et orientés résultats.",
+  tagline: "De l'audit à la production. On livre le résultat, pas du temps.",
   copyright: "© RADIANZ. Tous droits réservés.",
 } as const;
