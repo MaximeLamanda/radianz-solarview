@@ -128,7 +128,8 @@ export default async function Home({
             {
               title: tAgency("useCases.item2"),
               shape: "hexagon",
-              variant: "slate-ink",
+              variant: "periwinkle",
+              imageSrc: "/use-cases/mesh-cyan.png",
             },
             {
               title: tAgency("useCases.item3"),
