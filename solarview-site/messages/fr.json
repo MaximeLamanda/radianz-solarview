@@ -51,8 +51,6 @@
     "useCases": {
       "heading": "Ce que l'IA change dans vos métiers",
       "description": "Des automatisations concrètes, adaptées à vos process.",
-      "addTitle": "Votre automatisation",
-      "addCta": "Proposer mon cas",
       "item1": "Rechercher des informations dans un grand volume de documents",
       "item2": "Réconcilier paiements et factures avec précision pour éviter les écarts",
       "item3": "Identifier des prospects et les contacter automatiquement",
@@ -63,27 +61,31 @@
       "next": "Suivant"
     },
     "statement": {
-      "text": "Vos données sont déjà là. On en tire des insights actionnables, puis on passe à l'action avec l'IA et des agents."
+      "text": "L'IA évolue sans cesse. Catalyseurs du changement, on accélère l'innovation et l'adoption. On guide nos clients pour prendre l'avance sur leur marché. Très rapidement."
     },
     "caseStudies": {
       "heading": "Résultats livrés",
       "description": "Trois projets récents. Données représentatives.",
       "item1": {
-        "client": "Progenes",
-        "category": "Création de site web"
+        "client": "Nova Industrie",
+        "sector": "Industrie",
+        "challenge": "Réponses aux appels d'offres trop lentes et manuelles.",
+        "result": "Pipeline AO automatisé : extraction, rédaction assistée, validation humaine.",
+        "metric": "−65 % temps"
       },
       "item2": {
-        "client": "Wewise",
-        "category": "Agent IA · Analyse d'articles",
-        "panelLabel": "Agent · Articles solaires",
-        "urlStatusDone": "Analysé",
-        "urlStatusPending": "En cours"
+        "client": "Cabinet Meridian",
+        "sector": "Finance",
+        "challenge": "Réconciliation paiements / factures sujette aux écarts.",
+        "result": "Matching IA branché au SI comptable, exceptions traitées par l'équipe.",
+        "metric": "99,2 % précision"
       },
       "item3": {
-        "client": "Wewise",
-        "category": "Computer Vision · Détection",
-        "detectionLabel": "Panneau détecté",
-        "confidenceLabel": "96 %"
+        "client": "Orbit SaaS",
+        "sector": "B2B SaaS",
+        "challenge": "Qualification leads coûteuse et inconsistante.",
+        "result": "Agent d'outreach + scoring branché au CRM.",
+        "metric": "×3 pipeline qualifié"
       }
     },
     "pain": {
@@ -183,17 +185,17 @@
       "offer2Cta": "Appel de découverte"
     },
     "process": {
-      "heading": "Construit par des builders pour des organisations complexes",
-      "cta": "Lancer un projet",
-      "step1": "01",
-      "step1Title": "Décider",
-      "step1Desc": "Nous vous aidons à y voir clair à l'ère de l'IA. On scanne vos opportunités et vos données, on chiffre le ROI, et on recommande quoi lancer — et surtout quoi ignorer.",
-      "step2": "02",
-      "step2Title": "Construire",
-      "step2Desc": "Des projets livrés vite, mis rapidement entre vos mains pour valider qu'on répond au besoin. Avec les technologies premium les plus récentes — jamais plus de complexité que nécessaire.",
-      "step3": "03",
-      "step3Title": "Industrialiser",
-      "step3Desc": "On met en production, on branche à votre SI, et on rend vos équipes autonomes. On part quand vous n'avez plus besoin de nous."
+      "heading": "Décider. Construire. Industrialiser.",
+      "description": "Vous gardez la vision. On tranche, on code, on branche. Chaque semaine, quelque chose de tangible.",
+      "step1": "Step 1",
+      "step1Title": "On cadre l'opportunité",
+      "step1Desc": "Appel découverte : on scanne process et données, et on dit clairement quoi lancer — et quoi ignorer.",
+      "step2": "Step 2",
+      "step2Title": "On construit le chemin le plus simple",
+      "step2Desc": "Du sur-mesure au bon outil : zéro complexité inutile. Vous suivez l'avancement en continu.",
+      "step3": "Step 3",
+      "step3Title": "On met en production et on vous laisse autonomes",
+      "step3Desc": "Intégration SI, formation, documentation. On part quand vous n'avez plus besoin de nous."
     },
     "faq": {
       "heading": "Les questions qu'on nous pose vraiment",

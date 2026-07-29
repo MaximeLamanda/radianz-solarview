@@ -8,9 +8,6 @@ import { getCalLink } from "@/lib/cal";
 
 interface LetsTalkSectionProps {
   className?: string;
-  success?: boolean;
-  error?: "config" | "send";
-  locale?: string;
   asPageTitle?: boolean;
 }
 
