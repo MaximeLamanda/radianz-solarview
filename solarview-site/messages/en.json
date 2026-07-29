@@ -82,6 +82,31 @@
     "statement": {
       "text": "AI never stands still. As catalysts for change, we accelerate innovation and adoption. We guide our clients to get ahead of their market. Very fast."
     },
+    "caseStudies": {
+      "heading": "Outcomes delivered",
+      "description": "Three recent projects. Representative data.",
+      "item1": {
+        "client": "Nova Industry",
+        "sector": "Manufacturing",
+        "challenge": "Slow, manual RFP responses.",
+        "result": "Automated RFP pipeline: extraction, assisted drafting, human validation.",
+        "metric": "−65% time"
+      },
+      "item2": {
+        "client": "Meridian Partners",
+        "sector": "Finance",
+        "challenge": "Payment–invoice reconciliation gaps.",
+        "result": "AI matching wired to the accounting stack, exceptions handled by the team.",
+        "metric": "99.2% accuracy"
+      },
+      "item3": {
+        "client": "Orbit SaaS",
+        "sector": "B2B SaaS",
+        "challenge": "Costly, inconsistent lead qualification.",
+        "result": "Outreach agent + scoring wired to CRM.",
+        "metric": "3× qualified pipeline"
+      }
+    },
     "pain": {
       "heading": "You're optimizing processes. Others are rewriting the rules.",
       "subheading": "Too many tools, too little useful AI. We scan opportunities, build what matters, and ignore the rest.",

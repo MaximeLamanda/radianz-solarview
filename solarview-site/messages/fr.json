@@ -82,6 +82,31 @@
     "statement": {
       "text": "L'IA évolue sans cesse. Catalyseurs du changement, on accélère l'innovation et l'adoption. On guide nos clients pour prendre l'avance sur leur marché. Très rapidement."
     },
+    "caseStudies": {
+      "heading": "Résultats livrés",
+      "description": "Trois projets récents. Données représentatives.",
+      "item1": {
+        "client": "Nova Industrie",
+        "sector": "Industrie",
+        "challenge": "Réponses aux appels d'offres trop lentes et manuelles.",
+        "result": "Pipeline AO automatisé : extraction, rédaction assistée, validation humaine.",
+        "metric": "−65 % temps"
+      },
+      "item2": {
+        "client": "Cabinet Meridian",
+        "sector": "Finance",
+        "challenge": "Réconciliation paiements / factures sujette aux écarts.",
+        "result": "Matching IA branché au SI comptable, exceptions traitées par l'équipe.",
+        "metric": "99,2 % précision"
+      },
+      "item3": {
+        "client": "Orbit SaaS",
+        "sector": "B2B SaaS",
+        "challenge": "Qualification leads coûteuse et inconsistante.",
+        "result": "Agent d'outreach + scoring branché au CRM.",
+        "metric": "×3 pipeline qualifié"
+      }
+    },
     "pain": {
       "heading": "Vous optimisez des process. D'autres réécrivent les règles du jeu.",
       "subheading": "Trop d'outils, trop peu d'IA utile. On scanne vos opportunités, on construit ce qui compte, on ignore le reste.",
