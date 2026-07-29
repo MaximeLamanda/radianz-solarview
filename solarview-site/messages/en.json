@@ -4,12 +4,42 @@
   },
   "nav": {
     "services": "Services",
-    "expertises": "Expertise",
+    "expertises": "Sectors",
     "offers": "Offers",
     "contact": "Contact",
     "logIn": "Log in",
     "requestDemo": "Start a project",
-    "bookCall": "Book a call"
+    "bookCall": "Book a call",
+    "featuredCases": {
+      "title": "Client cases",
+      "description": "Concrete results delivered for our clients — platforms, agents, and vision."
+    },
+    "sectors": {
+      "industrie": {
+        "title": "Manufacturing",
+        "description": "Automate tender responses and technical documentation."
+      },
+      "finance": {
+        "title": "Finance",
+        "description": "Reconcile payments and invoices, cut manual mismatches."
+      },
+      "saas": {
+        "title": "B2B SaaS",
+        "description": "Score leads and run outreach straight from the CRM."
+      },
+      "energie": {
+        "title": "Energy",
+        "description": "Detect and map assets with computer vision."
+      },
+      "immobilier": {
+        "title": "Real estate",
+        "description": "Extract and check leases, contracts, and tenant files."
+      },
+      "retail": {
+        "title": "Retail",
+        "description": "Automate customer support and returns handling."
+      }
+    }
   },
   "contact": {
     "badge": "Contact",
@@ -20,10 +50,8 @@
     "metaTitle": "Contact — RADIANZ | AI & Web Agency",
     "metaDescription": "Book a discovery call with Radianz for an AI audit, custom platform, or guidance.",
     "roiPanel": {
-      "figure": "3.7×",
-      "label": "Average GenAI ROI",
-      "supporting": "For every $1 invested in generative AI.",
-      "source": "Source: IDC, Business Opportunity of AI, 2024"
+      "figure": "+270%",
+      "label": "Average ROI observed with our clients"
     }
   },
   "site": {
@@ -63,6 +91,8 @@
       "item4": "Automate responses to tenders and RFPs",
       "item5": "Review contracts and legal documents",
       "item6": "Automate customer support with a chatbot",
+      "addTitle": "Got another use case?",
+      "addCta": "Let's talk",
       "previous": "Previous",
       "next": "Next"
     },
@@ -73,25 +103,33 @@
       "heading": "Outcomes delivered",
       "description": "Three recent projects. Representative data.",
       "item1": {
-        "client": "Nova Industry",
-        "sector": "Manufacturing",
-        "challenge": "Slow, manual RFP responses.",
-        "result": "Automated RFP pipeline: extraction, assisted drafting, human validation.",
-        "metric": "−65% time"
+        "client": "Progenes",
+        "category": "Web platform",
+        "sector": "Agri-tech",
+        "challenge": "Needed a catalog site with orders and visible stock.",
+        "result": "Web platform: bull catalog, cart, POs and live stock.",
+        "metric": "Live stock"
       },
       "item2": {
-        "client": "Meridian Partners",
-        "sector": "Finance",
-        "challenge": "Payment–invoice reconciliation gaps.",
-        "result": "AI matching wired to the accounting stack, exceptions handled by the team.",
-        "metric": "99.2% accuracy"
+        "client": "Articles agent",
+        "category": "AI agent",
+        "panelLabel": "Agent · Articles",
+        "urlStatusDone": "Analyzed",
+        "urlStatusPending": "In progress",
+        "sector": "Solar energy",
+        "challenge": "Article monitoring too slow to capture leads in time.",
+        "result": "Analysis agent → structured lead database + contacts.",
+        "metric": "First to know"
       },
       "item3": {
-        "client": "Orbit SaaS",
-        "sector": "B2B SaaS",
-        "challenge": "Costly, inconsistent lead qualification.",
-        "result": "Outreach agent + scoring wired to CRM.",
-        "metric": "3× qualified pipeline"
+        "client": "Solar detection",
+        "category": "Computer vision",
+        "detectionLabel": "Panel detected",
+        "confidenceLabel": "96%",
+        "sector": "Solar energy",
+        "challenge": "Find buildings/panels and reach the owner.",
+        "result": "CV over a date range + contact enrichment.",
+        "metric": "Full lead"
       }
     },
     "pain": {
@@ -193,6 +231,7 @@
     "process": {
       "heading": "Decide. Build. Industrialize.",
       "description": "You keep the vision. We decide, code, and plug in. Every week, something tangible.",
+      "cta": "Book a discovery call",
       "step1": "Step 1",
       "step1Title": "We frame the opportunity",
       "step1Desc": "Discovery call: we scan processes and data, and say clearly what to launch — and what to ignore.",
@@ -222,14 +261,11 @@
       "cta": "Start your project"
     },
     "logos": {
-      "logo1": "Groupama",
-      "logo2": "Too Good To Go",
-      "logo3": "Comet",
-      "logo4": "BFM Business",
-      "logo5": "SearchBooster",
-      "logo6": "Energia",
-      "logo7": "Velocia",
-      "logo8": "Arsen"
+      "logo1": "Mistral",
+      "logo2": "Claude",
+      "logo3": "OpenAI",
+      "logo4": "Vercel",
+      "logo5": "React"
     },
     "projectTypes": {
       "audit": "AI Audit",
@@ -249,6 +285,16 @@
     "tocTitle": "On this page",
     "metaTitle": "Blog — RADIANZ | AI, automation & web",
     "metaDescription": "Radianz articles on AI, process automation, AI agents, and web development best practices."
+  },
+  "caseStudyPage": {
+    "home": "Home",
+    "caseStudies": "Case studies",
+    "overview": "Overview",
+    "sector": "Sector",
+    "solution": "Solution",
+    "learnMore": "Want to learn more?",
+    "contactCta": "Contact us",
+    "visitSite": "Visit website"
   },
   "footer": {
     "services": "Services",

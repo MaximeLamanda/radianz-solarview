@@ -1,14 +1,28 @@
 type FooterTranslator = {
-  (key: "product" | "resources" | "features" | "requestDemo" | "articles" | "contact" | "privacyPolicy"): string;
+  (
+    key:
+      | "services"
+      | "expertises"
+      | "resources"
+      | "audit"
+      | "platform"
+      | "accompaniment"
+      | "bookCall"
+      | "articles"
+      | "contact"
+      | "privacyPolicy",
+  ): string;
 };
 
 export function buildFooterMenuItems(tFooter: FooterTranslator) {
   return [
     {
-      title: tFooter("product"),
+      title: tFooter("services"),
       links: [
-        { text: tFooter("features"), url: "/#avantages" },
-        { text: tFooter("requestDemo"), url: "/contact" },
+        { text: tFooter("audit"), url: "/#services" },
+        { text: tFooter("platform"), url: "/#services" },
+        { text: tFooter("accompaniment"), url: "/#services" },
+        { text: tFooter("bookCall"), url: "/contact" },
       ],
     },
     {

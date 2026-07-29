@@ -32,13 +32,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export default async function ContactPage() {
-  const t = await getTranslations();
+  const tCommon = await getTranslations("common");
   const tSite = await getTranslations("site");
   const tNav = await getTranslations("nav");
-  const tFeature = await getTranslations("feature");
-  const tPipeline = await getTranslations("pipeline");
   const tArticles = await getTranslations("articles");
-  const tContact = await getTranslations("contact");
   const tFooter = await getTranslations("footer");
 
   return (
@@ -51,10 +48,9 @@ export default async function ContactPage() {
           title: tSite("name"),
         }}
         menu={[
-          { title: tFeature("about"), url: "/#avantages" },
-          { title: tPipeline("badge"), url: "/#features" },
+          { title: tNav("services"), url: "/#services" },
+          { title: tNav("expertises"), url: "/#resultats" },
           { title: tArticles("nav"), url: "/articles" },
-          { title: tContact("badge"), url: "/contact" },
         ]}
         auth={{
           login: { title: tNav("logIn"), url: "#contact-form" },
@@ -66,7 +62,7 @@ export default async function ContactPage() {
         <div className="container pb-16">
           <p className="text-center text-sm text-muted-foreground">
             <Link href="/" className="underline hover:text-foreground">
-              ← {t("common.backToHome")}
+              ← {tCommon("backToHome")}
             </Link>
           </p>
         </div>

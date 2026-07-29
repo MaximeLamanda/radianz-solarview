@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   icons: siteIcons(),
   title: {
-    default: "RADIANZ — C&I solar prospecting platform",
+    default: "RADIANZ — Agence IA & Web",
     template: "%s",
   },
   description:
-    "Qualify commercial and industrial rooftops, score solar leads, and share data-backed proposals.",
+    "Solutions web & IA sur mesure : audit IA, agents, workflows, plateformes. Livraison en sprints.",
   openGraph: {
     type: "website",
     siteName: "RADIANZ",

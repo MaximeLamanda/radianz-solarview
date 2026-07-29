@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useId } from "react";
 import { ArrowUpRight } from "lucide-react";
 
 import {
@@ -11,10 +11,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Link } from "@/i18n/navigation";
-import {
-  GALLERY_SHAPE_PATHS,
-  pickRandomGalleryShapes,
-} from "@/lib/gallery-shapes";
+import { GALLERY_SHAPE_PATHS } from "@/lib/gallery-shapes";
 import { cn } from "@/lib/utils";
 
 export type UseCaseShape =
@@ -43,6 +40,8 @@ export interface UseCaseItem {
   shape: UseCaseShape;
   /** Fond image (mesh / texture) — remplace le rendu CSS de la variante */
   imageSrc?: string;
+  /** Shape gallery fixe (id shapes.gallery) — pas de random */
+  galleryShapeId?: number;
 }
 
 interface UseCasesCarouselProps {
@@ -51,6 +50,11 @@ interface UseCasesCarouselProps {
   items: UseCaseItem[];
   previousLabel: string;
   nextLabel: string;
+  addCard: {
+    title: string;
+    cta: string;
+    href?: string;
+  };
   className?: string;
 }
 
@@ -234,7 +238,6 @@ function GeometricShape({
         </svg>
       );
     case "gallery":
-      // Fallback avant hydratation random
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -371,30 +374,81 @@ function TexturedGradientCard({
   );
 }
 
+/** Plus fixe pour la carte « Votre automatisation » (viewBox 256 comme les autres shapes) */
+const ADD_CARD_PLUS_PATH =
+  "M 96 0 L 160 0 L 160 96 L 256 96 L 256 160 L 160 160 L 160 256 L 96 256 L 96 160 L 0 160 L 0 96 L 96 96 Z";
+
+function resolveGalleryPath(item: UseCaseItem): string | undefined {
+  if (item.shape !== "gallery") return undefined;
+  if (item.galleryShapeId != null) {
+    return (
+      GALLERY_SHAPE_PATHS.find((s) => s.id === item.galleryShapeId)?.d ??
+      GALLERY_SHAPE_PATHS[0].d
+    );
+  }
+  return GALLERY_SHAPE_PATHS[0].d;
+}
+
+function AddAutomationCard({
+  title,
+  cta,
+  href = "/contact",
+}: {
+  title: string;
+  cta: string;
+  href?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      aria-label={cta}
+      className={cn(
+        "group relative block aspect-[3/4] w-full overflow-hidden rounded-2xl",
+        "border border-dashed border-foreground/20 bg-muted",
+        "outline-none transition-[border-color,background-color] duration-200",
+        "hover:border-foreground/40 hover:bg-muted/80",
+        "focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2",
+      )}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 256 256"
+        fill="none"
+        className="absolute left-1/2 top-1/2 size-28 -translate-x-1/2 -translate-y-1/2 text-foreground/20 transition-colors duration-200 group-hover:text-foreground/30 md:size-32"
+        aria-hidden
+      >
+        <path d={ADD_CARD_PLUS_PATH} fill="currentColor" />
+      </svg>
+
+      <span
+        className={cn(
+          "absolute top-4 right-4 z-10 inline-flex size-10 shrink-0 items-center justify-center rounded-full",
+          "text-foreground/40 transition-colors duration-200 group-hover:text-foreground",
+          "md:top-5 md:right-5",
+        )}
+        aria-hidden
+      >
+        <ArrowUpRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </span>
+
+      <div className="absolute inset-x-0 bottom-0 z-10 w-full p-4 md:p-5">
+        <p className="w-full max-w-none text-base leading-tight text-foreground md:text-lg">
+          {title}
+        </p>
+      </div>
+    </Link>
+  );
+}
+
 export function UseCasesCarousel({
   heading,
   description,
   items,
   previousLabel,
   nextLabel,
+  addCard,
   className,
 }: UseCasesCarouselProps) {
-  const galleryIndexes = items
-    .map((item, index) => (item.shape === "gallery" ? index : -1))
-    .filter((index) => index >= 0);
-
-  const [galleryPaths, setGalleryPaths] = useState<string[]>(() =>
-    galleryIndexes.map((_, i) => GALLERY_SHAPE_PATHS[i % GALLERY_SHAPE_PATHS.length].d),
-  );
-
-  useEffect(() => {
-    if (galleryIndexes.length === 0) return;
-    const picked = pickRandomGalleryShapes(galleryIndexes.length);
-    setGalleryPaths(picked.map((shape) => shape.d));
-  }, [galleryIndexes.length]);
-
-  let galleryCursor = 0;
-
   return (
     <section
       id="use-cases"
@@ -429,29 +483,31 @@ export function UseCasesCarousel({
         {/* Aligne à gauche avec le container, déborde jusqu’au bord droit de l’écran */}
         <div className="pl-4 sm:pl-6 lg:pl-[max(2rem,calc((100vw-72rem)/2+2rem))]">
           <CarouselContent className="-ml-4">
-            {items.map((item, index) => {
-              const pathD =
-                item.shape === "gallery"
-                  ? galleryPaths[galleryCursor++]
-                  : undefined;
-
-              return (
-                <CarouselItem
-                  key={`${item.variant}-${index}`}
-                  className="basis-[70%] pl-4 sm:basis-[42%] md:basis-[34%] lg:basis-[26%]"
-                >
-                  <article className="h-full">
-                    <TexturedGradientCard
-                      title={item.title}
-                      variant={item.variant}
-                      shape={item.shape}
-                      pathD={pathD}
-                      imageSrc={item.imageSrc}
-                    />
-                  </article>
-                </CarouselItem>
-              );
-            })}
+            {items.map((item, index) => (
+              <CarouselItem
+                key={`${item.variant}-${index}`}
+                className="basis-[70%] pl-4 sm:basis-[42%] md:basis-[34%] lg:basis-[26%]"
+              >
+                <article className="h-full">
+                  <TexturedGradientCard
+                    title={item.title}
+                    variant={item.variant}
+                    shape={item.shape}
+                    pathD={resolveGalleryPath(item)}
+                    imageSrc={item.imageSrc}
+                  />
+                </article>
+              </CarouselItem>
+            ))}
+            <CarouselItem className="basis-[70%] pl-4 sm:basis-[42%] md:basis-[34%] lg:basis-[26%]">
+              <article className="h-full">
+                <AddAutomationCard
+                  title={addCard.title}
+                  cta={addCard.cta}
+                  href={addCard.href}
+                />
+              </article>
+            </CarouselItem>
           </CarouselContent>
         </div>
       </Carousel>

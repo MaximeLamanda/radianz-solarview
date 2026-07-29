@@ -9,6 +9,8 @@ import { MagicTextSection } from "@/components/magic-text-section";
 import { UseCasesCarousel } from "@/components/use-cases-carousel";
 import { LetsTalkSection } from "@/components/lets-talk-section";
 import { CaseStudiesSection } from "@/components/case-studies-section";
+import { AgentUrlAnalyzerIllustration } from "@/components/agent-url-analyzer-illustration";
+import { SolarCvDetectionIllustration } from "@/components/solar-cv-detection-illustration";
 import { Footer2 } from "@/components/footer2";
 
 import { BRAND } from "@/lib/constants";
@@ -103,9 +105,7 @@ export default async function Home({
         menu={[
           { title: tNav("services"), url: "/#services" },
           { title: tNav("expertises"), url: "/#resultats" },
-          { title: tNav("offers"), url: "/#offres" },
           { title: tArticles("nav"), url: "/articles" },
-          { title: tNav("contact"), url: "/contact" },
         ]}
         auth={{
           login: { title: tNav("logIn"), url: "/contact" },
@@ -199,14 +199,60 @@ export default async function Home({
         <MagicTextSection text={tAgency("statement.text")} />
         <CaseStudiesSection
           heading={tAgency("caseStudies.heading")}
-          description={tAgency("caseStudies.description")}
-          items={[1, 2, 3].map((n) => ({
-            client: tAgency(`caseStudies.item${n}.client`),
-            sector: tAgency(`caseStudies.item${n}.sector`),
-            challenge: tAgency(`caseStudies.item${n}.challenge`),
-            result: tAgency(`caseStudies.item${n}.result`),
-            metric: tAgency(`caseStudies.item${n}.metric`),
-          }))}
+          items={[
+            {
+              client: tAgency("caseStudies.item1.client"),
+              category: tAgency("caseStudies.item1.category"),
+              imageSrc: "/case-studies/progenes.png",
+              imageWidth: 1440,
+              imageHeight: 900,
+              href: "/case-studies/progenes",
+            },
+            {
+              client: tAgency("caseStudies.item2.client"),
+              category: tAgency("caseStudies.item2.category"),
+              href: "/case-studies/articles-agent",
+              illustration: (
+                <AgentUrlAnalyzerIllustration
+                  panelLabel={tAgency("caseStudies.item2.panelLabel")}
+                  urls={[
+                    {
+                      url: "articles/loi-aper-2026",
+                      status: "done",
+                      statusLabel: tAgency("caseStudies.item2.urlStatusDone"),
+                    },
+                    {
+                      url: "articles/prospection-solaire-b2b",
+                      status: "done",
+                      statusLabel: tAgency("caseStudies.item2.urlStatusDone"),
+                    },
+                    {
+                      url: "articles/autoconsommation-pme",
+                      status: "pending",
+                      statusLabel: tAgency(
+                        "caseStudies.item2.urlStatusPending",
+                      ),
+                    },
+                  ]}
+                />
+              ),
+            },
+            {
+              client: tAgency("caseStudies.item3.client"),
+              category: tAgency("caseStudies.item3.category"),
+              href: "/case-studies/solar-detection",
+              illustration: (
+                <SolarCvDetectionIllustration
+                  detectionLabel={tAgency(
+                    "caseStudies.item3.detectionLabel",
+                  )}
+                  confidenceLabel={tAgency(
+                    "caseStudies.item3.confidenceLabel",
+                  )}
+                />
+              ),
+            },
+          ]}
         />
         <LetsTalkSection />
       </main>

@@ -77,7 +77,7 @@ export default function OpenGraphImage() {
                 lineHeight: 1.35,
               }}
             >
-              Commercial & industrial solar prospecting
+              Agence IA & Web — automatisation, apps sur mesure
             </span>
           </div>
         </div>

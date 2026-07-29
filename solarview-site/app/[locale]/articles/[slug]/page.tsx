@@ -72,9 +72,6 @@ export default async function ArticlePage({
 
   const tSite = await getTranslations({ locale: typedLocale, namespace: "site" });
   const tNav = await getTranslations({ locale: typedLocale, namespace: "nav" });
-  const tFeature = await getTranslations({ locale: typedLocale, namespace: "feature" });
-  const tPipeline = await getTranslations({ locale: typedLocale, namespace: "pipeline" });
-  const tContact = await getTranslations({ locale: typedLocale, namespace: "contact" });
   const tFooter = await getTranslations({ locale: typedLocale, namespace: "footer" });
   const tArticles = await getTranslations({ locale: typedLocale, namespace: "articles" });
 
@@ -109,10 +106,9 @@ export default async function ArticlePage({
           title: tSite("name"),
         }}
         menu={[
-          { title: tFeature("about"), url: "/#avantages" },
-          { title: tPipeline("badge"), url: "/#features" },
+          { title: tNav("services"), url: "/#services" },
+          { title: tNav("expertises"), url: "/#resultats" },
           { title: tArticles("nav"), url: "/articles" },
-          { title: tContact("badge"), url: "/contact" },
         ]}
         auth={{
           login: { title: tNav("logIn"), url: "/contact" },

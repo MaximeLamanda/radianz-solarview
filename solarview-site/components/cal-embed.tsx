@@ -4,6 +4,8 @@ import * as React from "react";
 import Cal, { getCalApi } from "@calcom/embed-react";
 import { cn } from "@/lib/utils";
 
+const CAL_NAMESPACE = "30min";
+
 interface CalEmbedProps {
   calLink: string;
   className?: string;
@@ -12,10 +14,11 @@ interface CalEmbedProps {
 export function CalEmbed({ calLink, className }: CalEmbedProps) {
   React.useEffect(() => {
     void (async () => {
-      const cal = await getCalApi();
+      const cal = await getCalApi({ namespace: CAL_NAMESPACE });
       cal("ui", {
         theme: "dark",
         hideEventTypeDetails: false,
+        layout: "month_view",
         cssVarsPerTheme: {
           light: {},
           dark: {
@@ -41,11 +44,16 @@ export function CalEmbed({ calLink, className }: CalEmbedProps) {
   }, []);
 
   return (
-    <div className={cn("min-h-[560px] w-full overflow-hidden", className)}>
+    <div className={cn("w-full [&_iframe]:block", className)}>
       <Cal
+        namespace={CAL_NAMESPACE}
         calLink={calLink}
-        style={{ width: "100%", height: "100%", overflow: "scroll" }}
-        config={{ layout: "month_view", theme: "dark" }}
+        style={{ width: "100%", height: "100%", overflow: "visible" }}
+        config={{
+          layout: "month_view",
+          useSlotsViewOnSmallScreen: "true",
+          theme: "dark",
+        }}
       />
     </div>
   );

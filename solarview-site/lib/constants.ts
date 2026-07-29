@@ -14,8 +14,6 @@ export const SITE = {
 export const NAV_LINKS = [
   { title: "Services", url: "/#services" },
   { title: "Expertises", url: "/#resultats" },
-  { title: "Offres", url: "/#offres" },
-  { title: "Contact", url: "/contact" },
 ] as const;
 
 export const FOOTER = {

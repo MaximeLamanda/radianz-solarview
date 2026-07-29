@@ -4,12 +4,42 @@
   },
   "nav": {
     "services": "Services",
-    "expertises": "Expertises",
+    "expertises": "Secteurs",
     "offers": "Offres",
     "contact": "Contact",
     "logIn": "Connexion",
     "requestDemo": "Lancer un projet",
-    "bookCall": "Réserver un appel"
+    "bookCall": "Réserver un appel",
+    "featuredCases": {
+      "title": "Cas clients",
+      "description": "Résultats concrets livrés chez nos clients — plateformes, agents et vision."
+    },
+    "sectors": {
+      "industrie": {
+        "title": "Industrie",
+        "description": "Automatiser les réponses aux appels d'offres et la doc technique."
+      },
+      "finance": {
+        "title": "Finance",
+        "description": "Réconcilier paiements et factures, réduire les écarts manuels."
+      },
+      "saas": {
+        "title": "B2B SaaS",
+        "description": "Qualifier des leads et lancer l'outreach depuis le CRM."
+      },
+      "energie": {
+        "title": "Énergie",
+        "description": "Détecter et cartographier les installations via computer vision."
+      },
+      "immobilier": {
+        "title": "Immobilier",
+        "description": "Extraire et vérifier les contrats, baux et dossiers locataires."
+      },
+      "retail": {
+        "title": "Retail",
+        "description": "Automatiser le support client et le traitement des retours."
+      }
+    }
   },
   "contact": {
     "badge": "Contact",
@@ -20,10 +50,8 @@
     "metaTitle": "Contact — RADIANZ | Agence IA & Web",
     "metaDescription": "Réservez un appel découverte avec Radianz pour un audit IA, une plateforme sur mesure ou un accompagnement.",
     "roiPanel": {
-      "figure": "3,7×",
-      "label": "ROI moyen GenAI",
-      "supporting": "Pour 1 € investi en IA générative.",
-      "source": "Source : IDC, Business Opportunity of AI, 2024"
+      "figure": "+270 %",
+      "label": "ROI moyen observé chez nos clients"
     }
   },
   "site": {
@@ -63,6 +91,8 @@
       "item4": "Automatiser la réponse aux appels d'offres",
       "item5": "Vérifier les contrats et documents juridiques",
       "item6": "Automatiser le support client avec un chatbot",
+      "addTitle": "Vous avez un autre cas d'usage ?",
+      "addCta": "Parlons-en",
       "previous": "Précédent",
       "next": "Suivant"
     },
@@ -73,25 +103,33 @@
       "heading": "Résultats livrés",
       "description": "Trois projets récents. Données représentatives.",
       "item1": {
-        "client": "Nova Industrie",
-        "sector": "Industrie",
-        "challenge": "Réponses aux appels d'offres trop lentes et manuelles.",
-        "result": "Pipeline AO automatisé : extraction, rédaction assistée, validation humaine.",
-        "metric": "−65 % temps"
+        "client": "Progenes",
+        "category": "Plateforme web",
+        "sector": "Agri-tech",
+        "challenge": "Besoin d'un site catalogue avec commandes et stock visibles.",
+        "result": "Plateforme web : catalogue taureaux, panier, BDC et stock temps réel.",
+        "metric": "Stock live"
       },
       "item2": {
-        "client": "Cabinet Meridian",
-        "sector": "Finance",
-        "challenge": "Réconciliation paiements / factures sujette aux écarts.",
-        "result": "Matching IA branché au SI comptable, exceptions traitées par l'équipe.",
-        "metric": "99,2 % précision"
+        "client": "Agent articles",
+        "category": "Agent IA",
+        "panelLabel": "Agent · Articles",
+        "urlStatusDone": "Analysé",
+        "urlStatusPending": "En cours",
+        "sector": "Énergie solaire",
+        "challenge": "Veille articles trop lente pour capturer les leads à temps.",
+        "result": "Agent d'analyse → base de leads structurée + contacts.",
+        "metric": "1er informé"
       },
       "item3": {
-        "client": "Orbit SaaS",
-        "sector": "B2B SaaS",
-        "challenge": "Qualification leads coûteuse et inconsistante.",
-        "result": "Agent d'outreach + scoring branché au CRM.",
-        "metric": "×3 pipeline qualifié"
+        "client": "Détection solaire",
+        "category": "Computer vision",
+        "detectionLabel": "Panneau détecté",
+        "confidenceLabel": "96 %",
+        "sector": "Énergie solaire",
+        "challenge": "Repérer bâtiments/panneaux et joindre le propriétaire.",
+        "result": "CV sur plage de dates + enrichissement des contacts.",
+        "metric": "Lead complet"
       }
     },
     "pain": {
@@ -193,6 +231,7 @@
     "process": {
       "heading": "Décider. Construire. Industrialiser.",
       "description": "Vous gardez la vision. On tranche, on code, on branche. Chaque semaine, quelque chose de tangible.",
+      "cta": "Réserver un appel découverte",
       "step1": "Step 1",
       "step1Title": "On cadre l'opportunité",
       "step1Desc": "Appel découverte : on scanne process et données, et on dit clairement quoi lancer — et quoi ignorer.",
@@ -222,14 +261,11 @@
       "cta": "Commencer votre projet"
     },
     "logos": {
-      "logo1": "Groupama",
-      "logo2": "Too Good To Go",
-      "logo3": "Comet",
-      "logo4": "BFM Business",
-      "logo5": "SearchBooster",
-      "logo6": "Energia",
-      "logo7": "Velocia",
-      "logo8": "Arsen"
+      "logo1": "Mistral",
+      "logo2": "Claude",
+      "logo3": "OpenAI",
+      "logo4": "Vercel",
+      "logo5": "React"
     },
     "projectTypes": {
       "audit": "Audit IA",
@@ -249,6 +285,16 @@
     "tocTitle": "Sur cette page",
     "metaTitle": "Blog — RADIANZ | IA, automatisation & web",
     "metaDescription": "Articles Radianz sur l'IA, l'automatisation de processus, les agents IA et les bonnes pratiques de développement web."
+  },
+  "caseStudyPage": {
+    "home": "Accueil",
+    "caseStudies": "Cas clients",
+    "overview": "Aperçu",
+    "sector": "Secteur",
+    "solution": "Solution",
+    "learnMore": "Envie d'en savoir plus ?",
+    "contactCta": "Nous contacter",
+    "visitSite": "Voir le site"
   },
   "footer": {
     "services": "Services",

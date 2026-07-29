@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     const name = (formData.get("name") as string) || "";
     const email = (formData.get("email") as string) || "";
     const company = (formData.get("company") as string) || "";
-    const leadsPerMonth = (formData.get("leadsPerMonth") as string) || "";
+    const projectType = (formData.get("projectType") as string) || "";
     const message = (formData.get("message") as string) || "";
     const rawLocale = (formData.get("locale") as string) || "en";
     const locale = /^(en|fr)$/.test(rawLocale) ? rawLocale : "en";
@@ -39,13 +39,13 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: [contactEmail],
       replyTo: [email],
-      subject: `[Radianz] New demo request — ${name}`,
+      subject: `[Radianz] Nouvelle demande — ${name}`,
       html: `
-        <h2>New Radianz contact request</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Company:</strong> ${company || "—"}</p>
-        <p><strong>Leads desired / month:</strong> ${leadsPerMonth || "—"}</p>
+        <h2>Nouvelle demande de contact Radianz</h2>
+        <p><strong>Nom :</strong> ${name}</p>
+        <p><strong>Email :</strong> ${email}</p>
+        <p><strong>Société :</strong> ${company || "—"}</p>
+        <p><strong>Type de projet :</strong> ${projectType || "—"}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br>") || "—"}</p>
       `,

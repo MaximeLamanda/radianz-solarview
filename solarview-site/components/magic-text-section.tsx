@@ -16,12 +16,16 @@ export function MagicTextSection({ text, className }: MagicTextSectionProps) {
   return (
     <section
       id="statement"
-      className={cn("relative bg-canvas", className)}
+      className={cn("relative bg-card", className)}
     >
       <div ref={containerRef} className="h-[160vh] md:h-[180vh]">
         <div className="sticky top-0 flex min-h-[100svh] items-center">
           <div className="container mx-auto max-w-3xl px-6 py-24">
-            <MagicText text={text} containerRef={containerRef} />
+            <div className="relative flex min-h-[420px] items-center justify-center">
+              <div className="relative z-10 min-w-0 max-w-3xl">
+                <MagicText text={text} containerRef={containerRef} />
+              </div>
+            </div>
           </div>
         </div>
       </div>
