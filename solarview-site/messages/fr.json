@@ -18,7 +18,13 @@
     "introText": "Choisissez un créneau. On discute audit IA, automatisation, agent ou plateforme — et on repart avec une prochaine étape claire.",
     "bookingUnavailable": "La prise de rendez-vous n'est pas encore configurée. Revenez bientôt ou écrivez-nous.",
     "metaTitle": "Contact — RADIANZ | Agence IA & Web",
-    "metaDescription": "Réservez un appel découverte avec Radianz pour un audit IA, une plateforme sur mesure ou un accompagnement."
+    "metaDescription": "Réservez un appel découverte avec Radianz pour un audit IA, une plateforme sur mesure ou un accompagnement.",
+    "roiPanel": {
+      "figure": "3,7×",
+      "label": "ROI moyen GenAI",
+      "supporting": "Pour 1 € investi en IA générative.",
+      "source": "Source : IDC, Business Opportunity of AI, 2024"
+    }
   },
   "site": {
     "name": "RADIANZ",

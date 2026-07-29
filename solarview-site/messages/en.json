@@ -18,7 +18,13 @@
     "introText": "Pick a slot. We discuss AI audit, automation, agents, or platforms — and leave with a clear next step.",
     "bookingUnavailable": "Booking is not configured yet. Check back soon or email us.",
     "metaTitle": "Contact — RADIANZ | AI & Web Agency",
-    "metaDescription": "Book a discovery call with Radianz for an AI audit, custom platform, or guidance."
+    "metaDescription": "Book a discovery call with Radianz for an AI audit, custom platform, or guidance.",
+    "roiPanel": {
+      "figure": "3.7×",
+      "label": "Average GenAI ROI",
+      "supporting": "For every $1 invested in generative AI.",
+      "source": "Source: IDC, Business Opportunity of AI, 2024"
+    }
   },
   "site": {
     "name": "RADIANZ",
