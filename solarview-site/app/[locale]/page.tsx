@@ -7,8 +7,12 @@ import { Logos18 } from "@/components/logos18";
 import { ProcessSection } from "@/components/process-section";
 import { MagicTextSection } from "@/components/magic-text-section";
 import { UseCasesCarousel } from "@/components/use-cases-carousel";
+import { LetsTalkSection } from "@/components/lets-talk-section";
+import { CaseStudiesSection } from "@/components/case-studies-section";
+import { Footer2 } from "@/components/footer2";
 
 import { BRAND } from "@/lib/constants";
+import { buildFooterBottomLinks, buildFooterMenuItems } from "@/lib/footer-menu";
 import { hreflangAlternates, SITE_URL, withSocialMetadata } from "@/lib/seo";
 import { type Locale } from "@/i18n/config";
 
@@ -51,6 +55,7 @@ export default async function Home({
   const tNav = await getTranslations({ locale: typedLocale, namespace: "nav" });
   const tAgency = await getTranslations({ locale: typedLocale, namespace: "agency" });
   const tArticles = await getTranslations({ locale: typedLocale, namespace: "articles" });
+  const tFooter = await getTranslations({ locale: typedLocale, namespace: "footer" });
 
   const homeJsonLd = {
     "@context": "https://schema.org",
@@ -117,6 +122,7 @@ export default async function Home({
         />
         <ProcessSection
           heading={tAgency("process.heading")}
+          cta={{ text: tAgency("process.cta"), href: "/contact" }}
           steps={[
             {
               step: tAgency("process.step1"),
@@ -191,7 +197,33 @@ export default async function Home({
           ]}
         />
         <MagicTextSection text={tAgency("statement.text")} />
+        <CaseStudiesSection
+          heading={tAgency("caseStudies.heading")}
+          description={tAgency("caseStudies.description")}
+          items={[1, 2, 3].map((n) => ({
+            client: tAgency(`caseStudies.item${n}.client`),
+            sector: tAgency(`caseStudies.item${n}.sector`),
+            challenge: tAgency(`caseStudies.item${n}.challenge`),
+            result: tAgency(`caseStudies.item${n}.result`),
+            metric: tAgency(`caseStudies.item${n}.metric`),
+          }))}
+        />
+        <LetsTalkSection />
       </main>
+      <footer>
+        <Footer2
+          logo={{
+            url: "/",
+            src: BRAND.logoSrc,
+            alt: tSite("name"),
+            title: tSite("name"),
+          }}
+          tagline={tSite("footerTagline")}
+          menuItems={buildFooterMenuItems(tFooter)}
+          copyright={tSite("copyright")}
+          bottomLinks={buildFooterBottomLinks(tFooter)}
+        />
+      </footer>
     </>
   );
 }
