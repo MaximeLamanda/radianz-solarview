@@ -13,31 +13,12 @@
   },
   "contact": {
     "badge": "Contact",
-    "successMessage": "Your request has been sent. The Radianz team will contact you within 24h.",
-    "configError": "Email configuration missing. Please try again later.",
-    "sendError": "An error occurred. Please try again or contact us directly by email.",
-    "projectType": "Project type",
-    "firstName": "First name",
-    "lastName": "Last name",
-    "email": "Email",
-    "company": "Company",
-    "message": "Message",
-    "next": "Next",
-    "back": "Back",
-    "send": "Send",
-    "step1": "STEP 1",
-    "step2": "STEP 2",
-    "headline1": "Let's talk about your project.",
-    "headline2": "We'll get back to you within 24h.",
-    "placeholderFirstName": "John",
-    "placeholderLastName": "Doe",
-    "placeholderEmail": "john@company.com",
-    "placeholderCompany": "Company name",
-    "placeholderMessage": "Describe your need: automation, AI agent, web platform, audit…",
-    "contactRep": "Radianz Contact",
-    "contactRepName": "Alexis",
+    "headline1": "Book a discovery call.",
+    "headline2": "We frame your need in 30 minutes.",
+    "introText": "Pick a slot. We discuss AI audit, automation, agents, or platforms — and leave with a clear next step.",
+    "bookingUnavailable": "Booking is not configured yet. Check back soon or email us.",
     "metaTitle": "Contact — RADIANZ | AI & Web Agency",
-    "metaDescription": "Contact Radianz for an AI audit, custom platform, or guidance. Response within 24h."
+    "metaDescription": "Book a discovery call with Radianz for an AI audit, custom platform, or guidance."
   },
   "site": {
     "name": "RADIANZ",
@@ -70,6 +51,8 @@
     "useCases": {
       "heading": "What AI changes in your business",
       "description": "Concrete automations fitted to your processes.",
+      "addTitle": "Your automation",
+      "addCta": "Suggest my case",
       "item1": "Search information across large document volumes",
       "item2": "Reconcile payments and invoices precisely to avoid discrepancies",
       "item3": "Identify prospects and reach out automatically",
@@ -80,31 +63,27 @@
       "next": "Next"
     },
     "statement": {
-      "text": "AI never stands still. As catalysts for change, we accelerate innovation and adoption. We guide our clients to get ahead of their market. Very fast."
+      "text": "Your data is already there. We turn it into actionable insights, then into AI and agents that get things done."
     },
     "caseStudies": {
       "heading": "Outcomes delivered",
       "description": "Three recent projects. Representative data.",
       "item1": {
-        "client": "Nova Industry",
-        "sector": "Manufacturing",
-        "challenge": "Slow, manual RFP responses.",
-        "result": "Automated RFP pipeline: extraction, assisted drafting, human validation.",
-        "metric": "−65% time"
+        "client": "Progenes",
+        "category": "Website creation"
       },
       "item2": {
-        "client": "Meridian Partners",
-        "sector": "Finance",
-        "challenge": "Payment–invoice reconciliation gaps.",
-        "result": "AI matching wired to the accounting stack, exceptions handled by the team.",
-        "metric": "99.2% accuracy"
+        "client": "Wewise",
+        "category": "AI agent · Article analysis",
+        "panelLabel": "Agent · Solar articles",
+        "urlStatusDone": "Analyzed",
+        "urlStatusPending": "Running"
       },
       "item3": {
-        "client": "Orbit SaaS",
-        "sector": "B2B SaaS",
-        "challenge": "Costly, inconsistent lead qualification.",
-        "result": "Outreach agent + scoring wired to CRM.",
-        "metric": "3× qualified pipeline"
+        "client": "Wewise",
+        "category": "Computer Vision · Detection",
+        "detectionLabel": "Panel detected",
+        "confidenceLabel": "96%"
       }
     },
     "pain": {
@@ -204,17 +183,17 @@
       "offer2Cta": "Discovery call"
     },
     "process": {
-      "heading": "Decide. Build. Industrialize.",
-      "description": "You keep the vision. We decide, code, and plug in. Every week, something tangible.",
-      "step1": "Step 1",
-      "step1Title": "We frame the opportunity",
-      "step1Desc": "Discovery call: we scan processes and data, and say clearly what to launch — and what to ignore.",
-      "step2": "Step 2",
-      "step2Title": "We build the simplest path",
-      "step2Desc": "Custom or right tool: zero unnecessary complexity. You track progress continuously.",
-      "step3": "Step 3",
-      "step3Title": "We ship to production and leave you autonomous",
-      "step3Desc": "Stack integration, training, docs. We leave when you no longer need us."
+      "heading": "Built by builders for complex organizations",
+      "cta": "Launch a project",
+      "step1": "01",
+      "step1Title": "Decide",
+      "step1Desc": "We help you see clearly in the age of AI. We scan your opportunities and data, size the ROI, and recommend what to launch — and especially what to ignore.",
+      "step2": "02",
+      "step2Title": "Build",
+      "step2Desc": "Projects delivered fast, put in your hands quickly so we can confirm they hit the need. Built with the latest premium technologies — never more complexity than required.",
+      "step3": "03",
+      "step3Title": "Industrialize",
+      "step3Desc": "We ship to production, connect to your stack, and make your teams autonomous. We leave when you no longer need us."
     },
     "faq": {
       "heading": "The questions people actually ask",

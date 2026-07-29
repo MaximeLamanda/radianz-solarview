@@ -31,20 +31,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   });
 }
 
-export default async function ContactPage({
-  searchParams,
-  params,
-}: {
-  searchParams: Promise<{ success?: string; error?: string }>;
-  params: Promise<{ locale: string }>;
-}) {
-  const resolvedParams = await params;
-  const searchParamsResolved = await searchParams;
+export default async function ContactPage() {
   const t = await getTranslations();
   const tSite = await getTranslations("site");
   const tNav = await getTranslations("nav");
-  const tFeature = await getTranslations("feature");
-  const tPipeline = await getTranslations("pipeline");
   const tArticles = await getTranslations("articles");
   const tContact = await getTranslations("contact");
   const tFooter = await getTranslations("footer");
@@ -59,8 +49,9 @@ export default async function ContactPage({
           title: tSite("name"),
         }}
         menu={[
-          { title: tFeature("about"), url: "/#avantages" },
-          { title: tPipeline("badge"), url: "/#features" },
+          { title: tNav("services"), url: "/#services" },
+          { title: tNav("expertises"), url: "/#resultats" },
+          { title: tNav("offers"), url: "/#offres" },
           { title: tArticles("nav"), url: "/articles" },
           { title: tContact("badge"), url: "/contact" },
         ]}
@@ -70,16 +61,7 @@ export default async function ContactPage({
         }}
       />
       <main id="contact-form" className="min-h-[70vh]">
-        <LetsTalkSection
-          asPageTitle
-          success={searchParamsResolved.success === "1"}
-          error={
-            searchParamsResolved.error === "config" || searchParamsResolved.error === "send"
-              ? (searchParamsResolved.error as "config" | "send")
-              : undefined
-          }
-          locale={resolvedParams.locale}
-        />
+        <LetsTalkSection asPageTitle />
         <div className="container pb-16">
           <p className="text-center text-sm text-muted-foreground">
             <Link href="/" className="underline hover:text-foreground">
