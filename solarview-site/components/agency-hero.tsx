@@ -31,9 +31,9 @@ export function AgencyHero({
       )}
       style={{ "--hero-nav-offset": "4.75rem" } as CSSProperties}
     >
-      <div className="relative z-10 flex min-h-[calc(100svh-var(--hero-nav-offset))] flex-col items-center justify-center pb-12 md:pb-16">
+      <div className="relative z-10 flex flex-col items-center pb-12 pt-10 md:pb-16 md:pt-14">
         <div className="container flex flex-col items-center">
-          <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center justify-center gap-6 text-center">
+          <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center gap-6 text-center">
             <DotBirdFlight
               size="140px"
               dotColor="#0a0a0a"

@@ -107,7 +107,7 @@ export default async function ArticlePage({
         }}
         menu={[
           { title: tNav("services"), url: "/#services" },
-          { title: tNav("expertises"), url: "/#resultats" },
+          { title: tNav("expertises"), url: "/industries" },
           { title: tArticles("nav"), url: "/articles" },
         ]}
         auth={{

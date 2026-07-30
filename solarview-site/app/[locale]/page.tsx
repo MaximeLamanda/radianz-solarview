@@ -8,6 +8,7 @@ import { ProcessSection } from "@/components/process-section";
 import { MagicTextSection } from "@/components/magic-text-section";
 import { UseCasesCarousel } from "@/components/use-cases-carousel";
 import { LetsTalkSection } from "@/components/lets-talk-section";
+import { PricingSection } from "@/components/pricing-section";
 import { CaseStudiesSection } from "@/components/case-studies-section";
 import { AgentUrlAnalyzerIllustration } from "@/components/agent-url-analyzer-illustration";
 import { SolarCvDetectionIllustration } from "@/components/solar-cv-detection-illustration";
@@ -15,6 +16,10 @@ import { Footer2 } from "@/components/footer2";
 
 import { BRAND } from "@/lib/constants";
 import { buildFooterBottomLinks, buildFooterMenuItems } from "@/lib/footer-menu";
+import {
+  getUseCaseById,
+  HOMEPAGE_USE_CASE_IDS,
+} from "@/lib/industries";
 import { hreflangAlternates, SITE_URL, withSocialMetadata } from "@/lib/seo";
 import { type Locale } from "@/i18n/config";
 
@@ -56,6 +61,7 @@ export default async function Home({
   const tSite = await getTranslations({ locale: typedLocale, namespace: "site" });
   const tNav = await getTranslations({ locale: typedLocale, namespace: "nav" });
   const tAgency = await getTranslations({ locale: typedLocale, namespace: "agency" });
+  const tIndustries = await getTranslations({ locale: typedLocale, namespace: "industries" });
   const tArticles = await getTranslations({ locale: typedLocale, namespace: "articles" });
   const tFooter = await getTranslations({ locale: typedLocale, namespace: "footer" });
 
@@ -104,7 +110,7 @@ export default async function Home({
         }}
         menu={[
           { title: tNav("services"), url: "/#services" },
-          { title: tNav("expertises"), url: "/#resultats" },
+          { title: tNav("expertises"), url: "/industries" },
           { title: tArticles("nav"), url: "/articles" },
         ]}
         auth={{
@@ -146,55 +152,39 @@ export default async function Home({
           description={tAgency("useCases.description")}
           previousLabel={tAgency("useCases.previous")}
           nextLabel={tAgency("useCases.next")}
+          stackLabel={tAgency("useCases.stackLabel")}
+          dialogCtaLabel={tAgency("useCases.dialogCta")}
+          seeMore={{
+            label: tAgency("useCases.seeMore"),
+            href: "/industries?secteur=all",
+          }}
           addCard={{
             title: tAgency("useCases.addTitle"),
             cta: tAgency("useCases.addCta"),
             href: "/contact",
           }}
-          items={[
-            {
-              title: tAgency("useCases.item1"),
-              shape: "gallery",
-              galleryShapeId: 8,
-              variant: "warm-sand",
-              imageSrc: "/use-cases/mesh-peach.png",
-            },
-            {
-              title: tAgency("useCases.item2"),
-              shape: "gallery",
-              galleryShapeId: 22,
-              variant: "periwinkle",
-              imageSrc: "/use-cases/mesh-cyan.png",
-            },
-            {
-              title: tAgency("useCases.item3"),
-              shape: "gallery",
-              galleryShapeId: 1,
-              variant: "warm-sand",
-              imageSrc: "/use-cases/mesh-ember.png",
-            },
-            {
-              title: tAgency("useCases.item4"),
-              shape: "gallery",
-              galleryShapeId: 14,
-              variant: "teal-fog",
-              imageSrc: "/use-cases/mesh-teal.png",
-            },
-            {
-              title: tAgency("useCases.item5"),
-              shape: "gallery",
-              galleryShapeId: 35,
-              variant: "lime-mist",
-              imageSrc: "/use-cases/mesh-lime.png",
-            },
-            {
-              title: tAgency("useCases.item6"),
-              shape: "gallery",
-              galleryShapeId: 70,
-              variant: "periwinkle",
-              imageSrc: "/use-cases/mesh-indigo.png",
-            },
-          ]}
+          items={HOMEPAGE_USE_CASE_IDS.map((id, index) => {
+            const meta = getUseCaseById(id)!;
+            const variants = [
+              "warm-sand",
+              "periwinkle",
+              "warm-sand",
+              "teal-fog",
+              "lime-mist",
+              "periwinkle",
+            ] as const;
+            return {
+              id,
+              title: tIndustries(`cases.${id}.title`),
+              description: tIndustries(`cases.${id}.description`),
+              detail: tIndustries(`cases.${id}.detail`),
+              stack: meta.stack,
+              shape: "gallery" as const,
+              galleryShapeId: meta.galleryShapeId,
+              variant: variants[index],
+              imageSrc: meta.imageSrc,
+            };
+          })}
         />
         <MagicTextSection text={tAgency("statement.text")} />
         <CaseStudiesSection
@@ -251,6 +241,52 @@ export default async function Home({
                   )}
                 />
               ),
+            },
+          ]}
+        />
+        <PricingSection
+          heading={tAgency("pricing.heading")}
+          offers={[
+            {
+              id: "offre-audit",
+              name: tAgency("pricing.offer1Name"),
+              tagline: (
+                <>
+                  {tAgency("pricing.offer1TaglineBefore")}
+                  <span className="font-semibold text-muted-foreground">
+                    {tAgency("pricing.offer1TaglineHighlight")}
+                  </span>
+                  {tAgency("pricing.offer1TaglineAfter")}
+                </>
+              ),
+              price: tAgency("pricing.offer1Price"),
+              priceLabel: tAgency("pricing.offer1PriceLabel"),
+              features: [
+                tAgency("pricing.offer1Feature1"),
+                tAgency("pricing.offer1Feature2"),
+                tAgency("pricing.offer1Feature3"),
+                tAgency("pricing.offer1Feature4"),
+                tAgency("pricing.offer1Feature5"),
+                tAgency("pricing.offer1Feature6"),
+              ],
+              cta: tAgency("pricing.offer1Cta"),
+            },
+            {
+              id: "offre-plateforme",
+              name: tAgency("pricing.offer2Name"),
+              tagline: tAgency("pricing.offer2Tagline"),
+              price: tAgency("pricing.offer2Price"),
+              priceLabel: tAgency("pricing.offer2PriceLabel"),
+              features: [
+                tAgency("pricing.offer2Feature1"),
+                tAgency("pricing.offer2Feature2"),
+                tAgency("pricing.offer2Feature3"),
+                tAgency("pricing.offer2Feature4"),
+                tAgency("pricing.offer2Feature5"),
+                tAgency("pricing.offer2Feature6"),
+              ],
+              cta: tAgency("pricing.offer2Cta"),
+              highlighted: true,
             },
           ]}
         />

@@ -24,7 +24,7 @@
         "description": "Réconcilier paiements et factures, réduire les écarts manuels."
       },
       "saas": {
-        "title": "B2B SaaS",
+        "title": "BTP/construction",
         "description": "Qualifier des leads et lancer l'outreach depuis le CRM."
       },
       "energie": {
@@ -93,6 +93,9 @@
       "item6": "Automatiser le support client avec un chatbot",
       "addTitle": "Vous avez un autre cas d'usage ?",
       "addCta": "Parlons-en",
+      "seeMore": "Voir plus de cas d'usage",
+      "stackLabel": "Stack",
+      "dialogCta": "En parler",
       "previous": "Précédent",
       "next": "Suivant"
     },
@@ -100,7 +103,7 @@
       "text": "L'IA évolue sans cesse. Catalyseurs du changement, on accélère l'innovation et l'adoption. On guide nos clients pour prendre l'avance sur leur marché. Très rapidement."
     },
     "caseStudies": {
-      "heading": "Résultats livrés",
+      "heading": "Cas clients",
       "description": "Trois projets récents. Données représentatives.",
       "item1": {
         "client": "Progenes",
@@ -205,10 +208,12 @@
     "pricing": {
       "heading": "Vous payez le résultat livré, pas le temps passé.",
       "description": "Deux portes d'entrée. Un même standard : des livrables utilisables, vite.",
-      "offer1Name": "AI Lighthouse",
-      "offer1Tagline": "Audit IA en 1 semaine",
-      "offer1Price": "1 900 €",
-      "offer1PriceLabel": "À partir de",
+      "offer1Name": "Audit IA",
+      "offer1TaglineBefore": "Audit IA en ",
+      "offer1TaglineHighlight": "1 semaine",
+      "offer1TaglineAfter": " modélisation des opportunités, faisabilité et roadmap priorisées",
+      "offer1Price": "Gratuit",
+      "offer1PriceLabel": "Offert",
       "offer1Feature1": "Atelier de découverte",
       "offer1Feature2": "Cartographie des cas IA",
       "offer1Feature3": "Analyse des opportunités IA",
@@ -216,8 +221,8 @@
       "offer1Feature5": "Rapport d'audit exploitable",
       "offer1Feature6": "Livraison rapide",
       "offer1Cta": "Appel de découverte",
-      "offer2Name": "AI Forge",
-      "offer2Tagline": "Plateforme sur mesure",
+      "offer2Name": "Plateforme web & IA",
+      "offer2Tagline": "Des plateformes, agents et workflows d'IA qui scalent, conçus pour votre entreprise.",
       "offer2Price": "5 000 €",
       "offer2PriceLabel": "À partir de",
       "offer2Feature1": "Plateformes IA",
@@ -285,6 +290,73 @@
     "tocTitle": "Sur cette page",
     "metaTitle": "Blog — RADIANZ | IA, automatisation & web",
     "metaDescription": "Articles Radianz sur l'IA, l'automatisation de processus, les agents IA et les bonnes pratiques de développement web."
+  },
+  "industries": {
+    "metaTitle": "Secteurs — RADIANZ | Cas d'usage IA par industrie",
+    "metaDescription": "Découvrez les cas d'usage IA Radianz par secteur : industrie, finance, BTP, énergie, immobilier et retail.",
+    "heading": "Cas d'usage par secteur",
+    "description": "Sélectionnez une industrie pour voir les automatisations adaptées à vos process.",
+    "empty": "Aucun cas d'usage pour ce secteur pour le moment.",
+    "allLabel": "Tous",
+    "stackLabel": "Stack",
+    "cta": "En parler",
+    "cases": {
+      "document-search": {
+        "title": "Rechercher des informations dans un grand volume de documents",
+        "description": "Interroger contrats, specs et archives en langage naturel — réponses sourcées en secondes.",
+        "detail": "On indexe vos bases documentaires (SharePoint, Drive, ERP), on branche un moteur RAG avec citations, et vos équipes posent leurs questions sans chercher pendant des heures. Déploiement en sprints, avec droits d'accès respectés."
+      },
+      "payment-reconciliation": {
+        "title": "Réconcilier paiements et factures avec précision",
+        "description": "Matcher automatiquement encaissements et factures pour réduire les écarts manuels.",
+        "detail": "Pipelines OCR + règles métier pour rapprocher bancaire et facturation. Les cas ambigus remontent à un humain ; le reste se traite en continu et alimente votre ERP."
+      },
+      "prospect-outreach": {
+        "title": "Identifier des prospects et les contacter automatiquement",
+        "description": "Scorer les comptes, personnaliser le premier message et lancer l'outreach depuis le CRM.",
+        "detail": "Enrichissement, scoring et séquences d'outreach branchés sur votre CRM. Les messages restent personnalisés ; le commercial ne reprend que les réponses chaudes."
+      },
+      "rfp-automation": {
+        "title": "Automatiser la réponse aux appels d'offres",
+        "description": "Extraire les exigences, pré-remplir les dossiers et accélérer les réponses RFP.",
+        "detail": "Extraction des exigences, mapping vers votre bibliothèque de réponses, et pré-remplissage des dossiers. L'équipe valide, ajuste le ton, et envoie plus vite."
+      },
+      "contract-check": {
+        "title": "Vérifier les contrats et documents juridiques",
+        "description": "Contrôler clauses, dates et incohérences avant signature ou archivage.",
+        "detail": "Analyse automatique des clauses critiques, dates et incohérences. Chaque alerte est traçable ; vos juristes se concentrent sur les points à risque."
+      },
+      "support-chatbot": {
+        "title": "Automatiser le support client avec un chatbot",
+        "description": "Répondre 24/7 aux demandes fréquentes et escalader les cas complexes à l'équipe.",
+        "detail": "Assistant branché sur votre base connaissance et vos tickets. Il résout le volume répétitif, escalade proprement, et laisse une trace pour le SAV."
+      },
+      "solar-cv": {
+        "title": "Détecter et cartographier les installations via computer vision",
+        "description": "Repérer toitures, parkings et actifs énergétiques à partir d'images satellite ou drone.",
+        "detail": "Modèles de vision sur images satellite / drone pour détecter toitures, ombrages et surfaces utiles. Résultats cartographiés et exportables vers vos outils terrain."
+      },
+      "technical-docs": {
+        "title": "Industrialiser la documentation technique",
+        "description": "Générer et mettre à jour notices, procédures et dossiers qualité à partir de vos sources.",
+        "detail": "Génération et mise à jour de notices à partir de sources existantes (Git, Notion, specs). Versioning, templates et relecture humaine sur les passages critiques."
+      },
+      "returns-automation": {
+        "title": "Automatiser le traitement des retours",
+        "description": "Qualifier les retours, déclencher les avoirs et synchroniser stock et SAV.",
+        "detail": "Qualification des motifs, déclenchement d'avoirs et sync stock / OMS. Moins de tickets manuels, plus de visibilité pour le SAV et la logistique."
+      },
+      "lease-extraction": {
+        "title": "Extraire et vérifier baux et dossiers locataires",
+        "description": "Structurer les données des baux et signaler les manques avant validation.",
+        "detail": "OCR + extraction structurée des baux et pièces. Les champs manquants ou incohérents sont signalés avant validation métier."
+      },
+      "lead-scoring": {
+        "title": "Qualifier les leads et prioriser le pipeline",
+        "description": "Scorer les opportunités dans le CRM pour concentrer l'équipe commerciale sur le bon moment.",
+        "detail": "Scoring live dans le CRM à partir de signaux produit, engagement et fit. Les équipes voient qui prioriser et pourquoi — sans tableur parallèle."
+      }
+    }
   },
   "caseStudyPage": {
     "home": "Accueil",

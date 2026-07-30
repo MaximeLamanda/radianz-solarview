@@ -24,7 +24,7 @@
         "description": "Reconcile payments and invoices, cut manual mismatches."
       },
       "saas": {
-        "title": "B2B SaaS",
+        "title": "BTP/construction",
         "description": "Score leads and run outreach straight from the CRM."
       },
       "energie": {
@@ -93,6 +93,9 @@
       "item6": "Automate customer support with a chatbot",
       "addTitle": "Got another use case?",
       "addCta": "Let's talk",
+      "seeMore": "See more use cases",
+      "stackLabel": "Stack",
+      "dialogCta": "Talk to us",
       "previous": "Previous",
       "next": "Next"
     },
@@ -100,7 +103,7 @@
       "text": "AI never stands still. As catalysts for change, we accelerate innovation and adoption. We guide our clients to get ahead of their market. Very fast."
     },
     "caseStudies": {
-      "heading": "Outcomes delivered",
+      "heading": "Case studies",
       "description": "Three recent projects. Representative data.",
       "item1": {
         "client": "Progenes",
@@ -205,10 +208,12 @@
     "pricing": {
       "heading": "You pay for the outcome delivered, not the hours.",
       "description": "Two entry points. One standard: usable deliverables, fast.",
-      "offer1Name": "AI Lighthouse",
-      "offer1Tagline": "AI audit in 1 week",
-      "offer1Price": "€1,900",
-      "offer1PriceLabel": "Starting from",
+      "offer1Name": "AI Audit",
+      "offer1TaglineBefore": "AI audit in ",
+      "offer1TaglineHighlight": "1 week",
+      "offer1TaglineAfter": " — opportunity modeling, feasibility, and prioritized roadmap",
+      "offer1Price": "Free",
+      "offer1PriceLabel": "Included",
       "offer1Feature1": "Discovery workshop",
       "offer1Feature2": "AI use case mapping",
       "offer1Feature3": "AI opportunity analysis",
@@ -216,8 +221,8 @@
       "offer1Feature5": "Actionable audit report",
       "offer1Feature6": "Fast delivery",
       "offer1Cta": "Discovery call",
-      "offer2Name": "AI Forge",
-      "offer2Tagline": "Custom platform",
+      "offer2Name": "Web & AI Platform",
+      "offer2Tagline": "AI platforms, agents, and workflows that scale — built for your business.",
       "offer2Price": "€5,000",
       "offer2PriceLabel": "Starting from",
       "offer2Feature1": "AI platforms",
@@ -285,6 +290,73 @@
     "tocTitle": "On this page",
     "metaTitle": "Blog — RADIANZ | AI, automation & web",
     "metaDescription": "Radianz articles on AI, process automation, AI agents, and web development best practices."
+  },
+  "industries": {
+    "metaTitle": "Sectors — RADIANZ | AI use cases by industry",
+    "metaDescription": "Explore Radianz AI use cases by sector: manufacturing, finance, construction, energy, real estate, and retail.",
+    "heading": "Use cases by sector",
+    "description": "Pick an industry to see automations that fit your processes.",
+    "empty": "No use cases for this sector yet.",
+    "allLabel": "All",
+    "stackLabel": "Stack",
+    "cta": "Talk to us",
+    "cases": {
+      "document-search": {
+        "title": "Search information across large document volumes",
+        "description": "Query contracts, specs, and archives in natural language — sourced answers in seconds.",
+        "detail": "We index your document bases (SharePoint, Drive, ERP), wire a cited RAG engine, and your teams ask questions without hours of searching. Shipped in short sprints with access rights preserved."
+      },
+      "payment-reconciliation": {
+        "title": "Reconcile payments and invoices with precision",
+        "description": "Automatically match receipts to invoices and cut manual mismatches.",
+        "detail": "OCR pipelines plus business rules to match bank feeds and invoices. Ambiguous cases go to a human; the rest runs continuously into your ERP."
+      },
+      "prospect-outreach": {
+        "title": "Identify prospects and reach out automatically",
+        "description": "Score accounts, personalize the first touch, and run outreach from the CRM.",
+        "detail": "Enrichment, scoring, and outreach sequences wired into your CRM. Messages stay personal; sales only pick up warm replies."
+      },
+      "rfp-automation": {
+        "title": "Automate tender and RFP responses",
+        "description": "Extract requirements, pre-fill dossiers, and speed up RFP replies.",
+        "detail": "Requirement extraction, mapping to your answer library, and dossier pre-fill. The team reviews, tunes tone, and submits faster."
+      },
+      "contract-check": {
+        "title": "Review contracts and legal documents",
+        "description": "Check clauses, dates, and inconsistencies before signing or filing.",
+        "detail": "Automatic review of critical clauses, dates, and inconsistencies. Every alert is traceable so legal focuses on real risk."
+      },
+      "support-chatbot": {
+        "title": "Automate customer support with a chatbot",
+        "description": "Answer frequent requests 24/7 and escalate complex cases to the team.",
+        "detail": "An assistant on your knowledge base and tickets. It clears repetitive volume, escalates cleanly, and leaves a trail for support."
+      },
+      "solar-cv": {
+        "title": "Detect and map assets with computer vision",
+        "description": "Spot roofs, parking lots, and energy assets from satellite or drone imagery.",
+        "detail": "Vision models on satellite / drone imagery to detect roofs, shading, and usable surfaces. Results mapped and exportable to field tools."
+      },
+      "technical-docs": {
+        "title": "Industrialize technical documentation",
+        "description": "Generate and refresh manuals, procedures, and quality files from your sources.",
+        "detail": "Generate and refresh manuals from existing sources (Git, Notion, specs). Versioning, templates, and human review on critical passages."
+      },
+      "returns-automation": {
+        "title": "Automate returns handling",
+        "description": "Qualify returns, trigger credits, and sync inventory with support.",
+        "detail": "Qualify reasons, trigger credits, and sync inventory / OMS. Fewer manual tickets, more visibility for support and logistics."
+      },
+      "lease-extraction": {
+        "title": "Extract and verify leases and tenant files",
+        "description": "Structure lease data and flag gaps before validation.",
+        "detail": "OCR plus structured lease extraction. Missing or inconsistent fields are flagged before business validation."
+      },
+      "lead-scoring": {
+        "title": "Score leads and prioritize the pipeline",
+        "description": "Rank CRM opportunities so sales focus on the right moment.",
+        "detail": "Live CRM scoring from product signals, engagement, and fit. Teams see who to prioritize and why — without a parallel spreadsheet."
+      }
+    }
   },
   "caseStudyPage": {
     "home": "Home",

@@ -19,8 +19,8 @@ export function buildFooterMenuItems(tFooter: FooterTranslator) {
     {
       title: tFooter("services"),
       links: [
-        { text: tFooter("audit"), url: "/#services" },
-        { text: tFooter("platform"), url: "/#services" },
+        { text: tFooter("audit"), url: "/#offre-audit" },
+        { text: tFooter("platform"), url: "/#offre-plateforme" },
         { text: tFooter("accompaniment"), url: "/#services" },
         { text: tFooter("bookCall"), url: "/contact" },
       ],

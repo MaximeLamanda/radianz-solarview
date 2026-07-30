@@ -66,7 +66,7 @@
   --line-2: #d6d4cf;
 
   --radius: 12px;
-  --background: var(--canvas);
+  --background: var(--white);
   --foreground: var(--ink);
   --card: var(--white);
   --card-foreground: var(--ink);

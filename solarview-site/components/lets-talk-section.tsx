@@ -2,7 +2,6 @@
 
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-import { Badge } from "@/components/ui/badge";
 import { CalEmbed } from "@/components/cal-embed";
 import { getCalLink } from "@/lib/cal";
 
@@ -19,12 +18,6 @@ export function LetsTalkSection({ className, asPageTitle = false }: LetsTalkSect
   return (
     <section className={cn("bg-white py-16 md:py-24", className)}>
       <div className="container">
-        <div className="mb-8 flex justify-center">
-          <Badge variant="outline" className="shrink-0 font-mono text-xs uppercase tracking-wider">
-            {t("badge")}
-          </Badge>
-        </div>
-
         <div className="flex w-full flex-col overflow-hidden rounded-[1.75rem] bg-black text-white">
           <div className="grid md:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] md:items-stretch">
             <div className="flex flex-col justify-between gap-8 border-b border-white/10 p-6 md:border-b-0 md:border-r md:p-8 2xl:p-10">

@@ -13,6 +13,8 @@ import {
 import { Link } from "@/i18n/navigation";
 import { GALLERY_SHAPE_PATHS } from "@/lib/gallery-shapes";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { UseCaseDetailDialog } from "@/components/use-case-detail-dialog";
 
 export type UseCaseShape =
   | "ribbon"
@@ -35,7 +37,11 @@ export type TexturedGradientVariant =
   | "periwinkle";
 
 export interface UseCaseItem {
+  id: string;
   title: string;
+  description: string;
+  detail: string;
+  stack: readonly string[];
   variant: TexturedGradientVariant;
   shape: UseCaseShape;
   /** Fond image (mesh / texture) — remplace le rendu CSS de la variante */
@@ -50,6 +56,12 @@ interface UseCasesCarouselProps {
   items: UseCaseItem[];
   previousLabel: string;
   nextLabel: string;
+  stackLabel: string;
+  dialogCtaLabel: string;
+  seeMore: {
+    label: string;
+    href: string;
+  };
   addCard: {
     title: string;
     cta: string;
@@ -301,26 +313,36 @@ function GeometricShape({
 
 function TexturedGradientCard({
   title,
+  description,
+  detail,
+  stack,
+  stackLabel,
+  dialogCtaLabel,
   variant,
   shape,
   pathD,
   imageSrc,
-  href = "/contact",
+  galleryShapeId,
 }: {
   title: string;
+  description: string;
+  detail: string;
+  stack: readonly string[];
+  stackLabel: string;
+  dialogCtaLabel: string;
   variant: TexturedGradientVariant;
   shape: UseCaseShape;
   pathD?: string;
   imageSrc?: string;
-  href?: string;
+  galleryShapeId: number;
 }) {
   const config = VARIANTS[variant];
 
-  return (
-    <Link
-      href={href}
+  const trigger = (
+    <button
+      type="button"
       aria-label={title}
-      className="group relative block aspect-[3/4] w-full overflow-hidden rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2"
+      className="group relative block aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-2xl text-left outline-none focus-visible:ring-2 focus-visible:ring-ring/30 focus-visible:ring-offset-2"
     >
       {imageSrc ? (
         // eslint-disable-next-line @next/next/no-img-element -- asset décoratif plein cadre
@@ -370,7 +392,25 @@ function TexturedGradientCard({
           {title}
         </p>
       </div>
-    </Link>
+    </button>
+  );
+
+  if (!imageSrc) {
+    return trigger;
+  }
+
+  return (
+    <UseCaseDetailDialog
+      title={title}
+      description={description}
+      detail={detail}
+      stack={stack}
+      stackLabel={stackLabel}
+      ctaLabel={dialogCtaLabel}
+      imageSrc={imageSrc}
+      galleryShapeId={galleryShapeId}
+      trigger={trigger}
+    />
   );
 }
 
@@ -403,7 +443,7 @@ function AddAutomationCard({
       href={href}
       aria-label={cta}
       className={cn(
-        "group relative block aspect-[3/4] w-full overflow-hidden rounded-2xl",
+        "group relative block aspect-[3/4] w-full cursor-pointer overflow-hidden rounded-2xl",
         "border border-dashed border-foreground/20 bg-muted",
         "outline-none transition-[border-color,background-color] duration-200",
         "hover:border-foreground/40 hover:bg-muted/80",
@@ -446,6 +486,9 @@ export function UseCasesCarousel({
   items,
   previousLabel,
   nextLabel,
+  stackLabel,
+  dialogCtaLabel,
+  seeMore,
   addCard,
   className,
 }: UseCasesCarouselProps) {
@@ -485,16 +528,22 @@ export function UseCasesCarousel({
           <CarouselContent className="-ml-4">
             {items.map((item, index) => (
               <CarouselItem
-                key={`${item.variant}-${index}`}
+                key={item.id ?? `${item.variant}-${index}`}
                 className="basis-[70%] pl-4 sm:basis-[42%] md:basis-[34%] lg:basis-[26%]"
               >
                 <article className="h-full">
                   <TexturedGradientCard
                     title={item.title}
+                    description={item.description}
+                    detail={item.detail}
+                    stack={item.stack}
+                    stackLabel={stackLabel}
+                    dialogCtaLabel={dialogCtaLabel}
                     variant={item.variant}
                     shape={item.shape}
                     pathD={resolveGalleryPath(item)}
                     imageSrc={item.imageSrc}
+                    galleryShapeId={item.galleryShapeId ?? 1}
                   />
                 </article>
               </CarouselItem>
@@ -511,6 +560,12 @@ export function UseCasesCarousel({
           </CarouselContent>
         </div>
       </Carousel>
+
+      <div className="container mt-10 flex justify-center md:mt-14">
+        <Button asChild variant="outline" size="default" className="cursor-pointer">
+          <Link href={seeMore.href}>{seeMore.label}</Link>
+        </Button>
+      </div>
     </section>
   );
 }

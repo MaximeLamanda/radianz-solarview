@@ -13,7 +13,7 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { title: "Services", url: "/#services" },
-  { title: "Expertises", url: "/#resultats" },
+  { title: "Expertises", url: "/industries" },
 ] as const;
 
 export const FOOTER = {

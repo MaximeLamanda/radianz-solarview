@@ -57,7 +57,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
         }}
         menu={[
           { title: tNav("services"), url: "/#services" },
-          { title: tNav("expertises"), url: "/#resultats" },
+          { title: tNav("expertises"), url: "/industries" },
           { title: tArticles("nav"), url: "/articles" },
         ]}
         auth={{

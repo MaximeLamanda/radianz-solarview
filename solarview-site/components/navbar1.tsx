@@ -49,18 +49,24 @@ const SECTOR_KEYS = [
   "retail",
 ] as const;
 
+const SECTOR_MENU_URLS = new Set(["/industries"]);
+
+function isSectorsMenuUrl(url: string): boolean {
+  return SECTOR_MENU_URLS.has(url);
+}
+
 /** Données mock temporairement — à remplacer par le contenu réel / i18n. */
 const MOCK_DROPDOWNS: Record<string, MenuItem[]> = {
   "/#services": [
     {
       title: "Audit IA",
-      url: "/#services",
+      url: "/#offre-audit",
       description:
         "Identifier les opportunités IA et définir une roadmap actionnable.",
     },
     {
       title: "Plateforme web & IA",
-      url: "/#services",
+      url: "/#offre-plateforme",
       description:
         "Agents, workflows et plateformes sur mesure, production-ready.",
     },
@@ -188,7 +194,7 @@ function DropdownPanel({
 }) {
   const links = item.items ?? [];
   const isServices = item.url === "/#services";
-  const isSectors = item.url === "/#resultats";
+  const isSectors = isSectorsMenuUrl(item.url);
 
   if (isServices) {
     return (
@@ -235,7 +241,7 @@ function enrichMenu(menu: MenuItem[], sectors: MenuItem[]): MenuItem[] {
     ...item,
     items:
       item.items ??
-      (item.url === "/#resultats" ? sectors : MOCK_DROPDOWNS[item.url]),
+      (isSectorsMenuUrl(item.url) ? sectors : MOCK_DROPDOWNS[item.url]),
   }));
 }
 
@@ -376,6 +382,8 @@ function AuthButton({
   );
 }
 
+const SCROLL_COMPACT_THRESHOLD = 24;
+
 const Navbar1 = ({
   logo = {
     url: "https://www.shadcnblocks.com",
@@ -392,12 +400,13 @@ const Navbar1 = ({
 }: Navbar1Props) => {
   const tNav = useTranslations("nav");
   const [open, setOpen] = React.useState(false);
+  const [compact, setCompact] = React.useState(false);
   const sectors = React.useMemo(
     () =>
       SECTOR_KEYS.map((key) => ({
         title: tNav(`sectors.${key}.title`),
         description: tNav(`sectors.${key}.description`),
-        url: "/#use-cases",
+        url: `/industries?secteur=${key}`,
       })),
     [tNav],
   );
@@ -412,12 +421,36 @@ const Navbar1 = ({
 
   const closeMobileMenu = React.useCallback(() => setOpen(false), []);
 
+  React.useEffect(() => {
+    let rafId = 0;
+
+    const applyScrollPosition = () => {
+      rafId = 0;
+      // Déployée uniquement en haut ; compacte dès qu'on a scrollé
+      setCompact(window.scrollY > SCROLL_COMPACT_THRESHOLD);
+    };
+
+    const onScroll = () => {
+      if (rafId) return;
+      rafId = window.requestAnimationFrame(applyScrollPosition);
+    };
+
+    applyScrollPosition();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId) window.cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
     <div className={cn("sticky top-2 z-50 px-4 pt-2 sm:px-6", className)}>
       <header
         className={cn(
-          "relative mx-auto w-full max-w-[var(--site-max-width)] overflow-visible rounded-md border-0 shadow-none",
+          "relative mx-auto w-full overflow-visible rounded-md border-0 shadow-none",
           "bg-black text-white",
+          "transition-[max-width] duration-300 ease-out",
+          compact ? "max-w-3xl" : "max-w-[var(--site-max-width)]",
         )}
       >
         <nav className="relative flex items-center justify-between gap-3 overflow-visible p-2.5">
@@ -458,9 +491,11 @@ const Navbar1 = ({
           </div>
 
           <div className="relative z-10 flex items-center gap-2">
-            <div className="hidden md:block">
-              <LanguageSwitcher />
-            </div>
+            {!compact ? (
+              <div className="hidden md:block">
+                <LanguageSwitcher />
+              </div>
+            ) : null}
             <div className="hidden md:block">
               <AuthButton auth={auth} />
             </div>

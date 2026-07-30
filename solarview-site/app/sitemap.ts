@@ -4,7 +4,7 @@ import { getAllArticlePaths } from "@/lib/articles";
 import { localePath, SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/contact", "/articles", "/privacy"];
+  const routes = ["", "/contact", "/articles", "/industries", "/privacy"];
   const articleRoutes = getAllArticlePaths();
   const entries: MetadataRoute.Sitemap = [];
 
