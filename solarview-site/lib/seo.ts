@@ -77,3 +77,45 @@ export function withSocialMetadata(metadata: Metadata): Metadata {
     },
   };
 }
+
+export type FaqItem = { question: string; answer: string };
+
+export function buildFaqPageJsonLd(faqs: FaqItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+export function buildServiceJsonLd(input: {
+  name: string;
+  description: string;
+  url: string;
+  providerName: string;
+  areaServed?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: input.name,
+    description: input.description,
+    url: input.url,
+    provider: {
+      "@type": "Organization",
+      name: input.providerName,
+      url: SITE_URL,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: input.areaServed ?? "France",
+    },
+  };
+}
