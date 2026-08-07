@@ -14,7 +14,7 @@ export const SERVICES: Record<
   "audit-ia": {
     pathByLocale: {
       fr: "/services/audit-ia",
-      en: "/services/ai-audit",
+      en: "/services/audit-ia",
     },
     primaryKeywordFr: "audit IA",
     primaryKeywordEn: "AI audit",
