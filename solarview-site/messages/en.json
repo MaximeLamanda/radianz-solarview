@@ -426,5 +426,79 @@
         "body": "To exercise your rights or ask about this policy, use the Contact page form specifying the subject of your request."
       }
     }
+  },
+  "servicesPages": {
+    "audit": {
+      "metaTitle": "AI Audit | Opportunities, ROI and roadmap in 1 week | RADIANZ",
+      "metaDescription": "Free AI audit in 1 week: discovery workshop, use-case mapping, opportunity analysis and quick-wins roadmap. Actionable report, zero fluff.",
+      "badge": "AI Audit · 1 week",
+      "heading": "AI audit: what to launch, what to ignore.",
+      "description": "In one week, we scan your processes and data, size the opportunities, and deliver a prioritized roadmap. Free. Usable the next day.",
+      "ctaPrimary": "Book a discovery call",
+      "forWhoTitle": "Who is it for?",
+      "forWho": [
+        "Leaders who want an action plan, not an 80-slide study",
+        "Ops teams stuck choosing what to automate first",
+        "SMBs and mid-market firms with data but no clear AI roadmap",
+        "Product teams who need to validate a use case before investing"
+      ],
+      "processTitle": "How it works",
+      "process": [
+        {
+          "title": "Discovery workshop",
+          "text": "We frame your processes, data, and constraints. We want the ground truth, not a filled-out generic questionnaire."
+        },
+        {
+          "title": "AI use case mapping",
+          "text": "We list possible uses on your real stack. We cut the ones that sound good but won't hold."
+        },
+        {
+          "title": "Analysis and prioritization",
+          "text": "Each opportunity is sized: effort, feasibility, impact. We keep what moves the margins."
+        },
+        {
+          "title": "Roadmap and report",
+          "text": "You leave with a quick-wins roadmap and an actionable report. Ready to decide, or to start building with us."
+        }
+      ],
+      "deliverablesTitle": "What you walk away with",
+      "deliverables": [
+        "Discovery workshop",
+        "AI use case mapping",
+        "AI opportunity analysis",
+        "Roadmap (quick wins)",
+        "Actionable audit report",
+        "Delivered in 1 week, free"
+      ],
+      "proofTitle": "Already shipping in the field",
+      "proofDescription": "Websites, agents, and AI platforms in production. See the case studies and judge for yourself.",
+      "proofCta": "View case studies",
+      "faqTitle": "Frequently asked questions",
+      "faq": [
+        {
+          "question": "What is an AI audit?",
+          "answer": "An AI audit is a short diagnosis of your processes and data to find where AI actually creates value. At RADIANZ, we map use cases, estimate ROI and feasibility, then prioritize a roadmap. You know what to launch, and what to leave aside."
+        },
+        {
+          "question": "How long does an AI audit take?",
+          "answer": "The RADIANZ AI audit runs in one week. After a discovery workshop, we map use cases, analyze opportunities, and deliver a prioritized roadmap with an actionable report. No tunnel effect: you get concrete deliverables by the end of the week."
+        },
+        {
+          "question": "Who is this AI audit for?",
+          "answer": "This AI audit is for founders, CIOs, and ops leads who need clear priorities before investing. Useful if you have too many AI ideas and too few results, or need an actionable roadmap. Startup, SMB, or mid-market: the format stays short and concrete."
+        },
+        {
+          "question": "What do you deliver at the end of the audit?",
+          "answer": "You walk away with a discovery workshop, AI use case mapping, opportunity analysis, a quick-wins roadmap, and an actionable audit report. All of it in one week, at no cost. Deliverables you can use right away, not a decorative slide deck."
+        },
+        {
+          "question": "How is this different from classic AI consulting?",
+          "answer": "Classic consulting often produces slides and broad recommendations. Our AI audit cuts through: prioritized cases, real feasibility on your stack, quick-wins roadmap. We build like founders, in short sprints. If you move forward, we start the build. If not, you keep a clear plan."
+        }
+      ],
+      "ctaTitle": "Frame your next AI move.",
+      "ctaDescription": "15 minutes to see if a one-week audit makes sense for you. No catalog pitch.",
+      "ctaButton": "Book a discovery call"
+    }
   }
 }
