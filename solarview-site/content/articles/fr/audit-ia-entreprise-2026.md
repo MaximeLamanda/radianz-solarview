@@ -108,7 +108,7 @@ Le consulting classique produit souvent des slides et des recommandations trop l
 
 La différence se voit dans le niveau de détail. « Digitaliser la relation client avec l'IA » n'est pas une recommandation. « Extraire les champs X/Y/Z des PDF fournisseurs, les pousser dans l'ERP via l'API existante, avec validation humaine sur les montants > 5 000 € » en est une.
 
-On s'appuie aussi sur ce qu'on a déjà livré : plateformes et sites pour des clients comme Progenes ou Haven Energy, visibles dans nos [cas clients](/fr/case-studies). L'audit n'est pas décorrélé du build. C'est le même standard : utile, mesurable, mis en production.
+On s'appuie aussi sur ce qu'on a déjà livré : plateformes et sites pour des clients comme Progenes ou Haven Energy, visibles dans nos [cas clients](/fr/case-studies/progenes). L'audit n'est pas décorrélé du build. C'est le même standard : utile, mesurable, mis en production.
 
 ## Comment démarrer sans perdre une semaine de calendrier
 

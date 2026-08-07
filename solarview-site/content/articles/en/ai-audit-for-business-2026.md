@@ -108,7 +108,7 @@ Classic consulting often produces slides and recommendations that are too broad.
 
 The difference shows in the level of detail. "Digitize customer relationships with AI" is not a recommendation. "Extract fields X/Y/Z from supplier PDFs, push them into the ERP via the existing API, with human validation on amounts over €5,000" is one.
 
-We also lean on what we have already shipped: platforms and sites for clients such as Progenes and Haven Energy, visible in our [case studies](/en/case-studies). The audit is not detached from the build. Same bar: useful, measurable, put into production.
+We also lean on what we have already shipped: platforms and sites for clients such as Progenes and Haven Energy, visible in our [case studies](/en/case-studies/progenes). The audit is not detached from the build. Same bar: useful, measurable, put into production.
 
 ## How to start without burning a week of calendar
 
