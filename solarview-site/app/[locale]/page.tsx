@@ -189,6 +189,7 @@ export default async function Home({
         <MagicTextSection text={tAgency("statement.text")} />
         <CaseStudiesSection
           heading={tAgency("caseStudies.heading")}
+          description={tAgency("caseStudies.description")}
           items={[
             {
               client: tAgency("caseStudies.item1.client"),
@@ -197,6 +198,22 @@ export default async function Home({
               imageWidth: 1440,
               imageHeight: 900,
               href: "/case-studies/progenes",
+            },
+            {
+              client: tAgency("caseStudies.item4.client"),
+              category: tAgency("caseStudies.item4.category"),
+              imageSrc: "/case-studies/haven-energy.png",
+              imageWidth: 1440,
+              imageHeight: 900,
+              href: "/case-studies/haven-energy",
+            },
+            {
+              client: tAgency("caseStudies.item5.client"),
+              category: tAgency("caseStudies.item5.category"),
+              imageSrc: "/case-studies/t1-energy.png",
+              imageWidth: 1440,
+              imageHeight: 900,
+              href: "/case-studies/t1-energy",
             },
             {
               client: tAgency("caseStudies.item2.client"),
@@ -241,6 +258,11 @@ export default async function Home({
                   )}
                 />
               ),
+            },
+            {
+              client: tAgency("caseStudies.item6.client"),
+              category: tAgency("caseStudies.item6.category"),
+              href: "/contact",
             },
           ]}
         />
