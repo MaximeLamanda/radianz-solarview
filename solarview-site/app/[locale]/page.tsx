@@ -10,6 +10,7 @@ import { UseCasesCarousel } from "@/components/use-cases-carousel";
 import { LetsTalkSection } from "@/components/lets-talk-section";
 import { PricingSection } from "@/components/pricing-section";
 import { CaseStudiesSection } from "@/components/case-studies-section";
+import { FaqSection } from "@/components/faq-section";
 import { AgentUrlAnalyzerIllustration } from "@/components/agent-url-analyzer-illustration";
 import { SolarCvDetectionIllustration } from "@/components/solar-cv-detection-illustration";
 import { Footer2 } from "@/components/footer2";
@@ -20,7 +21,14 @@ import {
   getUseCaseById,
   HOMEPAGE_USE_CASE_IDS,
 } from "@/lib/industries";
-import { hreflangAlternates, SITE_URL, withSocialMetadata } from "@/lib/seo";
+import { servicePath } from "@/lib/services";
+import {
+  buildFaqPageJsonLd,
+  hreflangAlternates,
+  SITE_URL,
+  withSocialMetadata,
+  type FaqItem,
+} from "@/lib/seo";
 import { type Locale } from "@/i18n/config";
 
 export async function generateMetadata({
@@ -65,6 +73,10 @@ export default async function Home({
   const tArticles = await getTranslations({ locale: typedLocale, namespace: "articles" });
   const tFooter = await getTranslations({ locale: typedLocale, namespace: "footer" });
 
+  const homeFaq = tAgency.raw("faq.items") as FaqItem[];
+  const faqJsonLd = buildFaqPageJsonLd(homeFaq);
+  const auditIaUrl = `${SITE_URL}/${typedLocale}${servicePath(typedLocale, "audit-ia")}`;
+
   const homeJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -85,12 +97,30 @@ export default async function Home({
         description: tSite("schemaDescription"),
         url: SITE_URL,
         priceRange: "€€€",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: tAgency("projectTypes.audit"),
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: tAgency("projectTypes.audit"),
+                url: auditIaUrl,
+              },
+            },
+          ],
+        },
       },
       {
         "@type": "WebSite",
         name: tSite("name"),
         url: `${SITE_URL}/${typedLocale}`,
         inLanguage: typedLocale,
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqJsonLd.mainEntity,
       },
     ],
   };
@@ -314,6 +344,7 @@ export default async function Home({
             },
           ]}
         />
+        <FaqSection heading={tAgency("faq.heading")} items={homeFaq} />
         <LetsTalkSection />
       </main>
       <footer>

@@ -262,16 +262,28 @@
     },
     "faq": {
       "heading": "Les questions qu'on nous pose vraiment",
-      "q1": "Qu'est-ce qui distingue Radianz des autres agences IA ?",
-      "a1": "On construit comme des fondateurs : sprints courts, livraisons hebdo, accès direct. Pas d'intermédiaires, pas de slides sans suite.",
-      "q2": "Comment livrez-vous plus vite ?",
-      "a2": "Démarrage en 48h, itérations d'une semaine, stack IA moderne — sans sacrifier la qualité production.",
-      "q3": "Suis-je impliqué dans le process ?",
-      "a3": "Oui. Chaque sprint est co-construit. Vous validez la direction ; on porte l'exécution.",
-      "q4": "Quels gains attendre de l'IA ?",
-      "a4": "En moyenne +40% de productivité sur les process automatisés, avec un ROI visible dès les premières semaines — quand on vise les bons leviers.",
-      "q5": "Je ne suis pas expert IA. Vous m'aidez à y voir clair ?",
-      "a5": "C'est le rôle de l'audit : opportunités concrètes, sans jargon, roadmap priorisée (et ce qu'il faut ignorer)."
+      "items": [
+        {
+          "question": "Qu'est-ce qu'une agence IA comme Radianz ?",
+          "answer": "Radianz est une agence IA qui conçoit et livre des outils en production : agents, automatisations, plateformes. On ne vend pas de slides. On démarre vite, on itère à la semaine, et vous avez un accès direct à l'équipe. Le but : un système qui tourne dans votre SI, pas une démo hors sol."
+        },
+        {
+          "question": "À quoi sert un audit IA ?",
+          "answer": "L'audit IA, c'est une semaine pour cartographier vos process, vos données et les cas où l'IA crée vraiment de la valeur. On estime faisabilité et ROI, puis on priorise une roadmap. Vous repartez avec un rapport actionnable : quoi lancer maintenant, quoi reporter, quoi laisser de côté."
+        },
+        {
+          "question": "Que faites-vous avec des agents IA ?",
+          "answer": "Un agent IA enchaîne des tâches pour vous : lire des docs, appeler des APIs, préparer un devis, alerter une équipe. On le branche sur votre stack (CRM, ERP, Drive) avec des garde-fous. Ce n'est pas un chatbot gadget : c'est un automatisme mesurable sur un process métier précis."
+        },
+        {
+          "question": "Quels sont les délais typiques ?",
+          "answer": "L'audit tient en une semaine. Un agent ou une automatisation ciblée part souvent en quelques sprints. Une plateforme plus large se découpe en livraisons hebdomadaires dès le démarrage. On vise un premier résultat visible tôt — pas six mois de cadrage avant le premier écran utile."
+        },
+        {
+          "question": "Pour qui est faite Radianz ?",
+          "answer": "On travaille avec des dirigeants, DSI et responsables ops de PME, ETI et startups qui veulent des résultats concrets, pas une stratégie IA décorative. Si vous avez trop d'idées et trop peu de livraisons en prod, on est le bon interlocuteur. Secteurs déjà couverts : énergie, industrie, services B2B."
+        }
+      ]
     },
     "cta": {
       "heading": "L'avance se prend maintenant.",

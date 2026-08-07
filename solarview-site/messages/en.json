@@ -262,16 +262,28 @@
     },
     "faq": {
       "heading": "The questions people actually ask",
-      "q1": "What sets Radianz apart from other AI agencies?",
-      "a1": "We build like founders: short sprints, weekly delivery, direct access. No middlemen, no slides without follow-through.",
-      "q2": "How do you deliver faster?",
-      "a2": "Start in 48h, one-week iterations, modern AI stack — without sacrificing production quality.",
-      "q3": "Am I involved throughout?",
-      "a3": "Yes. Every sprint is co-built. You own the direction; we own execution.",
-      "q4": "What gains should I expect from AI?",
-      "a4": "On average +40% productivity on automated processes, with ROI visible in the first weeks — when we hit the right levers.",
-      "q5": "I'm not an AI expert. Can you help me see clearly?",
-      "a5": "That's what the audit is for: concrete opportunities, no jargon, prioritized roadmap (and what to ignore)."
+      "items": [
+        {
+          "question": "What is an AI agency like Radianz?",
+          "answer": "Radianz is an AI agency that designs and ships production tools: agents, automations, platforms. We don't sell slide decks. We start fast, iterate weekly, and you get direct access to the team. The goal: a system that runs in your stack, not an off-site demo."
+        },
+        {
+          "question": "What is an AI audit for?",
+          "answer": "An AI audit is one week to map your processes, your data, and the cases where AI actually creates value. We estimate feasibility and ROI, then prioritize a roadmap. You leave with an actionable report: what to launch now, what to postpone, what to leave aside."
+        },
+        {
+          "question": "What do you build with AI agents?",
+          "answer": "An AI agent chains tasks for you: reading docs, calling APIs, preparing a quote, alerting a team. We wire it into your stack (CRM, ERP, Drive) with guardrails. It isn't a gadget chatbot — it's a measurable automation on a specific business process."
+        },
+        {
+          "question": "What are typical timelines?",
+          "answer": "The audit fits in one week. A focused agent or automation often ships in a few sprints. A larger platform is split into weekly deliveries from day one. We aim for an early visible result — not six months of framing before the first useful screen."
+        },
+        {
+          "question": "Who is Radianz for?",
+          "answer": "We work with founders, CIOs, and ops leads at SMBs, mid-market firms, and startups who want concrete results, not decorative AI strategy. If you have too many ideas and too few production deliveries, we're the right fit. Sectors already covered: energy, industry, B2B services."
+        }
+      ]
     },
     "cta": {
       "heading": "The lead starts now.",
