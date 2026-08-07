@@ -194,6 +194,242 @@ const CASE_STUDIES: CaseStudy[] = [
       },
     ],
   },
+  // —— Haven Energy FR ——
+  {
+    slug: "haven-energy",
+    locale: "fr",
+    client: "Haven Energy",
+    category: "Site web",
+    sector: "Énergie · Stockage résidentiel",
+    solution: "Site vitrine",
+    title: "Site vitrine pour Haven Energy, backup batterie à domicile",
+    excerpt:
+      "Site web pour une startup californienne qui propose du backup batterie résidentiel en abonnement : devis instantané, parcours client clair et présentation du modèle « battery backup as a service ».",
+    overview:
+      "Haven Energy (havenenergy.com) rend le stockage domestique accessible via un abonnement mensuel fixe sur dix ans — design, installation et exploitation inclus. Nous avons conçu le site qui porte cette promesse commerciale.",
+    cover: {
+      type: "image",
+      src: "/case-studies/haven-energy.png",
+      alt: "Aperçu du site Haven Energy",
+      width: 1440,
+      height: 900,
+    },
+    metrics: [
+      { value: "Site", label: "vitrine orientée conversion" },
+      { value: "US", label: "marché résidentiel californien" },
+      { value: "10 ans", label: "tarif fixe sans escalator" },
+      { value: "Backup", label: "batterie à domicile" },
+    ],
+    externalUrl: "https://havenenergy.com/",
+    sections: [
+      {
+        id: "contexte",
+        heading: "Le contexte",
+        paragraphs: [
+          "Haven Energy propose du backup batterie pour les foyers américains : un prix mensuel simple, fixé dix ans, sans frais cachés. La startup gère le design, les permis, l’installation et l’exploitation — le client obtient une couverture complète, pas seulement du matériel.",
+          "Le site devait traduire ce modèle « as a service » en une expérience claire : expliquer la valeur, rassurer sur le parcours, et amener le visiteur vers un devis instantané.",
+        ],
+      },
+      {
+        id: "approche",
+        heading: "Notre approche",
+        paragraphs: [
+          "Structure en trois temps : comment Haven fonctionne, les étapes concrètes (questions → devis → réservation), puis preuves sociales et FAQ pour lever les objections sur le contrat, les incitations fiscales et le contrôle de la batterie.",
+          "Le ton reste direct et rassurant — aligné sur une offre grand public où la simplicité du prix et la sérénité face aux coupures sont les arguments principaux.",
+        ],
+        bullets: [
+          "Parcours devis en quelques questions",
+          "Mise en avant du modèle sans escalator sur 10 ans",
+          "Témoignages clients et couverture presse",
+          "FAQ sur installation, maintenance et fin de contrat",
+        ],
+      },
+      {
+        id: "resultat",
+        heading: "Ce que ça change",
+        paragraphs: [
+          "Un site vitrine qui ne se contente pas de présenter le produit : il incarne la promesse Haven — simplicité tarifaire, service clé en main, backup fiable — et guide le prospect jusqu’à la réservation du système.",
+        ],
+      },
+    ],
+  },
+  // —— Haven Energy EN ——
+  {
+    slug: "haven-energy",
+    locale: "en",
+    client: "Haven Energy",
+    category: "Website",
+    sector: "Energy · Residential storage",
+    solution: "Showcase site",
+    title: "Showcase website for Haven Energy home battery backup",
+    excerpt:
+      "Website for a California startup offering residential battery backup as a subscription: instant quote, clear customer journey, and presentation of the battery-backup-as-a-service model.",
+    overview:
+      "Haven Energy (havenenergy.com) makes home storage accessible through a fixed monthly price over ten years — design, installation, and operations included. We built the site that carries this commercial promise.",
+    cover: {
+      type: "image",
+      src: "/case-studies/haven-energy.png",
+      alt: "Haven Energy website overview",
+      width: 1440,
+      height: 900,
+    },
+    metrics: [
+      { value: "Site", label: "conversion-focused showcase" },
+      { value: "US", label: "California residential market" },
+      { value: "10 yr", label: "fixed rate, no escalator" },
+      { value: "Backup", label: "home battery storage" },
+    ],
+    externalUrl: "https://havenenergy.com/",
+    sections: [
+      {
+        id: "context",
+        heading: "Context",
+        paragraphs: [
+          "Haven Energy offers home battery backup for American households: one simple monthly price, fixed for ten years, with no hidden fees. The startup handles design, permits, installation, and ongoing operation — customers get full coverage, not just hardware.",
+          "The site had to translate this as-a-service model into a clear experience: explain the value, reassure on the journey, and drive visitors toward an instant quote.",
+        ],
+      },
+      {
+        id: "approach",
+        heading: "Our approach",
+        paragraphs: [
+          "A three-part structure: how Haven works, concrete steps (questions → quote → reservation), then social proof and FAQ to address contract, tax incentives, and battery-control questions.",
+          "The tone stays direct and reassuring — aligned with a consumer offer where pricing simplicity and outage peace of mind are the main selling points.",
+        ],
+        bullets: [
+          "Quote flow in a few questions",
+          "Highlight of the 10-year no-escalator model",
+          "Customer testimonials and press coverage",
+          "FAQ on installation, maintenance, and end of plan",
+        ],
+      },
+      {
+        id: "outcome",
+        heading: "What changed",
+        paragraphs: [
+          "A showcase site that does more than present the product: it embodies Haven’s promise — simple pricing, turnkey service, reliable backup — and guides prospects through to system reservation.",
+        ],
+      },
+    ],
+  },
+  // —— T1 Energy FR ——
+  {
+    slug: "t1-energy",
+    locale: "fr",
+    client: "T1 Energy",
+    category: "Site web",
+    sector: "Énergie · Fabrication solaire",
+    solution: "Site vitrine",
+    title: "Site vitrine pour T1 Energy, fabrication solaire américaine",
+    excerpt:
+      "Site web pour un fabricant texan de cellules et modules solaires : mission industrielle, chaîne d’approvisionnement domestique et présentation de la technologie PV de dernière génération.",
+    overview:
+      "T1 Energy (t1energy.com) construit des chaînes d’approvisionnement solaire et batterie aux États-Unis. Nous avons conçu le site qui porte cette ambition manufacturière et la crédibilité industrielle du groupe.",
+    cover: {
+      type: "image",
+      src: "/case-studies/t1-energy.png",
+      alt: "Aperçu du site T1 Energy",
+      width: 1440,
+      height: 900,
+    },
+    metrics: [
+      { value: "Site", label: "vitrine corporate" },
+      { value: "US", label: "fabrication domestique" },
+      { value: "PV", label: "cellules et modules solaires" },
+      { value: "Supply", label: "chaîne d’approvisionnement" },
+    ],
+    externalUrl: "https://t1energy.com/",
+    sections: [
+      {
+        id: "contexte",
+        heading: "Le contexte",
+        paragraphs: [
+          "T1 Energy est un fabricant basé à Austin qui développe une capacité de production solaire et batterie aux États-Unis. Sa mission : des chaînes d’approvisionnement domestiques pour rendre l’énergie scalable, fiable et compétitive.",
+          "Le site devait parler à des audiences B2B et investisseurs : prouver la profondeur technologique, la montée en cadence industrielle et l’actualité du groupe — sans noyer le message dans le jargon.",
+        ],
+      },
+      {
+        id: "approche",
+        heading: "Notre approche",
+        paragraphs: [
+          "Architecture en blocs distincts : mission, manufacturing (cellule → module), supply chain, technologie PV détaillée couche par couche, chiffres clés et fil d’actualités.",
+          "Le design met en avant la crédibilité industrielle — matériaux abondants, cellules N-type, efficacité et durabilité — tout en gardant une navigation fluide entre les sections corporate et produit.",
+        ],
+        bullets: [
+          "Présentation de la chaîne de valeur cellule → module",
+          "Schéma technologique de la stack PV",
+          "Indicateurs de production et de performance",
+          "Fil d’actualités et communiqués récents",
+        ],
+      },
+      {
+        id: "resultat",
+        heading: "Ce que ça change",
+        paragraphs: [
+          "Un site vitrine qui positionne T1 Energy comme acteur manufacturier crédible — pas seulement un producteur de panneaux, mais un bâtisseur de supply chain énergétique américaine, avec une narration claire entre technologie, production et actualité.",
+        ],
+      },
+    ],
+  },
+  // —— T1 Energy EN ——
+  {
+    slug: "t1-energy",
+    locale: "en",
+    client: "T1 Energy",
+    category: "Website",
+    sector: "Energy · Solar manufacturing",
+    solution: "Showcase site",
+    title: "Showcase website for T1 Energy American solar manufacturing",
+    excerpt:
+      "Website for a Texas-based solar cell and module manufacturer: industrial mission, domestic supply chain, and presentation of next-generation PV technology.",
+    overview:
+      "T1 Energy (t1energy.com) is building domestic solar and battery supply chains in the United States. We designed the site that carries this manufacturing ambition and the group’s industrial credibility.",
+    cover: {
+      type: "image",
+      src: "/case-studies/t1-energy.png",
+      alt: "T1 Energy website overview",
+      width: 1440,
+      height: 900,
+    },
+    metrics: [
+      { value: "Site", label: "corporate showcase" },
+      { value: "US", label: "domestic manufacturing" },
+      { value: "PV", label: "solar cells & modules" },
+      { value: "Supply", label: "chain localization" },
+    ],
+    externalUrl: "https://t1energy.com/",
+    sections: [
+      {
+        id: "context",
+        heading: "Context",
+        paragraphs: [
+          "T1 Energy is an Austin-based manufacturer building solar and battery production capacity in the United States. Its mission: domestic supply chains to make energy scalable, reliable, and cost-competitive.",
+          "The site had to speak to B2B audiences and investors: prove technological depth, industrial ramp-up, and company news — without drowning the message in jargon.",
+        ],
+      },
+      {
+        id: "approach",
+        heading: "Our approach",
+        paragraphs: [
+          "A block-based architecture: mission, manufacturing (cell → module), supply chain, layer-by-layer PV technology detail, key figures, and a news feed.",
+          "The design highlights industrial credibility — abundant materials, N-type cells, efficiency and durability — while keeping smooth navigation between corporate and product sections.",
+        ],
+        bullets: [
+          "Cell-to-module value chain presentation",
+          "PV stack technology breakdown",
+          "Production and performance indicators",
+          "News feed and recent announcements",
+        ],
+      },
+      {
+        id: "outcome",
+        heading: "What changed",
+        paragraphs: [
+          "A showcase site that positions T1 Energy as a credible manufacturing player — not just a panel producer, but a builder of American energy supply chains, with a clear narrative linking technology, production, and news.",
+        ],
+      },
+    ],
+  },
   // —— Articles agent FR ——
   {
     slug: "articles-agent",
@@ -460,7 +696,13 @@ const CASE_STUDIES: CaseStudy[] = [
   },
 ];
 
-export const CASE_STUDY_SLUGS = ["progenes", "articles-agent", "solar-detection"] as const;
+export const CASE_STUDY_SLUGS = [
+  "progenes",
+  "haven-energy",
+  "t1-energy",
+  "articles-agent",
+  "solar-detection",
+] as const;
 export type CaseStudySlug = (typeof CASE_STUDY_SLUGS)[number];
 
 export function getCaseStudiesByLocale(locale: Locale): CaseStudy[] {
