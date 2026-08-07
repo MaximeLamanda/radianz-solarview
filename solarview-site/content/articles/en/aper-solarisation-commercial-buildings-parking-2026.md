@@ -14,6 +14,8 @@ status: published
 
 ## Why APER is now a commercial signal, not only a compliance topic
 
+This article was written in the context of our former solar platform. RADIANZ is now an AI & web agency: to frame an artificial intelligence project, see our [AI Audit](/en/services/audit-ia).
+
 France's APER framework has moved from legal watchlist to sales trigger. For B2B solar developers, C&I installers, energy service companies, and prospecting teams, the 2026-2028 solarization calendar creates a practical way to identify accounts with a real reason to act. The strongest opportunities are not generic energy leads. They are commercial, industrial, logistics, retail, healthcare, office, and public-access assets where a legal requirement, an operational constraint, and a potential energy project now overlap.
 
 The core keyword is "APER solarization commercial buildings parking 2026". Behind that search intent, decision makers are usually asking five business questions. Is my asset covered by the law? Which deadline applies? How much roof or parking area must be equipped or shaded? Can a mixed solution combine photovoltaic canopies and vegetation? How do I move from compliance risk to a financially defensible project? This intent is valuable because it already contains urgency, budget relevance, and a need for expert guidance.

@@ -14,6 +14,8 @@ status: published
 
 ## What's at stake in B2B solar prospecting in 2026
 
+This article was written in the context of our former solar platform. RADIANZ is now an AI & web agency: to frame an artificial intelligence project, see our [AI Audit](/en/services/audit-ia).
+
 B2B solar prospecting has changed pace. Sales teams no longer lack addresses to call — they lack time to sort which ones deserve a meeting. In the C&I segment — commercial, industrial, retail — the building stock is vast, but not every roof is worth pursuing.
 
 In 2026, two forces are accelerating the market. On one side, solarization obligations — especially under the [APER framework for parking lots and C&I buildings](/en/articles/aper-solarisation-commercial-buildings-parking-2026) — push asset managers to move before regulatory deadlines. On the other, competition among installers is increasingly won on qualification speed: whoever shows up with credible numbers before the competitor has a real edge.

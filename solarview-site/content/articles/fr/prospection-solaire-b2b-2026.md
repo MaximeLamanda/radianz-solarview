@@ -14,6 +14,8 @@ status: published
 
 ## Les enjeux de la prospection solaire B2B en 2026
 
+Cet article a été rédigé dans le contexte de notre plateforme solaire historique. RADIANZ est aujourd'hui une agence IA & web : pour cadrer un projet d'intelligence artificielle, consultez notre [Audit IA](/fr/services/audit-ia).
+
 La prospection solaire B2B a changé de rythme. Les équipes commerciales ne manquent plus d'adresses à appeler : elles manquent de temps pour trier ce qui mérite vraiment un rendez-vous. Sur le segment C&I — tertiaire, logistique, retail — le parc est vaste, mais toutes les toitures ne se valent pas.
 
 En 2026, deux leviers accélèrent le marché. D'un côté, les obligations de solarisation — notamment via la [loi APER sur les parkings et bâtiments C&I](/fr/articles/loi-aper-solarisation-batiments-parkings-2026) — poussent les gestionnaires de patrimoine à se positionner avant les échéances réglementaires. De l'autre, la concurrence entre installateurs se joue sur la vitesse de qualification : celui qui arrive avec des chiffres crédibles avant le concurrent a une longueur d'avance.
