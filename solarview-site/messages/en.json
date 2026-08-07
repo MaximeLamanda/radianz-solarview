@@ -104,7 +104,7 @@
     },
     "caseStudies": {
       "heading": "Case studies",
-      "description": "Three recent projects. Representative data.",
+      "description": "Websites and AI solutions. Six recent projects, representative data.",
       "item1": {
         "client": "Progenes",
         "category": "Web platform",
@@ -133,6 +133,18 @@
         "challenge": "Find buildings/panels and reach the owner.",
         "result": "CV over a date range + contact enrichment.",
         "metric": "Full lead"
+      },
+      "item4": {
+        "client": "Haven Energy",
+        "category": "Website"
+      },
+      "item5": {
+        "client": "T1 Energy",
+        "category": "Website"
+      },
+      "item6": {
+        "client": "Your project?",
+        "category": "Contact us"
       }
     },
     "pain": {

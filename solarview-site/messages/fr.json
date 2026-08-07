@@ -104,7 +104,7 @@
     },
     "caseStudies": {
       "heading": "Cas clients",
-      "description": "Trois projets récents. Données représentatives.",
+      "description": "Sites web et solutions IA. Six projets récents, données représentatives.",
       "item1": {
         "client": "Progenes",
         "category": "Plateforme web",
@@ -133,6 +133,18 @@
         "challenge": "Repérer bâtiments/panneaux et joindre le propriétaire.",
         "result": "CV sur plage de dates + enrichissement des contacts.",
         "metric": "Lead complet"
+      },
+      "item4": {
+        "client": "Haven Energy",
+        "category": "Site web"
+      },
+      "item5": {
+        "client": "T1 Energy",
+        "category": "Site web"
+      },
+      "item6": {
+        "client": "Votre projet ?",
+        "category": "Nous contacter"
       }
     },
     "pain": {
