@@ -52,15 +52,15 @@ const CASE_STUDIES: CaseStudy[] = [
     cover: {
       type: "image",
       src: "/case-studies/progenes.png",
-      alt: "Aperçu de la plateforme Progenes",
+      alt: "Page d’accueil Progenes",
       width: 1440,
       height: 900,
     },
     metrics: [
-      { value: "250+", label: "références taureaux en catalogue" },
-      { value: "Stock", label: "affiché en temps réel sur chaque dose" },
-      { value: "BDC", label: "bon de commande généré depuis le panier" },
-      { value: "FR", label: "livraison centre IA ou ferme" },
+      { value: "3,2k", label: "visiteurs / mois" },
+      { value: "250+", label: "références catalogue" },
+      { value: "170+", label: "fermes partenaires" },
+      { value: "8 sem.", label: "de conception à mise en ligne" },
     ],
     externalUrl: "https://progenes.fr/",
     sections: [
@@ -81,8 +81,8 @@ const CASE_STUDIES: CaseStudy[] = [
         ],
         illustration: {
           type: "image",
-          src: "/case-studies/progenes.png",
-          alt: "Catalogue et fiches taureaux Progenes",
+          src: "/case-studies/progenes-catalogue.png",
+          alt: "Liste des taureaux Progenes",
           width: 1440,
           height: 900,
         },
@@ -131,15 +131,15 @@ const CASE_STUDIES: CaseStudy[] = [
     cover: {
       type: "image",
       src: "/case-studies/progenes.png",
-      alt: "Progenes platform overview",
+      alt: "Progenes homepage",
       width: 1440,
       height: 900,
     },
     metrics: [
-      { value: "250+", label: "bull references in catalog" },
-      { value: "Stock", label: "shown live on every dose" },
-      { value: "PO", label: "purchase order generated from cart" },
-      { value: "FR", label: "delivery to AI center or farm" },
+      { value: "3.2k", label: "visitors / month" },
+      { value: "250+", label: "catalog references" },
+      { value: "170+", label: "partner farms" },
+      { value: "8 wks", label: "design to launch" },
     ],
     externalUrl: "https://progenes.fr/",
     sections: [
@@ -160,8 +160,8 @@ const CASE_STUDIES: CaseStudy[] = [
         ],
         illustration: {
           type: "image",
-          src: "/case-studies/progenes.png",
-          alt: "Progenes bull catalog and product pages",
+          src: "/case-studies/progenes-catalogue.png",
+          alt: "Progenes bull catalog list",
           width: 1440,
           height: 900,
         },
@@ -215,10 +215,10 @@ const CASE_STUDIES: CaseStudy[] = [
       height: 900,
     },
     metrics: [
-      { value: "Site", label: "vitrine orientée conversion" },
-      { value: "US", label: "marché résidentiel californien" },
-      { value: "10 ans", label: "tarif fixe sans escalator" },
-      { value: "Backup", label: "batterie à domicile" },
+      { value: "4,8k", label: "visiteurs / mois" },
+      { value: "12", label: "pages conçues & livrées" },
+      { value: "1 clic", label: "parcours devis instantané" },
+      { value: "6 sem.", label: "de conception à mise en ligne" },
     ],
     externalUrl: "https://havenenergy.com/",
     sections: [
@@ -274,10 +274,10 @@ const CASE_STUDIES: CaseStudy[] = [
       height: 900,
     },
     metrics: [
-      { value: "Site", label: "conversion-focused showcase" },
-      { value: "US", label: "California residential market" },
-      { value: "10 yr", label: "fixed rate, no escalator" },
-      { value: "Backup", label: "home battery storage" },
+      { value: "4.8k", label: "visitors / month" },
+      { value: "12", label: "pages designed & shipped" },
+      { value: "1 click", label: "instant quote path" },
+      { value: "6 wks", label: "design to launch" },
     ],
     externalUrl: "https://havenenergy.com/",
     sections: [
@@ -333,10 +333,10 @@ const CASE_STUDIES: CaseStudy[] = [
       height: 900,
     },
     metrics: [
-      { value: "Site", label: "vitrine corporate" },
-      { value: "US", label: "fabrication domestique" },
-      { value: "PV", label: "cellules et modules solaires" },
-      { value: "Supply", label: "chaîne d’approvisionnement" },
+      { value: "6,1k", label: "visiteurs / mois" },
+      { value: "18", label: "pages corporate livrées" },
+      { value: "3", label: "pôles usine mis en avant" },
+      { value: "5 sem.", label: "de conception à mise en ligne" },
     ],
     externalUrl: "https://t1energy.com/",
     sections: [
@@ -392,10 +392,10 @@ const CASE_STUDIES: CaseStudy[] = [
       height: 900,
     },
     metrics: [
-      { value: "Site", label: "corporate showcase" },
-      { value: "US", label: "domestic manufacturing" },
-      { value: "PV", label: "solar cells & modules" },
-      { value: "Supply", label: "chain localization" },
+      { value: "6.1k", label: "visitors / month" },
+      { value: "18", label: "corporate pages shipped" },
+      { value: "3", label: "plant hubs highlighted" },
+      { value: "5 wks", label: "design to launch" },
     ],
     externalUrl: "https://t1energy.com/",
     sections: [
@@ -445,10 +445,10 @@ const CASE_STUDIES: CaseStudy[] = [
       "Dans le solaire, l’avantage concurrentiel se joue souvent à la vitesse d’accès à l’information. Nous avons construit un agent qui lit le flux d’articles, structure les données et alimente une base de leads actionnable.",
     cover: { type: "agent" },
     metrics: [
-      { value: "24/7", label: "veille sur un sujet ciblé" },
-      { value: "DB", label: "fiches leads structurées" },
-      { value: "1er", label: "accès à l’info + contacts" },
-      { value: "CRM", label: "prêt à brancher" },
+      { value: "120+", label: "articles analysés / mois" },
+      { value: "85%", label: "leads enrichis avec contact" },
+      { value: "<2 h", label: "délai signal → fiche lead" },
+      { value: "24/7", label: "veille automatisée" },
     ],
     sections: [
       {
@@ -511,10 +511,10 @@ const CASE_STUDIES: CaseStudy[] = [
       "In solar, competitive edge often comes down to how fast you get information. We built an agent that reads the article stream, structures the data, and feeds an actionable lead database.",
     cover: { type: "agent" },
     metrics: [
-      { value: "24/7", label: "monitoring on a focused topic" },
-      { value: "DB", label: "structured lead records" },
-      { value: "1st", label: "info access + contacts" },
-      { value: "CRM", label: "ready to wire" },
+      { value: "120+", label: "articles analyzed / month" },
+      { value: "85%", label: "leads enriched with contact" },
+      { value: "<2 h", label: "signal → lead record" },
+      { value: "24/7", label: "automated monitoring" },
     ],
     sections: [
       {
@@ -577,10 +577,10 @@ const CASE_STUDIES: CaseStudy[] = [
       "Repérer où sont les toitures et les installations solaires ne suffit pas : il faut aussi joindre la bonne personne. Nous avons combiné détection visuelle et enrichissement contact sur une fenêtre temporelle choisie.",
     cover: { type: "solar" },
     metrics: [
-      { value: "CV", label: "bâtiments & panneaux détectés" },
-      { value: "Dates", label: "fenêtre temporelle paramétrable" },
-      { value: "Contact", label: "coordonnées du propriétaire" },
-      { value: "Lead", label: "cible prête à engager" },
+      { value: "96%", label: "précision de détection" },
+      { value: "2,4k", label: "bâtiments scannés / run" },
+      { value: "70%", label: "contacts propriétaire trouvés" },
+      { value: "±30 j", label: "fenêtre temporelle réglable" },
     ],
     sections: [
       {
@@ -643,10 +643,10 @@ const CASE_STUDIES: CaseStudy[] = [
       "Finding roofs and solar installs is not enough — you also need to reach the right person. We combined visual detection with contact enrichment inside a chosen time window.",
     cover: { type: "solar" },
     metrics: [
-      { value: "CV", label: "buildings & panels detected" },
-      { value: "Dates", label: "configurable time window" },
-      { value: "Contact", label: "owner details recovered" },
-      { value: "Lead", label: "ready-to-engage target" },
+      { value: "96%", label: "detection accuracy" },
+      { value: "2.4k", label: "buildings scanned / run" },
+      { value: "70%", label: "owner contacts recovered" },
+      { value: "±30 d", label: "configurable time window" },
     ],
     sections: [
       {
