@@ -445,7 +445,7 @@
       "processTitle": "Comment ça se passe",
       "process": [
         {
-          "title": "Atelier découverte",
+          "title": "Atelier de découverte",
           "text": "On cadre vos process, vos données et vos contraintes. On veut comprendre le terrain, pas remplir un questionnaire générique."
         },
         {
@@ -458,7 +458,7 @@
         },
         {
           "title": "Roadmap et rapport",
-          "text": "Vous repartez avec une roadmap gains rapides et un rapport exploitable. Prêt à décider, ou à lancer le build avec nous."
+          "text": "Vous repartez avec une roadmap gains rapides et un rapport exploitable. Prêt à décider, ou à lancer la construction avec nous."
         }
       ],
       "deliverablesTitle": "Ce que vous repartez avec",
@@ -468,10 +468,10 @@
         "Analyse des opportunités IA",
         "Roadmap (gains rapides)",
         "Rapport d'audit exploitable",
-        "Livraison en 1 semaine, gratuit"
+        "Livraison rapide"
       ],
       "proofTitle": "Déjà livré sur le terrain",
-      "proofDescription": "Sites, agents et plateformes IA en production. Voir les cas clients pour juger sur pièces.",
+      "proofDescription": "Progenes, Haven Energy et d'autres projets en production. Voir les cas clients pour juger sur pièces.",
       "proofCta": "Voir les cas clients",
       "faqTitle": "Questions fréquentes",
       "faq": [
@@ -481,7 +481,7 @@
         },
         {
           "question": "Combien de temps dure un audit IA ?",
-          "answer": "L'audit IA RADIANZ se déroule en une semaine. Après un atelier découverte, on cartographie les cas, on analyse les opportunités et on livre une roadmap priorisée avec un rapport exploitable. Pas d'effet tunnel : vous avez des livrables concrets dès la fin de la semaine."
+          "answer": "L'audit IA RADIANZ se déroule en une semaine. Après un atelier de découverte, on cartographie les cas, on analyse les opportunités et on livre une roadmap priorisée avec un rapport exploitable. Pas d'effet tunnel : vous avez des livrables concrets dès la fin de la semaine."
         },
         {
           "question": "Pour qui est fait cet audit IA ?",
@@ -493,10 +493,10 @@
         },
         {
           "question": "Quelle différence avec le consulting IA classique ?",
-          "answer": "Le consulting classique produit souvent des slides et des recommandations trop larges. Notre audit IA tranche : cas priorisés, faisabilité réelle sur votre SI, roadmap gains rapides. On construit comme des fondateurs, avec des sprints courts. Si vous lancez la suite, on passe au build. Sinon, vous gardez un plan clair."
+          "answer": "Le consulting classique produit souvent des slides et des recommandations trop larges. Notre audit IA tranche : cas priorisés, faisabilité réelle sur votre SI, roadmap gains rapides. On construit comme des fondateurs, avec des sprints courts. Si vous lancez la suite, on passe à la construction. Sinon, vous gardez un plan clair."
         }
       ],
-      "ctaTitle": "Cadrez votre prochain move IA.",
+      "ctaTitle": "Cadrez votre prochaine étape IA.",
       "ctaDescription": "15 minutes pour voir si un audit en une semaine a du sens pour vous. Pas de pitch catalogue.",
       "ctaButton": "Réserver un appel découverte"
     }
