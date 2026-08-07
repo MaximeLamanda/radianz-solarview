@@ -60,7 +60,7 @@ const MOCK_DROPDOWNS: Record<string, MenuItem[]> = {
   "/#services": [
     {
       title: "Audit IA",
-      url: "/#offre-audit",
+      url: "/services/audit-ia",
       description:
         "Identifier les opportunités IA et définir une roadmap actionnable.",
     },

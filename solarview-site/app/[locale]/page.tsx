@@ -292,6 +292,8 @@ export default async function Home({
                 tAgency("pricing.offer1Feature6"),
               ],
               cta: tAgency("pricing.offer1Cta"),
+              learnMore: tAgency("pricing.offer1LearnMore"),
+              learnMoreHref: "/services/audit-ia",
             },
             {
               id: "offre-plateforme",

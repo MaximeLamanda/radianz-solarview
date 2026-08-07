@@ -17,6 +17,8 @@ interface PricingOffer {
   priceLabel: string;
   features: string[];
   cta: string;
+  learnMore?: string;
+  learnMoreHref?: string;
   highlighted?: boolean;
   id?: string;
 }
@@ -92,6 +94,19 @@ export function PricingSection({
                     <ArrowUpRight className="size-4" />
                   </Link>
                 </Button>
+                {offer.learnMore && offer.learnMoreHref ? (
+                  <Link
+                    href={offer.learnMoreHref}
+                    className={cn(
+                      "mt-3 block text-center text-sm underline-offset-4 transition-opacity hover:underline",
+                      offer.highlighted
+                        ? "text-white/70 hover:text-white"
+                        : "text-muted-foreground hover:text-foreground",
+                    )}
+                  >
+                    {offer.learnMore}
+                  </Link>
+                ) : null}
               </div>
               <ul className="mt-4 flex-1 space-y-2.5 px-2 py-3 md:px-3 md:py-4">
                 {offer.features.map((feature) => (

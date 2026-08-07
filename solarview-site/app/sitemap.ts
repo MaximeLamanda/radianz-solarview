@@ -1,10 +1,18 @@
 import type { MetadataRoute } from "next";
 import { locales } from "@/i18n/config";
 import { getAllArticlePaths } from "@/lib/articles";
+import { CASE_STUDY_SLUGS } from "@/lib/case-studies";
 import { localePath, SITE_URL } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/contact", "/articles", "/industries", "/privacy"];
+  const routes = [
+    "",
+    "/contact",
+    "/articles",
+    "/industries",
+    "/privacy",
+    "/services/audit-ia",
+  ];
   const articleRoutes = getAllArticlePaths();
   const entries: MetadataRoute.Sitemap = [];
 
@@ -15,6 +23,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
         lastModified: new Date(),
         changeFrequency: "weekly" as const,
         priority: route ? 0.8 : 1,
+      });
+    }
+
+    for (const slug of CASE_STUDY_SLUGS) {
+      entries.push({
+        url: `${SITE_URL}/${locale}/case-studies/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
       });
     }
   }

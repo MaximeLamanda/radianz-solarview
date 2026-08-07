@@ -19,7 +19,7 @@ export function buildFooterMenuItems(tFooter: FooterTranslator) {
     {
       title: tFooter("services"),
       links: [
-        { text: tFooter("audit"), url: "/#offre-audit" },
+        { text: tFooter("audit"), url: "/services/audit-ia" },
         { text: tFooter("platform"), url: "/#offre-plateforme" },
         { text: tFooter("accompaniment"), url: "/#services" },
         { text: tFooter("bookCall"), url: "/contact" },
