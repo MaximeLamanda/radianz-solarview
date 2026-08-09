@@ -259,7 +259,7 @@ export default async function Home({
                       statusLabel: tAgency("caseStudies.item2.urlStatusDone"),
                     },
                     {
-                      url: "articles/prospection-solaire-b2b",
+                      url: "articles/audit-ia-entreprise-2026",
                       status: "done",
                       statusLabel: tAgency("caseStudies.item2.urlStatusDone"),
                     },

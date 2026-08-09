@@ -93,7 +93,7 @@ function CaseStudyMedia({
               statusLabel: labels.agentUrlDone ?? "Analysé",
             },
             {
-              url: "articles/prospection-solaire-b2b",
+              url: "articles/audit-ia-entreprise-2026",
               status: "done",
               statusLabel: labels.agentUrlDone ?? "Analysé",
             },

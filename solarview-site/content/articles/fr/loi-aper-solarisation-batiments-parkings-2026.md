@@ -20,7 +20,7 @@ La loi APER n'est plus seulement un sujet réglementaire pour les directions imm
 
 Le mot-clé à suivre est simple : loi APER solarisation parkings bâtiments 2026. Derrière cette requête, les décideurs ne cherchent pas seulement une définition juridique. Ils veulent savoir si leur site est concerné, à quelle échéance, quelles surfaces doivent être couvertes, quelles dérogations sont possibles et comment engager un projet sans ralentir l'exploitation. Pour une équipe commerciale solaire B2B, cette intention est précieuse parce qu'elle combine contrainte, budget potentiel et besoin d'accompagnement.
 
-La difficulté est que tous les actifs ne se valent pas. Un parking de retail park de 12 000 m2, un entrepôt avec forte consommation diurne, une usine ICPE, un campus de bureaux ou une plateforme logistique n'ont pas le même potentiel, les mêmes risques ni la même temporalité. La bonne approche consiste donc à croiser la réglementation avec une méthode de scoring. Notre guide sur la [prospection solaire B2B en 2026](/fr/articles/prospection-solaire-b2b-2026) montre déjà pourquoi la donnée terrain et la qualification commerciale doivent avancer ensemble.
+La difficulté est que tous les actifs ne se valent pas. Un parking de retail park de 12 000 m2, un entrepôt avec forte consommation diurne, une usine ICPE, un campus de bureaux ou une plateforme logistique n'ont pas le même potentiel, les mêmes risques ni la même temporalité. La bonne approche consiste donc à croiser la réglementation avec une méthode de scoring : la donnée terrain et la qualification commerciale doivent avancer ensemble.
 
 ## Ce que les parkings de plus de 1 500 m2 changent dans le pipeline
 
@@ -36,7 +36,7 @@ Les bâtiments commerciaux, industriels, artisanaux, administratifs, bureaux, en
 
 Pour un acteur solaire B2B, le bon réflexe est d'éviter de prospecter uniquement "une toiture". Il faut qualifier un actif complet : toiture, parking, consommation sur site, raccordement, contraintes d'urbanisme, statut propriétaire-locataire, calendrier CAPEX et enjeux ESG. Un entrepôt peut avoir une toiture très visible mais une charpente défavorable. Un site industriel peut avoir des consommations diurnes attractives mais des zones exclues pour raisons de sécurité. Un centre commercial peut combiner autoconsommation, ombrières, bornes IRVE et communication climat auprès des enseignes.
 
-Cette logique prolonge notre approche de [qualification des toitures commerciales](/fr/articles/prospection-solaire-b2b-2026). Même si le contexte réglementaire APER est spécifique, le principe reste le même : un score utile doit être explicable par les commerciaux, crédible pour les équipes techniques et actionnable pour les décideurs. La loi APER peut alimenter ce score avec une variable d'urgence, mais elle ne remplace pas l'analyse de faisabilité.
+Même si le contexte réglementaire APER est spécifique, le principe reste le même : un score utile doit être explicable par les commerciaux, crédible pour les équipes techniques et actionnable pour les décideurs. La loi APER peut alimenter ce score avec une variable d'urgence, mais elle ne remplace pas l'analyse de faisabilité.
 
 ## Comment transformer l'obligation en scoring de comptes
 

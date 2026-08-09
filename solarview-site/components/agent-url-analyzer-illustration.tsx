@@ -22,7 +22,7 @@ const DEFAULT_URLS: UrlRow[] = [
     statusLabel: "Analysé",
   },
   {
-    url: "articles/prospection-solaire-b2b",
+    url: "articles/audit-ia-entreprise-2026",
     status: "done",
     statusLabel: "Analysé",
   },

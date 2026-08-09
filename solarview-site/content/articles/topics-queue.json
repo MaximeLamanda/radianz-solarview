@@ -3,7 +3,10 @@
   "avoidKeywords": [
     "lead panneaux solaires particulier",
     "devis panneau solaire maison",
-    "installation solaire résidentiel"
+    "installation solaire résidentiel",
+    "lead solaire commercial",
+    "prospection solaire B2B",
+    "logiciel prospection solaire"
   ],
   "topics": [
     {
@@ -15,36 +18,6 @@
       "titleEn": "APER 2026: how to prioritize French C&I buildings and parking lots for solar",
       "intent": "informational",
       "cluster": "réglementation"
-    },
-    {
-      "id": "identifier-batiments-commerciaux-solaire",
-      "priority": 1,
-      "status": "pending",
-      "primaryKeyword": "identifier bâtiment solaire commercial",
-      "titleFr": "Comment identifier les meilleurs bâtiments commerciaux pour le solaire ?",
-      "titleEn": "How to Identify the Best Commercial Buildings for Solar",
-      "intent": "informational",
-      "cluster": "prospection"
-    },
-    {
-      "id": "lead-solaire-commercial",
-      "priority": 1,
-      "status": "pending",
-      "primaryKeyword": "lead solaire commercial",
-      "titleFr": "Lead solaire commercial : comment générer des opportunités C&I qualifiées",
-      "titleEn": "Commercial Solar Leads: How to Generate Qualified C&I Opportunities",
-      "intent": "commercial",
-      "cluster": "lead-prospection"
-    },
-    {
-      "id": "logiciel-prospection-solaire",
-      "priority": 1,
-      "status": "pending",
-      "primaryKeyword": "logiciel prospection solaire",
-      "titleFr": "Logiciel de prospection solaire : critères pour choisir la bonne plateforme",
-      "titleEn": "Solar Prospecting Software: How to Choose the Right Platform",
-      "intent": "commercial",
-      "cluster": "outils"
     },
     {
       "id": "solaire-entrepot-logistique",
@@ -65,16 +38,6 @@
       "titleEn": "Solar for Supermarkets and Retail: An Installer's Guide",
       "intent": "informational",
       "cluster": "secteurs"
-    },
-    {
-      "id": "planno-alternative-france",
-      "priority": 2,
-      "status": "pending",
-      "primaryKeyword": "Planno alternative France",
-      "titleFr": "Planno vs Radianz : quel outil pour la prospection solaire C&I en France ?",
-      "titleEn": "Planno vs Radianz: Best C&I Solar Prospecting Tool in France",
-      "intent": "transactional",
-      "cluster": "comparatif"
     },
     {
       "id": "solaire-ci-france-2026",
